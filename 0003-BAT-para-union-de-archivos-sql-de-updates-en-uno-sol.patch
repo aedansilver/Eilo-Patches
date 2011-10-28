@@ -1,0 +1,79 @@
+From 00c8e7b5fee01accc36c82cb3ff2400f0325f79b Mon Sep 17 00:00:00 2001
+From: Eilo <eilo2518@gmail.com>
+Date: Fri, 28 Oct 2011 02:14:29 -0500
+Subject: [PATCH 3/5] BAT para union de archivos sql de updates en uno solo,
+ luego hay que adaptar warden al mismo sistema en orden
+ o explicarlo
+
+---
+ sql/sqlcombinado.bat |   58 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 files changed, 58 insertions(+), 0 deletions(-)
+ create mode 100644 sql/sqlcombinado.bat
+
+diff --git a/sql/sqlcombinado.bat b/sql/sqlcombinado.bat
+new file mode 100644
+index 0000000..918dc34
+--- /dev/null
++++ b/sql/sqlcombinado.bat
+@@ -0,0 +1,58 @@
++@echo ##########################################################
++@echo ##                                                      ##
++@echo ##     ReanEmu - Archivo de unificacion de SQL's        ##
++@echo ##                                                      ##
++@echo ##########################################################
++@echo By Eilo and Hispano, thnx to Jeutie
++@echo .
++@echo .
++@echo .
++@echo Las siguientes lineas unirán todos los archivos sql que
++@echo esten dentro de la carpeta sql/update de manera que ahora
++@echo puedan importar todas las actualizaciones de la carpeta
++@echo con tan solo un archivo en vez de una por una.
++@echo .
++@echo .
++@echo .
++@echo El proceso empezara AHORA!
++@echo (presiona cualquier tecla...)
++@echo off
++pause
++@echo off
++setlocal EnableDelayedExpansion
++set WorldUpdates=All_TC_World_Updates.sql
++set CharactersUpdates=All_TC_Characters_Updates.sql
++set AuthUpdates=All_TC_Auth_Updates.sql
++
++if exist %CharactersUpdates% del %CharactersUpdates%
++if exist %AuthUpdates% del %AuthUpdates%
++if exist %WorldUpdates% del %WorldUpdates%
++
++for %%a in (updates\world\*.sql) do (
++echo /* >>%WorldUpdates%
++echo * %%a >>%WorldUpdates%
++echo */ >>%WorldUpdates%
++copy/b %WorldUpdates%+"%%a" %WorldUpdates%
++echo. >>%WorldUpdates%
++echo. >>%WorldUpdates%)
++
++
++for %%a in (updates\characters\*.sql) do (
++echo /* >>%CharactersUpdates%
++echo * %%a >>%CharactersUpdates%
++echo */ >>%CharactersUpdates%
++copy/b %CharactersUpdates%+"%%a" %CharactersUpdates%
++echo. >>%CharactersUpdates%
++echo. >>%CharactersUpdates%)
++
++
++for %%a in (updates\auth\*.sql) do (
++echo /* >>%AuthUpdates%
++echo * %%a >>%AuthUpdates%
++echo */ >>%AuthUpdates%
++copy/b %AuthUpdates%+"%%a" %AuthUpdates%
++echo. >>%AuthUpdates%
++echo. >>%AuthUpdates%)  
++
++@echo ReanEmu
++pause
+-- 
+1.7.6.msysgit.0
+
