@@ -1,8 +1,8 @@
-From 3068dbc3c1baae70e247e2c0007ead1bfa16c519 Mon Sep 17 00:00:00 2001
+From 6cbdf4e54f28167cba0185b69d518c8184c63244 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Tue, 13 Dec 2011 22:03:34 -0500
-Subject: [PATCH] =?UTF-8?q?0.0=20ReanEmu=20contenidos=20iniciales,=20WHAT=5F?=
- =?UTF-8?q?IS=5FINSIDE=20y=20PLANIFICACION=20a=C3=B1adidos?=
+Date: Tue, 13 Dec 2011 22:57:10 -0500
+Subject: [PATCH 1/6] =?UTF-8?q?0.0=20ReanEmu=20contenidos=20iniciales,=20WHA?=
+ =?UTF-8?q?T=5FIS=5FINSIDE=20y=20PLANIFICACION=20a=C3=B1adidos?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -11,7 +11,7 @@ Content-Transfer-Encoding: 8bit
  CMakeLists.txt                                     |    2 +-
  PLANIFICACION                                      |  161 ++++++++++++++++++++
  README                                             |   41 +++++-
- WHAT_IS_INSIDE                                     |   78 ++++++++++
+ WHAT_IS_INSIDE                                     |   79 ++++++++++
  cmake/showoptions.cmake                            |    6 +-
  src/server/authserver/Main.cpp                     |   29 +++-
  src/server/authserver/Realms/RealmList.cpp         |    4 +-
@@ -23,7 +23,7 @@ Content-Transfer-Encoding: 8bit
  src/server/worldserver/Master.cpp                  |   38 +++--
  src/server/worldserver/worldserver.conf.dist       |    2 +-
  src/server/worldserver/worldserver.rc              |    4 +-
- 15 files changed, 346 insertions(+), 51 deletions(-)
+ 15 files changed, 347 insertions(+), 51 deletions(-)
  create mode 100644 PLANIFICACION
  create mode 100644 WHAT_IS_INSIDE
 
@@ -261,10 +261,10 @@ index f2ae18f..60f2df7 100644
    it under the terms of the GNU General Public License as published by
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
 new file mode 100644
-index 0000000..9f11e80
+index 0000000..649db93
 --- /dev/null
 +++ b/WHAT_IS_INSIDE
-@@ -0,0 +1,78 @@
+@@ -0,0 +1,79 @@
 +== ReanEmu ==
 +
 +What is inside: (que hay dentro)
@@ -277,8 +277,9 @@ index 0000000..9f11e80
 +#ReanEmu#
 +#########
 +Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevos
-+developers en git y la inclusion de texto de planeacion para union eficiente de 
-+codigo reestructurando modo de trabajo y organizando carpetas, branches, etc
++              developers en git y la inclusion de texto de planeacion para union 
++			  eficiente de codigo reestructurando modo de trabajo y organizando 
++			  carpetas, branches, etc
 +
 +##################################
 +# Trintitycore hasta esta fecha: #
@@ -666,7 +667,7 @@ index 42d72aa..8c7320c 100755
  }
  
 diff --git a/src/server/worldserver/worldserver.conf.dist b/src/server/worldserver/worldserver.conf.dist
-index a8c0d91..8bd6496 100644
+index 3239a56..59e2cce 100644
 --- a/src/server/worldserver/worldserver.conf.dist
 +++ b/src/server/worldserver/worldserver.conf.dist
 @@ -1,5 +1,5 @@

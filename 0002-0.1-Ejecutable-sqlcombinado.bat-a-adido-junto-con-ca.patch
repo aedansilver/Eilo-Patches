@@ -1,7 +1,7 @@
-From c55ad9f4b68c9b71ba83829e9d0cdf65a48a721c Mon Sep 17 00:00:00 2001
+From 06f6ab867afd1aefaae879e21dad0bf26fc1f2b1 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Tue, 13 Dec 2011 21:30:35 -0500
-Subject: [PATCH 2/3] =?UTF-8?q?0.1=20Ejecutable=20sqlcombinado.bat=20a=C3=B1?=
+Subject: [PATCH 2/6] =?UTF-8?q?0.1=20Ejecutable=20sqlcombinado.bat=20a=C3=B1?=
  =?UTF-8?q?adido=20junto=20con=20carpetaas=20adicionales=20para=20actualizar?=
  =?UTF-8?q?=20con=20un=20solo=20sql?=
 MIME-Version: 1.0
@@ -15,10 +15,10 @@ Content-Transfer-Encoding: 8bit
  create mode 100644 sql/sqlcombinado.bat
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 9f11e80..88da6bb 100644
+index 649db93..dd2d2dc 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
-@@ -26,6 +26,7 @@ codigo reestructurando modo de trabajo y organizando carpetas, branches, etc
+@@ -27,6 +27,7 @@ Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevo
  ###############
  # Adicionales #
  ###############
