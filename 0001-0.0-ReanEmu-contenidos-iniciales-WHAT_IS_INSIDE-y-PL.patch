@@ -1,8 +1,8 @@
-From 0a5a2f9df72e0cd897e96347c6f3d54d6537fed1 Mon Sep 17 00:00:00 2001
+From 3068dbc3c1baae70e247e2c0007ead1bfa16c519 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Tue, 13 Dec 2011 21:45:38 -0500
-Subject: [PATCH 1/3] =?UTF-8?q?0.0=20ReanEmu=20contenidos=20iniciales,=20WHA?=
- =?UTF-8?q?T=5FIS=5FINSIDE=20y=20PLANIFICACION=20a=C3=B1adidos?=
+Date: Tue, 13 Dec 2011 22:03:34 -0500
+Subject: [PATCH] =?UTF-8?q?0.0=20ReanEmu=20contenidos=20iniciales,=20WHAT=5F?=
+ =?UTF-8?q?IS=5FINSIDE=20y=20PLANIFICACION=20a=C3=B1adidos?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -10,7 +10,7 @@ Content-Transfer-Encoding: 8bit
 ---
  CMakeLists.txt                                     |    2 +-
  PLANIFICACION                                      |  161 ++++++++++++++++++++
- README                                             |   40 +++++-
+ README                                             |   41 +++++-
  WHAT_IS_INSIDE                                     |   78 ++++++++++
  cmake/showoptions.cmake                            |    6 +-
  src/server/authserver/Main.cpp                     |   29 +++-
@@ -23,7 +23,7 @@ Content-Transfer-Encoding: 8bit
  src/server/worldserver/Master.cpp                  |   38 +++--
  src/server/worldserver/worldserver.conf.dist       |    2 +-
  src/server/worldserver/worldserver.rc              |    4 +-
- 15 files changed, 345 insertions(+), 51 deletions(-)
+ 15 files changed, 346 insertions(+), 51 deletions(-)
  create mode 100644 PLANIFICACION
  create mode 100644 WHAT_IS_INSIDE
 
@@ -209,10 +209,10 @@ index 0000000..f2f10fc
 +Eilo		
 \ No newline at end of file
 diff --git a/README b/README
-index f2ae18f..de3744c 100644
+index f2ae18f..60f2df7 100644
 --- a/README
 +++ b/README
-@@ -1,6 +1,44 @@
+@@ -1,6 +1,45 @@
 -= TrinityCore -- General information =
 +== ReanEmu ==
 +
@@ -238,18 +238,19 @@ index f2ae18f..de3744c 100644
 +Copyright (C) Andron (https://github.com/Andron-Juanka)
 +Copyright (C) Seither (https://github.com/Seither)
 +Copyright (C) WoWReAn Emu (https://github.com/eilo/wowrean-emu)
-+Copyright (C) Leak (https://github.com/Locknes/ChaosCore)
++Copyright (C) Leak (https://github.com/leak/TrinityCore)
 +Copyright (C) ChaosCore (https://github.com/Locknes/ChaosCore)
++Copyright (C) Shadez (https://github.com/Shadez/wowarmory)
 +Copyright (C) Retriman (https://github.com/Retriman/TrinityCore)
 +Copyright (C) HachasyDados (https://github.com/HachasyDados/HD-TCore)
 +Copyright (C) AliveCore (https://github.com/DarkSoe/ALiveCoreRC2)
 +Copyright (C) ZoneLimit (https://github.com/Jildor/ZoneLimit)
 +Copyright (C) Darkman (https://github.com/darkman1983/TrinityCore)
-+Copyright (C) Independent (https://github.com/Independent/Core.git)
++Copyright (C) Independent (https://github.com/Independent/Core)
 +Copyright (C) Venugh (https://github.com/Venugh/TrinityCore)
 +Copyright (C) SerenityCore (https://github.com/SerenityTeam/SerenityCore)
 +Copyright (C) WarHead (https://github.com/WarHead/uwom-server)
-+Copyright (C) CGDev (https://github.com/CGDev/CG-Blizzlike.git)
++Copyright (C) CGDev (https://github.com/CGDev/CG-Blizzlike)
 +Copyright (C) FaceCore (https://github.com/SignFinder/FaceCore)
 +Copyright (C) MythCore (https://github.com/SeTM/MythCore)
 +Copyright (C) Greymane (https://github.com/Greymane/ChaosCore)
