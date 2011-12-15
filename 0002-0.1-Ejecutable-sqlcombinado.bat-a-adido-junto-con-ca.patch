@@ -1,7 +1,7 @@
-From 06f6ab867afd1aefaae879e21dad0bf26fc1f2b1 Mon Sep 17 00:00:00 2001
+From 00c3c5a69f3f0d6bdc762acff181bc8d55172a74 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Tue, 13 Dec 2011 21:30:35 -0500
-Subject: [PATCH 2/6] =?UTF-8?q?0.1=20Ejecutable=20sqlcombinado.bat=20a=C3=B1?=
+Subject: [PATCH 02/12] =?UTF-8?q?0.1=20Ejecutable=20sqlcombinado.bat=20a=C3=B1?=
  =?UTF-8?q?adido=20junto=20con=20carpetaas=20adicionales=20para=20actualizar?=
  =?UTF-8?q?=20con=20un=20solo=20sql?=
 MIME-Version: 1.0

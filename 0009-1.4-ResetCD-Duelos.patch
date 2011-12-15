@@ -1,0 +1,44 @@
+From ed3474a66337b4ec6f5b5208798d17d90f583c30 Mon Sep 17 00:00:00 2001
+From: Eilo <eilo2518@gmail.com>
+Date: Thu, 15 Dec 2011 13:49:09 -0500
+Subject: [PATCH 09/12] 1.4 ResetCD Duelos
+
+---
+ WHAT_IS_INSIDE                                     |    1 +
+ .../game/Server/Protocol/Handlers/DuelHandler.cpp  |    8 ++++++++
+ 2 files changed, 9 insertions(+), 0 deletions(-)
+
+diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
+index ad01c9e..46d1fcd 100644
+--- a/WHAT_IS_INSIDE
++++ b/WHAT_IS_INSIDE
+@@ -33,6 +33,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
+ 20/10/2011: Wowarmory con chart de arenas y modelos 3d por Shadez
+ 28/10/2011: Pvp Ranks de Spgm por Snajil adecuaciones varias por Eilo
+ 13/10/2011: AHBot añadido para subastas por Lockness
++17/11/2011: ResetCD Duelos por Mouse, actualizaciones por Eilo
+ 
+ ###############
+ # Jugabilidad #
+diff --git a/src/server/game/Server/Protocol/Handlers/DuelHandler.cpp b/src/server/game/Server/Protocol/Handlers/DuelHandler.cpp
+index b1e6f3f..230e7a1 100755
+--- a/src/server/game/Server/Protocol/Handlers/DuelHandler.cpp
++++ b/src/server/game/Server/Protocol/Handlers/DuelHandler.cpp
+@@ -51,6 +51,14 @@ void WorldSession::HandleDuelAcceptedOpcode(WorldPacket& recvPacket)
+ 
+     player->SendDuelCountdown(3000);
+     plTarget->SendDuelCountdown(3000);
++
++    // Reset CoolDown before DUEL
++    player->RemoveAllSpellCooldown();
++    plTarget->RemoveAllSpellCooldown();
++    player->SetHealth(player->GetMaxHealth());
++    player->SetPower(POWER_MANA, player->GetMaxPower(POWER_MANA));
++    plTarget->SetHealth(plTarget->GetMaxHealth());
++    plTarget->SetPower(POWER_MANA,  plTarget->GetMaxPower(POWER_MANA));
+ }
+ 
+ void WorldSession::HandleDuelCancelledOpcode(WorldPacket& recvPacket)
+-- 
+1.7.6.msysgit.0
+

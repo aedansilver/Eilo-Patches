@@ -1,7 +1,7 @@
-From 1b242b9055d4c93df3b12556456f2a77902ac6f5 Mon Sep 17 00:00:00 2001
+From 957c0402d294b32770012f998a3a6c6c1142db84 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Tue, 13 Dec 2011 22:53:24 -0500
-Subject: [PATCH 5/6] 1.0 Wowarmory con chart de arenas y modelos 3d
+Date: Wed, 14 Dec 2011 23:10:38 -0500
+Subject: [PATCH 05/12] 1.0 Wowarmory con chart de arenas y modelos 3d
 
 ---
  WHAT_IS_INSIDE                                  |    1 +
@@ -39,7 +39,7 @@ index 8967446..3047414 100755
      ca.date = time(NULL);
      ca.changed = true;
 diff --git a/src/server/game/Battlegrounds/Battleground.cpp b/src/server/game/Battlegrounds/Battleground.cpp
-index 4ad00f5..052a2cc 100755
+index 4ad00f5..a9f1711 100755
 --- a/src/server/game/Battlegrounds/Battleground.cpp
 +++ b/src/server/game/Battlegrounds/Battleground.cpp
 @@ -749,6 +749,47 @@ void Battleground::EndBattleground(uint32 winner)
@@ -59,7 +59,7 @@ index 4ad00f5..052a2cc 100755
 +                uint32 gameID = maxChartID+1;
 +                for(BattlegroundScoreMap::const_iterator itr = m_PlayerScores.begin(); itr != m_PlayerScores.end(); ++itr)
 +                {
-+                    Player *plr = sObjectMgr->GetPlayer(itr->first);
++                    Player *plr = ObjectAccessor::FindPlayer(itr->first);
 +                    if (!plr)
 +                        continue;
 +                    uint32 plTeamID = plr->GetArenaTeamId(winner_arena_team->GetSlot());
@@ -294,7 +294,7 @@ index 651b99e..4f2202f 100755
          InstanceTimeMap _instanceResetTimes;
          uint32 _pendingBindId;
 diff --git a/src/server/game/Entities/Unit/Unit.cpp b/src/server/game/Entities/Unit/Unit.cpp
-index 2e2f559..ac5db74 100755
+index 2e2f559..18564b0 100755
 --- a/src/server/game/Entities/Unit/Unit.cpp
 +++ b/src/server/game/Entities/Unit/Unit.cpp
 @@ -746,9 +746,16 @@ uint32 Unit::DealDamage(Unit* victim, uint32 damage, CleanDamage const* cleanDam
@@ -307,8 +307,8 @@ index 2e2f559..ac5db74 100755
                  bg->UpdatePlayerScore(killer, SCORE_DAMAGE_DONE, damage);
 -
 +                /** World of Warcraft Armory **/
-+                if (Battleground *bgV = ((Player*)pVictim)->GetBattleground())
-+                    bgV->UpdatePlayerScore(((Player*)pVictim), SCORE_DAMAGE_TAKEN, damage);
++                if (Battleground *bgV = ((Player*)victim)->GetBattleground())
++                    bgV->UpdatePlayerScore(((Player*)victim), SCORE_DAMAGE_TAKEN, damage);
 +                /** World of Warcraft Armory **/
 +            }
 +        }
@@ -320,8 +320,8 @@ index 2e2f559..ac5db74 100755
          player->GetAchievementMgr().UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_TOTAL_HEALING_RECEIVED, gain);
          player->GetAchievementMgr().UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_HIGHEST_HEALING_RECEIVED, addhealth);
 +        /** World of Warcraft Armory **/
-+        if (Battleground *bgV = pVictim->ToPlayer()->GetBattleground())
-+            bgV->UpdatePlayerScore((Player*)pVictim, SCORE_HEALING_TAKEN, gain);
++        if (Battleground *bgV = victim->ToPlayer()->GetBattleground())
++            bgV->UpdatePlayerScore((Player*)victim, SCORE_HEALING_TAKEN, gain);
 +        /** World of Warcraft Armory **/
      }
  

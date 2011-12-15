@@ -1,7 +1,7 @@
-From 41c83867c46d32ce1d9a6377555608f1cd608c3b Mon Sep 17 00:00:00 2001
+From f5f98e7dc908110302917c08bcb7563626990a1f Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Tue, 13 Dec 2011 23:02:31 -0500
-Subject: [PATCH 4/6] Milestone1.0
+Subject: [PATCH 04/12] Milestone1.0
 
 ---
  WHAT_IS_INSIDE |    2 ++

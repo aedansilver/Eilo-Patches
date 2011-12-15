@@ -1,7 +1,7 @@
-From a375869b4ae5b48544130166171527e9c7b94d26 Mon Sep 17 00:00:00 2001
+From ccc4204eb18cb950cdc702621f98aa40ad84c120 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Tue, 13 Dec 2011 23:25:34 -0500
-Subject: [PATCH 6/6] 1.1 PvpRanks parche titulos
+Subject: [PATCH 06/12] 1.1 PvpRanks parche titulos
 
 ---
  WHAT_IS_INSIDE                             |    1 +
