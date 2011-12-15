@@ -1,4 +1,4 @@
-From 2a716af39db3c8e39cf1ce369c24d7fd185f8317 Mon Sep 17 00:00:00 2001
+From 9cec681a5d8bd848aceb4650bb4ae32d9c45ee51 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 16:06:42 -0500
 Subject: [PATCH 10/12] 1.5 AC1 Anticheat
@@ -19,17 +19,17 @@ Subject: [PATCH 10/12] 1.5 AC1 Anticheat
  create mode 100644 sql/updates/characters/2011_11_09_100_characters_ac1.sql
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 46d1fcd..6d61c1a 100644
+index b23fd41..8cbbc5c 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
-@@ -34,6 +34,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
+@@ -32,6 +32,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
  28/10/2011: Pvp Ranks de Spgm por Snajil adecuaciones varias por Eilo
  13/10/2011: AHBot añadido para subastas por Lockness
  17/11/2011: ResetCD Duelos por Mouse, actualizaciones por Eilo
 +09/11/2011: AC1 Anticheat por Aokrommes, adecuaciones por Eilo
  
+ 
  ###############
- # Jugabilidad #
 diff --git a/sql/updates/characters/2011_11_09_100_characters_ac1.sql b/sql/updates/characters/2011_11_09_100_characters_ac1.sql
 new file mode 100644
 index 0000000..34529cc

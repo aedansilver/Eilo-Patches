@@ -1,6 +1,6 @@
-From 047b0c5d4c66edf76581706510c2bf847ba4812e Mon Sep 17 00:00:00 2001
+From 6a77ae957281e0fa1ad759c8293ec651969a2f23 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Tue, 13 Dec 2011 22:57:10 -0500
+Date: Thu, 15 Dec 2011 17:30:15 -0500
 Subject: [PATCH 01/12] =?UTF-8?q?0.0=20ReanEmu=20contenidos=20iniciales,=20W?=
  =?UTF-8?q?HAT=5FIS=5FINSIDE=20y=20PLANIFICACION=20a=C3=B1adidos?=
 MIME-Version: 1.0
@@ -11,7 +11,7 @@ Content-Transfer-Encoding: 8bit
  CMakeLists.txt                                     |    2 +-
  PLANIFICACION                                      |  161 ++++++++++++++++++++
  README                                             |   41 +++++-
- WHAT_IS_INSIDE                                     |   79 ++++++++++
+ WHAT_IS_INSIDE                                     |   75 +++++++++
  cmake/showoptions.cmake                            |    6 +-
  src/server/authserver/Main.cpp                     |   29 +++-
  src/server/authserver/Realms/RealmList.cpp         |    4 +-
@@ -23,7 +23,7 @@ Content-Transfer-Encoding: 8bit
  src/server/worldserver/Master.cpp                  |   38 +++--
  src/server/worldserver/worldserver.conf.dist       |    2 +-
  src/server/worldserver/worldserver.rc              |    4 +-
- 15 files changed, 347 insertions(+), 51 deletions(-)
+ 15 files changed, 343 insertions(+), 51 deletions(-)
  create mode 100644 PLANIFICACION
  create mode 100644 WHAT_IS_INSIDE
 
@@ -261,10 +261,10 @@ index f2ae18f..60f2df7 100644
    it under the terms of the GNU General Public License as published by
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
 new file mode 100644
-index 0000000..649db93
+index 0000000..535c346
 --- /dev/null
 +++ b/WHAT_IS_INSIDE
-@@ -0,0 +1,79 @@
+@@ -0,0 +1,75 @@
 +== ReanEmu ==
 +
 +What is inside: (que hay dentro)
@@ -281,14 +281,10 @@ index 0000000..649db93
 +			  eficiente de codigo reestructurando modo de trabajo y organizando 
 +			  carpetas, branches, etc
 +
++			  
 +##################################
 +# Trintitycore hasta esta fecha: #
 +##################################
-+
-+
-+#####################################################
-+# Warden Anticheat branch de Leak hasta esta fecha: #
-+#####################################################
 +
 +
 +###############
@@ -667,7 +663,7 @@ index 42d72aa..8c7320c 100755
  }
  
 diff --git a/src/server/worldserver/worldserver.conf.dist b/src/server/worldserver/worldserver.conf.dist
-index 3239a56..59e2cce 100644
+index a8c0d91..8bd6496 100644
 --- a/src/server/worldserver/worldserver.conf.dist
 +++ b/src/server/worldserver/worldserver.conf.dist
 @@ -1,5 +1,5 @@

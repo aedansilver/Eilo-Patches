@@ -1,4 +1,4 @@
-From f5f98e7dc908110302917c08bcb7563626990a1f Mon Sep 17 00:00:00 2001
+From e44999b0ebbbcf68346bef9a30b6c672cd37470f Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Tue, 13 Dec 2011 23:02:31 -0500
 Subject: [PATCH 04/12] Milestone1.0
@@ -8,7 +8,7 @@ Subject: [PATCH 04/12] Milestone1.0
  1 files changed, 2 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 5c2eef6..6c21fbf 100644
+index 6439e90..5f6cc62 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -13,6 +13,8 @@ Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevo
@@ -18,8 +18,8 @@ index 5c2eef6..6c21fbf 100644
 +Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codigo
 +              utilitario en general para complemento del nucleo.
  
+ 			  
  ##################################
- # Trintitycore hasta esta fecha: #
 -- 
 1.7.6.msysgit.0
 
