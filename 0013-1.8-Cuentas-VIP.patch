@@ -1,7 +1,7 @@
 From aeff684aabba39eb38b5b6ef873ffcfbcfcdd00c Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:59:44 -0500
-Subject: [PATCH 13/14] 1.8 Cuentas VIP
+Subject: [PATCH 13/22] 1.8 Cuentas VIP
 
 ---
  WHAT_IS_INSIDE                                     |    1 +

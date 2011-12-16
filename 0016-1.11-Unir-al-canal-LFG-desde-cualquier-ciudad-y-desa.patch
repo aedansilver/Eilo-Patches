@@ -1,0 +1,67 @@
+From 7cfb688ccfd2d0e77068dea6f96fdeba68b9aa28 Mon Sep 17 00:00:00 2001
+From: Eilo <eilo2518@gmail.com>
+Date: Thu, 15 Dec 2011 21:47:13 -0500
+Subject: [PATCH 16/22] 1.11 Unir al canal LFG desde cualquier ciudad y
+ desactivado avisos de Join/Leave
+
+---
+ WHAT_IS_INSIDE                             |    2 ++
+ src/server/game/Chat/Channels/Channel.cpp  |    8 ++++----
+ src/server/game/Entities/Player/Player.cpp |    4 ++++
+ 3 files changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
+index 8ddca35..d501c63 100644
+--- a/WHAT_IS_INSIDE
++++ b/WHAT_IS_INSIDE
+@@ -38,6 +38,8 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
+ 14/10/2011: Cuentas VIP por Locknes
+ 29/11/2011: TrinityJail original de Warhead, añadido por Hispano, ajustes por Eilo
+ 02/12/2011: Lista de who maximo 50 pj por Eilo
++09/10/2011: Desactivado avisos Join/Leave en canales por Odyssey
++05/10/2011: Permitiendo unirse al canal LFG sin estar en ciudad principal por Opcode187
+ 
+ 
+ ###############
+diff --git a/src/server/game/Chat/Channels/Channel.cpp b/src/server/game/Chat/Channels/Channel.cpp
+index 244c05e..fcce8b3 100755
+--- a/src/server/game/Chat/Channels/Channel.cpp
++++ b/src/server/game/Chat/Channels/Channel.cpp
+@@ -803,15 +803,15 @@ void Channel::MakeNotifyPacket(WorldPacket* data, uint8 notify_type)
+ // done 0x00
+ void Channel::MakeJoined(WorldPacket* data, uint64 guid)
+ {
+-    MakeNotifyPacket(data, CHAT_JOINED_NOTICE);
+-    *data << uint64(guid);
++    /*MakeNotifyPacket(data, CHAT_JOINED_NOTICE);
++    *data << uint64(guid);*/
+ }
+ 
+ // done 0x01
+ void Channel::MakeLeft(WorldPacket* data, uint64 guid)
+ {
+-    MakeNotifyPacket(data, CHAT_LEFT_NOTICE);
+-    *data << uint64(guid);
++    /*MakeNotifyPacket(data, CHAT_LEFT_NOTICE);
++    *data << uint64(guid);*/
+ }
+ 
+ // done 0x02
+diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
+index fc7529c..f2447b2 100755
+--- a/src/server/game/Entities/Player/Player.cpp
++++ b/src/server/game/Entities/Player/Player.cpp
+@@ -5619,6 +5619,10 @@ void Player::RepopAtGraveyard()
+ 
+ bool Player::CanJoinConstantChannelInZone(ChatChannelsEntry const* channel, AreaTableEntry const* zone)
+ {
++    // Player can join LFG anywhere
++    if (channel->flags & CHANNEL_DBC_FLAG_LFG)
++        return true;
++
+     if (channel->flags & CHANNEL_DBC_FLAG_ZONE_DEP && zone->flags & AREA_FLAG_ARENA_INSTANCE)
+         return false;
+ 
+-- 
+1.7.6.msysgit.0
+
