@@ -1,7 +1,7 @@
 From bc95898e1aa72ed70aecc2fef9ffca34c4f41407 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 21:49:37 -0500
-Subject: [PATCH 17/31] 1.12 DynLoS en GameObjects
+Subject: [PATCH 17/56] 1.12 DynLoS en GameObjects
 
 ---
  src/server/game/Entities/Object/Object.cpp |   15 ++-

@@ -1,7 +1,7 @@
 From 3dc6e2d9285b90d13a1f80dd88a344db856634d7 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:59:44 -0500
-Subject: [PATCH 13/31] 1.8 Cuentas VIP
+Subject: [PATCH 13/56] 1.8 Cuentas VIP
 
 ---
  .../auth/2011_10_14_100_auth_vipaccount.sql        |    8 ++++++++

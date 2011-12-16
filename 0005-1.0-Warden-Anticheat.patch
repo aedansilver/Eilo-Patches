@@ -1,7 +1,7 @@
 From 4ee10744a6c72cd40965fbaa21fcc828aaa6ab7b Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:45:24 -0500
-Subject: [PATCH 05/31] 1.0 Warden Anticheat
+Subject: [PATCH 05/56] 1.0 Warden Anticheat
 
 ---
  sql/updates/auth/2011_12_06_100_auth_warden.sql    |    2 +

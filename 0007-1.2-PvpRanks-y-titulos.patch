@@ -1,7 +1,7 @@
 From 1912ab9e197d2478b9cb2dccb3e0adb741bbf1c8 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 20:38:02 -0500
-Subject: [PATCH 07/31] 1.2 PvpRanks y titulos
+Subject: [PATCH 07/56] 1.2 PvpRanks y titulos
 
 ---
  src/server/game/Entities/Player/Player.cpp |   64 ++++++++++++++++++++++++++-
