@@ -1,15 +1,15 @@
-From 742c69fb70c24b4d418cf0703f7205b102a8c619 Mon Sep 17 00:00:00 2001
+From fb5a5be22abb3f4a10a1e3fae36b7391da2c2ad9 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Thu, 15 Dec 2011 17:47:01 -0500
+Date: Thu, 15 Dec 2011 20:38:02 -0500
 Subject: [PATCH 07/14] 1.2 PvpRanks y titulos
 
 ---
  WHAT_IS_INSIDE                             |    1 +
- src/server/game/Entities/Player/Player.cpp |   64 ++++++++++++++++++++++++++--
+ src/server/game/Entities/Player/Player.cpp |   64 ++++++++++++++++++++++++++-
  src/server/game/Entities/Player/Player.h   |   22 ++++++++++
  src/server/game/World/World.cpp            |   13 ++++++
  src/server/game/World/World.h              |   23 ++++++++++
- 5 files changed, 119 insertions(+), 4 deletions(-)
+ 5 files changed, 120 insertions(+), 3 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
 index 9fd4b0e..321ea22 100644
@@ -24,10 +24,10 @@ index 9fd4b0e..321ea22 100644
  
  ###############
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index f288f52..4369941 100755
+index 2ed85f8..afc93a5 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -7054,6 +7054,30 @@ void Player::RewardReputation(Quest const* quest)
+@@ -7032,6 +7032,30 @@ void Player::RewardReputation(Quest const* quest)
      }
  }
  
@@ -58,7 +58,7 @@ index f288f52..4369941 100755
  void Player::UpdateHonorFields()
  {
      /// called when rewarding honor and at each save
-@@ -7109,6 +7133,7 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool pvpt
+@@ -7087,6 +7111,7 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool pvpt
  
      uint64 victim_guid = 0;
      uint32 victim_rank = 0;
@@ -66,11 +66,11 @@ index f288f52..4369941 100755
  
      // need call before fields update to have chance move yesterday data to appropriate fields before today data change.
      UpdateHonorFields();
-@@ -7149,20 +7174,50 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool pvpt
+@@ -7127,20 +7152,52 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool pvpt
              //  [39+]    Nothing
              uint32 victim_title = pVictim->GetUInt32Value(PLAYER_CHOSEN_TITLE);
                                                          // Get Killer titles, CharTitlesEntry::bit_index
--            // Ranks:
++
 +            // PLAYER__FIELD_KNOWN_TITLES describe which titles player can use,
 +            // so we must find biggest pvp title , even for killer to find extra honor value
 +            uint32 vtitle = pVictim->GetUInt32Value(PLAYER__FIELD_KNOWN_TITLES);
@@ -91,8 +91,9 @@ index f288f52..4369941 100755
 +                    if (vtitle & (1<<i))
 +                        victim_title = i;
 +                }
-+            }  
-+			// Ranks:
++            }
++
+             // Ranks:
              //  title[1..14]  -> rank[5..18]
              //  title[15..28] -> rank[5..18]
              //  title[other]  -> 0
@@ -121,7 +122,7 @@ index f288f52..4369941 100755
  
              // count the number of playerkills in one day
              ApplyModUInt32Value(PLAYER_FIELD_KILLS, 1, true);
-@@ -7173,6 +7228,7 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool pvpt
+@@ -7151,6 +7208,7 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool pvpt
              UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_HK_RACE, pVictim->getRace());
              UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_HONORABLE_KILL_AT_AREA, GetAreaId());
              UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_HONORABLE_KILL, 1, 0, pVictim);
@@ -130,7 +131,7 @@ index f288f52..4369941 100755
          else
          {
 diff --git a/src/server/game/Entities/Player/Player.h b/src/server/game/Entities/Player/Player.h
-index 4f2202f..1e64f7d 100755
+index 1e9442d..56b0205 100755
 --- a/src/server/game/Entities/Player/Player.h
 +++ b/src/server/game/Entities/Player/Player.h
 @@ -401,6 +401,27 @@ enum PlayerFlags
@@ -161,7 +162,7 @@ index 4f2202f..1e64f7d 100755
  // used for PLAYER__FIELD_KNOWN_TITLES field (uint64), (1<<bit_index) without (-1)
  // can't use enum for uint64 values
  #define PLAYER_TITLE_DISABLED              UI64LIT(0x0000000000000000)
-@@ -2076,6 +2097,7 @@ class Player : public Unit, public GridObject<Player>
+@@ -2073,6 +2094,7 @@ class Player : public Unit, public GridObject<Player>
          uint32 GetMaxPersonalArenaRatingRequirement(uint32 minarenaslot) const;
          void SetHonorPoints(uint32 value);
          void SetArenaPoints(uint32 value);
@@ -170,7 +171,7 @@ index 4f2202f..1e64f7d 100755
          //End of PvP System
  
 diff --git a/src/server/game/World/World.cpp b/src/server/game/World/World.cpp
-index 68e0c11..b651204 100755
+index 4bbb6c1..2d534a1 100755
 --- a/src/server/game/World/World.cpp
 +++ b/src/server/game/World/World.cpp
 @@ -851,6 +851,19 @@ void World::LoadConfigSettings(bool reload)
@@ -194,15 +195,14 @@ index 68e0c11..b651204 100755
      m_int_configs[CONFIG_GM_VISIBLE_STATE]      = ConfigMgr::GetIntDefault("GM.Visible", 2);
      m_int_configs[CONFIG_GM_CHAT]               = ConfigMgr::GetIntDefault("GM.Chat", 2);
 diff --git a/src/server/game/World/World.h b/src/server/game/World/World.h
-index 0826db5..57055d5 100755
+index 8c8ed1c..aee0b25 100755
 --- a/src/server/game/World/World.h
 +++ b/src/server/game/World/World.h
-@@ -381,11 +381,32 @@ enum Rates
-     RATE_DURABILITY_LOSS_DAMAGE,
+@@ -382,10 +382,31 @@ enum Rates
      RATE_DURABILITY_LOSS_PARRY,
      RATE_DURABILITY_LOSS_ABSORB,
-+    RATE_PVP_RANK_EXTRA_HONOR,
      RATE_DURABILITY_LOSS_BLOCK,
++    RATE_PVP_RANK_EXTRA_HONOR,
      RATE_MOVESPEED,
      MAX_RATES
  };
@@ -235,10 +235,10 @@ index 0826db5..57055d5 100755
          void SendServerMessage(ServerMessageType type, const char *text = "", Player* player = NULL);
  
 +        uint32 pvp_ranks[HKRANKMAX];
-+  
++
          /// Are we in the middle of a shutdown?
-         bool IsShutdowning() const { return m_ShutdownTimer > 0; }
-         void ShutdownServ(uint32 time, uint32 options, uint8 exitcode);
+         bool IsShuttingDown() const { return m_ShutdownTimer > 0; }
+         uint32 GetShutDownTimeLeft() const { return m_ShutdownTimer; }
 -- 
 1.7.6.msysgit.0
 

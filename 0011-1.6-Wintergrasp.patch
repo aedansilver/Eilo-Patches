@@ -1,4 +1,4 @@
-From 4c1257449e0ced6c244cb74cc381b4099689f3a9 Mon Sep 17 00:00:00 2001
+From 9abe10bad4f4f773354e406bc8242e31e591041c Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 16:34:47 -0500
 Subject: [PATCH 11/14] 1.6 Wintergrasp
@@ -578,7 +578,7 @@ index de1b0f8..87182c1 100755
                  {
                      bg->EventPlayerDamagedGO(eventInvoker, this, m_goInfo->building.destroyedEvent);
 diff --git a/src/server/game/Entities/Vehicle/Vehicle.cpp b/src/server/game/Entities/Vehicle/Vehicle.cpp
-index fe018ec..a3dedb2 100755
+index d3c3268..329b10d 100755
 --- a/src/server/game/Entities/Vehicle/Vehicle.cpp
 +++ b/src/server/game/Entities/Vehicle/Vehicle.cpp
 @@ -508,3 +508,29 @@ uint8 Vehicle::GetAvailableSeatCount() const
@@ -632,7 +632,7 @@ index 51ad500..139c833 100755
  
          SeatMap Seats;
 diff --git a/src/server/game/Miscellaneous/Language.h b/src/server/game/Miscellaneous/Language.h
-index ffdf013..26b8f4f 100755
+index a6ff663..e0343ab 100755
 --- a/src/server/game/Miscellaneous/Language.h
 +++ b/src/server/game/Miscellaneous/Language.h
 @@ -705,6 +705,29 @@ enum TrinityStrings
@@ -790,7 +790,7 @@ index 95327a7..cca3a56 100755
  
  void WorldSession::HandleBattlemasterJoinArena(WorldPacket & recv_data)
 diff --git a/src/server/game/Server/Protocol/Handlers/CharacterHandler.cpp b/src/server/game/Server/Protocol/Handlers/CharacterHandler.cpp
-index 83b9ab0..b731f24 100755
+index 3d33e50..0da0a85 100755
 --- a/src/server/game/Server/Protocol/Handlers/CharacterHandler.cpp
 +++ b/src/server/game/Server/Protocol/Handlers/CharacterHandler.cpp
 @@ -44,6 +44,9 @@
@@ -825,10 +825,10 @@ index 83b9ab0..b731f24 100755
  
      CharacterDatabase.PExecute("UPDATE characters SET online = 1 WHERE guid = '%u'", pCurrChar->GetGUIDLow());
 diff --git a/src/server/game/Spells/Auras/SpellAuraEffects.cpp b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
-index 753b381..ea52241 100755
+index 69479c4..7930a80 100755
 --- a/src/server/game/Spells/Auras/SpellAuraEffects.cpp
 +++ b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
-@@ -4900,6 +4900,7 @@ void AuraEffect::HandleAuraDummy(AuraApplication const* aurApp, uint8 mode, bool
+@@ -4904,6 +4904,7 @@ void AuraEffect::HandleAuraDummy(AuraApplication const* aurApp, uint8 mode, bool
                              target->CastSpell((Unit*)NULL, GetAmount(), true, NULL, this);
                              break;
                          case 58600: // Restricted Flight Area
@@ -837,7 +837,7 @@ index 753b381..ea52241 100755
                                  target->CastSpell(target, 58601, true);
                              break;
 diff --git a/src/server/game/Spells/Spell.cpp b/src/server/game/Spells/Spell.cpp
-index 8a4c0a7..da54ac5 100755
+index e1c5b90..f0076cc 100755
 --- a/src/server/game/Spells/Spell.cpp
 +++ b/src/server/game/Spells/Spell.cpp
 @@ -53,6 +53,8 @@
@@ -849,7 +849,7 @@ index 8a4c0a7..da54ac5 100755
  
  extern pEffect SpellEffects[TOTAL_SPELL_EFFECTS];
  
-@@ -5379,8 +5381,17 @@ SpellCastResult Spell::CheckCast(bool strict)
+@@ -5376,8 +5378,17 @@ SpellCastResult Spell::CheckCast(bool strict)
                  if (m_originalCaster && m_originalCaster->GetTypeId() == TYPEID_PLAYER && m_originalCaster->isAlive())
                  {
                      if (AreaTableEntry const* pArea = GetAreaEntryByAreaID(m_originalCaster->GetAreaId()))
@@ -868,7 +868,7 @@ index 8a4c0a7..da54ac5 100755
                  break;
              }
 diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
-index 6c12a11..dc0b6f3 100755
+index 2a4dada..00039f9 100755
 --- a/src/server/game/Spells/SpellEffects.cpp
 +++ b/src/server/game/Spells/SpellEffects.cpp
 @@ -48,6 +48,7 @@
@@ -879,7 +879,7 @@ index 6c12a11..dc0b6f3 100755
  #include "Language.h"
  #include "SocialMgr.h"
  #include "Util.h"
-@@ -4472,6 +4473,29 @@ void Spell::EffectScriptEffect(SpellEffIndex effIndex)
+@@ -4480,6 +4481,29 @@ void Spell::EffectScriptEffect(SpellEffIndex effIndex)
          {
              switch (m_spellInfo->Id)
              {
@@ -909,7 +909,7 @@ index 6c12a11..dc0b6f3 100755
                  // Glyph of Backstab
                  case 63975:
                  {
-@@ -7278,6 +7302,24 @@ void Spell::EffectPlayerNotification(SpellEffIndex effIndex)
+@@ -7285,6 +7309,24 @@ void Spell::EffectPlayerNotification(SpellEffIndex effIndex)
      switch (m_spellInfo->Id)
      {
          case 58730: // Restricted Flight Area
@@ -975,7 +975,7 @@ index 058ddf7..8891f94 100755
          case 68720: // Quarry - Isle of Conquest.
          {
 diff --git a/src/server/game/World/World.cpp b/src/server/game/World/World.cpp
-index d33c430..4b0eb17 100755
+index ed860f2..071a622 100755
 --- a/src/server/game/World/World.cpp
 +++ b/src/server/game/World/World.cpp
 @@ -51,6 +51,7 @@
@@ -1037,7 +1037,7 @@ index d33c430..4b0eb17 100755
 +    }
 +}
 diff --git a/src/server/game/World/World.h b/src/server/game/World/World.h
-index b43c6b7..decc1d8 100755
+index 494fa02..17aa0ac 100755
 --- a/src/server/game/World/World.h
 +++ b/src/server/game/World/World.h
 @@ -161,6 +161,9 @@ enum WorldBoolConfigs
@@ -1068,7 +1068,7 @@ index b43c6b7..decc1d8 100755
      INT_CONFIG_VALUE_COUNT
  };
  
-@@ -787,6 +801,7 @@ class World
+@@ -788,6 +802,7 @@ class World
          void DeleteCharaceterNameData(uint32 guid) { _characterNameDataMap.erase(guid); }
  
          uint32 GetCleaningFlags() const { return m_CleaningFlags; }
@@ -4377,10 +4377,10 @@ index 0000000..5b14585
 +};
 +#endif
 diff --git a/src/server/worldserver/worldserver.conf.dist b/src/server/worldserver/worldserver.conf.dist
-index 7141bc3..3fbb9b7 100644
+index f8a2700..9590b14 100644
 --- a/src/server/worldserver/worldserver.conf.dist
 +++ b/src/server/worldserver/worldserver.conf.dist
-@@ -3190,3 +3190,92 @@ PlayerDump.DisallowOverwrite = 1
+@@ -3191,3 +3191,92 @@ PlayerDump.DisallowOverwrite = 1
  
  #
  ###################################################################################################

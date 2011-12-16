@@ -1,4 +1,4 @@
-From cb54fa86f306fb95ff9d7d1424bb001ffa63764e Mon Sep 17 00:00:00 2001
+From 06aed6b3b9ff5e82d042e305c32f4c0abbade986 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:41:16 -0500
 Subject: [PATCH 06/14] 1.1 Wowarmory con chart de arenas y modelos 3d
@@ -27,10 +27,10 @@ index 837ddcf..9fd4b0e 100644
  
  ###############
 diff --git a/src/server/game/Achievements/AchievementMgr.cpp b/src/server/game/Achievements/AchievementMgr.cpp
-index 8967446..3047414 100755
+index c43bfb2..b4a8260 100755
 --- a/src/server/game/Achievements/AchievementMgr.cpp
 +++ b/src/server/game/Achievements/AchievementMgr.cpp
-@@ -2016,6 +2016,7 @@ void AchievementMgr::CompletedAchievement(AchievementEntry const* achievement)
+@@ -2004,6 +2004,7 @@ void AchievementMgr::CompletedAchievement(AchievementEntry const* achievement)
          return;
  
      SendAchievementEarned(achievement);
@@ -150,10 +150,10 @@ index 0727516..59d1775 100755
  }
  
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index 0e98eb2..f288f52 100755
+index bd85968..2ed85f8 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -4938,6 +4938,8 @@ void Player::DeleteFromDB(uint64 playerguid, uint32 accountId, bool updateRealmC
+@@ -4916,6 +4916,8 @@ void Player::DeleteFromDB(uint64 playerguid, uint32 accountId, bool updateRealmC
              trans->PAppend("DELETE FROM character_queststatus_daily WHERE guid = '%u'", guid);
              trans->PAppend("DELETE FROM character_talent WHERE guid = '%u'", guid);
              trans->PAppend("DELETE FROM character_skills WHERE guid = '%u'", guid);
@@ -162,7 +162,7 @@ index 0e98eb2..f288f52 100755
  
              CharacterDatabase.CommitTransaction(trans);
              break;
-@@ -16499,6 +16501,8 @@ bool Player::LoadFromDB(uint32 guid, SQLQueryHolder *holder)
+@@ -16467,6 +16469,8 @@ bool Player::LoadFromDB(uint32 guid, SQLQueryHolder *holder)
          CharacterDatabase.PExecute("UPDATE characters SET at_login = at_login | '%u' WHERE guid ='%u'", uint32(AT_LOGIN_RENAME), guid);
          return false;
      }
@@ -171,7 +171,7 @@ index 0e98eb2..f288f52 100755
  
      // overwrite possible wrong/corrupted guid
      SetUInt64Value(OBJECT_FIELD_GUID, MAKE_NEW_GUID(guid, 0, HIGHGUID_PLAYER));
-@@ -18524,6 +18528,30 @@ void Player::SaveToDB(bool create /*=false*/)
+@@ -18498,6 +18502,30 @@ void Player::SaveToDB(bool create /*=false*/)
  
      CharacterDatabase.CommitTransaction(trans);
  
@@ -202,7 +202,7 @@ index 0e98eb2..f288f52 100755
      // save pet (hunter pet level and experience and all type pets health/mana).
      if (Pet* pet = GetPet())
          pet->SavePetToDB(PET_SAVE_AS_CURRENT);
-@@ -24804,3 +24832,42 @@ bool Player::IsInWhisperWhiteList(uint64 guid)
+@@ -24778,3 +24806,42 @@ bool Player::IsInWhisperWhiteList(uint64 guid)
      }
      return false;
  }
@@ -246,7 +246,7 @@ index 0e98eb2..f288f52 100755
 +    m_wowarmory_feeds.push_back(feed);
 +}
 diff --git a/src/server/game/Entities/Player/Player.h b/src/server/game/Entities/Player/Player.h
-index 651b99e..4f2202f 100755
+index 2b84a11..1e9442d 100755
 --- a/src/server/game/Entities/Player/Player.h
 +++ b/src/server/game/Entities/Player/Player.h
 @@ -1073,6 +1073,21 @@ private:
@@ -271,7 +271,7 @@ index 651b99e..4f2202f 100755
  class Player : public Unit, public GridObject<Player>
  {
      friend class WorldSession;
-@@ -2372,6 +2387,12 @@ class Player : public Unit, public GridObject<Player>
+@@ -2369,6 +2384,12 @@ class Player : public Unit, public GridObject<Player>
          void SendCinematicStart(uint32 CinematicSequenceId);
          void SendMovieStart(uint32 MovieId);
  
@@ -284,7 +284,7 @@ index 651b99e..4f2202f 100755
          /*********************************************************/
          /***                 INSTANCE SYSTEM                   ***/
          /*********************************************************/
-@@ -2853,6 +2874,8 @@ class Player : public Unit, public GridObject<Player>
+@@ -2850,6 +2871,8 @@ class Player : public Unit, public GridObject<Player>
          uint32 m_timeSyncTimer;
          uint32 m_timeSyncClient;
          uint32 m_timeSyncServer;
@@ -294,7 +294,7 @@ index 651b99e..4f2202f 100755
          InstanceTimeMap _instanceResetTimes;
          uint32 _pendingBindId;
 diff --git a/src/server/game/Entities/Unit/Unit.cpp b/src/server/game/Entities/Unit/Unit.cpp
-index 2e2f559..18564b0 100755
+index 232be09..e2308bd 100755
 --- a/src/server/game/Entities/Unit/Unit.cpp
 +++ b/src/server/game/Entities/Unit/Unit.cpp
 @@ -746,9 +746,16 @@ uint32 Unit::DealDamage(Unit* victim, uint32 damage, CleanDamage const* cleanDam
@@ -315,7 +315,7 @@ index 2e2f559..18564b0 100755
          killer->UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_DAMAGE_DONE, damage, 0, victim);
          killer->UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_HIGHEST_HIT_DEALT, damage);
      }
-@@ -10008,6 +10015,10 @@ int32 Unit::DealHeal(Unit* victim, uint32 addhealth)
+@@ -10041,6 +10048,10 @@ int32 Unit::DealHeal(Unit* victim, uint32 addhealth)
      {
          player->GetAchievementMgr().UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_TOTAL_HEALING_RECEIVED, gain);
          player->GetAchievementMgr().UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_HIGHEST_HEALING_RECEIVED, addhealth);
@@ -326,7 +326,7 @@ index 2e2f559..18564b0 100755
      }
  
      return gain;
-@@ -15527,7 +15538,10 @@ void Unit::Kill(Unit* victim, bool durabilityLoss)
+@@ -15560,7 +15571,10 @@ void Unit::Kill(Unit* victim, bool durabilityLoss)
                  if (instanceMap->IsRaidOrHeroicDungeon())
                  {
                      if (creature->GetCreatureInfo()->flags_extra & CREATURE_FLAG_EXTRA_INSTANCE_BIND)

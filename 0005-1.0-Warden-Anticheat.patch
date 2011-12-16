@@ -1,4 +1,4 @@
-From 8812218c5773dae458bfac3dba79ad1a9f850c35 Mon Sep 17 00:00:00 2001
+From 885f9c258fe1c2d7cdbef038eba10195b270ab02 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:45:24 -0500
 Subject: [PATCH 05/14] 1.0 Warden Anticheat
@@ -4698,7 +4698,7 @@ index 0000000..bc46fa6
 +
 +#endif
 diff --git a/src/server/game/World/World.cpp b/src/server/game/World/World.cpp
-index 8aca456..68e0c11 100755
+index a139c50..4bbb6c1 100755
 --- a/src/server/game/World/World.cpp
 +++ b/src/server/game/World/World.cpp
 @@ -74,6 +74,8 @@
@@ -4738,7 +4738,7 @@ index 8aca456..68e0c11 100755
      LoginDatabase.Execute("DELETE FROM ip_banned WHERE unbandate <= UNIX_TIMESTAMP() AND unbandate<>bandate");
  
 diff --git a/src/server/game/World/World.h b/src/server/game/World/World.h
-index f643ae6..0826db5 100755
+index 9354c14..8c8ed1c 100755
 --- a/src/server/game/World/World.h
 +++ b/src/server/game/World/World.h
 @@ -160,6 +160,7 @@ enum WorldBoolConfigs
@@ -5045,7 +5045,7 @@ index cdd9b04..0babf49 100644
    ${CMAKE_SOURCE_DIR}/src/server/game/World
    ${CMAKE_SOURCE_DIR}/src/server/authserver/Server
 diff --git a/src/server/worldserver/worldserver.conf.dist b/src/server/worldserver/worldserver.conf.dist
-index 8bd6496..59e2cce 100644
+index 93f6793..dcc7412 100644
 --- a/src/server/worldserver/worldserver.conf.dist
 +++ b/src/server/worldserver/worldserver.conf.dist
 @@ -11,6 +11,7 @@

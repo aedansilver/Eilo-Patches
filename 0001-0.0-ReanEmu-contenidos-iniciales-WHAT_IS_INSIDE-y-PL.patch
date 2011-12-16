@@ -1,4 +1,4 @@
-From 41477852a93cda577f50c9b4ab8f29b4de2e1fce Mon Sep 17 00:00:00 2001
+From d3dd5464f5996a2350eb69bc6f6b1af7c59ac480 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:30:15 -0500
 Subject: [PATCH 01/14] =?UTF-8?q?0.0=20ReanEmu=20contenidos=20iniciales,=20W?=
@@ -494,7 +494,7 @@ index 18acc73..b3308fb 100755
  #if TRINITY_ENDIAN == TRINITY_BIGENDIAN
  # define _ENDIAN_STRING "big-endian"
 diff --git a/src/server/worldserver/CommandLine/CliRunnable.cpp b/src/server/worldserver/CommandLine/CliRunnable.cpp
-index 564f602..dab4de2 100755
+index 6135252..4fea858 100755
 --- a/src/server/worldserver/CommandLine/CliRunnable.cpp
 +++ b/src/server/worldserver/CommandLine/CliRunnable.cpp
 @@ -112,7 +112,7 @@ void utf8print(void* /*arg*/, const char* str)
@@ -663,7 +663,7 @@ index 42d72aa..8c7320c 100755
  }
  
 diff --git a/src/server/worldserver/worldserver.conf.dist b/src/server/worldserver/worldserver.conf.dist
-index a8c0d91..8bd6496 100644
+index 1e37f50..93f6793 100644
 --- a/src/server/worldserver/worldserver.conf.dist
 +++ b/src/server/worldserver/worldserver.conf.dist
 @@ -1,5 +1,5 @@

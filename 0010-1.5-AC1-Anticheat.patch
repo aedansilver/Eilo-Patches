@@ -1,4 +1,4 @@
-From 8e03af69e90ffed72732d27337f2c37041517066 Mon Sep 17 00:00:00 2001
+From ac0f21ab7220f65dad2d72b9d24e6d8c8668c600 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 16:06:42 -0500
 Subject: [PATCH 10/14] 1.5 AC1 Anticheat
@@ -125,7 +125,7 @@ index 0000000..34529cc
 +ALTER TABLE `cheaters` DROP COLUMN `Pos`;
 \ No newline at end of file
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index 4369941..5691cdf 100755
+index afc93a5..ff60d16 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
 @@ -760,6 +760,16 @@ Player::Player (WorldSession* session): Unit(), m_achievementMgr(this), m_reputa
@@ -145,7 +145,7 @@ index 4369941..5691cdf 100755
      m_mailsLoaded = false;
      m_mailsUpdated = false;
      unReadMails = 0;
-@@ -2790,6 +2800,8 @@ void Player::SetInWater(bool apply)
+@@ -2768,6 +2778,8 @@ void Player::SetInWater(bool apply)
      RemoveAurasWithInterruptFlags(apply ? AURA_INTERRUPT_FLAG_NOT_ABOVEWATER : AURA_INTERRUPT_FLAG_NOT_UNDERWATER);
  
      getHostileRefManager().updateThreatTables();
@@ -154,7 +154,7 @@ index 4369941..5691cdf 100755
  }
  
  void Player::SetGameMaster(bool on)
-@@ -23592,6 +23604,15 @@ void Player::HandleFall(MovementInfo const& movementInfo)
+@@ -23568,6 +23580,15 @@ void Player::HandleFall(MovementInfo const& movementInfo)
      float z_diff = m_lastFallZ - movementInfo.pos.GetPositionZ();
      //sLog->outDebug("zDiff = %f", z_diff);
  
@@ -171,7 +171,7 @@ index 4369941..5691cdf 100755
      // 14.57 can be calculated by resolving damageperc formula below to 0
      if (z_diff >= 14.57f && !isDead() && !isGameMaster() &&
 diff --git a/src/server/game/Entities/Player/Player.h b/src/server/game/Entities/Player/Player.h
-index 1e64f7d..f70784a 100755
+index 56b0205..7d26566 100755
 --- a/src/server/game/Entities/Player/Player.h
 +++ b/src/server/game/Entities/Player/Player.h
 @@ -1118,6 +1118,21 @@ class Player : public Unit, public GridObject<Player>
@@ -564,7 +564,7 @@ index 4e45eb2..a1cfb37 100755
      /* process position-change */
      WorldPacket data(opcode, recv_data.size());
 diff --git a/src/server/game/Spells/Auras/SpellAuraEffects.cpp b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
-index c4487fb..753b381 100755
+index b690a81..69479c4 100755
 --- a/src/server/game/Spells/Auras/SpellAuraEffects.cpp
 +++ b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
 @@ -2852,9 +2852,16 @@ void AuraEffect::HandleAuraAllowFlight(AuraApplication const* aurApp, uint8 mode
@@ -613,10 +613,10 @@ index c4487fb..753b381 100755
                  data << uint32(0);                                      // unknown
                  player->SendDirectMessage(&data);
 diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
-index e42294f..6c12a11 100755
+index 839a466..2a4dada 100755
 --- a/src/server/game/Spells/SpellEffects.cpp
 +++ b/src/server/game/Spells/SpellEffects.cpp
-@@ -6240,6 +6240,9 @@ void Spell::EffectCharge(SpellEffIndex /*effIndex*/)
+@@ -6247,6 +6247,9 @@ void Spell::EffectCharge(SpellEffIndex /*effIndex*/)
          // not all charge effects used in negative spells
          if (!m_spellInfo->IsPositive() && m_caster->GetTypeId() == TYPEID_PLAYER)
              m_caster->Attack(unitTarget, true);
@@ -627,7 +627,7 @@ index e42294f..6c12a11 100755
  }
  
 diff --git a/src/server/game/World/World.cpp b/src/server/game/World/World.cpp
-index 4c522f9..d33c430 100755
+index 95e1cc9..ed860f2 100755
 --- a/src/server/game/World/World.cpp
 +++ b/src/server/game/World/World.cpp
 @@ -569,6 +569,18 @@ void World::LoadConfigSettings(bool reload)
@@ -650,10 +650,10 @@ index 4c522f9..d33c430 100755
      if (m_int_configs[CONFIG_COMPRESSION] < 1 || m_int_configs[CONFIG_COMPRESSION] > 9)
      {
 diff --git a/src/server/game/World/World.h b/src/server/game/World/World.h
-index 57055d5..b43c6b7 100755
+index aee0b25..494fa02 100755
 --- a/src/server/game/World/World.h
 +++ b/src/server/game/World/World.h
-@@ -743,6 +743,19 @@ class World
+@@ -744,6 +744,19 @@ class World
          static int32 GetVisibilityNotifyPeriodInInstances() { return m_visibility_notify_periodInInstances;  }
          static int32 GetVisibilityNotifyPeriodInBGArenas()  { return m_visibility_notify_periodInBGArenas;   }
  
@@ -673,7 +673,7 @@ index 57055d5..b43c6b7 100755
          void ProcessCliCommands();
          void QueueCliCommand(CliCommandHolder* commandHolder) { cliCmdQueue.add(commandHolder); }
  
-@@ -839,6 +852,19 @@ class World
+@@ -840,6 +853,19 @@ class World
          static int32 m_visibility_notify_periodInInstances;
          static int32 m_visibility_notify_periodInBGArenas;
  
@@ -714,10 +714,10 @@ index ab077af..6036073 100644
          {
              handler->SendSysMessage(LANG_USE_BOL);
 diff --git a/src/server/worldserver/worldserver.conf.dist b/src/server/worldserver/worldserver.conf.dist
-index 39a0122..7141bc3 100644
+index 1b21baa..f8a2700 100644
 --- a/src/server/worldserver/worldserver.conf.dist
 +++ b/src/server/worldserver/worldserver.conf.dist
-@@ -2954,6 +2954,69 @@ CharDelete.KeepDays = 30
+@@ -2955,6 +2955,69 @@ CharDelete.KeepDays = 30
  ###################################################################################################
  
  ###################################################################################################
