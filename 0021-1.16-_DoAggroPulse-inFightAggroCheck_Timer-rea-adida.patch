@@ -1,31 +1,17 @@
-From 238031bfdcaa24f0eac1a4856078ba2ac6096ae1 Mon Sep 17 00:00:00 2001
+From 383ccc5468002bb838ef9c44b4ff464b46b6f87a Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 22:28:27 -0500
-Subject: [PATCH 21/22] =?UTF-8?q?1.16=20=5FDoAggroPulse,=20inFightAggroCheck?=
+Subject: [PATCH 21/31] =?UTF-8?q?1.16=20=5FDoAggroPulse,=20inFightAggroCheck?=
  =?UTF-8?q?=5FTimer=20rea=C3=B1adidas?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
 ---
- WHAT_IS_INSIDE                                     |    2 ++
  src/server/game/AI/ScriptedAI/ScriptedCreature.cpp |   14 ++++++++++++++
  src/server/game/AI/ScriptedAI/ScriptedCreature.h   |    3 +++
- 3 files changed, 19 insertions(+), 0 deletions(-)
+ 2 files changed, 17 insertions(+), 0 deletions(-)
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 6420bf2..9f17965 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -44,6 +44,8 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
- 01/11/2011: DoCompleteAchievement reañadida al nucleo como funcion activa por Eilo
- 04/11/2011: DoAttackerAreaInCombat reañadida al nucleo para soporte por Eilo
- 17/11/2011: DoAttackerGroupInCombat reañadida al nucleo para soporte por Eilo
-+17/11/2011: _DoAggroPulse funcion reañadida para soporte por Eilo
-+17/11/2011: inFightAggroCheck_Timer valores de soporte para funciones anteriores por Eilo
- 
- 
- ###############
 diff --git a/src/server/game/AI/ScriptedAI/ScriptedCreature.cpp b/src/server/game/AI/ScriptedAI/ScriptedCreature.cpp
 index 953bbf7..c19b2df 100644
 --- a/src/server/game/AI/ScriptedAI/ScriptedCreature.cpp

@@ -1,10 +1,9 @@
-From aeff684aabba39eb38b5b6ef873ffcfbcfcdd00c Mon Sep 17 00:00:00 2001
+From 3dc6e2d9285b90d13a1f80dd88a344db856634d7 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:59:44 -0500
-Subject: [PATCH 13/22] 1.8 Cuentas VIP
+Subject: [PATCH 13/31] 1.8 Cuentas VIP
 
 ---
- WHAT_IS_INSIDE                                     |    1 +
  .../auth/2011_10_14_100_auth_vipaccount.sql        |    8 ++++++++
  .../AuctionHouseBot/AuctionHouseBot.cpp            |    2 +-
  src/server/game/Entities/Player/Player.cpp         |    6 ++++++
@@ -17,21 +16,9 @@ Subject: [PATCH 13/22] 1.8 Cuentas VIP
  .../Database/Implementation/LoginDatabase.cpp      |    3 ++-
  .../shared/Database/Implementation/LoginDatabase.h |    1 +
  src/server/worldserver/worldserver.conf.dist       |    9 +++++++++
- 13 files changed, 55 insertions(+), 7 deletions(-)
+ 12 files changed, 54 insertions(+), 7 deletions(-)
  create mode 100644 sql/updates/auth/2011_10_14_100_auth_vipaccount.sql
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index f7a91d3..dd51b73 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -35,6 +35,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
- 09/11/2011: AC1 Anticheat por Aokrommes, adecuaciones por Eilo
- 18/10/2011: Wintergrasp por Karlos
- 18/10/2011: Inmunidades de vehiculos por Karlos
-+14/10/2011: Cuentas VIP por Locknes
- 
- 
- ###############
 diff --git a/sql/updates/auth/2011_10_14_100_auth_vipaccount.sql b/sql/updates/auth/2011_10_14_100_auth_vipaccount.sql
 new file mode 100644
 index 0000000..df317ed

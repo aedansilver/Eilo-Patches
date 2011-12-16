@@ -1,10 +1,9 @@
-From ac0f21ab7220f65dad2d72b9d24e6d8c8668c600 Mon Sep 17 00:00:00 2001
+From 24b7b47d30bfa8114726f80fafbbc277b1536798 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 16:06:42 -0500
-Subject: [PATCH 10/22] 1.5 AC1 Anticheat
+Subject: [PATCH 10/31] 1.5 AC1 Anticheat
 
 ---
- WHAT_IS_INSIDE                                     |    1 +
  .../characters/2011_11_09_100_characters_ac1.sql   |   87 +++++
  src/server/game/Entities/Player/Player.cpp         |   21 ++
  src/server/game/Entities/Player/Player.h           |   15 +
@@ -15,21 +14,9 @@ Subject: [PATCH 10/22] 1.5 AC1 Anticheat
  src/server/game/World/World.h                      |   26 ++
  src/server/scripts/Commands/cs_gm.cpp              |    6 +
  src/server/worldserver/worldserver.conf.dist       |   63 ++++
- 11 files changed, 586 insertions(+), 0 deletions(-)
+ 10 files changed, 585 insertions(+), 0 deletions(-)
  create mode 100644 sql/updates/characters/2011_11_09_100_characters_ac1.sql
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index b23fd41..8cbbc5c 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -32,6 +32,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
- 28/10/2011: Pvp Ranks de Spgm por Snajil adecuaciones varias por Eilo
- 13/10/2011: AHBot añadido para subastas por Lockness
- 17/11/2011: ResetCD Duelos por Mouse, actualizaciones por Eilo
-+09/11/2011: AC1 Anticheat por Aokrommes, adecuaciones por Eilo
- 
- 
- ###############
 diff --git a/sql/updates/characters/2011_11_09_100_characters_ac1.sql b/sql/updates/characters/2011_11_09_100_characters_ac1.sql
 new file mode 100644
 index 0000000..34529cc

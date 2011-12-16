@@ -1,30 +1,17 @@
-From 517217bc61ef86a461bf2350c5cb03c922d8e416 Mon Sep 17 00:00:00 2001
+From 016cf29544dad1ec97fb1f6c7dde6686a27b66df Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 22:15:09 -0500
-Subject: [PATCH 19/22] =?UTF-8?q?1.14=20DoAttackerAreaInCombat=20rea=C3=B1ad?=
+Subject: [PATCH 19/31] =?UTF-8?q?1.14=20DoAttackerAreaInCombat=20rea=C3=B1ad?=
  =?UTF-8?q?ida=20al=20nucleo?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
 ---
- WHAT_IS_INSIDE                    |    1 +
  src/server/game/AI/CreatureAI.cpp |   29 +++++++++++++++++++++++++++++
  src/server/game/AI/CreatureAI.h   |    1 +
- 3 files changed, 31 insertions(+), 0 deletions(-)
+ 2 files changed, 30 insertions(+), 0 deletions(-)
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 44c08d3..6e4d768 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -42,6 +42,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
- 05/10/2011: Permitiendo unirse al canal LFG sin estar en ciudad principal por Opcode187
- 07/10/2011: DynamicLoS en GameObjects por Odyssey
- 01/11/2011: DoCompleteAchievement reañadida al nucleo como funcion activa por Eilo
-+04/11/2011: DoAttackerAreaInCombat reañadida al nucleo para soporte por Eilo
- 
- 
- ###############
 diff --git a/src/server/game/AI/CreatureAI.cpp b/src/server/game/AI/CreatureAI.cpp
 index 5752fce..9b307f8 100755
 --- a/src/server/game/AI/CreatureAI.cpp

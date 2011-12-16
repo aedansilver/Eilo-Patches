@@ -1,30 +1,17 @@
-From b172800eed90bb3983f9c980b654522770b00dac Mon Sep 17 00:00:00 2001
+From 2e5bef0bf64a99dde8f8b8f8bfb92b39e963c7b4 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 22:08:54 -0500
-Subject: [PATCH 18/22] =?UTF-8?q?1.13=20DoCompleteAchievement=20rea=C3=B1adi?=
+Subject: [PATCH 18/31] =?UTF-8?q?1.13=20DoCompleteAchievement=20rea=C3=B1adi?=
  =?UTF-8?q?da=20al=20nucleo?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
 ---
- WHAT_IS_INSIDE                               |    1 +
  src/server/game/Instances/InstanceScript.cpp |   18 ++++++++++++++++++
  src/server/game/Instances/InstanceScript.h   |    3 +++
- 3 files changed, 22 insertions(+), 0 deletions(-)
+ 2 files changed, 21 insertions(+), 0 deletions(-)
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 336dc27..44c08d3 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -41,6 +41,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
- 09/10/2011: Desactivado avisos Join/Leave en canales por Odyssey
- 05/10/2011: Permitiendo unirse al canal LFG sin estar en ciudad principal por Opcode187
- 07/10/2011: DynamicLoS en GameObjects por Odyssey
-+01/11/2011: DoCompleteAchievement reañadida al nucleo como funcion activa por Eilo
- 
- 
- ###############
 diff --git a/src/server/game/Instances/InstanceScript.cpp b/src/server/game/Instances/InstanceScript.cpp
 index b8987be..5efc153 100755
 --- a/src/server/game/Instances/InstanceScript.cpp

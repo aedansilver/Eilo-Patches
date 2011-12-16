@@ -1,14 +1,13 @@
-From 8f4d048658e5d0950d5fa9e87104e5c57c579470 Mon Sep 17 00:00:00 2001
+From 48779ff34faf48fbc7e3ce696dea95d90a994a52 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:48:38 -0500
-Subject: [PATCH 08/22] =?UTF-8?q?1.3=20AHBot=20para=20subastas=20a=C3=B1adid?=
+Subject: [PATCH 08/31] =?UTF-8?q?1.3=20AHBot=20para=20subastas=20a=C3=B1adid?=
  =?UTF-8?q?o?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
 ---
- WHAT_IS_INSIDE                                     |    1 +
  .../characters/2011_10_13_100_characters_ahbot.sql |   72 +
  .../AuctionHouseBot/AuctionHouseBot.cpp            | 1884 ++++++++++++++++++++
  .../AuctionHouse/AuctionHouseBot/AuctionHouseBot.h | 1247 +++++++++++++
@@ -22,23 +21,11 @@ Content-Transfer-Encoding: 8bit
  .../Protocol/Handlers/AuctionHouseHandler.cpp      |    1 +
  src/server/game/World/World.cpp                    |    5 +
  src/server/worldserver/worldserver.conf.dist       |  266 +++
- 14 files changed, 3989 insertions(+), 3 deletions(-)
+ 13 files changed, 3988 insertions(+), 3 deletions(-)
  create mode 100644 sql/updates/characters/2011_10_13_100_characters_ahbot.sql
  create mode 100644 src/server/game/AuctionHouse/AuctionHouseBot/AuctionHouseBot.cpp
  create mode 100644 src/server/game/AuctionHouse/AuctionHouseBot/AuctionHouseBot.h
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 321ea22..31006e5 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -30,6 +30,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
- 06/12/2011: Warden Anticheat por Leak
- 20/10/2011: Wowarmory con chart de arenas y modelos 3d por Shadez
- 28/10/2011: Pvp Ranks de Spgm por Snajil adecuaciones varias por Eilo
-+13/10/2011: AHBot añadido para subastas por Lockness
- 
- 
- ###############
 diff --git a/sql/updates/characters/2011_10_13_100_characters_ahbot.sql b/sql/updates/characters/2011_10_13_100_characters_ahbot.sql
 new file mode 100644
 index 0000000..2438668

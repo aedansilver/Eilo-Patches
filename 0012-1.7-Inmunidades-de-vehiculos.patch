@@ -1,25 +1,12 @@
-From c7b1bdfa23b24913d7529be54eba974a947ca3d4 Mon Sep 17 00:00:00 2001
+From 96d15d67b4e01775effc057db17072c8b0b24efb Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 16:38:27 -0500
-Subject: [PATCH 12/22] 1.7 Inmunidades de vehiculos
+Subject: [PATCH 12/31] 1.7 Inmunidades de vehiculos
 
 ---
- WHAT_IS_INSIDE                               |    1 +
  src/server/game/Entities/Vehicle/Vehicle.cpp |   36 ++++++++++++++++++++++++++
- 2 files changed, 37 insertions(+), 0 deletions(-)
+ 1 files changed, 36 insertions(+), 0 deletions(-)
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 9d7d76f..f7a91d3 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -34,6 +34,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
- 17/11/2011: ResetCD Duelos por Mouse, actualizaciones por Eilo
- 09/11/2011: AC1 Anticheat por Aokrommes, adecuaciones por Eilo
- 18/10/2011: Wintergrasp por Karlos
-+18/10/2011: Inmunidades de vehiculos por Karlos
- 
- 
- ###############
 diff --git a/src/server/game/Entities/Vehicle/Vehicle.cpp b/src/server/game/Entities/Vehicle/Vehicle.cpp
 index 329b10d..88b43e7 100755
 --- a/src/server/game/Entities/Vehicle/Vehicle.cpp

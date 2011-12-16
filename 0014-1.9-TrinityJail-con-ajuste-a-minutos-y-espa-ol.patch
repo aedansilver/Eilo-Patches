@@ -1,14 +1,13 @@
-From b380eae25e403e70f20631a8c55b024c9e2261aa Mon Sep 17 00:00:00 2001
+From 42152d236de85f1ce2c5aac32a9b4e46c42b5477 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 19:37:01 -0500
-Subject: [PATCH 14/22] =?UTF-8?q?1.9=20TrinityJail=20con=20ajuste=20a=20minu?=
+Subject: [PATCH 14/31] =?UTF-8?q?1.9=20TrinityJail=20con=20ajuste=20a=20minu?=
  =?UTF-8?q?tos=20y=20espa=C3=B1ol?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
 ---
- WHAT_IS_INSIDE                                     |    1 +
  .../characters/2011_11_29_100_characters_jail.sql  |   66 +++++
  sql/updates/world/2011_11_29_100_world_jail.sql    |   48 ++++
  src/server/game/Chat/Chat.cpp                      |    6 +
@@ -23,22 +22,10 @@ Content-Transfer-Encoding: 8bit
  src/server/game/Globals/ObjectMgr.h                |   23 ++
  src/server/game/Miscellaneous/Language.h           |   36 +++
  src/server/game/World/World.cpp                    |    4 +
- 15 files changed, 937 insertions(+), 6 deletions(-)
+ 14 files changed, 936 insertions(+), 6 deletions(-)
  create mode 100644 sql/updates/characters/2011_11_29_100_characters_jail.sql
  create mode 100644 sql/updates/world/2011_11_29_100_world_jail.sql
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index dd51b73..d069063 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -36,6 +36,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
- 18/10/2011: Wintergrasp por Karlos
- 18/10/2011: Inmunidades de vehiculos por Karlos
- 14/10/2011: Cuentas VIP por Locknes
-+29/11/2011: TrinityJail original de Warhead, añadido por Hispano, ajustes por Eilo
- 
- 
- ###############
 diff --git a/sql/updates/characters/2011_11_29_100_characters_jail.sql b/sql/updates/characters/2011_11_29_100_characters_jail.sql
 new file mode 100644
 index 0000000..a0a7d6a

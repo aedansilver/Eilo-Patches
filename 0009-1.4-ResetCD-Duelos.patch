@@ -1,25 +1,12 @@
-From 30031bd353ebcd9a4fac7703d0d5e8a09d0be907 Mon Sep 17 00:00:00 2001
+From 191447a1d4d2d7b21238190b39800cf2133ebada Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 13:49:09 -0500
-Subject: [PATCH 09/22] 1.4 ResetCD Duelos
+Subject: [PATCH 09/31] 1.4 ResetCD Duelos
 
 ---
- WHAT_IS_INSIDE                                     |    1 +
  .../game/Server/Protocol/Handlers/DuelHandler.cpp  |    8 ++++++++
- 2 files changed, 9 insertions(+), 0 deletions(-)
+ 1 files changed, 8 insertions(+), 0 deletions(-)
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 31006e5..b23fd41 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -31,6 +31,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
- 20/10/2011: Wowarmory con chart de arenas y modelos 3d por Shadez
- 28/10/2011: Pvp Ranks de Spgm por Snajil adecuaciones varias por Eilo
- 13/10/2011: AHBot añadido para subastas por Lockness
-+17/11/2011: ResetCD Duelos por Mouse, actualizaciones por Eilo
- 
- 
- ###############
 diff --git a/src/server/game/Server/Protocol/Handlers/DuelHandler.cpp b/src/server/game/Server/Protocol/Handlers/DuelHandler.cpp
 index b1e6f3f..230e7a1 100755
 --- a/src/server/game/Server/Protocol/Handlers/DuelHandler.cpp

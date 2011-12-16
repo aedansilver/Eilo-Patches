@@ -1,10 +1,9 @@
-From 06aed6b3b9ff5e82d042e305c32f4c0abbade986 Mon Sep 17 00:00:00 2001
+From 9390ec57bd94e8bbfbdbe7b0f70d58aa5a499a7a Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:41:16 -0500
-Subject: [PATCH 06/22] 1.1 Wowarmory con chart de arenas y modelos 3d
+Subject: [PATCH 06/31] 1.1 Wowarmory con chart de arenas y modelos 3d
 
 ---
- WHAT_IS_INSIDE                                  |    1 +
  src/server/game/Achievements/AchievementMgr.cpp |    1 +
  src/server/game/Battlegrounds/Battleground.cpp  |   49 +++++++++++++++++
  src/server/game/Battlegrounds/Battleground.h    |    8 +++
@@ -12,20 +11,8 @@ Subject: [PATCH 06/22] 1.1 Wowarmory con chart de arenas y modelos 3d
  src/server/game/Entities/Player/Player.cpp      |   67 +++++++++++++++++++++++
  src/server/game/Entities/Player/Player.h        |   23 ++++++++
  src/server/game/Entities/Unit/Unit.cpp          |   16 +++++-
- 8 files changed, 171 insertions(+), 1 deletions(-)
+ 7 files changed, 170 insertions(+), 1 deletions(-)
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 837ddcf..9fd4b0e 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -28,6 +28,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
- ###############
- 28/10/2011: Archivo sqlcombinado.BAT para unificar sqls de actualizacion por Eilo
- 06/12/2011: Warden Anticheat por Leak
-+20/10/2011: Wowarmory con chart de arenas y modelos 3d por Shadez
- 
- 
- ###############
 diff --git a/src/server/game/Achievements/AchievementMgr.cpp b/src/server/game/Achievements/AchievementMgr.cpp
 index c43bfb2..b4a8260 100755
 --- a/src/server/game/Achievements/AchievementMgr.cpp

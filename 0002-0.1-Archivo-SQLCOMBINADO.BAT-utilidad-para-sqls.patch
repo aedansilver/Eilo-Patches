@@ -1,26 +1,13 @@
-From 547be1821cc40da73e2e88f4918c0a0b9888ee97 Mon Sep 17 00:00:00 2001
+From 7a7d0f24c120a4661a094b9f697f183878a736d5 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:25:28 -0500
-Subject: [PATCH 02/22] 0.1 Archivo SQLCOMBINADO.BAT utilidad para sqls
+Subject: [PATCH 02/31] 0.1 Archivo SQLCOMBINADO.BAT utilidad para sqls
 
 ---
- WHAT_IS_INSIDE       |    1 +
  sql/sqlcombinado.bat |   70 ++++++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 71 insertions(+), 0 deletions(-)
+ 1 files changed, 70 insertions(+), 0 deletions(-)
  create mode 100644 sql/sqlcombinado.bat
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 535c346..6f18544 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -23,6 +23,7 @@ Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevo
- ###############
- # Adicionales #
- ###############
-+28/10/2011: Archivo sqlcombinado.BAT para unificar sqls de actualizacion por Eilo
- 
- 
- ###############
 diff --git a/sql/sqlcombinado.bat b/sql/sqlcombinado.bat
 new file mode 100644
 index 0000000..cd1cc72

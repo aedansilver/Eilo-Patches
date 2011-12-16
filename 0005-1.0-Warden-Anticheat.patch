@@ -1,10 +1,9 @@
-From 885f9c258fe1c2d7cdbef038eba10195b270ab02 Mon Sep 17 00:00:00 2001
+From 4ee10744a6c72cd40965fbaa21fcc828aaa6ab7b Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:45:24 -0500
-Subject: [PATCH 05/22] 1.0 Warden Anticheat
+Subject: [PATCH 05/31] 1.0 Warden Anticheat
 
 ---
- WHAT_IS_INSIDE                                     |    1 +
  sql/updates/auth/2011_12_06_100_auth_warden.sql    |    2 +
  sql/updates/world/2011_12_06_100_world_warden.sql  |  803 +++++++++++++
  src/server/authserver/Server/AuthSocket.cpp        |   18 +-
@@ -38,7 +37,7 @@ Subject: [PATCH 05/22] 1.0 Warden Anticheat
  src/server/shared/Utilities/Util.h                 |    1 +
  src/server/worldserver/CMakeLists.txt              |    2 +
  src/server/worldserver/worldserver.conf.dist       |   76 ++
- 34 files changed, 4511 insertions(+), 37 deletions(-)
+ 33 files changed, 4510 insertions(+), 37 deletions(-)
  create mode 100644 sql/updates/auth/2011_12_06_100_auth_warden.sql
  create mode 100644 sql/updates/world/2011_12_06_100_world_warden.sql
  create mode 100644 src/server/game/Warden/Modules/WardenModuleMac.h
@@ -53,18 +52,6 @@ Subject: [PATCH 05/22] 1.0 Warden Anticheat
  create mode 100644 src/server/game/Warden/WardenWin.h
  create mode 100644 src/server/shared/Cryptography/WardenKeyGeneration.h
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 5f6cc62..837ddcf 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -27,6 +27,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
- # Adicionales #
- ###############
- 28/10/2011: Archivo sqlcombinado.BAT para unificar sqls de actualizacion por Eilo
-+06/12/2011: Warden Anticheat por Leak
- 
- 
- ###############
 diff --git a/sql/updates/auth/2011_12_06_100_auth_warden.sql b/sql/updates/auth/2011_12_06_100_auth_warden.sql
 new file mode 100644
 index 0000000..a5b48ed

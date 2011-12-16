@@ -1,28 +1,15 @@
-From fb5a5be22abb3f4a10a1e3fae36b7391da2c2ad9 Mon Sep 17 00:00:00 2001
+From 1912ab9e197d2478b9cb2dccb3e0adb741bbf1c8 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 20:38:02 -0500
-Subject: [PATCH 07/22] 1.2 PvpRanks y titulos
+Subject: [PATCH 07/31] 1.2 PvpRanks y titulos
 
 ---
- WHAT_IS_INSIDE                             |    1 +
  src/server/game/Entities/Player/Player.cpp |   64 ++++++++++++++++++++++++++-
  src/server/game/Entities/Player/Player.h   |   22 ++++++++++
  src/server/game/World/World.cpp            |   13 ++++++
  src/server/game/World/World.h              |   23 ++++++++++
- 5 files changed, 120 insertions(+), 3 deletions(-)
+ 4 files changed, 119 insertions(+), 3 deletions(-)
 
-diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 9fd4b0e..321ea22 100644
---- a/WHAT_IS_INSIDE
-+++ b/WHAT_IS_INSIDE
-@@ -29,6 +29,7 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
- 28/10/2011: Archivo sqlcombinado.BAT para unificar sqls de actualizacion por Eilo
- 06/12/2011: Warden Anticheat por Leak
- 20/10/2011: Wowarmory con chart de arenas y modelos 3d por Shadez
-+28/10/2011: Pvp Ranks de Spgm por Snajil adecuaciones varias por Eilo
- 
- 
- ###############
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
 index 2ed85f8..afc93a5 100755
 --- a/src/server/game/Entities/Player/Player.cpp
