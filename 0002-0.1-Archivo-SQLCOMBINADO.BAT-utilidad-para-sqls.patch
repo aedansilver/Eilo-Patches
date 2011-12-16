@@ -1,7 +1,7 @@
-From 05250796e4dddc3fac4b42212862540db2bac223 Mon Sep 17 00:00:00 2001
+From b24a55ee24f6972be85a7c4793e0608f5a17f133 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:25:28 -0500
-Subject: [PATCH 02/12] 0.1 Archivo SQLCOMBINADO.BAT utilidad para sqls
+Subject: [PATCH 02/14] 0.1 Archivo SQLCOMBINADO.BAT utilidad para sqls
 
 ---
  WHAT_IS_INSIDE       |    1 +

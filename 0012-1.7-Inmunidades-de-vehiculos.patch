@@ -1,7 +1,7 @@
-From f350f30b4e314adc8bf96a980e3ccf752825bb21 Mon Sep 17 00:00:00 2001
+From 3bfb4eae8d49f2049efc59ef24c3c473472f6f3d Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 16:38:27 -0500
-Subject: [PATCH 12/12] 1.7 Inmunidades de vehiculos
+Subject: [PATCH 12/14] 1.7 Inmunidades de vehiculos
 
 ---
  WHAT_IS_INSIDE                               |    1 +

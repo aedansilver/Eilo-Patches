@@ -1,7 +1,7 @@
-From e910edd0a297258aab67e912dcd2185df847510e Mon Sep 17 00:00:00 2001
+From 4c1257449e0ced6c244cb74cc381b4099689f3a9 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 16:34:47 -0500
-Subject: [PATCH 11/12] 1.6 Wintergrasp
+Subject: [PATCH 11/14] 1.6 Wintergrasp
 
 ---
  WHAT_IS_INSIDE                                     |    1 +

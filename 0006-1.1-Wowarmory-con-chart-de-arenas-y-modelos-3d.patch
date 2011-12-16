@@ -1,7 +1,7 @@
-From 7b0c2239bbd31de54ada358332892c71c623a52e Mon Sep 17 00:00:00 2001
+From cb54fa86f306fb95ff9d7d1424bb001ffa63764e Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:41:16 -0500
-Subject: [PATCH 06/12] 1.1 Wowarmory con chart de arenas y modelos 3d
+Subject: [PATCH 06/14] 1.1 Wowarmory con chart de arenas y modelos 3d
 
 ---
  WHAT_IS_INSIDE                                  |    1 +
