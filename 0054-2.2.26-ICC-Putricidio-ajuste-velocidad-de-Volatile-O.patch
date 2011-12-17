@@ -1,7 +1,7 @@
-From 685597f3707224fc8a71b577e18370bf2f5c1736 Mon Sep 17 00:00:00 2001
+From 351149a89be3cee0a2487bc51d33e69cc2275089 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 17:52:58 -0500
-Subject: [PATCH 54/77] 2.2.26 ICC: Putricidio ajuste velocidad de Volatile
+Subject: [PATCH 54/79] 2.2.26 ICC: Putricidio ajuste velocidad de Volatile
  Ooze
 
 ---
@@ -13,10 +13,9 @@ index c5d62f8..cbe8ef0 100644
 --- a/sql/updates/world/reanemu/2011_11_24_100_world_correcciones_icc.sql
 +++ b/sql/updates/world/reanemu/2011_11_24_100_world_correcciones_icc.sql
 @@ -13,4 +13,9 @@ UPDATE `creature` SET `position_z` = 44.57 WHERE `guid`=200956;
- 
- -- Las dos siguientes, llegando a marrowgar
+
  UPDATE `creature` SET `position_z` = 42.1 WHERE `guid`=200912;
--UPDATE `creature` SET `position_z` = 42.1 WHERE `guid`=200934;
+ UPDATE `creature` SET `position_z` = 42.1 WHERE `guid`=200934;
 \ No newline at end of file
 +UPDATE `creature` SET `position_z` = 42.1 WHERE `guid`=200934;
 +
