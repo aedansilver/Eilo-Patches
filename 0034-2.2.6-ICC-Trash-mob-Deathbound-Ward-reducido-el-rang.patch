@@ -1,7 +1,7 @@
-From 6a1604a9be5de9c8b2c3341ecf29e2220abf095a Mon Sep 17 00:00:00 2001
+From e2dec594c87b30a14ea809a0443cd00b87f61a62 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 00:47:31 -0500
-Subject: [PATCH 34/77] 2.2.6 ICC: Trash mob Deathbound Ward reducido el rango
+Subject: [PATCH 34/79] 2.2.6 ICC: Trash mob Deathbound Ward reducido el rango
  de aggro
 
 ---

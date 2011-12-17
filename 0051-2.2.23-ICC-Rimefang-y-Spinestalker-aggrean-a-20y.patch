@@ -1,7 +1,7 @@
-From 5c6534b5b75528221a855623135a66e87b194f8a Mon Sep 17 00:00:00 2001
+From 64b02184783ba6ca1c610946c4818e2796cc497d Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 11:42:30 -0500
-Subject: [PATCH 51/77] 2.2.23 ICC: Rimefang y Spinestalker aggrean a 20y
+Subject: [PATCH 51/79] 2.2.23 ICC: Rimefang y Spinestalker aggrean a 20y
 
 ---
  .../Northrend/IcecrownCitadel/boss_sindragosa.cpp  |   20 ++++++++++++++++++--

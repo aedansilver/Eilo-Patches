@@ -1,7 +1,7 @@
-From b2cfa6c774051ae0df0b6599d423f433ba030bcb Mon Sep 17 00:00:00 2001
+From 117db12bb6f0d4769bc01abf10b2cf9c4dc420db Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 17 Dec 2011 14:45:43 -0500
-Subject: [PATCH 77/77] 2.14.3 Drak'Tharon: Tharon'Ja no atacable hasta
+Subject: [PATCH 77/79] 2.14.3 Drak'Tharon: Tharon'Ja no atacable hasta
  terminar demas bosses
 
 ---

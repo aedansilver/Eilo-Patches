@@ -1,7 +1,7 @@
-From 796e13ff62aac1334fd0527362a39b2ed9ad7ac7 Mon Sep 17 00:00:00 2001
+From a985cc3d9de588b1be29b3fe44817386e1b9c32a Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 17 Dec 2011 13:31:46 -0500
-Subject: [PATCH 03/77] 0.1 Archivo SQLCOMBINADO.BAT utilidad para sqls
+Subject: [PATCH 03/79] 0.1 Archivo SQLCOMBINADO.BAT utilidad para sqls
 
 ---
  sql/sqlcombinado.bat |  103 ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -10,7 +10,7 @@ Subject: [PATCH 03/77] 0.1 Archivo SQLCOMBINADO.BAT utilidad para sqls
 
 diff --git a/sql/sqlcombinado.bat b/sql/sqlcombinado.bat
 new file mode 100644
-index 0000000..7346823
+index 0000000..3aa7b4a
 --- /dev/null
 +++ b/sql/sqlcombinado.bat
 @@ -0,0 +1,103 @@

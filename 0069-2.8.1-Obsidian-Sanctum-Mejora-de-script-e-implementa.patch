@@ -1,11 +1,11 @@
-From 63bf804240ab76857bb90bed243cebce517c5613 Mon Sep 17 00:00:00 2001
+From fc50f031f5fdce649132cd42c19eb306b44947be Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 14:22:13 -0500
-Subject: [PATCH 69/74] 2.8.1 Obsidian Sanctum: Mejora de script e
+Subject: [PATCH 69/79] 2.8.1 Obsidian Sanctum: Mejora de script e
  implementacion de trash mob
 
 ---
- .../world/reanemu/2011_08_08_100_world_obsidian_sanctum.sql      |   24 +
+ .../2011_08_08_100_world_obsidian_sanctum.sql      |   24 +
  src/server/game/Scripting/ScriptLoader.cpp         |    2 +
  src/server/scripts/Northrend/CMakeLists.txt        |    1 +
  .../ObsidianSanctum/boss_sartharion.cpp            | 1078 ++++++++++++--------

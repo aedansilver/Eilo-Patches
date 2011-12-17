@@ -1,7 +1,7 @@
-From 59c5717b2b8ef5023e9ed11778369555ec8e8a24 Mon Sep 17 00:00:00 2001
+From 416a2d76b19cbbf32ccbba6356ecd5769385d022 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 11:37:54 -0500
-Subject: [PATCH 50/77] 2.2.22 ICC: Principes aggrea si se les acercan
+Subject: [PATCH 50/79] 2.2.22 ICC: Principes aggrea si se les acercan
 
 ---
  .../IcecrownCitadel/boss_blood_prince_council.cpp  |   10 +++-------

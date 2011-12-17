@@ -1,7 +1,7 @@
-From 6afc13ae7d89f405a1d30940ef1c25f3b30b6d0a Mon Sep 17 00:00:00 2001
+From 647ae96cc500810734b8047703a43769f2c88c59 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 00:19:25 -0500
-Subject: [PATCH 30/77] 2.2.2 ICC: Sindragosa no tumba en pet
+Subject: [PATCH 30/79] 2.2.2 ICC: Sindragosa no tumba en pet
 
 ---
  .../Northrend/IcecrownCitadel/boss_sindragosa.cpp  |    2 +-

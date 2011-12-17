@@ -1,7 +1,7 @@
-From fe341625f8605a404c239c17f6ff7cb14ccc7097 Mon Sep 17 00:00:00 2001
+From e822207184151cc805b2ffca4db05f94f9639c18 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 17:39:05 -0500
-Subject: [PATCH 53/77] 2.2.25 ICC: Trash mob Nerubar Broodkeeper correccion
+Subject: [PATCH 53/79] 2.2.25 ICC: Trash mob Nerubar Broodkeeper correccion
  en posiciones
 
 ---

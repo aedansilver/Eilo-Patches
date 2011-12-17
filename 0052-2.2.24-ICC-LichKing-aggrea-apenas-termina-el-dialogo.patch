@@ -1,7 +1,7 @@
-From 8920aaf329276523dd20de3ef9f889edb680b935 Mon Sep 17 00:00:00 2001
+From cee1c470b282382848bc22137a60a1b8197bdbec Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 11:44:26 -0500
-Subject: [PATCH 52/77] 2.2.24 ICC: LichKing aggrea apenas termina el dialogo
+Subject: [PATCH 52/79] 2.2.24 ICC: LichKing aggrea apenas termina el dialogo
  con tirion
 
 ---

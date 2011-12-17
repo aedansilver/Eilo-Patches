@@ -1,7 +1,7 @@
-From b4977dec40d10e08ffec25927a536b7579e2a1c3 Mon Sep 17 00:00:00 2001
+From c3ea3f5b88a0c3b6a7075ddeae73d00651990080 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 17:57:52 -0500
-Subject: [PATCH 59/77] 2.2.31 ICC: Inmunidades en db para todos los bosses y
+Subject: [PATCH 59/79] 2.2.31 ICC: Inmunidades en db para todos los bosses y
  mini bosses
 
 ---

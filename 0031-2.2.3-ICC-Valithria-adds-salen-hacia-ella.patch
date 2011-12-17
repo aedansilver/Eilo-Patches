@@ -1,7 +1,7 @@
-From 37e35e406104f5aaf8da5e192ced6c7c57d7312a Mon Sep 17 00:00:00 2001
+From 8cdf79c2a300efe2c99d050970e3c588bc01bfbb Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 00:22:48 -0500
-Subject: [PATCH 31/77] 2.2.3 ICC: Valithria adds salen hacia ella
+Subject: [PATCH 31/79] 2.2.3 ICC: Valithria adds salen hacia ella
 
 ---
  .../IcecrownCitadel/boss_valithria_dreamwalker.cpp |   34 ++++++++++++++++++--

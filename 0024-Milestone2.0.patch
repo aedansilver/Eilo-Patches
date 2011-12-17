@@ -1,14 +1,14 @@
-From 12f5d85232e2b3b2abaad578c0cd6a379ccc6f00 Mon Sep 17 00:00:00 2001
+From 2540a5499f3752979ccea507b22ed91319b5b925 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Sat, 17 Dec 2011 13:18:54 -0500
-Subject: [PATCH 24/77] Milestone2.0
+Date: Sat, 17 Dec 2011 16:32:45 -0500
+Subject: [PATCH 24/79] Milestone2.0
 
 ---
- WHAT_IS_INSIDE |   54 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 files changed, 54 insertions(+), 0 deletions(-)
+ WHAT_IS_INSIDE |   58 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 files changed, 58 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 4e05a0f..e95435a 100644
+index 4e05a0f..3370932 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -15,6 +15,9 @@ Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevo
@@ -21,7 +21,7 @@ index 4e05a0f..e95435a 100644
  
  			  
  ##################################
-@@ -57,6 +60,18 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
+@@ -57,6 +60,22 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
  ###############################
  # Dungeons e Instances Varias #
  ###############################
@@ -37,10 +37,14 @@ index 4e05a0f..e95435a 100644
 +2.12.1 - 17/12/2011: CullingOfStratholme: Arthas no desaparece a distancia por Eilo
 +2.12.2 - 17/12/2011: CullingOfStratholme: Arthas camina en la segunda fase por Eilo
 +2.13.1 - 27/11/2011: TrialOfTheChampions: Reimplementacion y soporte spells por Souler
++2.14.1 - 17/12/2011: Drak'Tharon: Visuales y flags varias del trash y reward de LFG por Treak y Eilo
++2.14.2 - 11/02/2011: Drak'Tharon: Novos permitir reinicio boss por Odyssey
++2.14.3 - 24/03/2011: Drak'Tharon: Tharon'Ja no atacable hasta terminar demas bosses por Souler
++2.15.1 - 09/08/2011: Gundrak: Colossus desactiva el aura de MojoVolley al morir por Odyssey
  
  
  #################
-@@ -67,6 +82,45 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
+@@ -67,6 +86,45 @@ Milestone1.0: Mejoras en general, aplicacion de planificacion y adicion de codig
  #######
  # ICC #
  #######
