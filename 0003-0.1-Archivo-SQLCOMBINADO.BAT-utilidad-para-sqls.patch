@@ -1,7 +1,7 @@
 From 796e13ff62aac1334fd0527362a39b2ed9ad7ac7 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 17 Dec 2011 13:31:46 -0500
-Subject: [PATCH 03/74] 0.1 Archivo SQLCOMBINADO.BAT utilidad para sqls
+Subject: [PATCH 03/77] 0.1 Archivo SQLCOMBINADO.BAT utilidad para sqls
 
 ---
  sql/sqlcombinado.bat |  103 ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -52,7 +52,7 @@ index 0000000..7346823
 +if exist %WorldRean% del %WorldRean%
 +
 +
-+for %%a in (updates\world\rean\*.sql) do (
++for %%a in (updates\world\reanemu\*.sql) do (
 +echo /* >>%WorldRean%
 +echo * %%a >>%WorldRean%
 +echo */ >>%WorldRean%
@@ -88,7 +88,7 @@ index 0000000..7346823
 +echo. >>%CharactersUpdates%)
 +
 +
-+for %%a in (updates\characters\rean\*.sql) do (
++for %%a in (updates\characters\reanemu\*.sql) do (
 +echo /* >>%CharactersRean%
 +echo * %%a >>%CharactersRean%
 +echo */ >>%CharactersRean%
@@ -106,7 +106,7 @@ index 0000000..7346823
 +echo. >>%AuthUpdates%)  
 +
 +
-+for %%a in (updates\auth\rean\*.sql) do (
++for %%a in (updates\auth\reanemu\*.sql) do (
 +echo /* >>%AuthRean%
 +echo * %%a >>%AuthRean%
 +echo */ >>%AuthRean%
