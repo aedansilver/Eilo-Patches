@@ -1,7 +1,7 @@
 From f7ea5f2a2b02e7c7e823d678529c8438d7bb056b Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 21:47:13 -0500
-Subject: [PATCH 17/74] 1.11 Unir al canal LFG desde cualquier ciudad y
+Subject: [PATCH 17/77] 1.11 Unir al canal LFG desde cualquier ciudad y
  desactivado avisos de Join/Leave
 
 ---

@@ -1,7 +1,7 @@
 From a35315338b1cc961130c7c698ded2eda0bde4125 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 16:38:27 -0500
-Subject: [PATCH 13/74] 1.7 Inmunidades de vehiculos
+Subject: [PATCH 13/77] 1.7 Inmunidades de vehiculos
 
 ---
  src/server/game/Entities/Vehicle/Vehicle.cpp |   36 ++++++++++++++++++++++++++

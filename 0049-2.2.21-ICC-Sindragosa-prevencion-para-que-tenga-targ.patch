@@ -1,7 +1,7 @@
 From 9dff039c1192631c058a13bdcbe1f3f729efe206 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 11:36:29 -0500
-Subject: [PATCH 49/74] 2.2.21 ICC: Sindragosa prevencion para que tenga
+Subject: [PATCH 49/77] 2.2.21 ICC: Sindragosa prevencion para que tenga
  target cuando baja
 
 ---

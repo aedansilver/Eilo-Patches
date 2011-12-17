@@ -1,7 +1,7 @@
 From eef8e84a0c3ff0d62664c842baba38cda586e7f9 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 01:48:35 -0500
-Subject: [PATCH 36/74] 2.2.8 ICC: Putricide inmune en los balcones
+Subject: [PATCH 36/77] 2.2.8 ICC: Putricide inmune en los balcones
 
 ---
  .../IcecrownCitadel/boss_professor_putricide.cpp   |    4 ++++

@@ -1,7 +1,7 @@
 From 525b165b09ea3aea586484fcd67919a18958309c Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 16:44:35 -0500
-Subject: [PATCH 12/74] 1.6 Wintergrasp
+Subject: [PATCH 12/77] 1.6 Wintergrasp
 
 ---
  .../2011_10_18_100_characters_wintergrasp.sql      |    7 +

@@ -1,7 +1,7 @@
 From 989a7397d37d4c101acc0f687e8edb5c7340e9d6 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 17:56:14 -0500
-Subject: [PATCH 58/74] 2.2.30 ICC: Trashmob implementacion completa
+Subject: [PATCH 58/77] 2.2.30 ICC: Trashmob implementacion completa
 
 ---
  .../reanemu/2011_11_25_100_world_trashmobs_icc.sql |  150 ++

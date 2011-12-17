@@ -5,21 +5,21 @@ Subject: [PATCH 69/74] 2.8.1 Obsidian Sanctum: Mejora de script e
  implementacion de trash mob
 
 ---
- .../2011_08_08_100_world_obsidian_sanctum.sql      |   24 +
+ .../world/reanemu/2011_08_08_100_world_obsidian_sanctum.sql      |   24 +
  src/server/game/Scripting/ScriptLoader.cpp         |    2 +
  src/server/scripts/Northrend/CMakeLists.txt        |    1 +
  .../ObsidianSanctum/boss_sartharion.cpp            | 1078 ++++++++++++--------
  .../ObsidianSanctum/instance_obsidian_sanctum.cpp  |   90 ++-
  .../ObsidianSanctum/mob_obsidian_sanctum.cpp       |  345 +++++++
  6 files changed, 1099 insertions(+), 441 deletions(-)
- create mode 100644 sql/updates/world/2011_08_08_100_world_obsidian_sanctum.sql
+ create mode 100644 sql/updates/world/reanemu/2011_08_08_100_world_obsidian_sanctum.sql
  create mode 100644 src/server/scripts/Northrend/ChamberOfAspects/ObsidianSanctum/mob_obsidian_sanctum.cpp
 
-diff --git a/sql/updates/world/2011_08_08_100_world_obsidian_sanctum.sql b/sql/updates/world/2011_08_08_100_world_obsidian_sanctum.sql
+diff --git a/sql/updates/world/reanemu/2011_08_08_100_world_obsidian_sanctum.sql b/sql/updates/world/reanemu/2011_08_08_100_world_obsidian_sanctum.sql
 new file mode 100644
 index 0000000..51bd0f0
 --- /dev/null
-+++ b/sql/updates/world/2011_08_08_100_world_obsidian_sanctum.sql
++++ b/sql/updates/world/reanemu/2011_08_08_100_world_obsidian_sanctum.sql
 @@ -0,0 +1,24 @@
 +-- 03_[Dungeon]Obsidian_Sanctum.sql
 +-- Twilight Welp

@@ -1,7 +1,7 @@
 From 0574ab74025b40b618632e8626b803f23c7a4a16 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 13:42:55 -0500
-Subject: [PATCH 68/74] 2.5.1 Eye of Eternity: Reimplementacion completa
+Subject: [PATCH 68/77] 2.5.1 Eye of Eternity: Reimplementacion completa
 
 ---
  .../2011_11_13_100_world_eye_of_eternity.sql       |  160 ++
@@ -178,7 +178,7 @@ index 0000000..6db77b1
 +(32295, -1616031, 'I did what I had to, brother. You gave me no alternative.', 14406, 1, 0, 0, 'Alexstrasza OUTRO 1'),
 +(32295, -1616032, 'And so ends the Nexus War.', 14407, 1, 0, 0, 'Alexstrasza OUTRO 2'),
 +(32295, -1616033, 'This resolution pains me deeply, but the destruction, the monumental loss of life had to end. Regardless of Malygos\' recent transgressions, I will mourn his loss. He was once a guardian, a protector. This day, one of the world\'s mightiest has fallen.', 14408, 1, 0, 0, 'Alexstrasza OUTRO 3'),
-+(32295, -1616034, 'The red dragonflight will take on the burden of mending the devastation wrought on Azeroth. Return home to your people and rest. Tomorrow will bring you new challenges, and you must be ready to face them. Life...goes on.', 14409, 1, 0, 0, 'Alexstrasza OUTRO 4'),
++(32295, -1616034, 'The red dragonflight will take on the burden of mending the devastation wrought on Azeroth. Return home to your people and rest. Tomorrow will bring you new challenges, and you must be ready to face them. Life...goes on.', 14409, 1, 0, 0, 'Alexstrasza OUTRO 4');
 diff --git a/src/server/game/Spells/Auras/SpellAuraEffects.cpp b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
 index 7930a80..bace696 100755
 --- a/src/server/game/Spells/Auras/SpellAuraEffects.cpp

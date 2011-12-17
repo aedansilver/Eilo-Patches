@@ -1,7 +1,7 @@
 From a4d8253f6e981e7b871ac8a52b90d6d74b4f460b Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:11:53 -0500
-Subject: [PATCH 38/74] 2.2.10 ICC: Putricide Volatile Ooze y Gas Cloud
+Subject: [PATCH 38/77] 2.2.10 ICC: Putricide Volatile Ooze y Gas Cloud
  despawn entre fases
 
 ---

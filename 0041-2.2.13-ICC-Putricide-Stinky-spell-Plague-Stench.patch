@@ -1,7 +1,7 @@
 From de5b98a312278089184ba4d092d2d0c5c72c7987 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:23:03 -0500
-Subject: [PATCH 41/74] 2.2.13 ICC: Putricide Stinky spell Plague Stench
+Subject: [PATCH 41/77] 2.2.13 ICC: Putricide Stinky spell Plague Stench
 
 ---
  .../reanemu/2011_10_30_100_world_plague_stench.sql |    8 +++

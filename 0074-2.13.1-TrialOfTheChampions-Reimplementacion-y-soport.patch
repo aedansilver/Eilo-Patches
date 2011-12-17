@@ -1,7 +1,7 @@
 From 22eebd95ddb65be2d2a5c4a98573b4f95f0c9458 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 17 Dec 2011 12:46:41 -0500
-Subject: [PATCH 74/74] 2.13.1 TrialOfTheChampions: Reimplementacion y soporte
+Subject: [PATCH 74/77] 2.13.1 TrialOfTheChampions: Reimplementacion y soporte
  de spells
 
 ---

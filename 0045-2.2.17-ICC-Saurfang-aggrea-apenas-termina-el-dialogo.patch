@@ -1,7 +1,7 @@
 From b0ee0ee5b3e2894498645dc3d1967eff66a703fc Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:37:13 -0500
-Subject: [PATCH 45/74] 2.2.17 ICC: Saurfang aggrea apenas termina el dialogo
+Subject: [PATCH 45/77] 2.2.17 ICC: Saurfang aggrea apenas termina el dialogo
 
 ---
  .../IcecrownCitadel/boss_deathbringer_saurfang.cpp |    3 ++-

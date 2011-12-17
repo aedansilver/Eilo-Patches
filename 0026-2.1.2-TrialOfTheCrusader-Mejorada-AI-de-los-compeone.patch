@@ -1,7 +1,7 @@
 From 994302f78cf8f8bc92f4772699e0e46c0a15b401 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 23:42:19 -0500
-Subject: [PATCH 26/74] 2.1.2 TrialOfTheCrusader: Mejorada AI de los compeones
+Subject: [PATCH 26/77] 2.1.2 TrialOfTheCrusader: Mejorada AI de los compeones
 
 ---
  .../TrialOfTheCrusader/boss_faction_champions.cpp  |  159 ++++++++++++++------

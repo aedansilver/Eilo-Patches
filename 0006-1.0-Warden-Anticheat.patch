@@ -1,7 +1,7 @@
 From 6c6c9792aca6b0e68c4e73ebe197851bb289d469 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:45:24 -0500
-Subject: [PATCH 06/74] 1.0 Warden Anticheat
+Subject: [PATCH 06/77] 1.0 Warden Anticheat
 
 ---
  .../auth/reanemu/2011_12_06_100_auth_warden.sql    |    2 +
