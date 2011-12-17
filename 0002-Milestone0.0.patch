@@ -1,0 +1,36 @@
+From 3dba5be749986cdb02ba943ef776625671141df4 Mon Sep 17 00:00:00 2001
+From: Eilo <eilo2518@gmail.com>
+Date: Sat, 17 Dec 2011 12:51:52 -0500
+Subject: [PATCH 02/74] Milestone0.0
+
+---
+ WHAT_IS_INSIDE |    6 ++++++
+ 1 files changed, 6 insertions(+), 0 deletions(-)
+
+diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
+index 3e9304a..6d2b2c4 100644
+--- a/WHAT_IS_INSIDE
++++ b/WHAT_IS_INSIDE
+@@ -9,6 +9,10 @@ parches y/o c
+ #########
+ #ReanEmu#
+ #########
++Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevos
++              developers en git y la inclusion de texto de planeacion para union 
++			  eficiente de codigo reestructurando modo de trabajo y organizando 
++			  carpetas, branches, etc
+ 
+ 			  
+ ##################################
+@@ -19,6 +23,8 @@ parches y/o c
+ ###############
+ # Adicionales #
+ ###############
++0.1 - 28/10/2011: Archivo sqlcombinado.BAT para unificar sqls de actualizacion por Eilo
++0.2 - 24/11/2011: Añadido sql TDB11.44
+ 
+ 
+ ###############
+-- 
+1.7.6.msysgit.0
+

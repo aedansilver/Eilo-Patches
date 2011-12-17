@@ -1,0 +1,53 @@
+From f7ea5f2a2b02e7c7e823d678529c8438d7bb056b Mon Sep 17 00:00:00 2001
+From: Eilo <eilo2518@gmail.com>
+Date: Thu, 15 Dec 2011 21:47:13 -0500
+Subject: [PATCH 17/74] 1.11 Unir al canal LFG desde cualquier ciudad y
+ desactivado avisos de Join/Leave
+
+---
+ src/server/game/Chat/Channels/Channel.cpp  |    8 ++++----
+ src/server/game/Entities/Player/Player.cpp |    4 ++++
+ 2 files changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/src/server/game/Chat/Channels/Channel.cpp b/src/server/game/Chat/Channels/Channel.cpp
+index 244c05e..fcce8b3 100755
+--- a/src/server/game/Chat/Channels/Channel.cpp
++++ b/src/server/game/Chat/Channels/Channel.cpp
+@@ -803,15 +803,15 @@ void Channel::MakeNotifyPacket(WorldPacket* data, uint8 notify_type)
+ // done 0x00
+ void Channel::MakeJoined(WorldPacket* data, uint64 guid)
+ {
+-    MakeNotifyPacket(data, CHAT_JOINED_NOTICE);
+-    *data << uint64(guid);
++    /*MakeNotifyPacket(data, CHAT_JOINED_NOTICE);
++    *data << uint64(guid);*/
+ }
+ 
+ // done 0x01
+ void Channel::MakeLeft(WorldPacket* data, uint64 guid)
+ {
+-    MakeNotifyPacket(data, CHAT_LEFT_NOTICE);
+-    *data << uint64(guid);
++    /*MakeNotifyPacket(data, CHAT_LEFT_NOTICE);
++    *data << uint64(guid);*/
+ }
+ 
+ // done 0x02
+diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
+index fc7529c..f2447b2 100755
+--- a/src/server/game/Entities/Player/Player.cpp
++++ b/src/server/game/Entities/Player/Player.cpp
+@@ -5619,6 +5619,10 @@ void Player::RepopAtGraveyard()
+ 
+ bool Player::CanJoinConstantChannelInZone(ChatChannelsEntry const* channel, AreaTableEntry const* zone)
+ {
++    // Player can join LFG anywhere
++    if (channel->flags & CHANNEL_DBC_FLAG_LFG)
++        return true;
++
+     if (channel->flags & CHANNEL_DBC_FLAG_ZONE_DEP && zone->flags & AREA_FLAG_ARENA_INSTANCE)
+         return false;
+ 
+-- 
+1.7.6.msysgit.0
+
