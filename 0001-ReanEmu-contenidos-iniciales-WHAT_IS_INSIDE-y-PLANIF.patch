@@ -1,7 +1,7 @@
-From 015c325eb5b0e3feb930f776e2a96ecbb1c16fb2 Mon Sep 17 00:00:00 2001
+From db28584626c3557eea17b7b06fb6e9daadba42f1 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 17 Dec 2011 12:50:20 -0500
-Subject: [PATCH 01/79] =?UTF-8?q?---=20ReanEmu=20contenidos=20iniciales,=20W?=
+Subject: [PATCH 01/23] =?UTF-8?q?---=20ReanEmu=20contenidos=20iniciales,=20W?=
  =?UTF-8?q?HAT=5FIS=5FINSIDE=20y=20PLANIFICACION=20a=C3=B1adidos---?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -42,7 +42,7 @@ index dfa6488..0e70a77 100644
  cmake_minimum_required(VERSION 2.6)
 diff --git a/PLANIFICACION b/PLANIFICACION
 new file mode 100644
-index 0000000..f2f10fc
+index 0000000..0713a7c
 --- /dev/null
 +++ b/PLANIFICACION
 @@ -0,0 +1,161 @@
@@ -60,9 +60,10 @@ index 0000000..f2f10fc
 +El repositorio no puede ser un desorden por lo que se fijarán metas 
 +concretas en 5 MILESTONES:
 +
-+Milestone0.0 -- Inicial
-+Milestone1.0 -- Caracteristicas principales y adicionales para el emulador
++Milestone0.0 -- Caracteristicas principales y adicionales para el emulador
 +                tales como ahbot, wintergrasp, warden, ac1, reset duel, etc.
++Milestone1.0 -- Jugabilidad en general, adecuaciones de codigo vario en mapas
++                comportamiento de bgs, arenas, players-units-pets y mejoras.
 +Milestone2.0 -- Principales arreglos a dungeons e instances, sobre todo las
 +                raids de ICC, Sagrario Rubi y Ulduar.
 +Milestone3.0 -- Arreglos a Spells, sobre todo para estabilidad del pve y del
@@ -206,8 +207,6 @@ index 0000000..f2f10fc
 +esta meta inmensa como equipo de desarrollo de ReanEmu.
 +
 +Saludos
-+Eilo		
-\ No newline at end of file
 diff --git a/README b/README
 index f2ae18f..60f2df7 100644
 --- a/README
