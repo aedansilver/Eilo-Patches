@@ -1,4 +1,4 @@
-From 03a390cb9ebe7f8c9b63b16bac971b33c004313d Mon Sep 17 00:00:00 2001
+From 2b9ed4f8e1ee1d410393e920da28eaeacc147091 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 17 Dec 2011 12:50:20 -0500
 Subject: [PATCH 001/100] =?UTF-8?q?---=20ReanEmu=20contenidos=20iniciales,=20?=
@@ -260,7 +260,7 @@ index f2ae18f..60f2df7 100644
    it under the terms of the GNU General Public License as published by
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
 new file mode 100644
-index 0000000..3e9304a
+index 0000000..17dc82e
 --- /dev/null
 +++ b/WHAT_IS_INSIDE
 @@ -0,0 +1,71 @@

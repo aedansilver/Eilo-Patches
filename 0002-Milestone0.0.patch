@@ -1,4 +1,4 @@
-From 0b170015aef74816cb36afc4bd30b0bd162508f0 Mon Sep 17 00:00:00 2001
+From 9f5708a4184d04a2428833647a0ce4b2865e5104 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 15:45:29 -0500
 Subject: [PATCH 002/100] Milestone0.0
@@ -8,7 +8,7 @@ Subject: [PATCH 002/100] Milestone0.0
  1 files changed, 26 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 3e9304a..78107f7 100644
+index 17dc82e..cd02102 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -9,6 +9,11 @@ parches y/o c
@@ -21,7 +21,7 @@ index 3e9304a..78107f7 100644
 +              carpetas, branches, etc, adicion de codigo utilitario en general 
 +              para complemento del nucleo y funciones de soporte.
  
-
+ 
  ##################################
 @@ -19,6 +24,27 @@ parches y/o c
  ###############
