@@ -1,7 +1,7 @@
-From fa4c5386335fbb193ceb60baa91a3ef5a02fcf3c Mon Sep 17 00:00:00 2001
+From 5cab2300777093afdc54709d7a53496efc255ab2 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 13:49:09 -0500
-Subject: [PATCH 09/23] 0.7 ResetCD Duelos
+Subject: [PATCH 009/100] 0.7 ResetCD Duelos
 
 ---
  .../game/Server/Protocol/Handlers/DuelHandler.cpp  |    8 ++++++++

@@ -1,8 +1,8 @@
-From 950793a204340d3eb54457e405e85dd8d2a557ec Mon Sep 17 00:00:00 2001
+From 0744533a23bd2ca82965c821f11a4ddcacd7dac1 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 22:15:09 -0500
-Subject: [PATCH 20/23] =?UTF-8?q?0.18=20DoAttackerAreaInCombat=20rea=C3=B1ad?=
- =?UTF-8?q?ida=20al=20nucleo?=
+Subject: [PATCH 020/100] =?UTF-8?q?0.18=20DoAttackerAreaInCombat=20rea=C3=B1?=
+ =?UTF-8?q?adida=20al=20nucleo?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit

@@ -1,7 +1,7 @@
-From b5c38f02bb0711adf708bea5a1c64e77f82ef2c4 Mon Sep 17 00:00:00 2001
+From f82194fa29dba42ce0f855735b12a2d59c8772e3 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 20:38:02 -0500
-Subject: [PATCH 07/23] 0.5 PvpRanks y titulos
+Subject: [PATCH 007/100] 0.5 PvpRanks y titulos
 
 ---
  src/server/game/Entities/Player/Player.cpp |   64 ++++++++++++++++++++++++++-

@@ -1,14 +1,14 @@
-From a33ffce23997b58f8b68576137b405b3b1024d72 Mon Sep 17 00:00:00 2001
+From 0b170015aef74816cb36afc4bd30b0bd162508f0 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 15:45:29 -0500
-Subject: [PATCH 02/23] Milestone0.0
+Subject: [PATCH 002/100] Milestone0.0
 
 ---
  WHAT_IS_INSIDE |   26 ++++++++++++++++++++++++++
  1 files changed, 26 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 3e9304a..f1cfa84 100644
+index 3e9304a..78107f7 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -9,6 +9,11 @@ parches y/o c
