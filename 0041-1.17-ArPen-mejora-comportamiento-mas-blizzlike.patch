@@ -1,0 +1,25 @@
+From 2cb572d8b24fde7e725a4006b89abd71e059f77a Mon Sep 17 00:00:00 2001
+From: Eilo <eilo2518@gmail.com>
+Date: Sat, 24 Dec 2011 18:48:51 -0500
+Subject: [PATCH 041/100] 1.17 ArPen mejora comportamiento, mas blizzlike
+
+---
+ src/server/game/Entities/Unit/Unit.cpp |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+diff --git a/src/server/game/Entities/Unit/Unit.cpp b/src/server/game/Entities/Unit/Unit.cpp
+index e2308bd..3c0f2de 100755
+--- a/src/server/game/Entities/Unit/Unit.cpp
++++ b/src/server/game/Entities/Unit/Unit.cpp
+@@ -1557,6 +1557,8 @@ uint32 Unit::CalcArmorReducedDamage(Unit* victim, const uint32 damage, SpellInfo
+         armor -= std::min(armorPen, maxArmorPen);
+     }
+ 
++	armor *= 1.0f - GetTotalAuraModifier(SPELL_AURA_MOD_ARMOR_PENETRATION_PCT) / 100.0f;
++
+     if (armor < 0.0f)
+         armor = 0.0f;
+ 
+-- 
+1.7.6.msysgit.0
+

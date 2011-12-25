@@ -1,0 +1,41 @@
+From e1dfe1f66eb898ea6dfe2554b33e5f17444bd687 Mon Sep 17 00:00:00 2001
+From: Eilo <eilo2518@gmail.com>
+Date: Sat, 24 Dec 2011 18:36:12 -0500
+Subject: [PATCH 040/100] 1.16 Evitando que puedan poner totems dentro de las
+ paredes
+
+---
+ src/server/game/Spells/Spell.cpp |   17 +++++++++++++----
+ 1 files changed, 13 insertions(+), 4 deletions(-)
+
+diff --git a/src/server/game/Spells/Spell.cpp b/src/server/game/Spells/Spell.cpp
+index f0076cc..0bc2afe 100755
+--- a/src/server/game/Spells/Spell.cpp
++++ b/src/server/game/Spells/Spell.cpp
+@@ -2230,10 +2230,19 @@ uint32 Spell::SelectEffectTargets(uint32 i, SpellImplicitTargetInfo const& cur)
+             }
+ 
+             Position pos;
+-            if (cur.GetTarget() == TARGET_DEST_CASTER_FRONT_LEAP)
+-                m_caster->GetFirstCollisionPosition(pos, dist, angle);
+-            else
+-                m_caster->GetNearPosition(pos, dist, angle);
++            switch (cur.GetTarget())
++            {
++                case TARGET_DEST_CASTER_FRONT_LEAP:
++                case TARGET_DEST_CASTER_FRONT_LEFT:
++                case TARGET_DEST_CASTER_BACK_LEFT:
++                case TARGET_DEST_CASTER_BACK_RIGHT:
++                case TARGET_DEST_CASTER_FRONT_RIGHT:
++                    m_caster->GetFirstCollisionPosition(pos, dist, angle);
++                    break;
++                default:
++                    m_caster->GetNearPosition(pos, dist, angle);
++                    break;
++            }
+             m_targets.SetDst(*m_caster);
+             m_targets.ModDst(pos);
+             break;
+-- 
+1.7.6.msysgit.0
+
