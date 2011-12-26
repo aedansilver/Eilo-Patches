@@ -1,7 +1,7 @@
 From 723168d7d78458f7aaa0ab3377b9bf66948af0c9 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 12:39:39 -0500
-Subject: [PATCH 080/120] 2.2.32 ICC: Sindragosa tercera fase 1pj en tumba
+Subject: [PATCH 080/126] 2.2.32 ICC: Sindragosa tercera fase 1pj en tumba
 
 ---
  .../Northrend/IcecrownCitadel/boss_sindragosa.cpp  |    1 -
