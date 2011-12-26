@@ -1,20 +1,20 @@
-From 88ca81a792320bdcb0de3bb0dabdb8ff2f2134c6 Mon Sep 17 00:00:00 2001
+From 533583ef3ec931708aa46f70853ae3f801fd8291 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Sat, 17 Dec 2011 14:39:12 -0500
-Subject: [PATCH 094/100] 2.14.1 Drak'Tharon: Visuales y flags varias del
+Date: Sun, 25 Dec 2011 01:54:03 -0500
+Subject: [PATCH 094/120] 2.14.1 Drak'Tharon: Visuales y flags varias del
  trash y reward de LFG
 
 ---
- .../reanemu/2011_12_17_100_world_draktharon.sql    |   34 ++++++++++++++++++++
- 1 files changed, 34 insertions(+), 0 deletions(-)
+ .../reanemu/2011_12_17_100_world_draktharon.sql    |   36 ++++++++++++++++++++
+ 1 files changed, 36 insertions(+), 0 deletions(-)
  create mode 100644 sql/updates/world/reanemu/2011_12_17_100_world_draktharon.sql
 
 diff --git a/sql/updates/world/reanemu/2011_12_17_100_world_draktharon.sql b/sql/updates/world/reanemu/2011_12_17_100_world_draktharon.sql
 new file mode 100644
-index 0000000..e517e57
+index 0000000..56e70d0
 --- /dev/null
 +++ b/sql/updates/world/reanemu/2011_12_17_100_world_draktharon.sql
-@@ -0,0 +1,34 @@
+@@ -0,0 +1,36 @@
 +-- Eilo (https://github.com/eilo)
 +-- Recopilacion y adecuacion de querys originales de Zwerg mas unas mias
 +-- Drakkari Guardian (no deberia estar todos muertos)
@@ -49,6 +49,8 @@ index 0000000..e517e57
 +26830,  -- Risen Drakkari Death Knight
 +31352,  -- Risen Drakkari Death Knight H
 +27431,  -- Drakkari Commander
++31338   -- Drakkari Commander H
++);
 -- 
 1.7.6.msysgit.0
 
