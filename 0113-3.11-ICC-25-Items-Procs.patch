@@ -1,7 +1,7 @@
-From 86425ab82f4538783752fa0b51e8ecadf3eabaa0 Mon Sep 17 00:00:00 2001
+From eb80a6fd79ed7fb8934f7373b0ad4ed3a3388a33 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 18:48:01 +0100
-Subject: [PATCH 113/120] 3.11 ICC 25 Items Procs
+Subject: [PATCH 113/126] 3.11 ICC 25 Items Procs
 
 Arma de Caster Normal y Heroico (71845) y (71846)
 Arma de Healer Normal y Heroico (71865) y (71868)
@@ -16,7 +16,7 @@ Daga Normal y Heroico (71883) y (71888)
 
 diff --git a/sql/updates/world/reanemu/2011_07_07_100_world_icc_weapons_proc.sql b/sql/updates/world/reanemu/2011_07_07_100_world_icc_weapons_proc.sql
 new file mode 100644
-index 0000000..c0bf93a
+index 0000000..c401e5f
 --- /dev/null
 +++ b/sql/updates/world/reanemu/2011_07_07_100_world_icc_weapons_proc.sql
 @@ -0,0 +1,19 @@

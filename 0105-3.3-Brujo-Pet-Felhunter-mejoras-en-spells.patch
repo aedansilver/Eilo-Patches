@@ -1,7 +1,7 @@
 From fcfa32dcd11bd3e6c01c4351738a03e51f90a7de Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sat, 26 Nov 2011 17:44:14 +0100
-Subject: [PATCH 105/120] 3.3 Brujo: Pet Felhunter mejoras en spells
+Subject: [PATCH 105/126] 3.3 Brujo: Pet Felhunter mejoras en spells
 
 ---
  .../2011_11_05_100_world_felhunter_mejorado.sql    |    2 +

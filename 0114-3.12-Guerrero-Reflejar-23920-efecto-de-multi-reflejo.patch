@@ -1,7 +1,7 @@
-From 09ce5816276f714988a810ea9a290128250ffaad Mon Sep 17 00:00:00 2001
+From 8e4467739cb1ee0269ef570787d0a08f1b651acc Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 19:09:45 +0100
-Subject: [PATCH 114/120] 3.12 Guerrero: Reflejar (23920) efecto de
+Subject: [PATCH 114/126] 3.12 Guerrero: Reflejar (23920) efecto de
  multi-reflejo
 
 ---

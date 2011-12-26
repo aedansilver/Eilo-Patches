@@ -1,7 +1,7 @@
-From 6a04692949c6338367b3f3cdaad5c54559c1de37 Mon Sep 17 00:00:00 2001
+From 5601b9a3fe6418523d6d5fa5073f47b40e89d0ef Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 19:54:52 +0100
-Subject: [PATCH 117/120] =?UTF-8?q?3.15=20Palad=C3=ADn:=20Escudo=20Sacro=20(?=
+Subject: [PATCH 117/126] =?UTF-8?q?3.15=20Palad=C3=ADn:=20Escudo=20Sacro=20(?=
  =?UTF-8?q?70491)=20a=C3=B1adir=20cooldown=20(cd)=20despu=C3=A9s=20de=20efec?=
  =?UTF-8?q?to=20de=20remover?=
 MIME-Version: 1.0
@@ -25,7 +25,7 @@ index 0000000..6325f29
 +(58597, 'spell_pal_sacred_shield');
 \ No newline at end of file
 diff --git a/src/server/scripts/Spells/spell_paladin.cpp b/src/server/scripts/Spells/spell_paladin.cpp
-index 0c48572..931ec2f 100644
+index 0c48572..c2c6fa0 100644
 --- a/src/server/scripts/Spells/spell_paladin.cpp
 +++ b/src/server/scripts/Spells/spell_paladin.cpp
 @@ -35,6 +35,8 @@ enum PaladinSpells

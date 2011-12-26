@@ -1,7 +1,7 @@
 From fb1360dcf0e25b9ab2acc38f2083f6cc37efafa2 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sat, 26 Nov 2011 21:39:06 +0100
-Subject: [PATCH 110/120] 3.8 Cazador: Golpes de Cobra (53257)
+Subject: [PATCH 110/126] 3.8 Cazador: Golpes de Cobra (53257)
 
 ---
  src/server/game/Spells/Spell.cpp    |    5 +++++

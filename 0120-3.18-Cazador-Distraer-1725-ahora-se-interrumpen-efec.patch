@@ -1,7 +1,7 @@
-From d9f05113852822b12f78526cbe853aba6653abd1 Mon Sep 17 00:00:00 2001
+From 20e81ff903eef1206d25e64d9022fed1f301ba4c Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 22:27:31 +0100
-Subject: [PATCH 120/120] 3.18 Cazador: Distraer (1725) ahora se interrumpen
+Subject: [PATCH 120/126] 3.18 Cazador: Distraer (1725) ahora se interrumpen
  efectos de comer/beber
 
 ---

@@ -1,7 +1,7 @@
-From 10b00d76cfd14c6ebf53bbec5c5394737c875b1b Mon Sep 17 00:00:00 2001
+From 6691ba83d19d3e07f5ccdeb7b35bb84a6892144f Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 22:12:27 +0100
-Subject: [PATCH 119/120] 3.17 Duelos: Penitencia (47540) y Choque Sagrado
+Subject: [PATCH 119/126] 3.17 Duelos: Penitencia (47540) y Choque Sagrado
  (20473) no se pueden usar en duelos de otros pj
 
 ---
@@ -10,7 +10,7 @@ Subject: [PATCH 119/120] 3.17 Duelos: Penitencia (47540) y Choque Sagrado
  2 files changed, 7 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/scripts/Spells/spell_paladin.cpp b/src/server/scripts/Spells/spell_paladin.cpp
-index 3ec939e..e72e9bd 100644
+index 0eb8f95..5058aaa 100644
 --- a/src/server/scripts/Spells/spell_paladin.cpp
 +++ b/src/server/scripts/Spells/spell_paladin.cpp
 @@ -286,6 +286,9 @@ public:

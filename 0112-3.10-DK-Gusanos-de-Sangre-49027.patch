@@ -1,7 +1,7 @@
 From d0749a7573e42a38227f61f4d6130cc88b4efbfd Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 15:48:07 +0100
-Subject: [PATCH 112/120] 3.10 DK: Gusanos de Sangre (49027)
+Subject: [PATCH 112/126] 3.10 DK: Gusanos de Sangre (49027)
 
 ---
  .../reanemu/2011_07_08_100_world_bloodworms.sql    |    5 +++++
