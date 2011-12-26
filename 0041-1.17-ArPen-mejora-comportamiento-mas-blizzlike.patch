@@ -1,7 +1,7 @@
-From 2cb572d8b24fde7e725a4006b89abd71e059f77a Mon Sep 17 00:00:00 2001
+From 6ed783ec857632ae566a6b0ef0dded421a7b73b7 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:48:51 -0500
-Subject: [PATCH 041/100] 1.17 ArPen mejora comportamiento, mas blizzlike
+Subject: [PATCH 041/120] 1.17 ArPen mejora comportamiento, mas blizzlike
 
 ---
  src/server/game/Entities/Unit/Unit.cpp |    2 ++

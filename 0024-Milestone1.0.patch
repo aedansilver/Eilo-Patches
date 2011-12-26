@@ -1,14 +1,14 @@
-From fbfd60843893661010bf4fb9130ba9d0c81549ef Mon Sep 17 00:00:00 2001
+From f4b1997caa393836d8314b3fe120e5733942d0b5 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Sat, 24 Dec 2011 19:49:12 -0500
-Subject: [PATCH 024/100] Milestone1.0
+Date: Mon, 26 Dec 2011 11:10:20 -0500
+Subject: [PATCH 024/120] Milestone1.0
 
 ---
- WHAT_IS_INSIDE |   20 ++++++++++++++++++++
- 1 files changed, 20 insertions(+), 0 deletions(-)
+ WHAT_IS_INSIDE |   21 +++++++++++++++++++++
+ 1 files changed, 21 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index cd02102..5269554 100644
+index cd02102..1a30ad5 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -14,6 +14,8 @@ Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevo
@@ -20,7 +20,7 @@ index cd02102..5269554 100644
  
  
  ##################################
-@@ -50,6 +52,24 @@ Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevo
+@@ -50,6 +52,25 @@ Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevo
  ###############
  # Jugabilidad #
  ###############
@@ -42,6 +42,7 @@ index cd02102..5269554 100644
 +1.16 - 29/10/2011: Evitando que puedan poner totems dentro de las paredes por Opcode187
 +1.17 - 08/11/2011: ArPen mejora comportamiento, mas blizzlike por Ws
 +1.18 - 05/11/2011: Prevenir error en el cálculo de buffs con stacks por Kerhong
++1.19 - 17/12/2011: IsleOfConquest: Script evitando que puedan matar a los bosses con exploit por Retriman
  
  
  ###############################
