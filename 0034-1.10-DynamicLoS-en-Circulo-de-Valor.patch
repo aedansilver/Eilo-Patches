@@ -1,7 +1,7 @@
 From 12a799492021347cf96f209863d1914475759a71 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:09:51 -0500
-Subject: [PATCH 034/120] 1.10 DynamicLoS en Circulo de Valor
+Subject: [PATCH 034/126] 1.10 DynamicLoS en Circulo de Valor
 
 ---
  .../game/Battlegrounds/Zones/BattlegroundRV.cpp    |   36 ++++++++++++++++++++

@@ -1,7 +1,7 @@
 From 8b44b7ced8377e15de902c489d58de1f081c4f92 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:25:18 -0500
-Subject: [PATCH 037/120] 1.13 Mejora en pesos(probabilidad) y min-max pj en
+Subject: [PATCH 037/126] 1.13 Mejora en pesos(probabilidad) y min-max pj en
  cada bg
 
 ---

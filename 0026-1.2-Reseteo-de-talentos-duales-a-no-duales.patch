@@ -1,7 +1,7 @@
 From 45d06f9fbb45f8b75ffbae1015e8576ab93e7357 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 16:39:46 -0500
-Subject: [PATCH 026/120] 1.2 Reseteo de talentos duales a no duales
+Subject: [PATCH 026/126] 1.2 Reseteo de talentos duales a no duales
 
 ---
  src/server/game/Spells/Auras/SpellAuraEffects.cpp |   10 ++++++++++
