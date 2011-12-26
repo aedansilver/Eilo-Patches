@@ -1,0 +1,44 @@
+From fb1360dcf0e25b9ab2acc38f2083f6cc37efafa2 Mon Sep 17 00:00:00 2001
+From: Hispano <jesus.diaz.gutierrez@gmail.com>
+Date: Sat, 26 Nov 2011 21:39:06 +0100
+Subject: [PATCH 110/120] 3.8 Cazador: Golpes de Cobra (53257)
+
+---
+ src/server/game/Spells/Spell.cpp    |    5 +++++
+ src/server/game/Spells/SpellMgr.cpp |    4 ++++
+ 2 files changed, 9 insertions(+), 0 deletions(-)
+
+diff --git a/src/server/game/Spells/Spell.cpp b/src/server/game/Spells/Spell.cpp
+index a420305..1344f45 100755
+--- a/src/server/game/Spells/Spell.cpp
++++ b/src/server/game/Spells/Spell.cpp
+@@ -1344,6 +1344,11 @@ void Spell::DoAllEffectOnTarget(TargetInfo* target)
+             aurEff->SetAmount(CalculatePctU(aurEff->GetAmount(), damageInfo.damage));
+         }
+         m_damage = damageInfo.damage;
++       // Cobra Strikes (can't find any other way that may work)
++       if (m_spellInfo->SpellFamilyName == SPELLFAMILY_HUNTER && m_spellInfo->SpellFamilyFlags[1] & 0x10000000)
++           if (Unit * owner = caster->GetOwner())
++               if (Aura* pAura = owner->GetAura(53257))
++                   pAura->DropCharge();
+     }
+     // Passive spell hits/misses or active spells only misses (only triggers)
+     else
+diff --git a/src/server/game/Spells/SpellMgr.cpp b/src/server/game/Spells/SpellMgr.cpp
+index 5a08901..c061750 100755
+--- a/src/server/game/Spells/SpellMgr.cpp
++++ b/src/server/game/Spells/SpellMgr.cpp
+@@ -3142,6 +3142,10 @@ void SpellMgr::LoadDbcDataCorrections()
+             case 44401: // Missile Barrage
+                 spellInfo->procCharges = 1;
+                 break;
++            case 53257: // Cobra Strikes
++                spellInfo->procCharges = 2;
++                spellInfo->StackAmount = 0;
++                break;
+             case 44544: // Fingers of Frost
+                 spellInfo->EffectSpellClassMask[0] = flag96(685904631, 1151048, 0);
+                 break;
+-- 
+1.7.6.msysgit.0
+
