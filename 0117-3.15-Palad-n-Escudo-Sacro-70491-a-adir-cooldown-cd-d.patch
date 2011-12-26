@@ -51,7 +51,7 @@ index 0c48572..931ec2f 100644
 +   {
 +       PrepareAuraScript(spell_pal_sacred_shield_AuraScript)
 +       bool Validate(SpellInfo const* /*entry*/)
-+
++       {
 +           if (!sSpellMgr->GetSpellInfo(PALADIN_SPELL_SACRED_SHIELD_EFFECT))
 +               return false;
 +           return true;
