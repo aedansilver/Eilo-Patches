@@ -1,7 +1,7 @@
 From 58fc69d3f52614ce88e56d610918b6db9d00fc4b Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 20:38:02 -0500
-Subject: [PATCH 007/126] 0.5 PvpRanks y titulos
+Subject: [PATCH 007/127] 0.5 PvpRanks y titulos
 
 ---
  src/server/game/Entities/Player/Player.cpp |   64 ++++++++++++++++++++++++++-

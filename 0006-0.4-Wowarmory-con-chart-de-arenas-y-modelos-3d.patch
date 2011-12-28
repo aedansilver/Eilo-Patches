@@ -1,7 +1,7 @@
 From 7b54360e1b5ddf7e0ec8accc7eb8aca2dfbf52da Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:41:16 -0500
-Subject: [PATCH 006/126] 0.4 Wowarmory con chart de arenas y modelos 3d
+Subject: [PATCH 006/127] 0.4 Wowarmory con chart de arenas y modelos 3d
 
 ---
  src/server/game/Achievements/AchievementMgr.cpp |    1 +
