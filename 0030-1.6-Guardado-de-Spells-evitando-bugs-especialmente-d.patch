@@ -1,7 +1,7 @@
 From b8f266526d907d471d2606d876d46561740fe81d Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 16:52:19 -0500
-Subject: [PATCH 030/126] 1.6 Guardado de Spells, evitando bugs especialmente
+Subject: [PATCH 030/127] 1.6 Guardado de Spells, evitando bugs especialmente
  del dk
 
 ---

@@ -1,7 +1,7 @@
 From 6404c0d3aba660775914ab483d89ba45e7de9928 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 19:06:26 -0500
-Subject: [PATCH 042/126] 1.18 Prevenir error en el calculo de buffs con
+Subject: [PATCH 042/127] 1.18 Prevenir error en el calculo de buffs con
  stacks
 
 ---

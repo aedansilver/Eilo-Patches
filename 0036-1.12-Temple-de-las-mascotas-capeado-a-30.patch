@@ -1,7 +1,7 @@
 From bacb85b23097c6db0c0031515467fd45bc2f51b2 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:21:01 -0500
-Subject: [PATCH 036/126] 1.12 Temple de las mascotas capeado a 30%
+Subject: [PATCH 036/127] 1.12 Temple de las mascotas capeado a 30%
 
 ---
  src/server/game/Entities/Unit/Unit.h |    8 ++++----

@@ -1,7 +1,7 @@
 From 2dd8d7b705ef2866b422b783287cafb3790ef967 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:28:52 -0500
-Subject: [PATCH 038/126] 1.14 Deshabilitadas spells de nefarian que usan para
+Subject: [PATCH 038/127] 1.14 Deshabilitadas spells de nefarian que usan para
  exploit
 
 ---

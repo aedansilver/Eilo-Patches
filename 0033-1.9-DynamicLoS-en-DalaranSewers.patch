@@ -1,7 +1,7 @@
 From d350e8aacd02c427cbd816748b5288635b2ab945 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:08:27 -0500
-Subject: [PATCH 033/126] 1.9 DynamicLoS en DalaranSewers
+Subject: [PATCH 033/127] 1.9 DynamicLoS en DalaranSewers
 
 ---
  .../game/Battlegrounds/Zones/BattlegroundDS.cpp    |   90 ++++++++++++++++---
