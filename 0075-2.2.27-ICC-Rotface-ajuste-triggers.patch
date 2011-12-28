@@ -1,7 +1,7 @@
 From 13e7a6f9b7f3cf4832127cfc54b1821a702c4835 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 11:57:00 -0500
-Subject: [PATCH 075/126] 2.2.27 ICC: Rotface ajuste triggers
+Subject: [PATCH 075/127] 2.2.27 ICC: Rotface ajuste triggers
 
 ---
  .../2011_11_24_100_world_correcciones_icc.sql      |   11 +++++++++++

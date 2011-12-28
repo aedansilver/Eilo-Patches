@@ -1,7 +1,7 @@
 From 728399adf9e43637be6e843961344fd77dc70240 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:33:24 -0500
-Subject: [PATCH 063/126] 2.2.15 ICC: Marrowgar aggrea a 25y
+Subject: [PATCH 063/127] 2.2.15 ICC: Marrowgar aggrea a 25y
 
 ---
  .../IcecrownCitadel/boss_lord_marrowgar.cpp        |    5 +++++

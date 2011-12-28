@@ -1,7 +1,7 @@
 From 21fdc74063881c2993435493e5a5e77495fc77c5 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 17:56:14 -0500
-Subject: [PATCH 078/126] 2.2.30 ICC: Trashmob implementacion completa
+Subject: [PATCH 078/127] 2.2.30 ICC: Trashmob implementacion completa
 
 ---
  .../reanemu/2011_11_25_100_world_trashmobs_icc.sql |  150 ++
