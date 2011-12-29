@@ -1,0 +1,33 @@
+From f024e0b88a6ef3d8724b10d35b25543e2e4beaaa Mon Sep 17 00:00:00 2001
+From: Eilo <eilo2518@gmail.com>
+Date: Sat, 24 Dec 2011 16:39:46 -0500
+Subject: [PATCH 03/20] 1.2 Reseteo de talentos duales a no duales
+
+---
+ src/server/game/Spells/Auras/SpellAuraEffects.cpp |   10 ++++++++++
+ 1 files changed, 10 insertions(+), 0 deletions(-)
+
+diff --git a/src/server/game/Spells/Auras/SpellAuraEffects.cpp b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
+index 7930a80..5db2e61 100755
+--- a/src/server/game/Spells/Auras/SpellAuraEffects.cpp
++++ b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
+@@ -4817,6 +4817,16 @@ void AuraEffect::HandleAuraDummy(AuraApplication const* aurApp, uint8 mode, bool
+                     caster->CastCustomSpell(target, 63338, &damage, NULL, NULL, true);
+                     break;
+                 }
++                case 63624:                             // Learn a Second Talent Specialization
++                    // Teach Learn Talent Specialization Switches, required for client triggered casts, allow after 30 sec delay
++                    if (target->GetTypeId() == TYPEID_PLAYER)
++                        ((Player*)target)->learnSpell(63680, false);
++                    break;
++                case 63651:                             // Revert to One Talent Specialization
++                    // Teach Learn Talent Specialization Switches, remove
++                    if (target->GetTypeId() == TYPEID_PLAYER)
++                        ((Player*)target)->removeSpell(63680);
++                    break;
+                 case 71563:
+                     if (Aura* newAura = target->AddAura(71564, target))
+                         newAura->SetStackAmount(newAura->GetSpellInfo()->StackAmount);
+-- 
+1.7.6.msysgit.0
+
