@@ -1,0 +1,26 @@
+From 00a829d1a5bbe6347427c91a8bda1ebeac69f75c Mon Sep 17 00:00:00 2001
+From: Eilo <eilo2518@gmail.com>
+Date: Thu, 29 Dec 2011 14:35:12 -0500
+Subject: [PATCH 61/62] 2.24.1 UtgardeKeep: Ingvar previniendo el reseteo en
+ cambio de fase
+
+---
+ .../UtgardeKeep/boss_ingvar_the_plunderer.cpp      |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/src/server/scripts/Northrend/UtgardeKeep/UtgardeKeep/boss_ingvar_the_plunderer.cpp b/src/server/scripts/Northrend/UtgardeKeep/UtgardeKeep/boss_ingvar_the_plunderer.cpp
+index dc2d343..2a86dbd 100644
+--- a/src/server/scripts/Northrend/UtgardeKeep/UtgardeKeep/boss_ingvar_the_plunderer.cpp
++++ b/src/server/scripts/Northrend/UtgardeKeep/UtgardeKeep/boss_ingvar_the_plunderer.cpp
+@@ -107,7 +107,7 @@ public:
+             bIsUndead = false;
+             bEventInProgress = false;
+ 
+-            me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE);
++            me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NON_ATTACKABLE);
+             me->SetStandState(UNIT_STAND_STATE_STAND);
+ 
+             uiCleaveTimer = 2000;
+-- 
+1.7.6.msysgit.0
+

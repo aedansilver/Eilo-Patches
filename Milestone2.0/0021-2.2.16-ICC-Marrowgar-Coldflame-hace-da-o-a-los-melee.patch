@@ -1,0 +1,29 @@
+From 604fe6dcfc5fcc170951e9715337ccc52e0a1a30 Mon Sep 17 00:00:00 2001
+From: Eilo <eilo2518@gmail.com>
+Date: Fri, 16 Dec 2011 02:34:55 -0500
+Subject: [PATCH 21/62] =?UTF-8?q?2.2.16=20ICC:=20Marrowgar=20Coldflame=20hac?=
+ =?UTF-8?q?e=20da=C3=B1o=20a=20los=20melees=20debajo?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ .../IcecrownCitadel/boss_lord_marrowgar.cpp        |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp
+index 6286373..8cc9322 100755
+--- a/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp
++++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp
+@@ -324,7 +324,7 @@ class npc_coldflame : public CreatureScript
+                     }
+ 
+                     me->SetOrientation(owner->GetAngle(target));
+-                    owner->GetNearPosition(pos, owner->GetObjectSize() / 2.0f, 0.0f);
++                    owner->GetNearPosition(pos, owner->GetObjectSize() / 20.0f, 0.0f);
+                 }
+ 
+                 me->NearTeleportTo(pos.GetPositionX(), pos.GetPositionY(), me->GetPositionZ(), me->GetOrientation());
+-- 
+1.7.6.msysgit.0
+
