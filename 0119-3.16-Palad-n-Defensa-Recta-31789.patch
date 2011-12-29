@@ -1,0 +1,109 @@
+From 332f4a37df0ece2f60573e00b18aa5985b8a9898 Mon Sep 17 00:00:00 2001
+From: Hispano <jesus.diaz.gutierrez@gmail.com>
+Date: Sun, 27 Nov 2011 20:04:27 +0100
+Subject: [PATCH 119/130] =?UTF-8?q?3.16=20Palad=C3=ADn:=20Defensa=20Recta=20?=
+ =?UTF-8?q?(31789)?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ .../2011_10_28_100_world_paladin_defensa_recta.sql |    4 ++
+ src/server/game/Spells/SpellEffects.cpp            |    6 ---
+ src/server/scripts/Spells/spell_paladin.cpp        |   39 ++++++++++++++++++++
+ 3 files changed, 43 insertions(+), 6 deletions(-)
+ create mode 100644 sql/updates/world/reanemu/2011_10_28_100_world_paladin_defensa_recta.sql
+
+diff --git a/sql/updates/world/reanemu/2011_10_28_100_world_paladin_defensa_recta.sql b/sql/updates/world/reanemu/2011_10_28_100_world_paladin_defensa_recta.sql
+new file mode 100644
+index 0000000..6c51b05
+--- /dev/null
++++ b/sql/updates/world/reanemu/2011_10_28_100_world_paladin_defensa_recta.sql
+@@ -0,0 +1,4 @@
++-- Fix Paladin Righteous Defense spell
++DELETE FROM `spell_script_names` WHERE `ScriptName`='spell_pal_righteous_defense';
++INSERT INTO `spell_script_names` (`spell_id`,`ScriptName`) VALUES
++(31789,'spell_pal_righteous_defense');
+\ No newline at end of file
+diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
+index cca6b8c..8eb1915 100755
+--- a/src/server/game/Spells/SpellEffects.cpp
++++ b/src/server/game/Spells/SpellEffects.cpp
+@@ -1672,12 +1672,6 @@ void Spell::EffectTriggerSpell(SpellEffIndex effIndex)
+                     m_caster->CastSpell(unitTarget, spell->Id, true);
+                 return;
+             }
+-            // Righteous Defense
+-            case 31980:
+-            {
+-                m_caster->CastSpell(unitTarget, 31790, true);
+-                return;
+-            }
+             // Cloak of Shadows
+             case 35729:
+             {
+diff --git a/src/server/scripts/Spells/spell_paladin.cpp b/src/server/scripts/Spells/spell_paladin.cpp
+index c2c6fa0..0eb8f95 100644
+--- a/src/server/scripts/Spells/spell_paladin.cpp
++++ b/src/server/scripts/Spells/spell_paladin.cpp
+@@ -41,6 +41,9 @@ enum PaladinSpells
+     SPELL_BLESSING_OF_LOWER_CITY_PALADIN         = 37879,
+     SPELL_BLESSING_OF_LOWER_CITY_PRIEST          = 37880,
+     SPELL_BLESSING_OF_LOWER_CITY_SHAMAN          = 37881,
++
++    PALADIN_SPELL_RIGHTEOUS_DEFENCE              = 31789,
++    PALADIN_SPELL_RIGHTEOUS_DEFENCE_EFFECT_1     = 31790,
+ };
+ 
+ // 31850 - Ardent Defender
+@@ -368,6 +371,41 @@ public:
+    }
+ };
+ 
++class spell_pal_righteous_defense : public SpellScriptLoader
++{
++    public:
++        spell_pal_righteous_defense() : SpellScriptLoader("spell_pal_righteous_defense") { }
++
++        class spell_pal_righteous_defense_SpellScript : public SpellScript
++        {
++            PrepareSpellScript(spell_pal_righteous_defense_SpellScript);
++
++            bool Validate(SpellInfo const* /*spellEntry*/)
++            {
++                if (!sSpellMgr->GetSpellInfo(PALADIN_SPELL_RIGHTEOUS_DEFENCE))
++                    return false;
++                return true;
++            }
++
++            void HandleSpellEffectTriggerSpell(SpellEffIndex /*effIndex*/)
++            {
++                if (Unit* caster = GetCaster())
++                    if (Unit* targetUnit = GetHitUnit())
++                        caster->CastSpell(targetUnit, PALADIN_SPELL_RIGHTEOUS_DEFENCE_EFFECT_1, true);
++            }
++
++            void Register()
++            {
++                OnEffectHitTarget += SpellEffectFn(spell_pal_righteous_defense_SpellScript::HandleSpellEffectTriggerSpell, EFFECT_1, SPELL_EFFECT_TRIGGER_SPELL);
++            }
++        };
++
++        SpellScript* GetSpellScript() const
++        {
++            return new spell_pal_righteous_defense_SpellScript();
++        }
++};
++
+ void AddSC_paladin_spell_scripts()
+ {
+     new spell_pal_ardent_defender();
+@@ -377,4 +415,5 @@ void AddSC_paladin_spell_scripts()
+     new spell_pal_holy_shock();
+     new spell_pal_judgement_of_command();
+     new spell_pal_sacred_shield();
++    new spell_pal_righteous_defense();
+ }
+-- 
+1.7.6.msysgit.0
+
