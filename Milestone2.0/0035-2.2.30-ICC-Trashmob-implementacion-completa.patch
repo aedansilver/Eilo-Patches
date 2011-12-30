@@ -7,8 +7,8 @@ Subject: [PATCH 35/62] 2.2.30 ICC: Trashmob implementacion completa
  .../reanemu/2011_11_25_100_world_trashmobs_icc.sql |  150 ++
  src/server/game/Scripting/ScriptLoader.cpp         |    3 +-
  src/server/scripts/Northrend/CMakeLists.txt        |    1 +
- .../IcecrownCitadel/icecrown_citadel_trashmobs.cpp | 2759 ++++++++++++++++++++
- 4 files changed, 2912 insertions(+), 1 deletions(-)
+ .../IcecrownCitadel/icecrown_citadel_trashmobs.cpp | 2760 ++++++++++++++++++++
+ 4 files changed, 2913 insertions(+), 1 deletions(-)
  create mode 100644 sql/updates/world/reanemu/2011_11_25_100_world_trashmobs_icc.sql
  create mode 100644 src/server/scripts/Northrend/IcecrownCitadel/icecrown_citadel_trashmobs.cpp
 
@@ -107,8 +107,8 @@ index 0000000..cab7c87
 +UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_battlemaiden_icc' WHERE `entry`=38132;
 +UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_huntress_icc' WHERE `entry`=37134;
 +UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_huntress_icc' WHERE `entry`=38134;
-+UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_warlord_icc' WHERE `entry`=37133;
-+UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_warlord_icc' WHERE `entry`=38133;
++-- UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_warlord_icc' WHERE `entry`=37133;
++-- UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_warlord_icc' WHERE `entry`=38133;
 +
 +-- Eilo (https://github.com/eilo)
 +-- Inmunidades del trash de icc:
@@ -210,7 +210,7 @@ new file mode 100644
 index 0000000..6da6d7e
 --- /dev/null
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/icecrown_citadel_trashmobs.cpp
-@@ -0,0 +1,2759 @@
+@@ -0,0 +1,2760 @@
 +/*
 + * Copyright (C) 2008-2011 TrinityCore <http://www.trinitycore.org/>
 + * Copyright (C) 2009-2011 Eilo <https://github.com/eilo>
@@ -385,10 +385,10 @@ index 0000000..6da6d7e
 +    SPELL_SHOOT                   = 71253,
 +    SPELL_VOLLEY                  = 71252,
 +    SPELL_SUMMON_WARHAWK          = 71705,
-+
++/*
 +    //## Ymirjar Warlord ##
 +    SPELL_WHIRLWIND               = 41056,
-+
++*/
 +    // Npc Empowering Orb Visual Stalker
 +    // aun sin datos adicionales de este npc
 +
@@ -403,6 +403,7 @@ index 0000000..6da6d7e
 +    NPC_DEATHBOUND_WARD          = 37007,
 +    NPC_SERVANT_OF_THE_THRONE    = 36724,
 +    NPC_ANCIENT_SKELETAL_SOLDIER = 37012,
++    // NPC_THE_DAMNED               = 37011,
 +    NPC_NERUBAR_BROODKEEPER      = 36725,
 +/*--Trash de Oratorio de los Malditos--*/
 +    NPC_DEATHSPEAKER_SERVANT     = 36805,
@@ -432,7 +433,7 @@ index 0000000..6da6d7e
 +    NPC_YMIRJAR_FROSTBINDER      = 37127,
 +    NPC_YMIRJAR_BATTLE_MAIDEN    = 37132,
 +    NPC_YMIRJAR_HUNTRESS         = 37134,
-+    NPC_YMIRJAR_WARLORD          = 37133
++    // NPC_YMIRJAR_WARLORD          = 37133
 +
 +    //Empowering Orb Visual Stalker 38463
 +};
@@ -2880,7 +2881,7 @@ index 0000000..6da6d7e
 +            return new npc_ymirjar_huntress_iccAI(creature);
 +        }
 +};
-+
++/*
 +//#########  Ymirjar Warlord ##############
 +class npc_ymirjar_warlord_icc : public CreatureScript
 +{
@@ -2926,7 +2927,7 @@ index 0000000..6da6d7e
 +            return new npc_ymirjar_warlord_iccAI(creature);
 +        }
 +};
-+
++*/
 +void AddSC_icecrown_citadel_trashmobs()
 +{
 +        new npc_ancient_skeletal_soldier_icc();
@@ -2968,7 +2969,7 @@ index 0000000..6da6d7e
 +        new npc_ymirjar_frostbinder_icc();
 +        new npc_ymirjar_battlemaiden_icc();
 +        new npc_ymirjar_huntress_icc();
-+        new npc_ymirjar_warlord_icc();
++        // new npc_ymirjar_warlord_icc();
 +}
 \ No newline at end of file
 -- 

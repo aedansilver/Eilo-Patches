@@ -25,13 +25,13 @@ index 1a30ad5..760710e 100644
  ###############################
  # Dungeons e Instances Varias #
  ###############################
-+2.1.1 - 08/10/2011: Trial Of Crusader: Añadida inmunidad a grip y knockback por Karlos
-+2.1.2 - 10/10/2011: Trial Of Crusader: Mejorada la AI de los campeones por Gigatotem
-+2.1.3 - 01/10/2011: Trial Of Crusader: Reparado reseteo de gusanos Jormungar por Odyssey
-+2.1.4 - 01/11/2011: Trial Of Crusader: Inmunidades en db de los bosses y adds por Eilo
-+2.4.1 - 28/03/2011: Onyxia: Inmunidades en script por Souler
-+2.5.1 - 13/11/2011: Eye of Eternity: Reimplementacion, original por Darkman, final por Eilo
-+2.8.1 - 08/08/2011: Obsidian Sanctum: Mejora de script e implementacion de trash mob por Zwerg
++2.1.1  - 08/10/2011: Trial Of Crusader: Añadida inmunidad a grip y knockback por Karlos
++2.1.2  - 10/10/2011: Trial Of Crusader: Mejorada la AI de los campeones por Gigatotem
++2.1.3  - 01/10/2011: Trial Of Crusader: Reparado reseteo de gusanos Jormungar por Odyssey
++2.1.4  - 01/11/2011: Trial Of Crusader: Inmunidades en db de los bosses y adds por Eilo
++2.4.1  - 28/03/2011: Onyxia: Inmunidades en script por Souler
++2.5.1  - 13/11/2011: Eye of Eternity: Reimplementacion, original por Darkman, final por Eilo
++2.8.1  - 08/08/2011: Obsidian Sanctum: Mejora de script e implementacion de trash mob por Zwerg
 +2.10.1 - 03/08/2011: Ahn'Kahet: Taldaram combate en invisible por Greymane
 +2.10.2 - 16/12/2011: Ahn'Kahet: Taldaram daño esferas ajustado por Eilo
 +2.12.1 - 17/12/2011: CullingOfStratholme: Arthas no desaparece a distancia por Eilo
