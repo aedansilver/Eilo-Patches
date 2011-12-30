@@ -1,14 +1,14 @@
-From d10356e6ef768cee809d135c5e031b03458c4eed Mon Sep 17 00:00:00 2001
+From 3b50effb3119538927ff6e3dbda07c486f4e802d Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 16:38:27 -0500
-Subject: [PATCH 14/25] 0.10 Inmunidades de vehiculos
+Subject: [PATCH 14/29] 0.10 Inmunidades de vehiculos
 
 ---
  src/server/game/Entities/Vehicle/Vehicle.cpp |   36 ++++++++++++++++++++++++++
  1 files changed, 36 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Entities/Vehicle/Vehicle.cpp b/src/server/game/Entities/Vehicle/Vehicle.cpp
-index 329b10d..88b43e7 100755
+index f681b18..dd0aa67 100755
 --- a/src/server/game/Entities/Vehicle/Vehicle.cpp
 +++ b/src/server/game/Entities/Vehicle/Vehicle.cpp
 @@ -42,6 +42,40 @@ Vehicle::Vehicle(Unit* unit, VehicleEntry const* vehInfo, uint32 creatureEntry)

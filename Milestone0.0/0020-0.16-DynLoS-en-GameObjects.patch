@@ -1,7 +1,7 @@
-From de60ca283de6a7ad8ab7b6b470daf910f27f1499 Mon Sep 17 00:00:00 2001
+From 8331b346376e3f8a995669133023a507421d22e9 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 21:49:37 -0500
-Subject: [PATCH 20/25] 0.16 DynLoS en GameObjects
+Subject: [PATCH 20/29] 0.16 DynLoS en GameObjects
 
 ---
  src/server/game/Entities/Object/Object.cpp |   15 ++-

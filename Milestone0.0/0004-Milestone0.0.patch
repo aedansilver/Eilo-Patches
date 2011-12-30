@@ -1,14 +1,14 @@
-From d012b8684640955783f73f20e597830f22bf131e Mon Sep 17 00:00:00 2001
+From cc008bebb8e1b1f3b69e5a8a3b3065324946c7d6 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 15:45:29 -0500
-Subject: [PATCH 04/25] Milestone0.0
+Subject: [PATCH 04/29] Milestone0.0
 
 ---
- WHAT_IS_INSIDE |   26 ++++++++++++++++++++++++++
- 1 files changed, 26 insertions(+), 0 deletions(-)
+ WHAT_IS_INSIDE |   30 ++++++++++++++++++++++++++++++
+ 1 files changed, 30 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 17dc82e..cd02102 100644
+index 17dc82e..533ff87 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -9,6 +9,11 @@ parches y/o c
@@ -23,7 +23,7 @@ index 17dc82e..cd02102 100644
  
  
  ##################################
-@@ -19,6 +24,27 @@ parches y/o c
+@@ -19,6 +24,31 @@ parches y/o c
  ###############
  # Adicionales #
  ###############
@@ -35,7 +35,7 @@ index 17dc82e..cd02102 100644
 +0.6  - 13/10/2011: AHBot añadido para subastas por Lockness
 +0.7  - 17/11/2011: ResetCD Duelos por Mouse, actualizaciones por Eilo
 +0.8  - 09/11/2011: AC1 Anticheat por Aokrommes, adecuaciones por Eilo
-+0.9  - 18/10/2011: Wintergrasp por Karlos
++0.9  - 18/10/2011: Wintergrasp por Lockness
 +0.10 - 18/10/2011: Inmunidades de vehiculos por Karlos
 +0.11 - 14/10/2011: Cuentas VIP por Locknes
 +0.12 - 29/11/2011: TrinityJail original de Warhead, añadido por Hispano, ajustes por Eilo
@@ -48,6 +48,11 @@ index 17dc82e..cd02102 100644
 +0.19 - 17/11/2011: DoAttackerGroupInCombat reañadida al nucleo para soporte por Eilo
 +0.20 - 17/11/2011: _DoAggroPulse funcion y inFightAggroCheck_Timer reañadida para soporte por Eilo
 +0.21 - 21/11/2011: UnsummonSpecificCreaturesNearby funcion de soporte añadida por Eilo
++0.22 - 30/12/2011: HasAchieved funcion de soporte reañadida por Eilo
++0.23 - 30/12/2011: FindNearestPlayer y GetNearestPlayersList reañadidas por Eilo
++0.24 - 30/12/2011: setRegeneratingHealth funcion de soporte reañadida por Eilo
++0.25 - 30/12/2011: SetImmuneToPushPullEffects funcion de soporte reañadida por Eilo
+
  
  
  ###############

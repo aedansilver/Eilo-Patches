@@ -1,7 +1,7 @@
-From 6b975c34f85350dc6a65fb792ec3df8e5ed38c80 Mon Sep 17 00:00:00 2001
+From bb5f080f869c4b4ed98cd28eb2b25bd52cdd41bd Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 22:15:09 -0500
-Subject: [PATCH 22/25] =?UTF-8?q?0.18=20DoAttackerAreaInCombat=20rea=C3=B1ad?=
+Subject: [PATCH 22/29] =?UTF-8?q?0.18=20DoAttackerAreaInCombat=20rea=C3=B1ad?=
  =?UTF-8?q?ida=20al=20nucleo?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

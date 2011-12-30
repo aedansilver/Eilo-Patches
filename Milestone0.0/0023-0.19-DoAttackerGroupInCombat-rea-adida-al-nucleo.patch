@@ -1,7 +1,7 @@
-From 5bcd344f7b31b1c3a9eb7b2b2410aa4805220a9f Mon Sep 17 00:00:00 2001
+From 40c1e1ad6a4eda888de4138cc34396f0bb4d3160 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 22:23:53 -0500
-Subject: [PATCH 23/25] =?UTF-8?q?0.19=20DoAttackerGroupInCombat=20rea=C3=B1a?=
+Subject: [PATCH 23/29] =?UTF-8?q?0.19=20DoAttackerGroupInCombat=20rea=C3=B1a?=
  =?UTF-8?q?dida=20al=20nucleo?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

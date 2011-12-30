@@ -1,7 +1,7 @@
-From a2eda169ffbc70e59ee93c8637de3d3aa5d16437 Mon Sep 17 00:00:00 2001
+From 173a6a419c1cc3d0d87e1613b1d6c6b2a29232dd Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 21:47:13 -0500
-Subject: [PATCH 19/25] 0.15 Unir al canal LFG desde cualquier ciudad y
+Subject: [PATCH 19/29] 0.15 Unir al canal LFG desde cualquier ciudad y
  desactivado avisos de Join/Leave
 
 ---

@@ -1,7 +1,7 @@
-From 4805d1b5c4b500efccb96ba5f7d5239cde319e46 Mon Sep 17 00:00:00 2001
+From 45e291e1c07de7f98e27a08aecd316975446f720 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 19:37:01 -0500
-Subject: [PATCH 16/25] =?UTF-8?q?0.12=20TrinityJail=20con=20ajuste=20a=20min?=
+Subject: [PATCH 16/29] =?UTF-8?q?0.12=20TrinityJail=20con=20ajuste=20a=20min?=
  =?UTF-8?q?utos=20y=20espa=C3=B1ol?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -153,10 +153,10 @@ index 0000000..06a6053
 +('jailreload', 3, 'Sintaxis: .jailreload\nRecarca la config del Sistema Jail.');
 +
 diff --git a/src/server/game/Chat/Chat.cpp b/src/server/game/Chat/Chat.cpp
-index 71a9cd5..00e014e 100755
+index b3c1caa..32445f6 100755
 --- a/src/server/game/Chat/Chat.cpp
 +++ b/src/server/game/Chat/Chat.cpp
-@@ -347,6 +347,12 @@ ChatCommand* ChatHandler::getCommandTable()
+@@ -358,6 +358,12 @@ ChatCommand* ChatHandler::getCommandTable()
          { "ticket",         SEC_MODERATOR,      false,  NULL,                                          "", ticketCommandTable },
          { "ahbotoptions",   SEC_GAMEMASTER,     true,  OldHandler<&ChatHandler::HandleAHBotOptionsCommand>,        "", NULL },
  
@@ -170,7 +170,7 @@ index 71a9cd5..00e014e 100755
          { "unaura",         SEC_ADMINISTRATOR,  false, OldHandler<&ChatHandler::HandleUnAuraCommand>,              "", NULL },
          { "nameannounce",   SEC_MODERATOR,      true,  OldHandler<&ChatHandler::HandleNameAnnounceCommand>,        "", NULL },
 diff --git a/src/server/game/Chat/Chat.h b/src/server/game/Chat/Chat.h
-index d67fa7d..a72d65a 100755
+index 06c0fb2..3be886d 100755
 --- a/src/server/game/Chat/Chat.h
 +++ b/src/server/game/Chat/Chat.h
 @@ -336,6 +336,12 @@ class ChatHandler
@@ -571,7 +571,7 @@ index f06f8a7..a27e260 100755
  bool ChatHandler::HandleSendMailCommand(const char* args)
  {
 diff --git a/src/server/game/Chat/Commands/Level2.cpp b/src/server/game/Chat/Commands/Level2.cpp
-index 41bc564..4b380a3 100755
+index 3dec4a6..fc5696a 100755
 --- a/src/server/game/Chat/Commands/Level2.cpp
 +++ b/src/server/game/Chat/Commands/Level2.cpp
 @@ -33,6 +33,8 @@
@@ -583,7 +583,7 @@ index 41bc564..4b380a3 100755
  #include "Util.h"
  #include <cctype>
  #include <iostream>
-@@ -264,7 +266,18 @@ bool ChatHandler::HandlePInfoCommand(const char* args)
+@@ -265,7 +267,18 @@ bool ChatHandler::HandlePInfoCommand(const char* args)
      uint32 mapId;
      uint32 areaId;
      uint32 phase = 0;
@@ -603,7 +603,7 @@ index 41bc564..4b380a3 100755
  
      // get additional information from Player object
      if (target)
-@@ -284,6 +297,18 @@ bool ChatHandler::HandlePInfoCommand(const char* args)
+@@ -285,6 +298,18 @@ bool ChatHandler::HandlePInfoCommand(const char* args)
          mapId = target->GetMapId();
          areaId = target->GetAreaId();
          phase = target->GetPhaseMask();
@@ -622,7 +622,7 @@ index 41bc564..4b380a3 100755
      }
      // get additional information from DB
      else
-@@ -296,8 +321,11 @@ bool ChatHandler::HandlePInfoCommand(const char* args)
+@@ -297,8 +322,11 @@ bool ChatHandler::HandlePInfoCommand(const char* args)
          QueryResult result = CharacterDatabase.PQuery("SELECT totaltime, level, money, account, race, class, map, zone FROM characters "
                                                        "WHERE guid = '%u'", GUID_LOPART(target_guid));
          if (!result)
@@ -635,7 +635,7 @@ index 41bc564..4b380a3 100755
          Field* fields = result->Fetch();
          total_player_time = fields[0].GetUInt32();
          level = fields[1].GetUInt32();
-@@ -307,6 +335,31 @@ bool ChatHandler::HandlePInfoCommand(const char* args)
+@@ -308,6 +336,31 @@ bool ChatHandler::HandlePInfoCommand(const char* args)
          Class = fields[5].GetUInt8();
          mapId = fields[6].GetUInt16();
          areaId = fields[7].GetUInt16();
@@ -667,7 +667,7 @@ index 41bc564..4b380a3 100755
      }
  
      std::string username = GetTrinityString(LANG_ERROR);
-@@ -434,6 +487,39 @@ bool ChatHandler::HandlePInfoCommand(const char* args)
+@@ -435,6 +488,39 @@ bool ChatHandler::HandlePInfoCommand(const char* args)
      else
          PSendSysMessage(LANG_PINFO_MAP_OFFLINE, map->name[locale], areaName.c_str());
  
@@ -1156,7 +1156,7 @@ index 88c593a..814bce5 100755
          uint32 GetBaseXP(uint8 level);
          uint32 GetXPForLevel(uint8 level);
 diff --git a/src/server/game/Miscellaneous/Language.h b/src/server/game/Miscellaneous/Language.h
-index e0343ab..556ca8a 100755
+index bc620cb..321f597 100755
 --- a/src/server/game/Miscellaneous/Language.h
 +++ b/src/server/game/Miscellaneous/Language.h
 @@ -21,6 +21,42 @@
@@ -1203,10 +1203,10 @@ index e0343ab..556ca8a 100755
      LANG_SELECT_CHAR_OR_CREATURE        = 1,
      LANG_SELECT_CREATURE                = 2,
 diff --git a/src/server/game/World/World.cpp b/src/server/game/World/World.cpp
-index 68bcd18..9406860 100755
+index 6485fd7..6eaadcf 100755
 --- a/src/server/game/World/World.cpp
 +++ b/src/server/game/World/World.cpp
-@@ -1655,6 +1655,10 @@ void World::SetInitialWorldSettings()
+@@ -1656,6 +1656,10 @@ void World::SetInitialWorldSettings()
      sLog->outString("Returning old mails...");
      sObjectMgr->ReturnOrDeleteOldMails(false);
  
