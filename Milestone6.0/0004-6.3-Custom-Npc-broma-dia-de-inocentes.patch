@@ -1,7 +1,7 @@
-From 5696e002b8df3845225016b7f4004d00a44b8230 Mon Sep 17 00:00:00 2001
+From 88de2256f06c7780316a7fb912236c03ae72df19 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Wed, 28 Dec 2011 14:32:59 -0500
-Subject: [PATCH 4/4] 6.3 Custom: Npc broma, dia de inocentes
+Subject: [PATCH 4/5] 6.3 Custom: Npc broma, dia de inocentes
 
 ---
  .../reanemu/2011_12_28_100_world_npc_broma.sql     |   15 +++++
@@ -34,10 +34,10 @@ index 0000000..8cb0f8d
 + '0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','','0','3','1.05','1','1','0','0','0','0','0','0','0','0','1','0',
 + '0','2','npc_broma','12340');
 diff --git a/src/server/game/Scripting/ScriptLoader.cpp b/src/server/game/Scripting/ScriptLoader.cpp
-index e119e69..c2e50ab 100755
+index 1834f80..47d8d0a 100755
 --- a/src/server/game/Scripting/ScriptLoader.cpp
 +++ b/src/server/game/Scripting/ScriptLoader.cpp
-@@ -1239,6 +1239,7 @@ void AddBattlegroundScripts()
+@@ -1237,6 +1237,7 @@ void AddBattlegroundScripts()
  #ifdef SCRIPTS
  /* This is where custom scripts' loading functions should be declared. */
  void AddSC_icc_rep_rings();
@@ -45,7 +45,7 @@ index e119e69..c2e50ab 100755
  #endif
  
  void AddCustomScripts()
-@@ -1246,5 +1247,6 @@ void AddCustomScripts()
+@@ -1244,5 +1245,6 @@ void AddCustomScripts()
  #ifdef SCRIPTS
      /* This is where custom scripts should be added. */
  AddSC_icc_rep_rings();

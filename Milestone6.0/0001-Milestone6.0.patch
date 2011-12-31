@@ -1,25 +1,25 @@
-From d0146cb3db5b4332b489b51c6ea4d0081a777a62 Mon Sep 17 00:00:00 2001
+From 4f67a795c271d75ba10a8e8cd9217286197cbe04 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Mon, 26 Dec 2011 12:56:40 -0500
-Subject: [PATCH 1/4] Milestone6.0
+Subject: [PATCH 1/5] Milestone6.0
 
 ---
  WHAT_IS_INSIDE |    3 +++
  1 files changed, 3 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 1ffdbc2..e0099c1 100644
+index 91fca47..8e4dc05 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
-@@ -25,6 +25,7 @@ Milestone4.0  Arreglos en quests, y cadenas de mision, esto incluye scripts
-               en c++ y SmartAI.
+@@ -25,6 +25,7 @@ Milestone4.0  Arreglos en quests, eventos y cadenas de mision de facciones
+               immportantes, esto incluye scripts en c++ y SmartAI.
  Milestone5.0  Traducciones, e inclusion de varios dentro de tablas y strings
                del emulador, ya sea en c++ o en sqls.
 +Milestone6.0  Customs y varios
  
  
  ##################################
-@@ -213,3 +214,5 @@ Milestone5.0  Traducciones, e inclusion de varios dentro de tablas y strings
+@@ -214,3 +215,5 @@ Milestone5.0  Traducciones, e inclusion de varios dentro de tablas y strings
  ##########
  # Custom #
  ##########
