@@ -4,8 +4,8 @@ Date: Mon, 26 Dec 2011 11:02:54 -0500
 Subject: [PATCH 01/20] Milestone3.0
 
 ---
- WHAT_IS_INSIDE |   27 +++++++++++++++++++++++++++
- 1 files changed, 27 insertions(+), 0 deletions(-)
+ WHAT_IS_INSIDE |   28 ++++++++++++++++++++++++++++
+ 1 files changed, 28 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
 index 760710e..465399e 100644
@@ -20,7 +20,7 @@ index 760710e..465399e 100644
  
  
  ##################################
-@@ -161,11 +163,36 @@ Milestone2.0: Mejoras en Instances y dungeons, escencialmente para darles funcio
+@@ -161,11 +163,37 @@ Milestone2.0: Mejoras en Instances y dungeons, escencialmente para darles funcio
  #######################
  # Hechizos y Talentos #
  #######################
@@ -41,6 +41,7 @@ index 760710e..465399e 100644
 +3.16 - 28/10/2011: Paladin: Defensa recta por Chaplain
 +3.17 - 21/08/2011: Penitencia y Choque Sagrado no se pueden usar en duelos de otros pj por Retriman
 +3.18 - 05/11/2011: Cazador: Distraer ahora se interrumpen efectos de comer/beber por Kerhong
++3.19 - 11/10/2011: Paladin: Tormenta divina cura a 3 miembros del raid por Havenard
  
  
  ##################
