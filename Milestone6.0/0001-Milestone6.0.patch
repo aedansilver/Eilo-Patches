@@ -1,4 +1,4 @@
-From 4f67a795c271d75ba10a8e8cd9217286197cbe04 Mon Sep 17 00:00:00 2001
+From c83462a56cd4d31ca672c0787cd58915622be00e Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Mon, 26 Dec 2011 12:56:40 -0500
 Subject: [PATCH 1/5] Milestone6.0
@@ -8,7 +8,7 @@ Subject: [PATCH 1/5] Milestone6.0
  1 files changed, 5 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 91fca47..8e4dc05 100644
+index 6a5245b..1c20b92 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -25,6 +25,7 @@ Milestone4.0  Arreglos en quests, eventos y cadenas de mision de facciones
@@ -19,7 +19,7 @@ index 91fca47..8e4dc05 100644
  
  
  ##################################
-@@ -214,3 +215,7 @@ Milestone5.0  Traducciones, e inclusion de varios dentro de tablas y strings
+@@ -215,3 +216,7 @@ Milestone5.0  Traducciones, e inclusion de varios dentro de tablas y strings
  ##########
  # Custom #
  ##########
