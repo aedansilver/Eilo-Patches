@@ -1,4 +1,4 @@
-From 47a40db0833b2947014d4195a98780492718327f Mon Sep 17 00:00:00 2001
+From 3a12a50e3aea04f97ca3808b997600e6c0b52b1f Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Mon, 2 Jan 2012 13:34:06 -0500
 Subject: [PATCH 52/62] 2.13.1 TrialOfTheChampions: Reimplementacion y soporte
@@ -2381,7 +2381,7 @@ index f73e977..02f2b8e 100644
              if (!UpdateVictim())
                  return;
 diff --git a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_grand_champions.cpp b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_grand_champions.cpp
-index 2f6a01e..f4c144b 100644
+index 2f6a01e..e38a892 100644
 --- a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_grand_champions.cpp
 +++ b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_grand_champions.cpp
 @@ -18,22 +18,25 @@
