@@ -1,6 +1,6 @@
-From db3bb7f266b7d30575e6cc02a9cd694f5a061bce Mon Sep 17 00:00:00 2001
+From d0d347752d7ea7c174ebc2ed6fe21cc5b4cdbc15 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Fri, 30 Dec 2011 18:13:06 -0500
+Date: Tue, 3 Jan 2012 12:09:38 -0500
 Subject: [PATCH 1/2] Milestone5.0
 
 ---
@@ -8,19 +8,19 @@ Subject: [PATCH 1/2] Milestone5.0
  1 files changed, 3 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 0346f07..91fca47 100644
+index f25a878..6533380 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -23,6 +23,8 @@ Milestone3.0  Arreglos a Spells, sobre todo para estabilidad del pve y del
                pvp dentro de los reinos.
- Milestone4.0  Arreglos en quests, eventos y cadenas de mision de facciones
-               immportantes, esto incluye scripts en c++ y SmartAI.
+ Milestone4.0  Arreglos en quests, y cadenas de mision, esto incluye scripts
+               en c++ y SmartAI.
 +Milestone5.0  Traducciones, e inclusion de varios dentro de tablas y strings
 +              del emulador, ya sea en c++ o en sqls.
  
  
  ##################################
-@@ -206,6 +208,7 @@ Milestone4.0  Arreglos en quests, eventos y cadenas de mision de facciones
+@@ -217,6 +219,7 @@ Milestone4.0  Arreglos en quests, y cadenas de mision, esto incluye scripts
  #################
  # Traducciones: #
  #################
