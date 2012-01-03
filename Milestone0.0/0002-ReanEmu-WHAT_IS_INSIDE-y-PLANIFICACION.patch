@@ -1,4 +1,4 @@
-From 3458d996202fe45e6ef59d592e7cd3eb0fefcf53 Mon Sep 17 00:00:00 2001
+From 478963fb9b35dfae9c0121bc601f76c4ac89a08e Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 29 Dec 2011 14:14:50 -0500
 Subject: [PATCH 02/29] --- ReanEmu WHAT_IS_INSIDE y PLANIFICACION ---
@@ -179,7 +179,7 @@ index 0000000..0713a7c
 +Saludos
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
 new file mode 100644
-index 0000000..17dc82e
+index 0000000..8362a13
 --- /dev/null
 +++ b/WHAT_IS_INSIDE
 @@ -0,0 +1,71 @@
@@ -236,7 +236,7 @@ index 0000000..17dc82e
 +#######################
 +
 +
-+##################
++#################
 +# Items y Bonus #
 +#################
 +

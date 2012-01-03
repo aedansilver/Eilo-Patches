@@ -1,4 +1,4 @@
-From ce782df2dd0f805c27e34f1d0d1b63e8c06744d2 Mon Sep 17 00:00:00 2001
+From 07526d9f38d82b71ad1f006f8d963e5c594a8d1e Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 30 Dec 2011 17:28:30 -0500
 Subject: [PATCH 28/29] =?UTF-8?q?0.24=20setRegeneratingHealth=20funcion=20de?=
@@ -12,7 +12,7 @@ Content-Transfer-Encoding: 8bit
  1 files changed, 1 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Entities/Creature/Creature.h b/src/server/game/Entities/Creature/Creature.h
-index 6ae9fa9..9e0b91e 100755
+index d84221f..18def27 100755
 --- a/src/server/game/Entities/Creature/Creature.h
 +++ b/src/server/game/Entities/Creature/Creature.h
 @@ -656,6 +656,7 @@ class Creature : public Unit, public GridObject<Creature>, public MapCreature

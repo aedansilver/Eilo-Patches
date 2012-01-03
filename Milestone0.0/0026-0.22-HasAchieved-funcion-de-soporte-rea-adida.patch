@@ -1,4 +1,4 @@
-From 842e994cc3ba320cb8dda01bd1f1026ad964e211 Mon Sep 17 00:00:00 2001
+From b0098d32851459b929ef3704a4c5e20e1f99e205 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 30 Dec 2011 17:22:54 -0500
 Subject: [PATCH 26/29] =?UTF-8?q?0.22=20HasAchieved=20funcion=20de=20soporte?=
@@ -13,10 +13,10 @@ Content-Transfer-Encoding: 8bit
  2 files changed, 8 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index f2447b2..89e1ca2 100755
+index 3b5aa05..fa00765 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -23828,6 +23828,13 @@ void Player::CompletedAchievement(AchievementEntry const* entry)
+@@ -23830,6 +23830,13 @@ void Player::CompletedAchievement(AchievementEntry const* entry)
      GetAchievementMgr().CompletedAchievement(entry);
  }
  
@@ -31,7 +31,7 @@ index f2447b2..89e1ca2 100755
  {
      uint32 CurTalentPoints = GetFreeTalentPoints();
 diff --git a/src/server/game/Entities/Player/Player.h b/src/server/game/Entities/Player/Player.h
-index a4e7e88..f4443d4 100755
+index e2c6c2a..f23d085 100755
 --- a/src/server/game/Entities/Player/Player.h
 +++ b/src/server/game/Entities/Player/Player.h
 @@ -2551,6 +2551,7 @@ class Player : public Unit, public GridObject<Player>
