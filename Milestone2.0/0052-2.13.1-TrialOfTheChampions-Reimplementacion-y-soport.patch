@@ -2562,7 +2562,7 @@ index 2f6a01e..f4c144b 100644
 +            damage = 0;
 +            _defeated = true;
 +            me->GetMotionMaster()->MoveIdle();
-+            me->Unmount();
++            me->Dismount();
 +            me->RemoveAurasDueToSpell(SPELL_SHIELD);
 +            me->CastSpell(me, SPELL_KNEE, true);
 +            me->SetTarget(0);
