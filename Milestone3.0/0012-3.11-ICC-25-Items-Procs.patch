@@ -1,7 +1,7 @@
-From e51216dba439c12b12a52fa1d416c8d9a4e7501b Mon Sep 17 00:00:00 2001
+From ca725cf69be67af1aacc4d49f357024a8f6c0477 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 18:48:01 +0100
-Subject: [PATCH 12/20] 3.11 ICC 25 Items Procs
+Subject: [PATCH 12/23] 3.11 ICC 25 Items Procs
 
 Arma de Caster Normal y Heroico (71845) y (71846)
 Arma de Healer Normal y Heroico (71865) y (71868)
@@ -41,7 +41,7 @@ index 0000000..c401e5f
 +INSERT INTO `spell_proc_event` VALUES (71873, 0x01, 0x00, 0x00000000, 0x00000000, 0x00000000, 0x00000014, 0x00000018, 0, 37, 35);
 \ No newline at end of file
 diff --git a/src/server/game/Entities/Unit/Unit.cpp b/src/server/game/Entities/Unit/Unit.cpp
-index beb69a2..4abe0e4 100755
+index b8afb68..4e7a209 100755
 --- a/src/server/game/Entities/Unit/Unit.cpp
 +++ b/src/server/game/Entities/Unit/Unit.cpp
 @@ -5200,10 +5200,38 @@ bool Unit::HandleDummyAuraProc(Unit* victim, uint32 damage, AuraEffect* triggere
@@ -105,10 +105,10 @@ index beb69a2..4abe0e4 100755
                          // Illumination
                          if (auraSpellInfo->SpellIconID == 241)
 diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
-index d0efa64..cca6b8c 100755
+index 89e4415..060504d 100755
 --- a/src/server/game/Spells/SpellEffects.cpp
 +++ b/src/server/game/Spells/SpellEffects.cpp
-@@ -732,6 +732,17 @@ void Spell::EffectSchoolDMG(SpellEffIndex effIndex)
+@@ -742,6 +742,17 @@ void Spell::EffectSchoolDMG(SpellEffIndex effIndex)
                      damage += CalculatePctN(block_value, m_spellInfo->Effects[EFFECT_1].CalcValue());
                      break;
                  }

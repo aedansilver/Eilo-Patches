@@ -1,7 +1,7 @@
-From 03aefa8ecda0aa01f64b8fd0d1d128e8d0019a27 Mon Sep 17 00:00:00 2001
+From c947fa04f7457ae6ff0bd34702ef9ac1bb3f719e Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sat, 17 Dec 2011 13:26:44 +0100
-Subject: [PATCH 10/20] 3.9 Paladin: Bendicion de Salvaguardia (20911) y
+Subject: [PATCH 10/23] 3.9 Paladin: Bendicion de Salvaguardia (20911) y
  Bendicion de Reyes (20217) no stackean
 
 ---

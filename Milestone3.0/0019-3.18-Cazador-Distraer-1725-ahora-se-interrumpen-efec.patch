@@ -1,7 +1,7 @@
-From 71d93ff540bfe874f37a5aa27bbe7bdc0629411e Mon Sep 17 00:00:00 2001
+From 8024ad826aa9e71f158e2913ab8911d1549fd136 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 22:27:31 +0100
-Subject: [PATCH 19/20] 3.18 Cazador: Distraer (1725) ahora se interrumpen
+Subject: [PATCH 19/23] 3.18 Cazador: Distraer (1725) ahora se interrumpen
  efectos de comer/beber
 
 ---
@@ -9,10 +9,10 @@ Subject: [PATCH 19/20] 3.18 Cazador: Distraer (1725) ahora se interrumpen
  1 files changed, 3 insertions(+), 1 deletions(-)
 
 diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
-index 8eb1915..895d5b9 100755
+index 95ba83b..1ab3663 100755
 --- a/src/server/game/Spells/SpellEffects.cpp
 +++ b/src/server/game/Spells/SpellEffects.cpp
-@@ -3421,7 +3421,9 @@ void Spell::EffectDistract(SpellEffIndex /*effIndex*/)
+@@ -3427,7 +3427,9 @@ void Spell::EffectDistract(SpellEffIndex /*effIndex*/)
  
      if (unitTarget->GetTypeId() == TYPEID_PLAYER)
      {

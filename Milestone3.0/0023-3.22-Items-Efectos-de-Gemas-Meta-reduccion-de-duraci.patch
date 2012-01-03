@@ -1,0 +1,62 @@
+From 18e0637d0516c3731ce99c9102bfe4fc13a297e9 Mon Sep 17 00:00:00 2001
+From: Hispano <jesus.diaz.gutierrez@gmail.com>
+Date: Mon, 2 Jan 2012 15:37:15 +0100
+Subject: [PATCH 23/23] 3.22 Items: Efectos de Gemas Meta reduccion de
+ duracion de silencio(55366), reduccion de duracion de
+ snare/root(55378), reduccion de duracion de
+ miedo(55357) y reduccion de duracion de stun(55358)
+
+---
+ src/server/game/Spells/Auras/SpellAuras.cpp |   35 ++++++++++++++++++++++++++-
+ 1 files changed, 34 insertions(+), 1 deletions(-)
+
+diff --git a/src/server/game/Spells/Auras/SpellAuras.cpp b/src/server/game/Spells/Auras/SpellAuras.cpp
+index 91ecc32..b6f10c2 100755
+--- a/src/server/game/Spells/Auras/SpellAuras.cpp
++++ b/src/server/game/Spells/Auras/SpellAuras.cpp
+@@ -1754,8 +1754,41 @@ void Aura::HandleAuraSpecificMods(AuraApplication const* aurApp, Unit* caster, b
+             }
+             break;
+     }
+-}
++    if (GetSpellInfo()->IsPassive() && !GetCastItemGUID())
++        for (uint8 i = 0; i < MAX_SPELL_EFFECTS; ++i)
++        {
++            if (m_effects[i] && m_effects[i]->GetAuraType() == SPELL_AURA_MECHANIC_DURATION_MOD)
++            {
++                uint32 spell_immune;
++
++                switch(m_effects[i]->GetMiscValue())
++                {
++                    case 5:  
++                        spell_immune = 55357; 
++                        break;                    
++                    case 7: 
++                    case 11: 
++                        spell_immune = 55378; 
++                        break;
++                    case 9:  
++                        spell_immune = 55366;
++                        break;
++                    case 12: 
++                        spell_immune = 55358; 
++                        break;
++                    default:
++                        break;
++                }
++                if (spell_immune)
++                {
++                    if (apply) target->RemoveAurasDueToSpell(spell_immune);
++                    target->ApplySpellImmune(0, IMMUNITY_ID, spell_immune, apply);
++                }
++            }
++        }
++}               
+ 
++	
+ bool Aura::CanBeAppliedOn(Unit* target)
+ {
+     // unit not in world or during remove from world
+-- 
+1.7.6.msysgit.0
+

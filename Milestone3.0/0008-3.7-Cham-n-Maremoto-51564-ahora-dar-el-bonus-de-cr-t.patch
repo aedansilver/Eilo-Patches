@@ -1,7 +1,7 @@
-From 1e2f716ee42aed0b6a761393bce593dc1fbca65c Mon Sep 17 00:00:00 2001
+From 52b552a4fa931a42ce6ba9933eb997412871ed77 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 11 Dec 2011 22:49:39 +0100
-Subject: [PATCH 08/20] =?UTF-8?q?3.7=20Cham=C3=A1n:=20Maremoto=20(51564)=20a?=
+Subject: [PATCH 08/23] =?UTF-8?q?3.7=20Cham=C3=A1n:=20Maremoto=20(51564)=20a?=
  =?UTF-8?q?hora=20dar=C3=A1=20el=20bonus=20de=20cr=C3=ADtico=20correspondien?=
  =?UTF-8?q?te?=
 MIME-Version: 1.0
@@ -13,7 +13,7 @@ Content-Transfer-Encoding: 8bit
  1 files changed, 2 insertions(+), 3 deletions(-)
 
 diff --git a/src/server/game/Spells/Spell.cpp b/src/server/game/Spells/Spell.cpp
-index 0bc2afe..a420305 100755
+index a74d392..d0c9f35 100755
 --- a/src/server/game/Spells/Spell.cpp
 +++ b/src/server/game/Spells/Spell.cpp
 @@ -1293,9 +1293,8 @@ void Spell::DoAllEffectOnTarget(TargetInfo* target)

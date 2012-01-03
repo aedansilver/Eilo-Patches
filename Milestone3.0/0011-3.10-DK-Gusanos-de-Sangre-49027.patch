@@ -1,7 +1,7 @@
-From a9505240dde0430bfbd39394d4440be0810cbd30 Mon Sep 17 00:00:00 2001
+From 22eaed743bde200f71f5474ea1eaf1ed0f7bb22f Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 15:48:07 +0100
-Subject: [PATCH 11/20] 3.10 DK: Gusanos de Sangre (49027)
+Subject: [PATCH 11/23] 3.10 DK: Gusanos de Sangre (49027)
 
 ---
  .../reanemu/2011_07_08_100_world_bloodworms.sql    |    5 +++++
@@ -23,10 +23,10 @@ index 0000000..d761389
 +(2801701, 28017, 4, 0, 100, 0, 0, 0, 0, 0, 11, 50453, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Bloodworm - Health Leech');
 \ No newline at end of file
 diff --git a/src/server/game/Entities/Pet/Pet.cpp b/src/server/game/Entities/Pet/Pet.cpp
-index 404fe24..1f86d1b 100755
+index 4e33142..5f1d436 100755
 --- a/src/server/game/Entities/Pet/Pet.cpp
 +++ b/src/server/game/Entities/Pet/Pet.cpp
-@@ -981,6 +981,12 @@ bool Guardian::InitStatsForLevel(uint8 petlevel)
+@@ -980,6 +980,12 @@ bool Guardian::InitStatsForLevel(uint8 petlevel)
                      SetBaseWeaponDamage(BASE_ATTACK, MAXDAMAGE, float(petlevel + (petlevel / 4)));
                      break;
                  }

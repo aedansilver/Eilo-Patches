@@ -1,7 +1,7 @@
-From f3b020fb62a36bcfd43f8cb67b00d544ece93e04 Mon Sep 17 00:00:00 2001
+From c6d892abfd0712ec5ab5c70e21b163795b28b7d6 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 19:09:45 +0100
-Subject: [PATCH 13/20] 3.12 Guerrero: Reflejar (23920) efecto de
+Subject: [PATCH 13/23] 3.12 Guerrero: Reflejar (23920) efecto de
  multi-reflejo
 
 ---
@@ -10,7 +10,7 @@ Subject: [PATCH 13/20] 3.12 Guerrero: Reflejar (23920) efecto de
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/src/server/game/Entities/Unit/Unit.cpp b/src/server/game/Entities/Unit/Unit.cpp
-index 4abe0e4..f2bd657 100755
+index 4e7a209..1bdbb31 100755
 --- a/src/server/game/Entities/Unit/Unit.cpp
 +++ b/src/server/game/Entities/Unit/Unit.cpp
 @@ -2605,8 +2605,6 @@ SpellMissInfo Unit::SpellHitResult(Unit* victim, SpellInfo const* spell, bool Ca
@@ -23,7 +23,7 @@ index 4abe0e4..f2bd657 100755
          }
      }
 diff --git a/src/server/game/Spells/Spell.cpp b/src/server/game/Spells/Spell.cpp
-index 1344f45..62f9968 100755
+index d21f601..c7ecba4 100755
 --- a/src/server/game/Spells/Spell.cpp
 +++ b/src/server/game/Spells/Spell.cpp
 @@ -1214,6 +1214,8 @@ void Spell::DoAllEffectOnTarget(TargetInfo* target)

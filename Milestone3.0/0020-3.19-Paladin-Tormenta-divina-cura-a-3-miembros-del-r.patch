@@ -1,7 +1,7 @@
-From 58f32eb4b542c53a5b94673d2a78ebbc6f6117cf Mon Sep 17 00:00:00 2001
+From b792734badcb9193710df0aeb9336181ecedf172 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 29 Dec 2011 15:07:55 -0500
-Subject: [PATCH 20/20] 3.19 Paladin: Tormenta divina cura a 3 miembros del
+Subject: [PATCH 20/23] 3.19 Paladin: Tormenta divina cura a 3 miembros del
  raid
 
 ---
@@ -22,10 +22,10 @@ index 0000000..263b342
 +INSERT INTO `spell_script_names` VALUES (53385, 'spell_pal_divine_storm');
 \ No newline at end of file
 diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
-index 895d5b9..8206f32 100755
+index 1ab3663..517e0d2 100755
 --- a/src/server/game/Spells/SpellEffects.cpp
 +++ b/src/server/game/Spells/SpellEffects.cpp
-@@ -1153,9 +1153,13 @@ void Spell::EffectDummy(SpellEffIndex effIndex)
+@@ -1163,9 +1163,13 @@ void Spell::EffectDummy(SpellEffIndex effIndex)
                          return;
                      m_caster->CastCustomSpell(unitTarget, 52752, &damage, NULL, NULL, true);
                      return;
@@ -41,7 +41,7 @@ index 895d5b9..8206f32 100755
                      return;
                  }
                  case 58418:                                 // Portal to Orgrimmar
-@@ -1382,16 +1386,6 @@ void Spell::EffectDummy(SpellEffIndex effIndex)
+@@ -1392,16 +1396,6 @@ void Spell::EffectDummy(SpellEffIndex effIndex)
              }
              break;
          case SPELLFAMILY_PALADIN:

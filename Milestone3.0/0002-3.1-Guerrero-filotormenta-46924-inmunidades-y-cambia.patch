@@ -1,7 +1,7 @@
-From 9c715b4f58cb5f0d48122efa96f97f16e1e2a4d0 Mon Sep 17 00:00:00 2001
+From b9f9349c24dbee002ab5fad1e0a679b57752fd1e Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Mon, 5 Dec 2011 23:09:39 +0100
-Subject: [PATCH 02/20] 3.1 Guerrero: filotormenta (46924) inmunidades y
+Subject: [PATCH 02/23] 3.1 Guerrero: filotormenta (46924) inmunidades y
  cambiar armas
 
 ---
@@ -28,10 +28,10 @@ index 0000000..3a6c58a
 +(46924, -605, 2, 'Bladestorm immune at Mind Control');
 \ No newline at end of file
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index 542da04..08a2f09 100755
+index 3622c41..f701d15 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -22554,6 +22554,12 @@ void Player::RemoveItemDependentAurasAndCasts(Item* pItem)
+@@ -22556,6 +22556,12 @@ void Player::RemoveItemDependentAurasAndCasts(Item* pItem)
              continue;
          }
  
@@ -45,10 +45,10 @@ index 542da04..08a2f09 100755
          RemoveOwnedAura(itr);
      }
 diff --git a/src/server/game/Entities/Unit/Unit.cpp b/src/server/game/Entities/Unit/Unit.cpp
-index 3fa09af..beb69a2 100755
+index b53a3c0..b8afb68 100755
 --- a/src/server/game/Entities/Unit/Unit.cpp
 +++ b/src/server/game/Entities/Unit/Unit.cpp
-@@ -16584,6 +16584,9 @@ void Unit::KnockbackFrom(float x, float y, float speedXY, float speedZ)
+@@ -16589,6 +16589,9 @@ void Unit::KnockbackFrom(float x, float y, float speedXY, float speedZ)
      }
      else
      {

@@ -1,7 +1,7 @@
-From 50e6ea97856ea37a34814df8fdbf9373d7b04e5c Mon Sep 17 00:00:00 2001
+From f22eeb3a3c0253d76f5c13bc88ece56f9df6af5b Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 20:04:27 +0100
-Subject: [PATCH 17/20] =?UTF-8?q?3.16=20Palad=C3=ADn:=20Defensa=20Recta=20(3?=
+Subject: [PATCH 17/23] =?UTF-8?q?3.16=20Palad=C3=ADn:=20Defensa=20Recta=20(3?=
  =?UTF-8?q?1789)?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -26,10 +26,10 @@ index 0000000..6c51b05
 +(31789,'spell_pal_righteous_defense');
 \ No newline at end of file
 diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
-index cca6b8c..8eb1915 100755
+index 060504d..95ba83b 100755
 --- a/src/server/game/Spells/SpellEffects.cpp
 +++ b/src/server/game/Spells/SpellEffects.cpp
-@@ -1672,12 +1672,6 @@ void Spell::EffectTriggerSpell(SpellEffIndex effIndex)
+@@ -1682,12 +1682,6 @@ void Spell::EffectTriggerSpell(SpellEffIndex effIndex)
                      m_caster->CastSpell(unitTarget, spell->Id, true);
                  return;
              }

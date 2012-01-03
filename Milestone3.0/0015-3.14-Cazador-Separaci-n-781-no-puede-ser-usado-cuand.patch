@@ -1,7 +1,7 @@
-From 356d45b175b62ffbeec5769bddb0e335d435f1b5 Mon Sep 17 00:00:00 2001
+From c71a45b1dfba7c6fcb5691e8f30c0eb6e828b581 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 19:31:53 +0100
-Subject: [PATCH 15/20] =?UTF-8?q?3.14=20Cazador:=20Separaci=C3=B3n=20(781)=20?=
+Subject: [PATCH 15/23] =?UTF-8?q?3.14=20Cazador:=20Separaci=C3=B3n=20(781)=20?=
  =?UTF-8?q?no=20puede=20ser=20usado=20cuando=20se=20est=C3=A1=20bajo=20efect?=
  =?UTF-8?q?os=20de=20root?=
 MIME-Version: 1.0
@@ -13,10 +13,10 @@ Content-Transfer-Encoding: 8bit
  1 files changed, 1 insertions(+), 2 deletions(-)
 
 diff --git a/src/server/game/Spells/Spell.cpp b/src/server/game/Spells/Spell.cpp
-index 62f9968..2853078 100755
+index c7ecba4..4a0604e 100755
 --- a/src/server/game/Spells/Spell.cpp
 +++ b/src/server/game/Spells/Spell.cpp
-@@ -5226,8 +5226,7 @@ SpellCastResult Spell::CheckCast(bool strict)
+@@ -5236,8 +5236,7 @@ SpellCastResult Spell::CheckCast(bool strict)
                  if (m_caster->GetTypeId() == TYPEID_PLAYER && m_spellInfo->Id == 781 && !m_caster->isInCombat())
                      return SPELL_FAILED_CANT_DO_THAT_RIGHT_NOW;
  

@@ -1,31 +1,31 @@
-From fd63be0f0098d58337d84cdb8e4f4f506421109f Mon Sep 17 00:00:00 2001
+From 6f0fd17e2d70d1cec3725caf16908f2213544264 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Mon, 26 Dec 2011 11:02:54 -0500
-Subject: [PATCH 01/20] Milestone3.0
+Date: Tue, 3 Jan 2012 11:45:26 -0500
+Subject: [PATCH 01/23] Milestone3.0
 
 ---
- WHAT_IS_INSIDE |   28 ++++++++++++++++++++++++++++
- 1 files changed, 28 insertions(+), 0 deletions(-)
+ WHAT_IS_INSIDE |   34 ++++++++++++++++++++++++++++++++++
+ 1 files changed, 34 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 760710e..465399e 100644
+index 02be97d..96fb5d1 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -19,6 +19,8 @@ Milestone1.0: Jugabilidad en general, adecuaciones de codigo vario en mapas
  Milestone2.0: Mejoras en Instances y dungeons, escencialmente para darles funcionalidad
                y detalles menores de funcionamiento para tenerlas lo mas cercano
-               a blizzlike, solucion de bugs varios.
+ 			  a blizzlike, solucion de bugs varios.
 +Milestone3.0  Arreglos a Spells, sobre todo para estabilidad del pve y del
 +              pvp dentro de los reinos.
  
  
  ##################################
-@@ -161,11 +163,37 @@ Milestone2.0: Mejoras en Instances y dungeons, escencialmente para darles funcio
+@@ -166,11 +168,43 @@ Milestone2.0: Mejoras en Instances y dungeons, escencialmente para darles funcio
  #######################
  # Hechizos y Talentos #
  #######################
 +3.1  - 05/12/2011: Guerrero: Filotormenta (46924) inmunidades y cambiar armas por Kandera
-+3.2  - 07/10/2011: Mago: Invisibilidad (66) debe sacar de combate por Kapoeira
++3.2  - 25/22/2011: Mago: Reflejo Exacto ahora no atacan a objetivos que están bajo los efectos de Polimorfia 
 +3.3  - 05/11/2011: Brujo: Mejoras en pet felhunter por Locknes
 +3.4  - 02/09/2011: Druida: Trabazon con la naturaleza: añadido CD interno por Retriman
 +3.5  - 09/09/2011: Cazador: Trampla explosiva corregido el daño periodico por Retriman
@@ -42,9 +42,11 @@ index 760710e..465399e 100644
 +3.17 - 21/08/2011: Penitencia y Choque Sagrado no se pueden usar en duelos de otros pj por Retriman
 +3.18 - 05/11/2011: Cazador: Distraer ahora se interrumpen efectos de comer/beber por Kerhong
 +3.19 - 11/10/2011: Paladin: Tormenta divina cura a 3 miembros del raid por Havenard
++3.20 - 22/09/2011: Cazador: Pet Demosaurio Mordedura monstruosa fix efecto aplicado al target por Retriman
++3.21 - 22/09/2011: Sacerdote: Rezo de Alivio (33076) ahora es afectado por Disciplinas gemelas (47588), Sanación espiritual (87336) y Divina providencia (47567) por Retriman
  
  
- ##################
+ #################
  # Items y Bonus #
  #################
 +3.11 - 07/07/2011: ICC 25 Normal - Nibelungo - Proc Arma de Caster (71845) por Signfinder
@@ -55,6 +57,10 @@ index 760710e..465399e 100644
 +3.11 - 07/07/2011: ICC 25 Heroico - Últimas Palabras - Proc Arma de Tanque (71873) por Signfinder
 +3.11 - 07/07/2011: ICC 25 Normal - Proc Daga (71883) por Signfinder
 +3.11 - 07/07/2011: ICC 25 Heroico - Proc Daga (71888) por Signfinder
++3.22 - 22/09/2011: Efectos de Gemas Meta: reducción de duración de silencio (55366) por Retriman
++3.22 - 22/09/2011: Efectos de Gemas Meta: reducción de duración de snare/root (55378) por Retriman
++3.22 - 22/09/2011: Efectos de Gemas Meta: reducción de duración de miedo (55357) por Retriman
++3.22 - 22/09/2011: Efectos de Gemas Meta: reducción de duración de stun (55358) por Retriman
  
  
  ############################
