@@ -1,4 +1,4 @@
-From 838410c56512709f34d60f5a295d52a7bdf30f82 Mon Sep 17 00:00:00 2001
+From ad0fcb5bf5bf63d9c4f59bd387d0b5c8f6a31ad0 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 16:06:42 -0500
 Subject: [PATCH 12/29] 0.8 AC1 Anticheat
@@ -112,10 +112,10 @@ index 0000000..34529cc
 +ALTER TABLE `cheaters` DROP COLUMN `Pos`;
 \ No newline at end of file
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index afc93a5..ff60d16 100755
+index a189aee..cc3ad63 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -760,6 +760,16 @@ Player::Player (WorldSession* session): Unit(), m_achievementMgr(this), m_reputa
+@@ -760,6 +760,16 @@ Player::Player(WorldSession* session): Unit(true), m_achievementMgr(this), m_rep
      rest_type=REST_TYPE_NO;
      ////////////////////Rest System/////////////////////
  
@@ -132,7 +132,7 @@ index afc93a5..ff60d16 100755
      m_mailsLoaded = false;
      m_mailsUpdated = false;
      unReadMails = 0;
-@@ -2768,6 +2778,8 @@ void Player::SetInWater(bool apply)
+@@ -2767,6 +2777,8 @@ void Player::SetInWater(bool apply)
      RemoveAurasWithInterruptFlags(apply ? AURA_INTERRUPT_FLAG_NOT_ABOVEWATER : AURA_INTERRUPT_FLAG_NOT_UNDERWATER);
  
      getHostileRefManager().updateThreatTables();
@@ -141,7 +141,7 @@ index afc93a5..ff60d16 100755
  }
  
  void Player::SetGameMaster(bool on)
-@@ -23568,6 +23580,15 @@ void Player::HandleFall(MovementInfo const& movementInfo)
+@@ -23570,6 +23582,15 @@ void Player::HandleFall(MovementInfo const& movementInfo)
      float z_diff = m_lastFallZ - movementInfo.pos.GetPositionZ();
      //sLog->outDebug("zDiff = %f", z_diff);
  
@@ -158,7 +158,7 @@ index afc93a5..ff60d16 100755
      // 14.57 can be calculated by resolving damageperc formula below to 0
      if (z_diff >= 14.57f && !isDead() && !isGameMaster() &&
 diff --git a/src/server/game/Entities/Player/Player.h b/src/server/game/Entities/Player/Player.h
-index 56b0205..7d26566 100755
+index 4075b6a..95cd17c 100755
 --- a/src/server/game/Entities/Player/Player.h
 +++ b/src/server/game/Entities/Player/Player.h
 @@ -1118,6 +1118,21 @@ class Player : public Unit, public GridObject<Player>
@@ -184,7 +184,7 @@ index 56b0205..7d26566 100755
  
          static UpdateMask updateVisualBits;
 diff --git a/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp b/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp
-index 4e45eb2..a1cfb37 100755
+index ae2612e..84bc31e 100755
 --- a/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp
 +++ b/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp
 @@ -31,6 +31,204 @@
@@ -551,7 +551,7 @@ index 4e45eb2..a1cfb37 100755
      /* process position-change */
      WorldPacket data(opcode, recv_data.size());
 diff --git a/src/server/game/Spells/Auras/SpellAuraEffects.cpp b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
-index b690a81..69479c4 100755
+index 12c40c1..96d0601 100755
 --- a/src/server/game/Spells/Auras/SpellAuraEffects.cpp
 +++ b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
 @@ -2852,9 +2852,16 @@ void AuraEffect::HandleAuraAllowFlight(AuraApplication const* aurApp, uint8 mode
@@ -600,10 +600,10 @@ index b690a81..69479c4 100755
                  data << uint32(0);                                      // unknown
                  player->SendDirectMessage(&data);
 diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
-index 839a466..2a4dada 100755
+index 9591707..6340b1e 100755
 --- a/src/server/game/Spells/SpellEffects.cpp
 +++ b/src/server/game/Spells/SpellEffects.cpp
-@@ -6247,6 +6247,9 @@ void Spell::EffectCharge(SpellEffIndex /*effIndex*/)
+@@ -6257,6 +6257,9 @@ void Spell::EffectCharge(SpellEffIndex /*effIndex*/)
          // not all charge effects used in negative spells
          if (!m_spellInfo->IsPositive() && m_caster->GetTypeId() == TYPEID_PLAYER)
              m_caster->Attack(unitTarget, true);

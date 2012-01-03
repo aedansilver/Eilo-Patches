@@ -1,4 +1,4 @@
-From cfec5703f79d289562a5be4aef52f4d855859d54 Mon Sep 17 00:00:00 2001
+From 525eb27016d685f32275deee0d0d50cdf0062f24 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:59:44 -0500
 Subject: [PATCH 15/29] 0.11 Cuentas VIP
@@ -48,10 +48,10 @@ index c0c64a3..5d770a9 100644
     _AHBplayer.Initialize(AHBplayerGUID);
     sObjectAccessor->AddObject(&_AHBplayer);
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index ff60d16..3e82438 100755
+index cc3ad63..d942bde 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -6853,6 +6853,9 @@ void Player::CheckAreaExploreAndOutdoor()
+@@ -6852,6 +6852,9 @@ void Player::CheckAreaExploreAndOutdoor()
                      XP = uint32(sObjectMgr->GetBaseXP(p->area_level)*sWorld->getRate(RATE_XP_EXPLORE));
                  }
  
@@ -61,7 +61,7 @@ index ff60d16..3e82438 100755
                  GiveXP(XP, NULL);
                  SendExplorationExperience(area, XP);
              }
-@@ -14949,6 +14952,9 @@ void Player::RewardQuest(Quest const* quest, uint32 reward, Object* questGiver,
+@@ -14951,6 +14954,9 @@ void Player::RewardQuest(Quest const* quest, uint32 reward, Object* questGiver,
      for (Unit::AuraEffectList::const_iterator i = ModXPPctAuras.begin(); i != ModXPPctAuras.end(); ++i)
          AddPctN(XP, (*i)->GetAmount());
  
@@ -87,7 +87,7 @@ index cbcad52..8c32cca 100755
  
              sScriptMgr->OnGainCalculation(gain, player, u);
 diff --git a/src/server/game/Server/WorldSession.cpp b/src/server/game/Server/WorldSession.cpp
-index 8eeb435..bf72958 100755
+index 8735e43..0bfe8b4 100755
 --- a/src/server/game/Server/WorldSession.cpp
 +++ b/src/server/game/Server/WorldSession.cpp
 @@ -88,9 +88,9 @@ bool WorldSessionFilter::Process(WorldPacket* packet)
@@ -103,10 +103,10 @@ index 8eeb435..bf72958 100755
  m_playerRecentlyLogout(false), m_playerSave(false),
  m_sessionDbcLocale(sWorld->GetAvailableDbcLocale(locale)),
 diff --git a/src/server/game/Server/WorldSession.h b/src/server/game/Server/WorldSession.h
-index 44e2f05..6513106 100755
+index af52c32..762e8e6 100755
 --- a/src/server/game/Server/WorldSession.h
 +++ b/src/server/game/Server/WorldSession.h
-@@ -216,7 +216,7 @@ class CharacterCreateInfo
+@@ -213,7 +213,7 @@ class CharacterCreateInfo
  class WorldSession
  {
      public:
@@ -115,7 +115,7 @@ index 44e2f05..6513106 100755
          ~WorldSession();
  
          bool PlayerLoading() const { return m_playerLoading; }
-@@ -244,6 +244,7 @@ class WorldSession
+@@ -241,6 +241,7 @@ class WorldSession
          void SendClientCacheVersion(uint32 version);
  
          AccountTypes GetSecurity() const { return _security; }
@@ -123,7 +123,7 @@ index 44e2f05..6513106 100755
          uint32 GetAccountId() const { return _accountId; }
          Player* GetPlayer() const { return _player; }
          char const* GetPlayerName() const;
-@@ -940,6 +941,7 @@ class WorldSession
+@@ -936,6 +937,7 @@ class WorldSession
          AccountTypes _security;
          uint32 _accountId;
          uint8 m_expansion;

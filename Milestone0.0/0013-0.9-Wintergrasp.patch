@@ -1,4 +1,4 @@
-From 8b70617b4ddb29d307f11865da6b10a4bd585eac Mon Sep 17 00:00:00 2001
+From 5e50170672d892aa2d76e71c735aa2dd28afc62b Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 30 Dec 2011 17:17:46 -0500
 Subject: [PATCH 13/29] 0.9 Wintergrasp
@@ -640,7 +640,7 @@ index 41bc564..3dec4a6 100755
  {
      if (!*args)
 diff --git a/src/server/game/Entities/GameObject/GameObject.cpp b/src/server/game/Entities/GameObject/GameObject.cpp
-index de1b0f8..5dd7596 100755
+index 036664a..c5e0be6 100755
 --- a/src/server/game/Entities/GameObject/GameObject.cpp
 +++ b/src/server/game/Entities/GameObject/GameObject.cpp
 @@ -447,6 +447,11 @@ void GameObject::Update(uint32 diff)
@@ -719,7 +719,7 @@ index 51ad500..79e38d0 100755
          SeatMap Seats;
  
 diff --git a/src/server/game/Miscellaneous/Language.h b/src/server/game/Miscellaneous/Language.h
-index a6ff663..bc620cb 100755
+index a5935e1..645a649 100755
 --- a/src/server/game/Miscellaneous/Language.h
 +++ b/src/server/game/Miscellaneous/Language.h
 @@ -705,6 +705,28 @@ enum TrinityStrings
@@ -843,7 +843,7 @@ index 95327a7..a4df0c9 100755
  
  void WorldSession::HandleBattlemasterJoinArena(WorldPacket & recv_data)
 diff --git a/src/server/game/Server/Protocol/Handlers/CharacterHandler.cpp b/src/server/game/Server/Protocol/Handlers/CharacterHandler.cpp
-index 3d33e50..a9228fb 100755
+index 2a4e1c5..46cd6e9 100755
 --- a/src/server/game/Server/Protocol/Handlers/CharacterHandler.cpp
 +++ b/src/server/game/Server/Protocol/Handlers/CharacterHandler.cpp
 @@ -44,6 +44,9 @@
@@ -856,7 +856,7 @@ index 3d33e50..a9228fb 100755
  class LoginQueryHolder : public SQLQueryHolder
  {
      private:
-@@ -932,6 +935,23 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder * holder)
+@@ -902,6 +905,23 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder* holder)
      sObjectAccessor->AddObject(pCurrChar);
      //sLog->outDebug("Player %s added to Map.", pCurrChar->GetName());
  
@@ -881,10 +881,10 @@ index 3d33e50..a9228fb 100755
  
      CharacterDatabase.PExecute("UPDATE characters SET online = 1 WHERE guid = '%u'", pCurrChar->GetGUIDLow());
 diff --git a/src/server/game/Spells/Auras/SpellAuraEffects.cpp b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
-index 69479c4..1243833 100755
+index 96d0601..9943f3c 100755
 --- a/src/server/game/Spells/Auras/SpellAuraEffects.cpp
 +++ b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
-@@ -4904,6 +4904,7 @@ void AuraEffect::HandleAuraDummy(AuraApplication const* aurApp, uint8 mode, bool
+@@ -4908,6 +4908,7 @@ void AuraEffect::HandleAuraDummy(AuraApplication const* aurApp, uint8 mode, bool
                              target->CastSpell((Unit*)NULL, GetAmount(), true, NULL, this);
                              break;
                          case 58600: // Restricted Flight Area
@@ -893,7 +893,7 @@ index 69479c4..1243833 100755
                                  target->CastSpell(target, 58601, true);
                              break;
 diff --git a/src/server/game/Spells/Spell.cpp b/src/server/game/Spells/Spell.cpp
-index e1c5b90..0168fe9 100755
+index fbb1a19..8a534e2 100755
 --- a/src/server/game/Spells/Spell.cpp
 +++ b/src/server/game/Spells/Spell.cpp
 @@ -53,6 +53,8 @@
@@ -905,7 +905,7 @@ index e1c5b90..0168fe9 100755
  
  extern pEffect SpellEffects[TOTAL_SPELL_EFFECTS];
  
-@@ -5376,8 +5378,17 @@ SpellCastResult Spell::CheckCast(bool strict)
+@@ -5386,8 +5388,17 @@ SpellCastResult Spell::CheckCast(bool strict)
                  if (m_originalCaster && m_originalCaster->GetTypeId() == TYPEID_PLAYER && m_originalCaster->isAlive())
                  {
                      if (AreaTableEntry const* pArea = GetAreaEntryByAreaID(m_originalCaster->GetAreaId()))
@@ -924,7 +924,7 @@ index e1c5b90..0168fe9 100755
                  break;
              }
 diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
-index 2a4dada..63e943b 100755
+index 6340b1e..269f26b 100755
 --- a/src/server/game/Spells/SpellEffects.cpp
 +++ b/src/server/game/Spells/SpellEffects.cpp
 @@ -63,6 +63,7 @@
@@ -935,7 +935,7 @@ index 2a4dada..63e943b 100755
  
  pEffect SpellEffects[TOTAL_SPELL_EFFECTS]=
  {
-@@ -4480,6 +4481,23 @@ void Spell::EffectScriptEffect(SpellEffIndex effIndex)
+@@ -4486,6 +4487,23 @@ void Spell::EffectScriptEffect(SpellEffIndex effIndex)
          {
              switch (m_spellInfo->Id)
              {
@@ -960,7 +960,7 @@ index 2a4dada..63e943b 100755
                  case 63975:
                  {
 diff --git a/src/server/game/Spells/SpellMgr.cpp b/src/server/game/Spells/SpellMgr.cpp
-index 058ddf7..5d1836a 100755
+index 7170aa8..de02c9f 100755
 --- a/src/server/game/Spells/SpellMgr.cpp
 +++ b/src/server/game/Spells/SpellMgr.cpp
 @@ -30,6 +30,8 @@

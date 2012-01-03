@@ -1,4 +1,4 @@
-From 45e291e1c07de7f98e27a08aecd316975446f720 Mon Sep 17 00:00:00 2001
+From c5a09856557fb1fa3f212488f2f7f3fc354c46a1 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 19:37:01 -0500
 Subject: [PATCH 16/29] =?UTF-8?q?0.12=20TrinityJail=20con=20ajuste=20a=20min?=
@@ -187,7 +187,7 @@ index 06c0fb2..3be886d 100755
          bool HandleRepairitemsCommand(const char* args);
  
 diff --git a/src/server/game/Chat/Commands/Level0.cpp b/src/server/game/Chat/Commands/Level0.cpp
-index 97173f7..4afeb58 100755
+index 7ff7a82..2c2bee4 100755
 --- a/src/server/game/Chat/Commands/Level0.cpp
 +++ b/src/server/game/Chat/Commands/Level0.cpp
 @@ -28,6 +28,7 @@
@@ -728,10 +728,10 @@ index 118ddc4..249524b 100755
  {
      Player* SelectedPlayer = getSelectedPlayer();
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index 3e82438..fc7529c 100755
+index d942bde..b85e0cd 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -635,6 +635,21 @@ Player::Player (WorldSession* session): Unit(), m_achievementMgr(this), m_reputa
+@@ -635,6 +635,21 @@ Player::Player(WorldSession* session): Unit(true), m_achievementMgr(this), m_rep
  #pragma warning(default:4355)
  #endif
  
@@ -753,7 +753,7 @@ index 3e82438..fc7529c 100755
      m_speakTime = 0;
      m_speakCount = 0;
  
-@@ -1543,6 +1558,78 @@ void Player::Update(uint32 p_time)
+@@ -1542,6 +1557,78 @@ void Player::Update(uint32 p_time)
      Unit::Update(p_time);
      SetCanDelayTeleport(false);
  
@@ -832,7 +832,7 @@ index 3e82438..fc7529c 100755
      time_t now = time(NULL);
  
      UpdatePvPFlag(now);
-@@ -1723,9 +1810,18 @@ void Player::Update(uint32 p_time)
+@@ -1722,9 +1809,18 @@ void Player::Update(uint32 p_time)
      }
  
      if (m_deathState == JUST_DIED)
@@ -853,7 +853,7 @@ index 3e82438..fc7529c 100755
      {
          if (p_time >= m_nextSave)
          {
-@@ -17130,10 +17226,77 @@ bool Player::LoadFromDB(uint32 guid, SQLQueryHolder *holder)
+@@ -17132,10 +17228,77 @@ bool Player::LoadFromDB(uint32 guid, SQLQueryHolder *holder)
      m_achievementMgr.CheckAllAchievementCriteria();
  
      _LoadEquipmentSets(holder->GetPreparedResult(PLAYER_LOGIN_QUERY_LOADEQUIPMENTSETS));
@@ -931,7 +931,7 @@ index 3e82438..fc7529c 100755
  bool Player::isAllowedToLoot(const Creature* creature)
  {
      if (!creature->isDead() || !creature->IsDamageEnoughForLootingAndReward())
-@@ -18309,11 +18472,23 @@ bool Player::_LoadHomeBind(PreparedQueryResult result)
+@@ -18311,11 +18474,23 @@ bool Player::_LoadHomeBind(PreparedQueryResult result)
  /***                   SAVE SYSTEM                     ***/
  /*********************************************************/
  
@@ -956,7 +956,7 @@ index 3e82438..fc7529c 100755
      //lets allow only players in world to be saved
      if (IsBeingTeleportedFar())
      {
-@@ -23435,6 +23610,7 @@ void Player::_LoadSkills(PreparedQueryResult result)
+@@ -23437,6 +23612,7 @@ void Player::_LoadSkills(PreparedQueryResult result)
              {
                  sLog->outError("Character %u has skill %u with value 0. Will be deleted.", GetGUIDLow(), skill);
                  CharacterDatabase.PExecute("DELETE FROM character_skills WHERE guid = '%u' AND skill = '%u' ", GetGUIDLow(), skill);
@@ -965,7 +965,7 @@ index 3e82438..fc7529c 100755
              }
  
 diff --git a/src/server/game/Entities/Player/Player.h b/src/server/game/Entities/Player/Player.h
-index 7d26566..a4e7e88 100755
+index 95cd17c..e2c6c2a 100755
 --- a/src/server/game/Entities/Player/Player.h
 +++ b/src/server/game/Entities/Player/Player.h
 @@ -2319,6 +2319,26 @@ class Player : public Unit, public GridObject<Player>
@@ -996,7 +996,7 @@ index 7d26566..a4e7e88 100755
          /***               FLOOD FILTER SYSTEM                 ***/
          /*********************************************************/
 diff --git a/src/server/game/Globals/ObjectMgr.cpp b/src/server/game/Globals/ObjectMgr.cpp
-index 020f7bd..4edcba1 100755
+index 5353e04..88f2bff 100755
 --- a/src/server/game/Globals/ObjectMgr.cpp
 +++ b/src/server/game/Globals/ObjectMgr.cpp
 @@ -6704,6 +6704,121 @@ uint32 ObjectMgr::GeneratePetNumber()
@@ -1156,7 +1156,7 @@ index 88c593a..814bce5 100755
          uint32 GetBaseXP(uint8 level);
          uint32 GetXPForLevel(uint8 level);
 diff --git a/src/server/game/Miscellaneous/Language.h b/src/server/game/Miscellaneous/Language.h
-index bc620cb..321f597 100755
+index 645a649..36bd010 100755
 --- a/src/server/game/Miscellaneous/Language.h
 +++ b/src/server/game/Miscellaneous/Language.h
 @@ -21,6 +21,42 @@

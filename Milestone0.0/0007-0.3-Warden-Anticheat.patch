@@ -1,4 +1,4 @@
-From a536cd0e94162618d31787eaf49d7da753a9d089 Mon Sep 17 00:00:00 2001
+From 3f497f924aeec07b55525fd0ffa9e56c6ac4525e Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:45:24 -0500
 Subject: [PATCH 07/29] 0.3 Warden Anticheat
@@ -961,10 +961,10 @@ index 65ba160..0fc8012 100644
    ${CMAKE_CURRENT_SOURCE_DIR}/World
    ${CMAKE_SOURCE_DIR}/src/server/scripts/PrecompiledHeaders
 diff --git a/src/server/game/Server/Protocol/Handlers/MiscHandler.cpp b/src/server/game/Server/Protocol/Handlers/MiscHandler.cpp
-index 7327cdb..a440abe 100755
+index aef3bf0..27a6198 100755
 --- a/src/server/game/Server/Protocol/Handlers/MiscHandler.cpp
 +++ b/src/server/game/Server/Protocol/Handlers/MiscHandler.cpp
-@@ -1160,16 +1160,6 @@ void WorldSession::HandleSetActionBarToggles(WorldPacket& recv_data)
+@@ -1163,16 +1163,6 @@ void WorldSession::HandleSetActionBarToggles(WorldPacket& recv_data)
      GetPlayer()->SetByteValue(PLAYER_FIELD_BYTES, 2, ActionBar);
  }
  
@@ -995,7 +995,7 @@ index 311a94d..ccd505f 100755
      /*0x2E9*/ { "MSG_BATTLEGROUND_PLAYER_POSITIONS",            STATUS_LOGGEDIN, PROCESS_THREADUNSAFE, &WorldSession::HandleBattlegroundPlayerPositionsOpcode},
      /*0x2EA*/ { "CMSG_PET_STOP_ATTACK",                         STATUS_LOGGEDIN, PROCESS_THREADUNSAFE, &WorldSession::HandlePetStopAttack             },
 diff --git a/src/server/game/Server/WorldSession.cpp b/src/server/game/Server/WorldSession.cpp
-index 14c8628..8eeb435 100755
+index 54d477a..8735e43 100755
 --- a/src/server/game/Server/WorldSession.cpp
 +++ b/src/server/game/Server/WorldSession.cpp
 @@ -42,6 +42,8 @@
@@ -1039,8 +1039,8 @@ index 14c8628..8eeb435 100755
  /// Send a packet to the client
  void WorldSession::SendPacket(WorldPacket const* packet)
  {
-@@ -323,6 +334,9 @@ bool WorldSession::Update(uint32 diff, PacketFilter& updater)
-         delete packet;
+@@ -348,6 +359,9 @@ bool WorldSession::Update(uint32 diff, PacketFilter& updater)
+             delete packet;
      }
  
 +    if (m_Socket && !m_Socket->IsClosed() && _warden)
@@ -1049,7 +1049,7 @@ index 14c8628..8eeb435 100755
      ProcessQueryCallbacks();
  
      //check if we are safe to proceed with logout
-@@ -334,6 +348,9 @@ bool WorldSession::Update(uint32 diff, PacketFilter& updater)
+@@ -359,6 +373,9 @@ bool WorldSession::Update(uint32 diff, PacketFilter& updater)
          if (ShouldLogOut(currTime) && !m_playerLoading)
              LogoutPlayer(true);
  
@@ -1059,7 +1059,7 @@ index 14c8628..8eeb435 100755
          ///- Cleanup socket pointer if need
          if (m_Socket && m_Socket->IsClosed())
          {
-@@ -1070,3 +1087,18 @@ void WorldSession::ProcessQueryCallbacks()
+@@ -1097,3 +1114,18 @@ void WorldSession::ProcessQueryCallbacks()
          _stableSwapCallback.FreeResult();
      }
  }
@@ -1079,7 +1079,7 @@ index 14c8628..8eeb435 100755
 +    }
 +}
 diff --git a/src/server/game/Server/WorldSession.h b/src/server/game/Server/WorldSession.h
-index 4a83c2d..44e2f05 100755
+index d1f6077..af52c32 100755
 --- a/src/server/game/Server/WorldSession.h
 +++ b/src/server/game/Server/WorldSession.h
 @@ -29,6 +29,7 @@
@@ -1098,7 +1098,7 @@ index 4a83c2d..44e2f05 100755
  struct AreaTableEntry;
  struct LfgJoinResultData;
  struct LfgLockStatus;
-@@ -245,11 +247,14 @@ class WorldSession
+@@ -242,11 +244,14 @@ class WorldSession
          uint32 GetAccountId() const { return _accountId; }
          Player* GetPlayer() const { return _player; }
          char const* GetPlayerName() const;
@@ -1113,7 +1113,7 @@ index 4a83c2d..44e2f05 100755
          /// Session in auth.queue currently
          void SetInQueue(bool state) { m_inQueue = state; }
  
-@@ -491,6 +496,7 @@ class WorldSession
+@@ -488,6 +493,7 @@ class WorldSession
          void HandleSetActionButtonOpcode(WorldPacket& recvPacket);
  
          void HandleGameObjectUseOpcode(WorldPacket& recPacket);
@@ -1121,7 +1121,7 @@ index 4a83c2d..44e2f05 100755
          void HandleGameobjectReportUse(WorldPacket& recvPacket);
  
          void HandleNameQueryOpcode(WorldPacket& recvPacket);
-@@ -937,6 +943,9 @@ class WorldSession
+@@ -933,6 +939,9 @@ class WorldSession
  
          typedef std::list<AddonInfo> AddonsList;
  

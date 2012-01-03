@@ -1,4 +1,4 @@
-From 20cac265e5eb5e50e36af9b27751bbe9680e06ee Mon Sep 17 00:00:00 2001
+From 99e95f0e1325893b67282f145a990d307921a1e4 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 20:38:02 -0500
 Subject: [PATCH 09/29] 0.5 PvpRanks y titulos
@@ -11,10 +11,10 @@ Subject: [PATCH 09/29] 0.5 PvpRanks y titulos
  4 files changed, 119 insertions(+), 3 deletions(-)
 
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index 2ed85f8..afc93a5 100755
+index ac42e58..a189aee 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -7032,6 +7032,30 @@ void Player::RewardReputation(Quest const* quest)
+@@ -7031,6 +7031,30 @@ void Player::RewardReputation(Quest const* quest)
      }
  }
  
@@ -45,7 +45,7 @@ index 2ed85f8..afc93a5 100755
  void Player::UpdateHonorFields()
  {
      /// called when rewarding honor and at each save
-@@ -7087,6 +7111,7 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool pvpt
+@@ -7086,6 +7110,7 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool pvpt
  
      uint64 victim_guid = 0;
      uint32 victim_rank = 0;
@@ -53,7 +53,7 @@ index 2ed85f8..afc93a5 100755
  
      // need call before fields update to have chance move yesterday data to appropriate fields before today data change.
      UpdateHonorFields();
-@@ -7127,20 +7152,52 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool pvpt
+@@ -7126,20 +7151,52 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool pvpt
              //  [39+]    Nothing
              uint32 victim_title = pVictim->GetUInt32Value(PLAYER_CHOSEN_TITLE);
                                                          // Get Killer titles, CharTitlesEntry::bit_index
@@ -109,7 +109,7 @@ index 2ed85f8..afc93a5 100755
  
              // count the number of playerkills in one day
              ApplyModUInt32Value(PLAYER_FIELD_KILLS, 1, true);
-@@ -7151,6 +7208,7 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool pvpt
+@@ -7150,6 +7207,7 @@ bool Player::RewardHonor(Unit* uVictim, uint32 groupsize, int32 honor, bool pvpt
              UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_HK_RACE, pVictim->getRace());
              UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_HONORABLE_KILL_AT_AREA, GetAreaId());
              UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_HONORABLE_KILL, 1, 0, pVictim);
@@ -118,7 +118,7 @@ index 2ed85f8..afc93a5 100755
          else
          {
 diff --git a/src/server/game/Entities/Player/Player.h b/src/server/game/Entities/Player/Player.h
-index 1e9442d..56b0205 100755
+index df8515b..4075b6a 100755
 --- a/src/server/game/Entities/Player/Player.h
 +++ b/src/server/game/Entities/Player/Player.h
 @@ -401,6 +401,27 @@ enum PlayerFlags

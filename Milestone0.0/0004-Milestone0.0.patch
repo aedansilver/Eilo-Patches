@@ -1,6 +1,6 @@
-From cc008bebb8e1b1f3b69e5a8a3b3065324946c7d6 Mon Sep 17 00:00:00 2001
+From 2546ab9029f6f13152880cadc73d654058aff525 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Sat, 24 Dec 2011 15:45:29 -0500
+Date: Mon, 2 Jan 2012 11:53:23 -0500
 Subject: [PATCH 04/29] Milestone0.0
 
 ---
@@ -8,7 +8,7 @@ Subject: [PATCH 04/29] Milestone0.0
  1 files changed, 30 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 17dc82e..533ff87 100644
+index 8362a13..7d1f463 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -9,6 +9,11 @@ parches y/o c
@@ -52,7 +52,6 @@ index 17dc82e..533ff87 100644
 +0.23 - 30/12/2011: FindNearestPlayer y GetNearestPlayersList reañadidas por Eilo
 +0.24 - 30/12/2011: setRegeneratingHealth funcion de soporte reañadida por Eilo
 +0.25 - 30/12/2011: SetImmuneToPushPullEffects funcion de soporte reañadida por Eilo
-
  
  
  ###############

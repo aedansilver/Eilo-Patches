@@ -1,4 +1,4 @@
-From 6272cb0a5d6cbfffef99c2bfce63ec4417d7d375 Mon Sep 17 00:00:00 2001
+From adb848d9a0cbb7a8196b224c8b1a679479b61c1a Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:41:16 -0500
 Subject: [PATCH 08/29] 0.4 Wowarmory con chart de arenas y modelos 3d
@@ -14,10 +14,10 @@ Subject: [PATCH 08/29] 0.4 Wowarmory con chart de arenas y modelos 3d
  7 files changed, 170 insertions(+), 1 deletions(-)
 
 diff --git a/src/server/game/Achievements/AchievementMgr.cpp b/src/server/game/Achievements/AchievementMgr.cpp
-index c43bfb2..b4a8260 100755
+index d22f4b9..709db52 100755
 --- a/src/server/game/Achievements/AchievementMgr.cpp
 +++ b/src/server/game/Achievements/AchievementMgr.cpp
-@@ -2004,6 +2004,7 @@ void AchievementMgr::CompletedAchievement(AchievementEntry const* achievement)
+@@ -1999,6 +1999,7 @@ void AchievementMgr::CompletedAchievement(AchievementEntry const* achievement)
          return;
  
      SendAchievementEarned(achievement);
@@ -137,10 +137,10 @@ index 0727516..59d1775 100755
  }
  
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index bd85968..2ed85f8 100755
+index 510813a..ac42e58 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -4916,6 +4916,8 @@ void Player::DeleteFromDB(uint64 playerguid, uint32 accountId, bool updateRealmC
+@@ -4915,6 +4915,8 @@ void Player::DeleteFromDB(uint64 playerguid, uint32 accountId, bool updateRealmC
              trans->PAppend("DELETE FROM character_queststatus_daily WHERE guid = '%u'", guid);
              trans->PAppend("DELETE FROM character_talent WHERE guid = '%u'", guid);
              trans->PAppend("DELETE FROM character_skills WHERE guid = '%u'", guid);
@@ -149,7 +149,7 @@ index bd85968..2ed85f8 100755
  
              CharacterDatabase.CommitTransaction(trans);
              break;
-@@ -16467,6 +16469,8 @@ bool Player::LoadFromDB(uint32 guid, SQLQueryHolder *holder)
+@@ -16469,6 +16471,8 @@ bool Player::LoadFromDB(uint32 guid, SQLQueryHolder *holder)
          CharacterDatabase.PExecute("UPDATE characters SET at_login = at_login | '%u' WHERE guid ='%u'", uint32(AT_LOGIN_RENAME), guid);
          return false;
      }
@@ -158,7 +158,7 @@ index bd85968..2ed85f8 100755
  
      // overwrite possible wrong/corrupted guid
      SetUInt64Value(OBJECT_FIELD_GUID, MAKE_NEW_GUID(guid, 0, HIGHGUID_PLAYER));
-@@ -18498,6 +18502,30 @@ void Player::SaveToDB(bool create /*=false*/)
+@@ -18500,6 +18504,30 @@ void Player::SaveToDB(bool create /*=false*/)
  
      CharacterDatabase.CommitTransaction(trans);
  
@@ -189,7 +189,7 @@ index bd85968..2ed85f8 100755
      // save pet (hunter pet level and experience and all type pets health/mana).
      if (Pet* pet = GetPet())
          pet->SavePetToDB(PET_SAVE_AS_CURRENT);
-@@ -24778,3 +24806,42 @@ bool Player::IsInWhisperWhiteList(uint64 guid)
+@@ -24780,3 +24808,42 @@ bool Player::IsInWhisperWhiteList(uint64 guid)
      }
      return false;
  }
@@ -233,7 +233,7 @@ index bd85968..2ed85f8 100755
 +    m_wowarmory_feeds.push_back(feed);
 +}
 diff --git a/src/server/game/Entities/Player/Player.h b/src/server/game/Entities/Player/Player.h
-index 2b84a11..1e9442d 100755
+index 8ee7d1a..df8515b 100755
 --- a/src/server/game/Entities/Player/Player.h
 +++ b/src/server/game/Entities/Player/Player.h
 @@ -1073,6 +1073,21 @@ private:
@@ -281,7 +281,7 @@ index 2b84a11..1e9442d 100755
          InstanceTimeMap _instanceResetTimes;
          uint32 _pendingBindId;
 diff --git a/src/server/game/Entities/Unit/Unit.cpp b/src/server/game/Entities/Unit/Unit.cpp
-index 232be09..e2308bd 100755
+index fec9a13..e4c0eac 100755
 --- a/src/server/game/Entities/Unit/Unit.cpp
 +++ b/src/server/game/Entities/Unit/Unit.cpp
 @@ -746,9 +746,16 @@ uint32 Unit::DealDamage(Unit* victim, uint32 damage, CleanDamage const* cleanDam
@@ -313,7 +313,7 @@ index 232be09..e2308bd 100755
      }
  
      return gain;
-@@ -15560,7 +15571,10 @@ void Unit::Kill(Unit* victim, bool durabilityLoss)
+@@ -15565,7 +15576,10 @@ void Unit::Kill(Unit* victim, bool durabilityLoss)
                  if (instanceMap->IsRaidOrHeroicDungeon())
                  {
                      if (creature->GetCreatureInfo()->flags_extra & CREATURE_FLAG_EXTRA_INSTANCE_BIND)

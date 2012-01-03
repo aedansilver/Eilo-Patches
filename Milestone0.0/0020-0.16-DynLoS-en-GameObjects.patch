@@ -1,4 +1,4 @@
-From 8331b346376e3f8a995669133023a507421d22e9 Mon Sep 17 00:00:00 2001
+From 36f5e077ff864e5b84ec0c753138931da18ad902 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 21:49:37 -0500
 Subject: [PATCH 20/29] 0.16 DynLoS en GameObjects
@@ -10,10 +10,10 @@ Subject: [PATCH 20/29] 0.16 DynLoS en GameObjects
  3 files changed, 204 insertions(+), 3 deletions(-)
 
 diff --git a/src/server/game/Entities/Object/Object.cpp b/src/server/game/Entities/Object/Object.cpp
-index d4723cb..83ac140 100755
+index d467992..93f9652 100755
 --- a/src/server/game/Entities/Object/Object.cpp
 +++ b/src/server/game/Entities/Object/Object.cpp
-@@ -1349,7 +1349,7 @@ bool WorldObject::IsWithinLOSInMap(const WorldObject* obj) const
+@@ -1360,7 +1360,7 @@ bool WorldObject::IsWithinLOSInMap(const WorldObject* obj) const
  
      float ox, oy, oz;
      obj->GetPosition(ox, oy, oz);
@@ -22,7 +22,7 @@ index d4723cb..83ac140 100755
  }
  
  bool WorldObject::IsWithinLOS(float ox, float oy, float oz) const
-@@ -1357,7 +1357,7 @@ bool WorldObject::IsWithinLOS(float ox, float oy, float oz) const
+@@ -1368,7 +1368,7 @@ bool WorldObject::IsWithinLOS(float ox, float oy, float oz) const
      float x, y, z;
      GetPosition(x, y, z);
      VMAP::IVMapManager* vMapManager = VMAP::VMapFactory::createOrGetVMapManager();
@@ -31,7 +31,7 @@ index d4723cb..83ac140 100755
  }
  
  bool WorldObject::GetDistanceOrder(WorldObject const* obj1, WorldObject const* obj2, bool is3D /* = true */) const
-@@ -2654,9 +2654,18 @@ void WorldObject::MovePositionToFirstCollision(Position &pos, float dist, float
+@@ -2665,9 +2665,18 @@ void WorldObject::MovePositionToFirstCollision(Position &pos, float dist, float
          // move back a bit
          destx -= CONTACT_DISTANCE * cos(angle);
          desty -= CONTACT_DISTANCE * sin(angle);
@@ -52,10 +52,10 @@ index d4723cb..83ac140 100755
  
      for (uint8 j = 0; j < 10; ++j)
 diff --git a/src/server/game/Maps/Map.cpp b/src/server/game/Maps/Map.cpp
-index 04a5b10..19a3bf4 100755
+index 34a7b60..d876ffc 100755
 --- a/src/server/game/Maps/Map.cpp
 +++ b/src/server/game/Maps/Map.cpp
-@@ -219,9 +219,14 @@ i_scriptLock(false)
+@@ -220,9 +220,14 @@ i_scriptLock(false)
          }
      }
  
@@ -70,7 +70,7 @@ index 04a5b10..19a3bf4 100755
      sScriptMgr->OnCreateMap(this);
  }
  
-@@ -2621,3 +2626,151 @@ void Map::UpdateIteratorBack(Player* player)
+@@ -2632,3 +2637,151 @@ void Map::UpdateIteratorBack(Player* player)
      if (m_mapRefIter == player->GetMapRef())
          m_mapRefIter = m_mapRefIter->nocheck_prev();
  }
@@ -224,7 +224,7 @@ index 04a5b10..19a3bf4 100755
 +}
 \ No newline at end of file
 diff --git a/src/server/game/Maps/Map.h b/src/server/game/Maps/Map.h
-index 8c4703a..d14bff1 100755
+index 542d911..a419609 100755
 --- a/src/server/game/Maps/Map.h
 +++ b/src/server/game/Maps/Map.h
 @@ -200,6 +200,30 @@ public:

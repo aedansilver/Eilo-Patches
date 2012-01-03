@@ -1,4 +1,4 @@
-From 173a6a419c1cc3d0d87e1613b1d6c6b2a29232dd Mon Sep 17 00:00:00 2001
+From 4ffad1ea64aeb97f5249ca51ba71fea7cc491190 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 21:47:13 -0500
 Subject: [PATCH 19/29] 0.15 Unir al canal LFG desde cualquier ciudad y
@@ -9,10 +9,10 @@ Subject: [PATCH 19/29] 0.15 Unir al canal LFG desde cualquier ciudad y
  1 files changed, 4 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index fc7529c..f2447b2 100755
+index b85e0cd..3b5aa05 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -5619,6 +5619,10 @@ void Player::RepopAtGraveyard()
+@@ -5618,6 +5618,10 @@ void Player::RepopAtGraveyard()
  
  bool Player::CanJoinConstantChannelInZone(ChatChannelsEntry const* channel, AreaTableEntry const* zone)
  {
