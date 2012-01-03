@@ -1,42 +1,56 @@
-From 08011c2be5d3a4c48300ff42168e183ddbd71bc2 Mon Sep 17 00:00:00 2001
+From 8c5fc06ccd573ea82bb3d8ce0a21ef68a473dab5 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Sat, 17 Dec 2011 16:57:48 -0500
-Subject: [PATCH 098/103] 2.16.1 HallsOfReflection: Reimplementacion con
- LichKing y ajustes
+Date: Tue, 3 Jan 2012 11:28:43 -0500
+Subject: [PATCH 57/62] =?UTF-8?q?2.16.1=20HallsOfReflection:=20Reimplementac?=
+ =?UTF-8?q?ion,=20flags=20y=20a=C3=B1adido=20segunda=20fase?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
 ---
- .../2011_12_17_100_world_halls-of_reflection.sql   |  347 ++++++
+ .../2011_10_08_100_world_halls_of_reflection.sql   |  363 +++++++
  src/server/game/Scripting/ScriptLoader.cpp         |    2 +
  src/server/scripts/Northrend/CMakeLists.txt        |    1 +
  .../HallsOfReflection/boss_the_lich_king_hor.cpp   |  682 ++++++++++++
  .../HallsOfReflection/halls_of_reflection.cpp      | 1110 +++++++++++++++++++-
  .../HallsOfReflection/halls_of_reflection.h        |   95 ++-
  .../instance_halls_of_reflection.cpp               |  296 +++++-
- 7 files changed, 2447 insertions(+), 86 deletions(-)
- create mode 100644 sql/updates/world/reanemu/2011_12_17_100_world_halls-of_reflection.sql
+ 7 files changed, 2463 insertions(+), 86 deletions(-)
+ create mode 100644 sql/updates/world/reanemu/2011_10_08_100_world_halls_of_reflection.sql
  create mode 100644 src/server/scripts/Northrend/FrozenHalls/HallsOfReflection/boss_the_lich_king_hor.cpp
 
-diff --git a/sql/updates/world/reanemu/2011_12_17_100_world_halls-of_reflection.sql b/sql/updates/world/reanemu/2011_12_17_100_world_halls-of_reflection.sql
+diff --git a/sql/updates/world/reanemu/2011_10_08_100_world_halls_of_reflection.sql b/sql/updates/world/reanemu/2011_10_08_100_world_halls_of_reflection.sql
 new file mode 100644
-index 0000000..fa31112
+index 0000000..2798129
 --- /dev/null
-+++ b/sql/updates/world/reanemu/2011_12_17_100_world_halls-of_reflection.sql
-@@ -0,0 +1,347 @@
-+-- Halls of Reflection
++++ b/sql/updates/world/reanemu/2011_10_08_100_world_halls_of_reflection.sql
+@@ -0,0 +1,363 @@
++-- Eilo (https://github.com/eilo)
++-- Recopilacion y adecuacion de querys originales de HyD y varios autores de scripts antiguas y raras
++-- Algunas querys anadidas y ordenacion/comentarios del sql por Eilo
++
++-- INSTANCE: Halls of Reflection
 +-- Creature Templates
-+START TRANSACTION;
-+SET @NPC_UTHER              := 37225;
-+SET @NPC_JAINA_INTRO        := 37221;
-+SET @NPC_SYLVANA_INTRO      := 37223;
 +SET @NPC_JAINA_OUTRO        := 36955;
 +SET @NPC_SYLVANA_OUTRO      := 37554;
-+SET @NPC_FROSTWORN_GENERAL  := 36723;
-+SET @NPC_LICH_KING_EVENT    := 36954;
 +SET @NPC_LICH_KING_BOSS     := 37226;
 +
-+UPDATE `creature_template` SET `speed_walk`='1.8', `speed_run`='2.0' WHERE `entry` IN (@NPC_LICH_KING_EVENT, @NPC_LICH_KING_BOSS);
-+UPDATE `creature_template` SET `AIName`='', `Scriptname`='npc_frostworn_general' WHERE `entry`=@NPC_FROSTWORN_GENERAL;
++-- Unit flags de HoR (por Eilo)
++UPDATE `creature_template` SET `unit_flags`=0 WHERE `entry` IN (38112,38599,38113,38603,36954,38173,38525,38172,38524,38176,38544,38175,38563,38177,38564,36723,37720,37226,36940,37550,36941,37551,37069,37549,38567,38568);
 +
++-- Complementos Intro
++UPDATE `creature_template` SET `scale`='0.8', `equipment_id`='1221' WHERE `entry` IN (37221, @NPC_JAINA_OUTRO);
++UPDATE `creature_template` SET `equipment_id`='1290' WHERE `entry` IN (37223, @NPC_SYLVANA_OUTRO);
++UPDATE `creature_template` SET `equipment_id`='0' WHERE `entry`=36954;
++UPDATE `creature_template` SET `scale`='0.8' WHERE `entry` IN (37225, 37223, @NPC_LICH_KING_BOSS, @NPC_SYLVANA_OUTRO);
++
++-- Complementos Mini boss
++UPDATE `creature_template` SET `speed_walk`='1.8', `speed_run`='2.0' WHERE `entry` IN (36954, @NPC_LICH_KING_BOSS);
++UPDATE `creature_template` SET `AIName`='', `Scriptname`='npc_frostworn_general' WHERE `entry`=36723;
++UPDATE `creature_template` SET `flags_extra` = 1 WHERE `entry` = 36723;
++UPDATE `creature_template` SET `flags_extra` = 257 WHERE `entry` = 36723;
++
++-- Complementos Segunda Parte
 +UPDATE `creature_template` SET `AIName`='', `Scriptname`='npc_jaina_and_sylvana_hor_part2' WHERE `entry` IN (@NPC_JAINA_OUTRO, @NPC_SYLVANA_OUTRO);
 +UPDATE `creature_template` SET `AIName`='', `Scriptname`='boss_lich_king_hor' WHERE `entry`=@NPC_LICH_KING_BOSS;
 +UPDATE `creature_template` SET `AIName`='', `Scriptname`='npc_raging_gnoul' WHERE `entry`=36940;
@@ -44,80 +58,89 @@ index 0000000..fa31112
 +UPDATE `creature_template` SET `AIName`='', `Scriptname`='npc_abon' WHERE `entry`=37069;
 +UPDATE `creature_template` SET `AIName`='', `Scriptname`='npc_queldelar' WHERE `entry`=37158;
 +
++-- Complementos adicionales
 +UPDATE `creature_template` SET `unit_flags` = 32784, `AIName` = '', `ScriptName` = 'npc_spiritual_reflection', `difficulty_entry_1` = 37721 WHERE `entry` = 37107;
 +UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80, `unit_flags` = 32784, `mindmg` = '422', `maxdmg` = '586', `attackpower` = '642', `dmg_multiplier` = '13' WHERE `entry` = 37721;
-+UPDATE `creature_template` SET `flags_extra` = 1 WHERE `entry` = @NPC_FROSTWORN_GENERAL;
-+UPDATE `creature_template` SET `flags_extra` = 257 WHERE `entry` = @NPC_FROSTWORN_GENERAL;
 +
-+UPDATE `creature_template` SET `scale`='0.8', `equipment_id`='1221' WHERE `entry` IN (@NPC_JAINA_INTRO, @NPC_JAINA_OUTRO);
-+UPDATE `creature_template` SET `equipment_id`='1290' WHERE `entry` IN (@NPC_SYLVANA_INTRO, @NPC_SYLVANA_OUTRO);
-+UPDATE `creature_template` SET `equipment_id`='0' WHERE `entry`=@NPC_LICH_KING_EVENT;
-+UPDATE `creature_template` SET `scale`='0.8' WHERE `entry` IN (@NPC_UTHER, @NPC_SYLVANA_INTRO, @NPC_LICH_KING_BOSS, @NPC_SYLVANA_OUTRO);
++-- Quitando a Uther visible
++DELETE FROM `creature` WHERE `id` IN (37225) AND `map` = 668;
 +
-+-- Creature Spawns
-+SET @GUID_CREATURE := 202284;
-+DELETE FROM creature WHERE map=668 AND id IN (14881, 36723, 37221, 37704, 37906, 38112, 38113);
-+INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `phaseMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`) VALUES
-+(@GUID_CREATURE+1,'37704','668','3','1','17612','0','5309.08','2006.32','711.422','3.93429','604800','0','0','12600','0','0','0','0','0'),
-+(@GUID_CREATURE+2,'14881','668','3','1','1160','0','5337.6','2012.14','707.695','3.52509','604800','0','0','8','0','0','0','0','0'),
-+(@GUID_CREATURE+3,'14881','668','3','1','2536','0','5268.91','1969.17','707.696','0.321519','604800','0','0','8','0','0','0','0','0'),
-+(@GUID_CREATURE+4,'14881','668','3','1','1160','0','5386.99','2080.5','707.695','4.67797','604800','0','0','8','0','0','0','0','0'),
-+(@GUID_CREATURE+5,'38112','668','3','1','0','0','5271.65','2042.5','709.32','5.51217','604800','0','0','377468','0','0','0','0','0'),
-+(@GUID_CREATURE+6,'38113','668','3','1','0','0','5344.75','1972.87','709.319','2.33445','604800','0','0','539240','0','0','0','0','0'),
-+(@GUID_CREATURE+7,'37221','668','3','1','0','0','5236.67','1929.91','707.695','0.837758','604800','0','0','5040000','881400','0','0','0','0'),
-+(@GUID_CREATURE+8,'36723','668','3','1','0','2432','5413.9','2116.65','707.695','3.94765','604800','0','0','315000','0','0','0','0','0');
++-- Quitando a Arthas visible
++DELETE FROM `creature` WHERE `id` IN (37226) AND `map` = 668;
 +
++-- Spawn Quel'delar
++DELETE FROM `creature` WHERE `id` IN (37158) AND `map` = 668;
++INSERT INTO `creature` (`id`,`map`,`spawnMask`,`phaseMask`,`modelid`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`spawndist`,`currentwaypoint`,`curhealth`,`curmana`,`MovementType`,`npcflag`,`unit_flags`,`dynamicflags`)
++VALUES 
++('37158', '668', '3', '2', '0', '0', '5304.5', '2001.35', '709.341', '4.15073', '7200', '0', '0', '214200', '0', '0', '0', '0', '0');
++
++-- Spawn de Falric y Marwyn
++DELETE FROM `creature` WHERE `id` IN (38112,38599,38113,38603);
++INSERT INTO `creature` (`id`,`map`,`spawnMask`,`phaseMask`,`modelid`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`spawndist`,`currentwaypoint`,`curhealth`,`curmana`,`MovementType`,`npcflag`,`unit_flags`,`dynamicflags`)
++VALUES 
++('38112','668','3','1','0','0','5271.65','2042.5','709.32','5.51217','604800','0','0','377468','0','0','0','0','0'),
++('38599','668','3','1','0','0','5271.65','2042.5','709.32','5.51217','604800','0','0','377468','0','0','0','0','0'),
++('38113','668','3','1','0','0','5344.75','1972.87','709.319','2.33445','604800','0','0','539240','0','0','0','0','0'),
++('38603','668','3','1','0','0','5344.75','1972.87','709.319','2.33445','604800','0','0','539240','0','0','0','0','0');
++
++-- Spawn de Frostsworn General
++DELETE FROM `creature` WHERE `id` IN (36723);
++INSERT INTO `creature` (`id`,`map`,`spawnMask`,`phaseMask`,`modelid`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`spawndist`,`currentwaypoint`,`curhealth`,`curmana`,`MovementType`,`npcflag`,`unit_flags`,`dynamicflags`)
++VALUES
++('36723','668','3','1','0','2432','5413.9','2116.65','707.695','3.94765','604800','0','0','315000','0','0','0','0','0');
++
++-- Facciones gameobjects
 +UPDATE `gameobject_template` SET `faction`='1375' WHERE `entry` IN (197341, 202302, 201385, 201596);
 +
++-- Textos
 +DELETE FROM `script_texts` WHERE `entry` BETWEEN -1594540 AND -1594430;
 +INSERT INTO `script_texts` (`entry`,`content_default`,`content_loc8`,`sound`,`TYPE`,`LANGUAGE`,`emote`,`COMMENT`) VALUES
-+(-1594473, 'Insensata, buscas lo que asesiné tiempo atras. Ahora no es mas que un fantasma, un eco lejano en mi mente.', '', 17229,1,0,0, '67234'),
-+(-1594474, 'No cometeré el mismo error, Sylvanas. Esta vez no habrá escapatoria. Fallaste al servirme como no muerta. Ahora lo que te queda es el olvido.', '', 17228,1,0,0, '67234'),
++(-1594473, 'Insensata, buscas lo que asesinÃ© tiempo atras. Ahora no es mas que un fantasma, un eco lejano en mi mente.', '', 17229,1,0,0, '67234'),
++(-1594474, 'No cometerÃ© el mismo error, Sylvanas. Esta vez no habrÃ¡ escapatoria. Fallaste al servirme como no muerta. Ahora lo que te queda es el olvido.', '', 17228,1,0,0, '67234'),
 +-- SCENE - Hall Of Reflection (Extro) - PreEscape
 +(-1594477, 'Han llegado tus aliados, Jaina, como prometiste. Todos sereis poderosos agentes de la Plaga.', '', 17212,1,0,0, '67234'),
-+(-1594478, 'No cometeré el mismo error, Sylvanas. Esta vez no habrá escapatoria. ¡Me servireis en la muerte!', '', 17213,1,0,0, '67234'),
-+(-1594479, '¡Es demasiado poderoso, debemos abandonar este lugar ahora mismo! ¡Mi mágia podrá inmovilizarlo brevemente! ¡Vamos rápido, heroes!', '', 16644,0,0,1, '67234'),
-+(-1594480, '¡Es demasiado poderoso! ¡Heroes, rápido, venid! ¡Debemos abandonar este lugar ahora mismo! Haré lo que pueda para inmovilizarlo mientras huimos.', '', 17058,0,0,1, '67234'),
++(-1594478, 'No cometerÃ© el mismo error, Sylvanas. Esta vez no habrÃ¡ escapatoria. Â¡Me servireis en la muerte!', '', 17213,1,0,0, '67234'),
++(-1594479, 'Â¡Es demasiado poderoso, debemos abandonar este lugar ahora mismo! Â¡Mi mÃ¡gia podrÃ¡ inmovilizarlo brevemente! Â¡Vamos rÃ¡pido, heroes!', '', 16644,0,0,1, '67234'),
++(-1594480, 'Â¡Es demasiado poderoso! Â¡Heroes, rÃ¡pido, venid! Â¡Debemos abandonar este lugar ahora mismo! HarÃ© lo que pueda para inmovilizarlo mientras huimos.', '', 17058,0,0,1, '67234'),
 +-- SCENE - Hall Of Reflection (Extro) - Escape
-+(-1594481, '¡El frio abrazo de la muerte os aguarda!', '', 17221,1,0,0, '67234'),
-+(-1594482, 'Alzaos esbirros! ¡Que no pasen!', '', 17216,1,0,0, '67234'),
-+(-1594483, 'Esbirros cojedlos. ¡Traedme sus cadaveres!', '', 17222,1,0,0, '67234'),
++(-1594481, 'Â¡El frio abrazo de la muerte os aguarda!', '', 17221,1,0,0, '67234'),
++(-1594482, 'Alzaos esbirros! Â¡Que no pasen!', '', 17216,1,0,0, '67234'),
++(-1594483, 'Esbirros cojedlos. Â¡Traedme sus cadaveres!', '', 17222,1,0,0, '67234'),
 +(-1594484, 'Sin esperanza...', '!', 17214,1,0,0, '67234'),
-+(-1594485, '¡Todo perdido!', '', 17215,1,0,0, '67234'),
-+(-1594486, '¡No hay escapatoria!', '', 17217,1,0,0, '67234'),
-+(-1594487, 'Destruiré esta barrera. ¡Debeis mantener atras a los no muertos!', '', 16607,1,0,0, '67234'),
-+(-1594488, '¡Ninguna pared detendré a la Reina Alma en Pena! ¡Mantened a los no muertos a raya, heroes! ¡Destruiré esta barrera!', '', 17029,1,0,0, '67234'),
-+(-1594489, '¡Otro muro de hielo! ¡Evitad que los no muertos interrumpan mis conjuros para que pueda derribar este muro!', '', 16608,1,0,0, '67234'),
-+(-1594490, '¿Otra barrera? ¡Sed fuertes, campeones! ¡Derrumbaré el muro!', '', 17030,1,0,0, '67234'),
++(-1594485, 'Â¡Todo perdido!', '', 17215,1,0,0, '67234'),
++(-1594486, 'Â¡No hay escapatoria!', '', 17217,1,0,0, '67234'),
++(-1594487, 'DestruirÃ© esta barrera. Â¡Debeis mantener atras a los no muertos!', '', 16607,1,0,0, '67234'),
++(-1594488, 'Â¡Ninguna pared detendrÃ© a la Reina Alma en Pena! Â¡Mantened a los no muertos a raya, heroes! Â¡DestruirÃ© esta barrera!', '', 17029,1,0,0, '67234'),
++(-1594489, 'Â¡Otro muro de hielo! Â¡Evitad que los no muertos interrumpan mis conjuros para que pueda derribar este muro!', '', 16608,1,0,0, '67234'),
++(-1594490, 'Â¿Otra barrera? Â¡Sed fuertes, campeones! Â¡DerrumbarÃ© el muro!', '', 17030,1,0,0, '67234'),
 +(-1594491, 'Sucumbid al frio de la tumba.', '', 17218,1,0,0, '67234'),
 +(-1594492, 'Otro final sin salida.', '', 17219,1,0,0, '67234'),
-+(-1594493, '¿Cuanto vais a aguantar?', '', 17220,1,0,0, '67234'),
-+(-1594494, 'Esta jugando con nosotros. ¡Le enseñaré lo que le pasa al hielo cuando se junta con el fuego!', '', 16609,0,0,0, '67234'),
-+(-1594495, 'Tus muros no pueden detenernos, monstruo. ¡Los destruiré todos!', '', 16610,1,0,0, '67234'),
-+(-1594496, '¡Me canso de estos juegos, Arthas! ¡Tus muros no me detendrán!', '', 17031,1,0,0, '67234'),
-+(-1594497, 'No impedirás que escapemos, demonio. ¡Acabad con los no muertos mientras derribo esta barrera!', '', 17032,1,0,0, '67234'),
-+(-1594498, '¡Hay una salida ahí delante, vamos!', '', 16645,1,0,0, '67234'),
-+(-1594499, '¡Casi estamos, no os rindais!', '', 16646,1,0,0, '67234'),
-+(-1594500, '¡Hay una salida ahí delante, vamos!', '', 17059,1,0,0, '67234'),
-+(-1594501, '¡Casi estamos, no os rindais!', '', 17060,1,0,0, '67234'),
-+(-1594502, 'No... No hay salida. No tenemos más opción que luchar. ¡Armaos de valor heroes, pues esta será nuestra última batalla!', '', 16647,1,0,0, '67234'),
-+(-1594503, '¡Maldición, no hay salida! Así es como acaba. ¡Preparaos heroes, hoy tendrá lugar nuestra última batalla!', '', 17061,1,0,0, '67234'),
++(-1594493, 'Â¿Cuanto vais a aguantar?', '', 17220,1,0,0, '67234'),
++(-1594494, 'Esta jugando con nosotros. Â¡Le enseÃ±arÃ© lo que le pasa al hielo cuando se junta con el fuego!', '', 16609,0,0,0, '67234'),
++(-1594495, 'Tus muros no pueden detenernos, monstruo. Â¡Los destruirÃ© todos!', '', 16610,1,0,0, '67234'),
++(-1594496, 'Â¡Me canso de estos juegos, Arthas! Â¡Tus muros no me detendrÃ¡n!', '', 17031,1,0,0, '67234'),
++(-1594497, 'No impedirÃ¡s que escapemos, demonio. Â¡Acabad con los no muertos mientras derribo esta barrera!', '', 17032,1,0,0, '67234'),
++(-1594498, 'Â¡Hay una salida ahÃ­ delante, vamos!', '', 16645,1,0,0, '67234'),
++(-1594499, 'Â¡Casi estamos, no os rindais!', '', 16646,1,0,0, '67234'),
++(-1594500, 'Â¡Hay una salida ahÃ­ delante, vamos!', '', 17059,1,0,0, '67234'),
++(-1594501, 'Â¡Casi estamos, no os rindais!', '', 17060,1,0,0, '67234'),
++(-1594502, 'No... No hay salida. No tenemos mÃ¡s opciÃ³n que luchar. Â¡Armaos de valor heroes, pues esta serÃ¡ nuestra Ãºltima batalla!', '', 16647,1,0,0, '67234'),
++(-1594503, 'Â¡MaldiciÃ³n, no hay salida! AsÃ­ es como acaba. Â¡Preparaos heroes, hoy tendrÃ¡ lugar nuestra Ãºltima batalla!', '', 17061,1,0,0, '67234'),
 +(-1594504, 'No corrais. Sois mios....', '', 17223,1,0,0, '67234'),
-+(-1594524,'Perdonadme heroes. Debí escuchar a Uther. Tenia que verlo por mi misma, poder mirarle a los ojos una última vez. Lo siento.', '','16648','0','0','0','67234'),
-+(-1594525,'Ahora sabemos que debemos hacer, les daré estas noticias al Rey Varian y al alto señor Vadin.','','16649','0','0','0','67234'),
-+(-1594522,'¡Fuego, fuego!','','16732','1','0','0','67234'),
-+(-1594523,'¡A bordo! ¡Ya! ¡La ladera de la montaña se derrumbará en cualquier momento!','','16733','1','0','0','67234'),
-+(-1594521,'Estamos a salvo por ahora. Su fuerza se ha multiplicado desde nuestra última batalla. Necesitamos un ejercito poderoso para destruir al Rey Exánime, mejor incluso que el que la Horda puede convocar.','','17062','0','0','0','67234'),
-+(-1594526,'¡Fuego, fuego!','','16721','1','0','0','67234'),
-+(-1594527,'¡Rápido! ¡A bordo! No debemos entretenernos. ¡La ladera de la montaña se derrumbará en cualquier momento!','','16722','1','0','0','67234'),
-+(-1594505, '¡Soldados de Lordaeron, alzaos ante la llamada de vuestro maestro!', '', 16714,1,0,0, '67234'),
-+(-1594506, 'El maestro observó su reino, y lo encontró... incompleto. Su juicio fue rápido y despiado. ¡Muerte a todos!', '', 16738,1,0,0, '67234'),
++(-1594524,'Perdonadme heroes. DebÃ­ escuchar a Uther. Tenia que verlo por mi misma, poder mirarle a los ojos una Ãºltima vez. Lo siento.', '','16648','0','0','0','67234'),
++(-1594525,'Ahora sabemos que debemos hacer, les darÃ© estas noticias al Rey Varian y al alto seÃ±or Vadin.','','16649','0','0','0','67234'),
++(-1594522,'Â¡Fuego, fuego!','','16732','1','0','0','67234'),
++(-1594523,'Â¡A bordo! Â¡Ya! Â¡La ladera de la montaÃ±a se derrumbarÃ¡ en cualquier momento!','','16733','1','0','0','67234'),
++(-1594521,'Estamos a salvo por ahora. Su fuerza se ha multiplicado desde nuestra Ãºltima batalla. Necesitamos un ejercito poderoso para destruir al Rey ExÃ¡nime, mejor incluso que el que la Horda puede convocar.','','17062','0','0','0','67234'),
++(-1594526,'Â¡Fuego, fuego!','','16721','1','0','0','67234'),
++(-1594527,'Â¡RÃ¡pido! Â¡A bordo! No debemos entretenernos. Â¡La ladera de la montaÃ±a se derrumbarÃ¡ en cualquier momento!','','16722','1','0','0','67234'),
++(-1594505, 'Â¡Soldados de Lordaeron, alzaos ante la llamada de vuestro maestro!', '', 16714,1,0,0, '67234'),
++(-1594506, 'El maestro observÃ³ su reino, y lo encontrÃ³... incompleto. Su juicio fue rÃ¡pido y despiado. Â¡Muerte a todos!', '', 16738,1,0,0, '67234'),
 +-- FrostWorn General
-+(-1594519, '¡No sois dignos de enfrentaros al Rey Exanime!', '', 16921,1,0,0, '67234'),
++(-1594519, 'Â¡No sois dignos de enfrentaros al Rey Exanime!', '', 16921,1,0,0, '67234'),
 +(-1594520, 'Maestro, he fracasado...', '', 16922,1,0,0, '67234');
 +
-+-- Waipoints to escort event on Halls of reflection
-+
++-- Waipoints
 +DELETE FROM script_waypoint WHERE entry IN (@NPC_JAINA_OUTRO,@NPC_LICH_KING_BOSS,@NPC_SYLVANA_OUTRO);
 +INSERT INTO script_waypoint VALUES
 +-- Jaina
@@ -245,10 +268,7 @@ index 0000000..fa31112
 +INSERT INTO `areatrigger_scripts` VALUES
 +(5697, 'at_hor_waves_restarter');
 +
-+
-+-- GameObjects
-+
-+-- Templates
++-- GameObject Templates
 +DELETE FROM gameobject_template WHERE entry IN (201709, 202211, 190236, 196391, 196392, 197341, 197342, 197343, 201385, 201596, 201710, 201747, 201756, 201885, 201976, 202079, 202212, 202236, 202302, 202336, 202337, 202396, 500001, 500002, 500003);
 +INSERT INTO `gameobject_template` (`entry`, `TYPE`, `displayId`, `NAME`, `IconName`, `castBarCaption`, `unk1`, `faction`, `flags`, `size`, `questItem1`, `questItem2`, `questItem3`, `questItem4`, `questItem5`, `questItem6`, `data0`, `data1`, `data2`, `data3`, `data4`, `data5`, `data6`, `data7`, `data8`, `data9`, `data10`, `data11`, `data12`, `data13`, `data14`, `data15`, `data16`, `data17`, `data18`, `data19`, `data20`, `data21`, `data22`, `data23`, `AIName`, `ScriptName`, `WDBVerified`) VALUES
 +('201596','0','9223','Cave In','','','','1375','4','2','0','0','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','','','12340'),
@@ -277,7 +297,7 @@ index 0000000..fa31112
 +('201709','5','9288','Gunship Stairs','','','','0','1','2','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','','','12340'),
 +('202211','5','9289','Gunship Stairs','','','','0','1','2','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','','','12340');
 +
-+-- Spawns
++-- Gameobject Spawns
 +DELETE FROM gameobject WHERE map = 668 AND id IN (190236, 196391, 196392, 197341, 197342, 197343, 201385, 201596, 201710, 201747, 201756, 201885, 201976, 202079, 202212, 202236, 202302, 202336, 202337, 202396, 500001, 500002, 500003);
 +SET @GUID_GO := 153000;
 +INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES
@@ -305,6 +325,7 @@ index 0000000..fa31112
 +(@GUID_GO+21,202212,668,1,1,5253.03,1585.13,796.089,2.75698,0,0,0.981566,0.191121,300,0,1),
 +(@GUID_GO+22,201710,668,1,1,5262.5,1582.41,794.342,2.75698,0,0,0.981566,0.191121,300,0,1);
 +
++-- Loot del Chest del final
 +DELETE FROM `gameobject_loot_template` WHERE (`entry`=27993);
 +INSERT INTO `gameobject_loot_template` VALUES 
 +(27993, 43102, 100, 1, 0, 1, 1),
@@ -367,14 +388,11 @@ index 0000000..fa31112
 +36940,
 +36941,
 +37069);
-+
-+COMMIT;
-\ No newline at end of file
 diff --git a/src/server/game/Scripting/ScriptLoader.cpp b/src/server/game/Scripting/ScriptLoader.cpp
-index cfc7343..81fe5c0 100755
+index 9bb25af..4c8afe1 100755
 --- a/src/server/game/Scripting/ScriptLoader.cpp
 +++ b/src/server/game/Scripting/ScriptLoader.cpp
-@@ -471,6 +471,7 @@ void AddSC_instance_halls_of_reflection();   // Halls of Reflection
+@@ -470,6 +470,7 @@ void AddSC_instance_halls_of_reflection();   // Halls of Reflection
  void AddSC_halls_of_reflection();
  void AddSC_boss_falric();
  void AddSC_boss_marwyn();
@@ -382,7 +400,7 @@ index cfc7343..81fe5c0 100755
  void AddSC_boss_lord_marrowgar();       // Icecrown Citadel
  void AddSC_boss_lady_deathwhisper();
  void AddSC_boss_deathbringer_saurfang();
-@@ -1179,6 +1180,7 @@ void AddNorthrendScripts()
+@@ -1177,6 +1178,7 @@ void AddNorthrendScripts()
      AddSC_halls_of_reflection();
      AddSC_boss_falric();
      AddSC_boss_marwyn();
@@ -391,10 +409,10 @@ index cfc7343..81fe5c0 100755
      AddSC_boss_lady_deathwhisper();
      AddSC_boss_deathbringer_saurfang();
 diff --git a/src/server/scripts/Northrend/CMakeLists.txt b/src/server/scripts/Northrend/CMakeLists.txt
-index 680a9d6..9435072 100644
+index 983d3e3..2762c9d 100644
 --- a/src/server/scripts/Northrend/CMakeLists.txt
 +++ b/src/server/scripts/Northrend/CMakeLists.txt
-@@ -57,6 +57,7 @@ set(scripts_STAT_SRCS
+@@ -56,6 +56,7 @@ set(scripts_STAT_SRCS
    Northrend/FrozenHalls/HallsOfReflection/instance_halls_of_reflection.cpp
    Northrend/FrozenHalls/HallsOfReflection/halls_of_reflection.cpp
    Northrend/FrozenHalls/HallsOfReflection/boss_marwyn.cpp
