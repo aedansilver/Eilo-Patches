@@ -1,6 +1,6 @@
-From f024e0b88a6ef3d8724b10d35b25543e2e4beaaa Mon Sep 17 00:00:00 2001
+From 2d9de733b0222c854431306f54d3e172abc4a8e0 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Sat, 24 Dec 2011 16:39:46 -0500
+Date: Mon, 2 Jan 2012 11:16:01 -0500
 Subject: [PATCH 03/20] 1.2 Reseteo de talentos duales a no duales
 
 ---
@@ -8,11 +8,11 @@ Subject: [PATCH 03/20] 1.2 Reseteo de talentos duales a no duales
  1 files changed, 10 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Spells/Auras/SpellAuraEffects.cpp b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
-index 7930a80..5db2e61 100755
+index 9943f3c..e5a3ea5 100755
 --- a/src/server/game/Spells/Auras/SpellAuraEffects.cpp
 +++ b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
-@@ -4817,6 +4817,16 @@ void AuraEffect::HandleAuraDummy(AuraApplication const* aurApp, uint8 mode, bool
-                     caster->CastCustomSpell(target, 63338, &damage, NULL, NULL, true);
+@@ -4820,6 +4820,16 @@ void AuraEffect::HandleAuraDummy(AuraApplication const* aurApp, uint8 mode, bool
+                     }
                      break;
                  }
 +                case 63624:                             // Learn a Second Talent Specialization

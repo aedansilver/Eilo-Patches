@@ -1,4 +1,4 @@
-From 7f32849f81f8b31e181a53fc2193c40cac263ddc Mon Sep 17 00:00:00 2001
+From 129e3b997deabcf383c76b2b2839cb3d82a3d974 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 16:49:36 -0500
 Subject: [PATCH 06/20] =?UTF-8?q?1.5=20Apa=C3=B1o=20del=20Dodge=20formula=20?=
@@ -14,10 +14,10 @@ Content-Transfer-Encoding: 8bit
  3 files changed, 42 insertions(+), 49 deletions(-)
 
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index f2447b2..b4f3b30 100755
+index fa00765..fa86d5a 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -5849,37 +5849,35 @@ float Player::GetMeleeCritFromAgility()
+@@ -5848,37 +5848,35 @@ float Player::GetMeleeCritFromAgility()
      return crit*100.0f;
  }
  
@@ -80,7 +80,7 @@ index f2447b2..b4f3b30 100755
      };
  
      uint8 level = getLevel();
-@@ -5888,18 +5886,13 @@ void Player::GetDodgeFromAgility(float &diminishing, float &nondiminishing)
+@@ -5887,18 +5885,13 @@ void Player::GetDodgeFromAgility(float &diminishing, float &nondiminishing)
      if (level > GT_MAX_LEVEL)
          level = GT_MAX_LEVEL;
  
@@ -105,7 +105,7 @@ index f2447b2..b4f3b30 100755
  
  float Player::GetSpellCritFromIntellect()
 diff --git a/src/server/game/Entities/Player/Player.h b/src/server/game/Entities/Player/Player.h
-index a4e7e88..fc804e1 100755
+index f23d085..fb519fe 100755
 --- a/src/server/game/Entities/Player/Player.h
 +++ b/src/server/game/Entities/Player/Player.h
 @@ -1940,7 +1940,7 @@ class Player : public Unit, public GridObject<Player>

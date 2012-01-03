@@ -1,4 +1,4 @@
-From 01b79b4c1d514a910d14533932a68f776d3be741 Mon Sep 17 00:00:00 2001
+From 30fda06c248fd12ee91084d73e5ba5dc09007065 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 16:52:19 -0500
 Subject: [PATCH 07/20] 1.6 Guardado de Spells, evitando bugs especialmente
@@ -9,10 +9,10 @@ Subject: [PATCH 07/20] 1.6 Guardado de Spells, evitando bugs especialmente
  1 files changed, 1 insertions(+), 1 deletions(-)
 
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index b4f3b30..f26ec9b 100755
+index fa86d5a..e7b34a9 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -19176,7 +19176,7 @@ void Player::_SaveSpells(SQLTransaction& trans)
+@@ -19178,7 +19178,7 @@ void Player::_SaveSpells(SQLTransaction& trans)
  
          // add only changed/new not dependent spells
          if (!itr->second->dependent && (itr->second->state == PLAYERSPELL_NEW || itr->second->state == PLAYERSPELL_CHANGED))

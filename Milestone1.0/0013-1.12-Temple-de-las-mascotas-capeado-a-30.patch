@@ -1,4 +1,4 @@
-From a3c56252ce06ec3278439e1276e1e3966ee4d7f4 Mon Sep 17 00:00:00 2001
+From cf5f3dd8d17c83eb8dc2409317fcbc76c30e82a8 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:21:01 -0500
 Subject: [PATCH 13/20] 1.12 Temple de las mascotas capeado a 30%
@@ -8,7 +8,7 @@ Subject: [PATCH 13/20] 1.12 Temple de las mascotas capeado a 30%
  1 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/src/server/game/Entities/Unit/Unit.h b/src/server/game/Entities/Unit/Unit.h
-index 5906a7f..d1818a4 100755
+index b18223a..224e6c2 100755
 --- a/src/server/game/Entities/Unit/Unit.h
 +++ b/src/server/game/Entities/Unit/Unit.h
 @@ -1477,10 +1477,10 @@ class Unit : public WorldObject

@@ -1,6 +1,6 @@
-From 936ffd63cb5d7f16e4eaf425466ac5c220b56345 Mon Sep 17 00:00:00 2001
+From e04da4673246d37f69d4d2ccb069bee8ad0591fb Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Mon, 26 Dec 2011 11:10:20 -0500
+Date: Mon, 2 Jan 2012 12:01:22 -0500
 Subject: [PATCH 01/20] Milestone1.0
 
 ---
@@ -8,7 +8,7 @@ Subject: [PATCH 01/20] Milestone1.0
  1 files changed, 21 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index cd02102..1a30ad5 100644
+index 7d1f463..a09547b 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -14,6 +14,8 @@ Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevo
@@ -20,7 +20,7 @@ index cd02102..1a30ad5 100644
  
  
  ##################################
-@@ -50,6 +52,25 @@ Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevo
+@@ -54,6 +56,25 @@ Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevo
  ###############
  # Jugabilidad #
  ###############

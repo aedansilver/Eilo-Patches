@@ -1,4 +1,4 @@
-From 7403abf37a57048021cf93d5953ecdc4ba596ba6 Mon Sep 17 00:00:00 2001
+From b7f872b6fa8ba34e94056996b0d1a39c5c09d76f Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:16:33 -0500
 Subject: [PATCH 12/20] 1.11 DynamicLoS complementos y activacion en la db,
@@ -49,7 +49,7 @@ index 9c97e1e..9a8759b 100755
      return true;
  }
 diff --git a/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp b/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp
-index a1cfb37..9415d30 100755
+index 84bc31e..d88bb09 100755
 --- a/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp
 +++ b/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp
 @@ -696,7 +696,16 @@ void WorldSession::HandleMovementOpcodes(WorldPacket & recv_data)

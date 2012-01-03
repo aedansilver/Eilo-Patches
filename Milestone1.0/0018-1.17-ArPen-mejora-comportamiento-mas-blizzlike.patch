@@ -1,4 +1,4 @@
-From df54e14752a2d735f90d229e7e05c56c45f2803f Mon Sep 17 00:00:00 2001
+From dac97c5c7dcb0c2b24fb1aaccab808b63ef1997f Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:48:51 -0500
 Subject: [PATCH 18/20] 1.17 ArPen mejora comportamiento, mas blizzlike
@@ -8,7 +8,7 @@ Subject: [PATCH 18/20] 1.17 ArPen mejora comportamiento, mas blizzlike
  1 files changed, 2 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Entities/Unit/Unit.cpp b/src/server/game/Entities/Unit/Unit.cpp
-index e2308bd..3c0f2de 100755
+index e4c0eac..8bbfb62 100755
 --- a/src/server/game/Entities/Unit/Unit.cpp
 +++ b/src/server/game/Entities/Unit/Unit.cpp
 @@ -1557,6 +1557,8 @@ uint32 Unit::CalcArmorReducedDamage(Unit* victim, const uint32 damage, SpellInfo
