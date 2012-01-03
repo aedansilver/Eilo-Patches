@@ -1,8 +1,7 @@
-From 6a09397ce9e5345ab2e3f5034f521a4890df58f0 Mon Sep 17 00:00:00 2001
+From 47a40db0833b2947014d4195a98780492718327f Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Mon, 26 Dec 2011 01:32:04 -0500
+Date: Mon, 2 Jan 2012 13:34:06 -0500
 Subject: [PATCH 52/62] 2.13.1 TrialOfTheChampions: Reimplementacion y soporte
- spells, mejoras, reordenacion y complementos
 
 ---
  .../world/reanemu/2011_12_25_100_world_toc5.sql    |  696 +++++++++
@@ -10,12 +9,12 @@ Subject: [PATCH 52/62] 2.13.1 TrialOfTheChampions: Reimplementacion y soporte
  src/server/game/Spells/SpellMgr.cpp                |   12 +
  src/server/game/Texts/CreatureTextMgr.cpp          |    4 +
  .../TrialOfTheChampion/boss_argent_challenge.cpp   |  769 +++++++---
- .../TrialOfTheChampion/boss_black_knight.cpp       |  300 +++-
- .../TrialOfTheChampion/boss_grand_champions.cpp    | 1499 +++++++++++-------
+ .../TrialOfTheChampion/boss_black_knight.cpp       |  304 +++-
+ .../TrialOfTheChampion/boss_grand_champions.cpp    | 1500 +++++++++++-------
  .../instance_trial_of_the_champion.cpp             |  420 ++++--
  .../TrialOfTheChampion/trial_of_the_champion.cpp   | 1632 ++++++++++++++++----
  .../TrialOfTheChampion/trial_of_the_champion.h     |  210 +++-
- 10 files changed, 4238 insertions(+), 1366 deletions(-)
+ 10 files changed, 4238 insertions(+), 1371 deletions(-)
  create mode 100644 sql/updates/world/reanemu/2011_12_25_100_world_toc5.sql
 
 diff --git a/sql/updates/world/reanemu/2011_12_25_100_world_toc5.sql b/sql/updates/world/reanemu/2011_12_25_100_world_toc5.sql
@@ -722,7 +721,7 @@ index 0000000..c2ada1d
 +WHERE `entry` IN (36088, 36089, 36085, 36082, 36083, 36090, 36091, 36086, 36084, 36087, 35306, 35308, 35310, 35518, 35517, 35568, 35546, 35717, 35490);
 \ No newline at end of file
 diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
-index 4a9ecef..21ee31d 100755
+index c9f604b..bc067ba 100755
 --- a/src/server/game/Spells/SpellEffects.cpp
 +++ b/src/server/game/Spells/SpellEffects.cpp
 @@ -4611,6 +4611,68 @@ void Spell::EffectScriptEffect(SpellEffIndex effIndex)
@@ -795,7 +794,7 @@ index 4a9ecef..21ee31d 100755
                  case 22539:
                  case 22972:
 diff --git a/src/server/game/Spells/SpellMgr.cpp b/src/server/game/Spells/SpellMgr.cpp
-index 8891f94..6e68f6c 100755
+index de02c9f..5fd4050 100755
 --- a/src/server/game/Spells/SpellMgr.cpp
 +++ b/src/server/game/Spells/SpellMgr.cpp
 @@ -2902,6 +2902,18 @@ void SpellMgr::LoadSpellCustomAttr()
@@ -1863,7 +1862,7 @@ index e46dc3d..4a36164 100644
 +    new npc_argent_priest();
  }
 diff --git a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_black_knight.cpp b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_black_knight.cpp
-index fd84c1e..02f2b8e 100644
+index f73e977..02f2b8e 100644
 --- a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_black_knight.cpp
 +++ b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_black_knight.cpp
 @@ -15,14 +15,18 @@
@@ -1905,18 +1904,21 @@ index fd84c1e..02f2b8e 100644
  
      //phase 3
      SPELL_DEATH_BITE_H      = 67875,
-@@ -54,7 +60,9 @@ enum eSpells
+@@ -54,10 +60,10 @@ enum eSpells
  
      SPELL_BLACK_KNIGHT_RES  = 67693,
  
--    SPELL_LEAP                = 67749,
 +    SPELL_CLAW              = 67774,
 +    SPELL_CLAW_H            = 67879,
-+    SPELL_LEAP              = 67749,
-     SPELL_LEAP_H            = 67880
+     SPELL_LEAP              = 67749,
+-    SPELL_LEAP_H            = 67880,
+-
+-    SPELL_KILL_CREDIT       = 68663
++    SPELL_LEAP_H            = 67880
  };
  
-@@ -71,6 +79,15 @@ enum ePhases
+ enum eModels
+@@ -73,6 +79,15 @@ enum ePhases
      PHASE_GHOST     = 3
  };
  
@@ -1932,7 +1934,7 @@ index fd84c1e..02f2b8e 100644
  class boss_black_knight : public CreatureScript
  {
  public:
-@@ -78,17 +95,16 @@ public:
+@@ -80,17 +95,16 @@ public:
  
      struct boss_black_knightAI : public ScriptedAI
      {
@@ -1953,7 +1955,7 @@ index fd84c1e..02f2b8e 100644
          bool bSummonArmy;
          bool bDeathArmyDone;
  
-@@ -107,12 +123,13 @@ public:
+@@ -109,12 +123,13 @@ public:
  
          void Reset()
          {
@@ -1970,7 +1972,7 @@ index fd84c1e..02f2b8e 100644
              bSummonArmy = false;
              bDeathArmyDone = false;
  
-@@ -123,50 +140,82 @@ public:
+@@ -125,50 +140,82 @@ public:
              uiDeathRespiteTimer = urand(15000, 16000);
              uiObliterateTimer = urand(17000, 19000);
              uiDesecration = urand(15000, 16000);
@@ -1994,8 +1996,7 @@ index fd84c1e..02f2b8e 100644
 +                if (instance->GetData(BOSS_BLACK_KNIGHT) != IN_PROGRESS)
 +                    instance->SetData(BOSS_BLACK_KNIGHT, IN_PROGRESS);
 +        }
- 
--            for (std::list<uint64>::const_iterator itr = SummonList.begin(); itr != SummonList.end(); ++itr)
++
 +        void JustReachedHome()
 +        {
 +            if (InstanceScript* instance = me->GetInstanceScript())
@@ -2008,7 +2009,8 @@ index fd84c1e..02f2b8e 100644
 +            if (target->GetTypeId() == TYPEID_PLAYER)
 +                Talk(SAY_KILL);
 +        }
-+
+ 
+-            for (std::list<uint64>::const_iterator itr = SummonList.begin(); itr != SummonList.end(); ++itr)
 +        void JustSummoned(Creature* summon)
 +        {
 +            if (summon->GetEntry() == NPC_RISEN_JAEREN || summon->GetEntry() == NPC_RISEN_ARELAS || summon->GetEntry() == NPC_RISEN_CHAMPION)
@@ -2072,7 +2074,7 @@ index fd84c1e..02f2b8e 100644
              }
  
              switch (uiPhase)
-@@ -174,26 +223,26 @@ public:
+@@ -176,26 +223,26 @@ public:
                  case PHASE_UNDEAD:
                  case PHASE_SKELETON:
                  {
@@ -2107,7 +2109,7 @@ index fd84c1e..02f2b8e 100644
                              {
                                  if (Unit* target = SelectTarget(SELECT_TARGET_RANDOM, 0, 100, true))
                                  {
-@@ -201,7 +250,7 @@ public:
+@@ -203,7 +250,7 @@ public:
                                          DoCast(target, SPELL_DEATH_RESPITE);
                                  }
                                  uiDeathRespiteTimer = urand(15000, 16000);
@@ -2116,7 +2118,7 @@ index fd84c1e..02f2b8e 100644
                              break;
                          }
                          case PHASE_SKELETON:
-@@ -214,14 +263,15 @@ public:
+@@ -216,14 +263,15 @@ public:
                              }
                              if (!bDeathArmyDone)
                              {
@@ -2135,7 +2137,7 @@ index fd84c1e..02f2b8e 100644
                              {
                                  if (Unit* target = SelectTarget(SELECT_TARGET_RANDOM, 0, 100, true))
                                  {
-@@ -229,12 +279,12 @@ public:
+@@ -231,12 +279,12 @@ public:
                                          DoCast(target, SPELL_DESECRATION);
                                  }
                                  uiDesecration = urand(15000, 16000);
@@ -2151,7 +2153,7 @@ index fd84c1e..02f2b8e 100644
                              break;
                          }
                          break;
-@@ -243,12 +293,12 @@ public:
+@@ -245,12 +293,12 @@ public:
                  }
                  case PHASE_GHOST:
                  {
@@ -2168,7 +2170,7 @@ index fd84c1e..02f2b8e 100644
                      {
                          if (Unit* target = SelectTarget(SELECT_TARGET_RANDOM, 0, 100, true))
                          {
-@@ -256,7 +306,7 @@ public:
+@@ -258,7 +306,7 @@ public:
                                  DoCast(target, SPELL_MARKED_DEATH);
                          }
                          uiMarkedDeathTimer = urand (5000, 7000);
@@ -2177,7 +2179,7 @@ index fd84c1e..02f2b8e 100644
                      break;
                  }
              }
-@@ -265,29 +315,32 @@ public:
+@@ -267,31 +315,32 @@ public:
                  DoMeleeAttackIfReady();
          }
  
@@ -2208,8 +2210,10 @@ index fd84c1e..02f2b8e 100644
              }
          }
  
+-        void JustDied(Unit* /*killer*/)
 +        void ExplodeAliveGhouls()
-+        {
+         {
+-            DoCast(me, SPELL_KILL_CREDIT);
 +            if (summons.empty())
 +                return;
 +
@@ -2217,14 +2221,14 @@ index fd84c1e..02f2b8e 100644
 +                if (Creature* ghoul = me->GetCreature(*me, *itr))
 +                    ghoul->CastSpell(ghoul, SPELL_EXPLODE);
 +        }
-+
-         void JustDied(Unit* /*killer*/)
-         {
+ 
++        void JustDied(Unit* /*killer*/)
++        {
 +            Talk(SAY_DEATH);
              if (instance)
                  instance->SetData(BOSS_BLACK_KNIGHT, DONE);
          }
-@@ -308,27 +361,47 @@ public:
+@@ -312,27 +361,47 @@ public:
      {
          npc_risen_ghoulAI(Creature* creature) : ScriptedAI(creature) {}
  
@@ -2280,7 +2284,7 @@ index fd84c1e..02f2b8e 100644
  
              DoMeleeAttackIfReady();
          }
-@@ -347,19 +420,90 @@ public:
+@@ -351,19 +420,90 @@ public:
  
      struct npc_black_knight_skeletal_gryphonAI : public npc_escortAI
      {
@@ -2377,7 +2381,7 @@ index fd84c1e..02f2b8e 100644
              if (!UpdateVictim())
                  return;
 diff --git a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_grand_champions.cpp b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_grand_champions.cpp
-index 2fbe381..f4c144b 100644
+index 2f6a01e..f4c144b 100644
 --- a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_grand_champions.cpp
 +++ b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_grand_champions.cpp
 @@ -18,22 +18,25 @@
@@ -3114,18 +3118,18 @@ index 2fbe381..f4c144b 100644
 +        uint32 GetData(uint32 type)
          {
 -            ScriptedAI::JustReachedHome();
+-
+-            if (!bHome)
+-                return;
 +            if (isInMountedGauntlet())
 +                return npc_mounted_championAI::GetData(type);
  
--            if (!bHome)
--                return;
+-            uiPhaseTimer = 15000;
+-            uiPhase = 1;
 +            // Used by Announcer on periodic check of the bosses state
 +            if(type == DATA_CHAMPION_DEFEATED)
 +                return defeated ? 1 : 0;
  
--            uiPhaseTimer = 15000;
--            uiPhase = 1;
--
 -            bHome = false;
 +            return 0;
          }
@@ -3201,11 +3205,11 @@ index 2fbe381..f4c144b 100644
 -            } else uiFireBallTimer -= uiDiff;
 +            if(defeated)
 +                return;
- 
--            if (uiPolymorphTimer <= uiDiff)
++
 +            if(me->HasUnitState(UNIT_STAT_CASTING))
 +                return;
-+
+ 
+-            if (uiPolymorphTimer <= uiDiff)
 +            if (polymorphTimer <= diff)
              {
                  if (Unit* target = SelectTarget(SELECT_TARGET_RANDOM, 0))
@@ -3274,11 +3278,11 @@ index 2fbe381..f4c144b 100644
 -        }
 -
 -        InstanceScript* instance;
-+        boss_shaman_toc5AI(Creature* creature) : npc_mounted_championAI(creature) {}
- 
+-
 -        uint8 uiPhase;
 -        uint32 uiPhaseTimer;
--
++        boss_shaman_toc5AI(Creature* creature) : npc_mounted_championAI(creature) {}
+ 
 -        uint32 uiChainLightningTimer;
 -        uint32 uiEartShieldTimer;
 -        uint32 uiHealingWaveTimer;
@@ -3337,7 +3341,8 @@ index 2fbe381..f4c144b 100644
 +                npc_mounted_championAI::JustReachedHome();
 +                return;
 +            }
-+
+ 
+-            if (!bHome)
 +            if(InstanceScript* instance = me->GetInstanceScript())
 +                if(instance->GetData(BOSS_GRAND_CHAMPIONS) == IN_PROGRESS)
 +                    instance->SetData(BOSS_GRAND_CHAMPIONS, FAIL);
@@ -3348,18 +3353,18 @@ index 2fbe381..f4c144b 100644
 +            if (isInMountedGauntlet())
 +            {
 +                npc_mounted_championAI::DamageTaken(NULL, damage);
-+                return;
-+            }
- 
--            if (!bHome)
-+            if(defeated)
-+            {
-+                damage = 0;
                  return;
 +            }
  
 -            uiPhaseTimer = 15000;
 -            uiPhase = 1;
++            if(defeated)
++            {
++                damage = 0;
++                return;
++            }
+ 
+-            bHome = false;
 +            // Prevent damage from finishing hit and mark creature as defeated
 +            if(damage >= me->GetHealth())
 +            {
@@ -3371,24 +3376,18 @@ index 2fbe381..f4c144b 100644
 +                me->SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NON_ATTACKABLE);
 +                BindPlayersToInstance(me);
 +            }
-+        }
- 
--            bHome = false;
-+        void MovementInform(uint32 type, uint32 id)
-+        {
-+            // Knee at home position after being defeated
-+            if(type == POINT_MOTION_TYPE && id == 1)
-+                me->CastSpell(me, SPELL_KNEE, true);
          }
  
 -        void UpdateAI(const uint32 uiDiff)
-+        uint32 GetData(uint32 type)
++        void MovementInform(uint32 type, uint32 id)
          {
 -            if (!bDone && GrandChampionsOutVehicle(me))
 -            {
 -                bDone = true;
-+            if (isInMountedGauntlet())
-+                return npc_mounted_championAI::GetData(type);
++            // Knee at home position after being defeated
++            if(type == POINT_MOTION_TYPE && id == 1)
++                me->CastSpell(me, SPELL_KNEE, true);
++        }
  
 -                if (instance && me->GetGUID() == instance->GetData64(DATA_GRAND_CHAMPION_1))
 -                    me->SetHomePosition(739.678f, 662.541f, 412.393f, 4.49f);
@@ -3396,41 +3395,46 @@ index 2fbe381..f4c144b 100644
 -                    me->SetHomePosition(746.71f, 661.02f, 411.69f, 4.6f);
 -                else if (instance && me->GetGUID() == instance->GetData64(DATA_GRAND_CHAMPION_3))
 -                    me->SetHomePosition(754.34f, 660.70f, 412.39f, 4.79f);
++        uint32 GetData(uint32 type)
++        {
++            if (isInMountedGauntlet())
++                return npc_mounted_championAI::GetData(type);
+ 
+-                if (instance)
+-                    instance->SetData(BOSS_GRAND_CHAMPIONS, IN_PROGRESS);
 +            // Used by Announcer on periodic check of the bosses state
 +            if(type == DATA_CHAMPION_DEFEATED)
 +                return defeated ? 1 : 0;
  
--                if (instance)
--                    instance->SetData(BOSS_GRAND_CHAMPIONS, IN_PROGRESS);
+-                EnterEvadeMode();
+-                bHome = true;
+-            }
 +            return 0;
 +        }
  
--                EnterEvadeMode();
--                bHome = true;
+-            if (uiPhaseTimer <= uiDiff)
 +        void UpdateAI(const uint32 diff)
 +        {
 +            if (isInMountedGauntlet())
-+            {
-+                npc_mounted_championAI::UpdateAI(diff);
-+                return;
-             }
- 
--            if (uiPhaseTimer <= uiDiff)
--            {
+             {
 -                if (uiPhase == 1)
 -                {
 -                    AggroAllPlayers(me);
 -                    uiPhase = 0;
 -                }
 -            }else uiPhaseTimer -= uiDiff;
-+            if (!UpdateVictim())
++                npc_mounted_championAI::UpdateAI(diff);
 +                return;
++            }
  
 -            if (!UpdateVictim() || me->HasUnitMovementFlag(MOVEMENTFLAG_ONTRANSPORT))
-+            if(defeated)
++            if (!UpdateVictim())
                  return;
  
 -            if (uiChainLightningTimer <= uiDiff)
++            if(defeated)
++                return;
++
 +            if(me->HasUnitState(UNIT_STAT_CASTING))
 +                return;
 +
@@ -3511,7 +3515,7 @@ index 2fbe381..f4c144b 100644
      };
  
      CreatureAI* GetAI(Creature* creature) const
-@@ -724,147 +780,178 @@ class boss_hunter_toc5 : public CreatureScript
+@@ -724,148 +780,178 @@ class boss_hunter_toc5 : public CreatureScript
  public:
      boss_hunter_toc5() : CreatureScript("boss_hunter_toc5") { }
  
@@ -3635,14 +3639,14 @@ index 2fbe381..f4c144b 100644
 +                npc_mounted_championAI::EnterCombat(who);
                  return;
 +            }
- 
--            uiPhaseTimer = 15000;
--            uiPhase = 1;
++
 +            if(InstanceScript* instance = me->GetInstanceScript())
 +                if(instance->GetData(BOSS_GRAND_CHAMPIONS) != IN_PROGRESS)
 +                    instance->SetData(BOSS_GRAND_CHAMPIONS, IN_PROGRESS);
 +        };
-+
+ 
+-            uiPhaseTimer = 15000;
+-            uiPhase = 1;
 +        void JustReachedHome()
 +        {
 +            if (isInMountedGauntlet())
@@ -3687,11 +3691,11 @@ index 2fbe381..f4c144b 100644
 -            }
 +            if(me->HasUnitState(UNIT_STAT_CASTING))
 +                return;
-+
-+            if(me->GetDistance(me->getVictim()) >= 30.0f)
-+                me->GetMotionMaster()->MoveChase(me->getVictim(), 25.0f);
  
 -            if (uiPhaseTimer <= uiDiff)
++            if(me->GetDistance(me->getVictim()) >= 30.0f)
++                me->GetMotionMaster()->MoveChase(me->getVictim(), 25.0f);
++
 +            if (disengageTimer <= diff)
              {
 -                if (uiPhase == 1)
@@ -3754,11 +3758,12 @@ index 2fbe381..f4c144b 100644
 -                Unit* target = Unit::GetUnit(*me, uiTargetGUID);
 -
 -                if (target && me->IsInRange(target, 5.0f, 30.0f, false))
+-                {
+-                    DoCast(target, SPELL_MULTI_SHOT);
+-                }
+-                else
 +                if(Aura* lArrows = me->GetAura(SPELL_LIGHTNING_ARROWS))
                  {
--                    DoCast(target, SPELL_MULTI_SHOT);
--                } else
--                {
 -                    Map::PlayerList const& players = me->GetMap()->GetPlayers();
 -                    if (me->GetMap()->IsDungeon() && !players.isEmpty())
 -                    {
@@ -3767,7 +3772,7 @@ index 2fbe381..f4c144b 100644
 -                            Player* player = itr->getSource();
 -                            if (player && !player->isGameMaster() && me->IsInRange(player, 5.0f, 30.0f, false))
 -                            {
--                                DoCast(target, SPELL_MULTI_SHOT);
+-                                DoCast(player, SPELL_MULTI_SHOT);
 -                                break;
 -                            }
 -                        }
@@ -3791,7 +3796,7 @@ index 2fbe381..f4c144b 100644
          }
      };
  
-@@ -880,113 +967,149 @@ public:
+@@ -881,113 +967,149 @@ public:
      boss_rouge_toc5() : CreatureScript("boss_rouge_toc5") { }
  
      // Lana Stouthammer Evensong && Deathstalker Visceri || Rouge
@@ -4007,7 +4012,7 @@ index 2fbe381..f4c144b 100644
      };
  
      CreatureAI* GetAI(Creature* creature) const
-@@ -995,6 +1118,201 @@ public:
+@@ -996,6 +1118,201 @@ public:
      }
  };
  
@@ -4209,7 +4214,7 @@ index 2fbe381..f4c144b 100644
  void AddSC_boss_grand_champions()
  {
      new generic_vehicleAI_toc5();
-@@ -1003,4 +1321,7 @@ void AddSC_boss_grand_champions()
+@@ -1004,4 +1321,7 @@ void AddSC_boss_grand_champions()
      new boss_shaman_toc5();
      new boss_hunter_toc5();
      new boss_rouge_toc5();

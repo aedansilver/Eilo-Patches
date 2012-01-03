@@ -1,4 +1,4 @@
-From 7466a31d711463db25bcddc363d878db16ef7c11 Mon Sep 17 00:00:00 2001
+From 0be1c4450fcb70f6de3fe5c30649c94f87eba59c Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sun, 25 Dec 2011 01:24:03 -0500
 Subject: [PATCH 60/62] 2.20.1 TheOculus: Reimplementacion de scripts, logros
@@ -417,7 +417,7 @@ index 21ff3c6..1be1d6b 100755
      if (!reward)
          return;
 diff --git a/src/server/game/Entities/Unit/Unit.cpp b/src/server/game/Entities/Unit/Unit.cpp
-index 3c0f2de..3fa09af 100755
+index 8bbfb62..b53a3c0 100755
 --- a/src/server/game/Entities/Unit/Unit.cpp
 +++ b/src/server/game/Entities/Unit/Unit.cpp
 @@ -7943,6 +7943,13 @@ bool Unit::HandleAuraProc(Unit* victim, uint32 damage, Aura* triggeredByAura, Sp
@@ -458,10 +458,10 @@ index 3c0f2de..3fa09af 100755
                  {
                      (*itr)->GetBase()->DropCharge(AURA_REMOVE_BY_EXPIRE);
 diff --git a/src/server/game/Spells/Auras/SpellAuraEffects.cpp b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
-index 5db2e61..0269db7 100755
+index e5a3ea5..d9dac4f 100755
 --- a/src/server/game/Spells/Auras/SpellAuraEffects.cpp
 +++ b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
-@@ -6094,6 +6094,11 @@ void AuraEffect::HandlePeriodicTriggerSpellAuraTick(Unit* target, Unit* caster)
+@@ -6103,6 +6103,11 @@ void AuraEffect::HandlePeriodicTriggerSpellAuraTick(Unit* target, Unit* caster)
              // Poison (Grobbulus)
              case 28158:
              case 54362:
@@ -474,7 +474,7 @@ index 5db2e61..0269db7 100755
              case 66882:
                  target->CastCustomSpell(triggerSpellId, SPELLVALUE_RADIUS_MOD, (int32)((((float)m_tickNumber / 60) * 0.9f + 0.1f) * 10000 * 2 / 3), NULL, true, NULL, this);
 diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
-index 21ee31d..d0efa64 100755
+index bc067ba..89e4415 100755
 --- a/src/server/game/Spells/SpellEffects.cpp
 +++ b/src/server/game/Spells/SpellEffects.cpp
 @@ -429,6 +429,12 @@ void Spell::EffectSchoolDMG(SpellEffIndex effIndex)
@@ -491,7 +491,7 @@ index 21ee31d..d0efa64 100755
                      case 29142: // Eyesore Blaster
                      case 35139: // Throw Boom's Doom
 diff --git a/src/server/game/Spells/SpellInfo.cpp b/src/server/game/Spells/SpellInfo.cpp
-index 972276c..60256dd 100644
+index 463b469..6c19c72 100644
 --- a/src/server/game/Spells/SpellInfo.cpp
 +++ b/src/server/game/Spells/SpellInfo.cpp
 @@ -1824,6 +1824,7 @@ AuraStateType SpellInfo::GetAuraState() const
@@ -503,7 +503,7 @@ index 972276c..60256dd 100644
              return AURA_STATE_UNKNOWN22;
          default:
 diff --git a/src/server/game/Spells/SpellMgr.cpp b/src/server/game/Spells/SpellMgr.cpp
-index 6e68f6c..5a08901 100755
+index 5fd4050..95351ea 100755
 --- a/src/server/game/Spells/SpellMgr.cpp
 +++ b/src/server/game/Spells/SpellMgr.cpp
 @@ -3000,10 +3000,6 @@ void SpellMgr::LoadDbcDataCorrections()

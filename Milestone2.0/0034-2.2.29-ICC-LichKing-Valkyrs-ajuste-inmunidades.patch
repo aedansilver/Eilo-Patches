@@ -1,4 +1,4 @@
-From 303e2d107821a182e91908478dcd11b787213180 Mon Sep 17 00:00:00 2001
+From b3ef85058e350b9d244f1b74caa76f61f9c8fa6d Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 12:34:25 -0500
 Subject: [PATCH 34/62] 2.2.29 ICC: LichKing Valkyrs ajuste inmunidades
@@ -8,7 +8,7 @@ Subject: [PATCH 34/62] 2.2.29 ICC: LichKing Valkyrs ajuste inmunidades
  1 files changed, 5 insertions(+), 1 deletions(-)
 
 diff --git a/sql/updates/world/reanemu/2011_11_24_100_world_correcciones_icc.sql b/sql/updates/world/reanemu/2011_11_24_100_world_correcciones_icc.sql
-index a2ded83..9e35c18 100644
+index d1adc90..831109b 100644
 --- a/sql/updates/world/reanemu/2011_11_24_100_world_correcciones_icc.sql
 +++ b/sql/updates/world/reanemu/2011_11_24_100_world_correcciones_icc.sql
 @@ -32,4 +32,8 @@ DELETE FROM `creature` WHERE `guid`=201494;

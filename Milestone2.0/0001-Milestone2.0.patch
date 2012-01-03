@@ -1,14 +1,14 @@
-From 64ca47a43f8e357e0ec024036721b00e2b089aed Mon Sep 17 00:00:00 2001
+From c8456b0aad420eb80d9fc989787a7b2a5dd5740e Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Sun, 25 Dec 2011 13:07:10 -0500
+Date: Mon, 2 Jan 2012 12:16:38 -0500
 Subject: [PATCH 01/62] Milestone2.0
 
 ---
- WHAT_IS_INSIDE |   65 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 files changed, 65 insertions(+), 0 deletions(-)
+ WHAT_IS_INSIDE |   66 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 files changed, 66 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 1a30ad5..760710e 100644
+index a09547b..02be97d 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -16,6 +16,9 @@ Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevo
@@ -17,31 +17,31 @@ index 1a30ad5..760710e 100644
                comportamiento de bgs, arenas, players-units-pets y mejoras.
 +Milestone2.0: Mejoras en Instances y dungeons, escencialmente para darles funcionalidad
 +              y detalles menores de funcionamiento para tenerlas lo mas cercano
-+              a blizzlike, solucion de bugs varios.
++			  a blizzlike, solucion de bugs varios.
  
  
  ##################################
-@@ -76,6 +79,28 @@ Milestone1.0: Jugabilidad en general, adecuaciones de codigo vario en mapas
+@@ -80,16 +83,79 @@ Milestone1.0: Jugabilidad en general, adecuaciones de codigo vario en mapas
  ###############################
  # Dungeons e Instances Varias #
  ###############################
-+2.1.1  - 08/10/2011: Trial Of Crusader: Añadida inmunidad a grip y knockback por Karlos
-+2.1.2  - 10/10/2011: Trial Of Crusader: Mejorada la AI de los campeones por Gigatotem
-+2.1.3  - 01/10/2011: Trial Of Crusader: Reparado reseteo de gusanos Jormungar por Odyssey
-+2.1.4  - 01/11/2011: Trial Of Crusader: Inmunidades en db de los bosses y adds por Eilo
-+2.4.1  - 28/03/2011: Onyxia: Inmunidades en script por Souler
-+2.5.1  - 13/11/2011: Eye of Eternity: Reimplementacion, original por Darkman, final por Eilo
-+2.8.1  - 08/08/2011: Obsidian Sanctum: Mejora de script e implementacion de trash mob por Zwerg
++2.1.1 - 08/10/2011: Trial Of Crusader: Añadida inmunidad a grip y knockback por Karlos
++2.1.2 - 10/10/2011: Trial Of Crusader: Mejorada la AI de los campeones por Gigatotem
++2.1.3 - 01/10/2011: Trial Of Crusader: Reparado reseteo de gusanos Jormungar por Odyssey
++2.1.4 - 01/11/2011: Trial Of Crusader: Inmunidades en db de los bosses y adds por Eilo
++2.4.1 - 28/03/2011: Onyxia: Inmunidades en script por Souler
++2.5.1 - 13/11/2011: Eye of Eternity: Reimplementacion, original por Darkman, final por Eilo
++2.8.1 - 08/08/2011: Obsidian Sanctum: Mejora de script e implementacion de trash mob por Zwerg
 +2.10.1 - 03/08/2011: Ahn'Kahet: Taldaram combate en invisible por Greymane
 +2.10.2 - 16/12/2011: Ahn'Kahet: Taldaram daño esferas ajustado por Eilo
 +2.12.1 - 17/12/2011: CullingOfStratholme: Arthas no desaparece a distancia por Eilo
 +2.12.2 - 17/12/2011: CullingOfStratholme: Arthas camina en la segunda fase por Eilo
-+2.13.1 - 27/11/2011: TrialOfTheChampions: Reimplementacion y soporte spells por Souler
++2.13.1 - 27/11/2011: TrialOfTheChampions: Reimplementacion y soporte spells por Souler, mejoras, reordenacion y complementos por Eilo
 +2.14.1 - 17/12/2011: Drak'Tharon: Visuales y flags varias del trash y reward de LFG por Treak y Eilo
 +2.14.2 - 11/02/2011: Drak'Tharon: Novos permitir reinicio boss por Odyssey
 +2.14.3 - 24/03/2011: Drak'Tharon: Tharon'Ja no atacable hasta terminar demas bosses por Souler
 +2.15.1 - 09/08/2011: Gundrak: Colossus desactiva el aura de MojoVolley al morir por Odyssey
-+2.16.1 - 17/12/2011: HallsOfReflection: Reimplementacion por Odyssey ajustes por Retriman
++2.16.1 - 08/10/2011: HallsOfReflection: Reimplementacion y añadido LichKing por Greymane, editado por Eilo
 +2.17.1 - 24/12/2011: PitOfSaron: Correccion de varios mobs por Eilo
 +2.19.1 - 05/12/2011: TheNexus: Correccion de trash mob y varias flags por Treak
 +2.20.1 - 19/12/2011: ThOculus: Reimplementacion de scripts, logros y adecuaciones de spells por Zwerg
@@ -50,7 +50,11 @@ index 1a30ad5..760710e 100644
  
  
  #################
-@@ -86,6 +111,46 @@ Milestone1.0: Jugabilidad en general, adecuaciones de codigo vario en mapas
+ # Sagrario Rubí #
+ #################
++2.9.1  - 27/12/2011: TheRubySanctum: Reimplementacion de script, original por Vlad, mejoras por Ws, ajustes/mejoras en traducciones y Script por Eilo
+ 
+ 
  #######
  # ICC #
  #######

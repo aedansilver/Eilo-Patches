@@ -1,4 +1,4 @@
-From 4821f96cc5f1491213cb33379886e880f9ed767c Mon Sep 17 00:00:00 2001
+From c93dac641308ecb7dcef8fff5d15f0bd2c1e106f Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 17:56:14 -0500
 Subject: [PATCH 35/62] 2.2.30 ICC: Trashmob implementacion completa
@@ -14,7 +14,7 @@ Subject: [PATCH 35/62] 2.2.30 ICC: Trashmob implementacion completa
 
 diff --git a/sql/updates/world/reanemu/2011_11_25_100_world_trashmobs_icc.sql b/sql/updates/world/reanemu/2011_11_25_100_world_trashmobs_icc.sql
 new file mode 100644
-index 0000000..cab7c87
+index 0000000..e9f6909
 --- /dev/null
 +++ b/sql/updates/world/reanemu/2011_11_25_100_world_trashmobs_icc.sql
 @@ -0,0 +1,150 @@
@@ -169,10 +169,10 @@ index 0000000..cab7c87
 +-- ymirjar warlord
 +UPDATE `creature_template` SET `mechanic_immune_mask` = `mechanic_immune_mask`|1|4|8|16|128|512|1024|65536|131072|524288|1048576|4194304|8388608|33554432|67108864|134217728 WHERE `entry`=38133;
 diff --git a/src/server/game/Scripting/ScriptLoader.cpp b/src/server/game/Scripting/ScriptLoader.cpp
-index fd4eb28..bcf4a82 100755
+index 6df6191..4ad781f 100755
 --- a/src/server/game/Scripting/ScriptLoader.cpp
 +++ b/src/server/game/Scripting/ScriptLoader.cpp
-@@ -481,6 +481,7 @@ void AddSC_boss_blood_queen_lana_thel();
+@@ -480,6 +480,7 @@ void AddSC_boss_blood_queen_lana_thel();
  void AddSC_boss_valithria_dreamwalker();
  void AddSC_boss_sindragosa();
  void AddSC_boss_the_lich_king();
@@ -180,7 +180,7 @@ index fd4eb28..bcf4a82 100755
  void AddSC_icecrown_citadel_teleport();
  void AddSC_instance_icecrown_citadel();
  void AddSC_icecrown_citadel();
-@@ -1187,11 +1188,11 @@ void AddNorthrendScripts()
+@@ -1185,11 +1186,11 @@ void AddNorthrendScripts()
      AddSC_boss_valithria_dreamwalker();
      AddSC_boss_sindragosa();
      AddSC_boss_the_lich_king();
@@ -194,10 +194,10 @@ index fd4eb28..bcf4a82 100755
      AddSC_boss_saviana_ragefire();
      AddSC_boss_general_zarithrian();
 diff --git a/src/server/scripts/Northrend/CMakeLists.txt b/src/server/scripts/Northrend/CMakeLists.txt
-index 4ebb301..a035c12 100644
+index 26b1cfa..7db3133 100644
 --- a/src/server/scripts/Northrend/CMakeLists.txt
 +++ b/src/server/scripts/Northrend/CMakeLists.txt
-@@ -164,6 +164,7 @@ set(scripts_STAT_SRCS
+@@ -163,6 +163,7 @@ set(scripts_STAT_SRCS
    Northrend/IcecrownCitadel/icecrown_citadel.cpp
    Northrend/IcecrownCitadel/icecrown_citadel.h
    Northrend/IcecrownCitadel/icecrown_citadel_teleport.cpp
@@ -207,7 +207,7 @@ index 4ebb301..a035c12 100644
    Northrend/IcecrownCitadel/boss_deathbringer_saurfang.cpp
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/icecrown_citadel_trashmobs.cpp b/src/server/scripts/Northrend/IcecrownCitadel/icecrown_citadel_trashmobs.cpp
 new file mode 100644
-index 0000000..6da6d7e
+index 0000000..20bd95b
 --- /dev/null
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/icecrown_citadel_trashmobs.cpp
 @@ -0,0 +1,2760 @@

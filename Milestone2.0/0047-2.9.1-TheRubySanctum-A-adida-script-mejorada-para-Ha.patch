@@ -1,4 +1,4 @@
-From c5aa5d90e20c1ed8f618d0418a6f82db2b5d3376 Mon Sep 17 00:00:00 2001
+From 737263e5dddded7d331d822548e7f180f7ebc2bb Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Tue, 27 Dec 2011 19:54:38 -0500
 Subject: [PATCH 47/62] =?UTF-8?q?2.9.1=20TheRubySanctum:=20A=C3=B1adida=20sc?=
@@ -365,10 +365,10 @@ index 0000000..3ce5fa7
 +VALUES
 +   (203007, 0, 9482, 'Ruby Sanctum Halion Flame Ring', '', '', '', 0, 48, 1.6, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 12340);
 diff --git a/src/server/game/Scripting/ScriptLoader.cpp b/src/server/game/Scripting/ScriptLoader.cpp
-index cfc7343..512ac28 100755
+index 438e32b..9bb25af 100755
 --- a/src/server/game/Scripting/ScriptLoader.cpp
 +++ b/src/server/game/Scripting/ScriptLoader.cpp
-@@ -487,7 +487,7 @@ void AddSC_icecrown_citadel_teleport();
+@@ -486,7 +486,7 @@ void AddSC_icecrown_citadel_teleport();
  void AddSC_instance_icecrown_citadel();
  void AddSC_icecrown_citadel();
  void AddSC_instance_ruby_sanctum();      // Ruby Sanctum
@@ -377,7 +377,7 @@ index cfc7343..512ac28 100755
  void AddSC_boss_baltharus_the_warborn();
  void AddSC_boss_saviana_ragefire();
  void AddSC_boss_general_zarithrian();
-@@ -1195,6 +1195,7 @@ void AddNorthrendScripts()
+@@ -1193,6 +1193,7 @@ void AddNorthrendScripts()
      AddSC_instance_icecrown_citadel();
      AddSC_icecrown_citadel();
      AddSC_instance_ruby_sanctum();      // Ruby Sanctum
@@ -386,10 +386,10 @@ index cfc7343..512ac28 100755
      AddSC_boss_saviana_ragefire();
      AddSC_boss_general_zarithrian();
 diff --git a/src/server/scripts/Northrend/CMakeLists.txt b/src/server/scripts/Northrend/CMakeLists.txt
-index 680a9d6..a3e5d1e 100644
+index a6cf07b..983d3e3 100644
 --- a/src/server/scripts/Northrend/CMakeLists.txt
 +++ b/src/server/scripts/Northrend/CMakeLists.txt
-@@ -48,7 +48,7 @@ set(scripts_STAT_SRCS
+@@ -47,7 +47,7 @@ set(scripts_STAT_SRCS
    Northrend/ChamberOfAspects/ObsidianSanctum/mob_obsidian_sanctum.cpp
    Northrend/ChamberOfAspects/RubySanctum/instance_ruby_sanctum.cpp
    Northrend/ChamberOfAspects/RubySanctum/ruby_sanctum.h

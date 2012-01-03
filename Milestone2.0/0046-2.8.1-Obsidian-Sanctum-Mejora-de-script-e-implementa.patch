@@ -1,4 +1,4 @@
-From 76300a0316b313a65974615d0840490129b6fd5e Mon Sep 17 00:00:00 2001
+From 051661fa56f305f66ea8a7b18478b9187eb30d72 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 14:22:13 -0500
 Subject: [PATCH 46/62] 2.8.1 Obsidian Sanctum: Mejora de script e
@@ -47,10 +47,10 @@ index 0000000..51bd0f0
 +UPDATE `creature_template` SET `dmgschool`=1 WHERE `entry` IN (30643,31317);
 \ No newline at end of file
 diff --git a/src/server/game/Scripting/ScriptLoader.cpp b/src/server/game/Scripting/ScriptLoader.cpp
-index bcf4a82..cfc7343 100755
+index 4ad781f..438e32b 100755
 --- a/src/server/game/Scripting/ScriptLoader.cpp
 +++ b/src/server/game/Scripting/ScriptLoader.cpp
-@@ -405,6 +405,7 @@ void AddSC_boss_malygos();              // The Nexus: Eye of Eternity
+@@ -404,6 +404,7 @@ void AddSC_boss_malygos();              // The Nexus: Eye of Eternity
  void AddSC_instance_eye_of_eternity();
  void AddSC_boss_sartharion();            //Obsidian Sanctum
  void AddSC_instance_obsidian_sanctum();
@@ -58,7 +58,7 @@ index bcf4a82..cfc7343 100755
  void AddSC_boss_bjarngrim();             //Ulduar Halls of Lightning
  void AddSC_boss_loken();
  void AddSC_boss_ionar();
-@@ -1112,6 +1113,7 @@ void AddNorthrendScripts()
+@@ -1110,6 +1111,7 @@ void AddNorthrendScripts()
      AddSC_instance_eye_of_eternity();
      AddSC_boss_sartharion();            //Obsidian Sanctum
      AddSC_instance_obsidian_sanctum();
@@ -67,10 +67,10 @@ index bcf4a82..cfc7343 100755
      AddSC_boss_loken();
      AddSC_boss_ionar();
 diff --git a/src/server/scripts/Northrend/CMakeLists.txt b/src/server/scripts/Northrend/CMakeLists.txt
-index a035c12..680a9d6 100644
+index 7db3133..a6cf07b 100644
 --- a/src/server/scripts/Northrend/CMakeLists.txt
 +++ b/src/server/scripts/Northrend/CMakeLists.txt
-@@ -45,6 +45,7 @@ set(scripts_STAT_SRCS
+@@ -44,6 +44,7 @@ set(scripts_STAT_SRCS
    Northrend/ChamberOfAspects/ObsidianSanctum/instance_obsidian_sanctum.cpp
    Northrend/ChamberOfAspects/ObsidianSanctum/obsidian_sanctum.h
    Northrend/ChamberOfAspects/ObsidianSanctum/boss_sartharion.cpp

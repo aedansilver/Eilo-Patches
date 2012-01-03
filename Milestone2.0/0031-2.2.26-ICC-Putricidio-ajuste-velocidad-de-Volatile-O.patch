@@ -1,4 +1,4 @@
-From 7ac06a519100d427bf95cb9cbe9cf4afc75550a1 Mon Sep 17 00:00:00 2001
+From e0fc156fb860c9cfa8569c5a90c145561cd90da8 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 17:52:58 -0500
 Subject: [PATCH 31/62] 2.2.26 ICC: Putricidio ajuste velocidad de Volatile
@@ -9,7 +9,7 @@ Subject: [PATCH 31/62] 2.2.26 ICC: Putricidio ajuste velocidad de Volatile
  1 files changed, 6 insertions(+), 1 deletions(-)
 
 diff --git a/sql/updates/world/reanemu/2011_11_24_100_world_correcciones_icc.sql b/sql/updates/world/reanemu/2011_11_24_100_world_correcciones_icc.sql
-index c5d62f8..cbe8ef0 100644
+index 9bf67cc..711b991 100644
 --- a/sql/updates/world/reanemu/2011_11_24_100_world_correcciones_icc.sql
 +++ b/sql/updates/world/reanemu/2011_11_24_100_world_correcciones_icc.sql
 @@ -13,4 +13,9 @@ UPDATE `creature` SET `position_z` = 44.57 WHERE `guid`=200956;
