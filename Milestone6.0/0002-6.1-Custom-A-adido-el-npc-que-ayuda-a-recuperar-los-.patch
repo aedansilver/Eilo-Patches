@@ -1,7 +1,7 @@
-From dccec96e70726c54215b198e7d4b17167838ba1f Mon Sep 17 00:00:00 2001
+From 45395cd79ff4ac9a6efa6b5c64c8581c8e3a0428 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Mon, 26 Dec 2011 13:00:13 -0500
-Subject: [PATCH 2/5] =?UTF-8?q?6.1=20Custom:=20A=C3=B1adido=20el=20npc=20que?=
+Subject: [PATCH 2/6] =?UTF-8?q?6.1=20Custom:=20A=C3=B1adido=20el=20npc=20que?=
  =?UTF-8?q?=20ayuda=20a=20recuperar=20los=20anillos=20de=20icc?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -13,14 +13,14 @@ Content-Transfer-Encoding: 8bit
  src/server/scripts/Custom/CMakeLists.txt           |    2 +
  src/server/scripts/Custom/icc_rings_recovery.cpp   |  188 ++++++++++++++++++++
  4 files changed, 202 insertions(+), 2 deletions(-)
- create mode 100644 sql/updates/world/reanemu/2011_10_08_100_world_rings_icc_recovery.sql
+ create mode 100644 sql/updates/world/custom/2011_10_08_100_world_rings_icc_recovery.sql
  create mode 100644 src/server/scripts/Custom/icc_rings_recovery.cpp
 
-diff --git a/sql/updates/world/reanemu/2011_10_08_100_world_rings_icc_recovery.sql b/sql/updates/world/reanemu/2011_10_08_100_world_rings_icc_recovery.sql
+diff --git a/sql/updates/world/custom/2011_10_08_100_world_rings_icc_recovery.sql b/sql/updates/world/custom/2011_10_08_100_world_rings_icc_recovery.sql
 new file mode 100644
 index 0000000..52ced01
 --- /dev/null
-+++ b/sql/updates/world/reanemu/2011_10_08_100_world_rings_icc_recovery.sql
++++ b/sql/updates/world/custom/2011_10_08_100_world_rings_icc_recovery.sql
 @@ -0,0 +1,10 @@
 +DELETE FROM `creature_template` WHERE (`entry`=97015);
 +INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction_A`, `faction_H`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `mindmg`, `maxdmg`, `dmgschool`, `attackpower`, `dmg_multiplier`, `baseattacktime`, `rangeattacktime`, `unit_class`, `unit_flags`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `minrangedmg`, `maxrangedmg`, `rangedattackpower`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `resistance1`, `resistance2`, `resistance3`, `resistance4`, `resistance5`, `resistance6`, `spell1`, `spell2`, `spell3`, `spell4`, `spell5`, `spell6`, `spell7`, `spell8`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `Health_mod`, `Mana_mod`, `Armor_mod`, `RacialLeader`, `questItem1`, `questItem2`, `questItem3`, `questItem4`, `questItem5`, `questItem6`, `movementId`, `RegenHealth`, `equipment_id`, `mechanic_immune_mask`, `flags_extra`, `ScriptName`, `WDBVerified`) VALUES (97015, 0, 0, 0, 0, 0, 30859, 30987, 30861, 30862, 'Recuperador de Anillos del Veredicto Cinéreo', 'Háblale si has perdido tu anillo', '', 0, 80, 80, 2, 35, 35, 1, 1, 1.14286, 1, 1, 422, 586, 0, 642, 7.5, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 345, 509, 103, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 3, 75, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2354, 0, 2, 'npc_icc_rep_rings', 12340);

@@ -1,24 +1,24 @@
-From 25332f072b9237073dd9aac1ddb4f1d9e8e07008 Mon Sep 17 00:00:00 2001
+From 9e841d83fe8d28f4180288b02ba2071fa454f0e1 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Wed, 28 Dec 2011 14:32:59 -0500
-Subject: [PATCH 4/5] 6.3 Custom: Npc broma, dia de inocentes
+Subject: [PATCH 4/6] 6.3 Custom: Npc broma, dia de inocentes
 
 ---
- .../reanemu/2011_12_28_100_world_npc_broma.sql     |   15 +++++
+ .../custom/2011_12_28_100_world_npc_broma.sql      |   15 +++++
  src/server/game/Scripting/ScriptLoader.cpp         |    2 +
  src/server/scripts/Custom/CMakeLists.txt           |    1 +
  src/server/scripts/Custom/npc_broma.cpp            |   62 ++++++++++++++++++++
  4 files changed, 80 insertions(+), 0 deletions(-)
- create mode 100644 sql/updates/world/reanemu/2011_12_28_100_world_npc_broma.sql
+ create mode 100644 sql/updates/world/custom/2011_12_28_100_world_npc_broma.sql
  create mode 100644 src/server/scripts/Custom/npc_broma.cpp
 
-diff --git a/sql/updates/world/reanemu/2011_12_28_100_world_npc_broma.sql b/sql/updates/world/reanemu/2011_12_28_100_world_npc_broma.sql
+diff --git a/sql/updates/world/custom/2011_12_28_100_world_npc_broma.sql b/sql/updates/world/custom/2011_12_28_100_world_npc_broma.sql
 new file mode 100644
-index 0000000..8cb0f8d
+index 0000000..67c85a9
 --- /dev/null
-+++ b/sql/updates/world/reanemu/2011_12_28_100_world_npc_broma.sql
++++ b/sql/updates/world/custom/2011_12_28_100_world_npc_broma.sql
 @@ -0,0 +1,15 @@
-+ 
++delete from `creature_template` where entry=6000000;
 +insert into `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`,
 + `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, 
 + `faction_A`, `faction_H`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `mindmg`, `maxdmg`, `dmgschool`, `attackpower`, 
