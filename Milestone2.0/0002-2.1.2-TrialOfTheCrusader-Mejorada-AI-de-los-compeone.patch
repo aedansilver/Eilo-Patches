@@ -1,14 +1,14 @@
-From 63b3e170e08fb346c32d69b38e36d26d848f3e9f Mon Sep 17 00:00:00 2001
+From ddaf6380f0accd74a733127b684152e209a731af Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 23:42:19 -0500
-Subject: [PATCH 02/65] 2.1.2 TrialOfTheCrusader: Mejorada AI de los compeones
+Subject: [PATCH 02/25] 2.1.2 TrialOfTheCrusader: Mejorada AI de los compeones
 
 ---
  .../TrialOfTheCrusader/boss_faction_champions.cpp  |  159 ++++++++++++++------
  1 files changed, 110 insertions(+), 49 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_faction_champions.cpp b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_faction_champions.cpp
-index 45fdbdd..7789d01 100755
+index 2fe0bd3..76e684a 100755
 --- a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_faction_champions.cpp
 +++ b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_faction_champions.cpp
 @@ -23,6 +23,10 @@ SDComment: Scripts by Selector, modified by /dev/rsa

@@ -1,7 +1,7 @@
-From d2336c4b2861db042a486ed8d90cf8e91e6a4461 Mon Sep 17 00:00:00 2001
+From 3ab14e4fd21e89eac4944b167ec66a9d428d54b8 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 00:13:07 -0500
-Subject: [PATCH 05/65] 2.2.1 ICC: Valithria spawn de baul de loot
+Subject: [PATCH 04/25] 2.2.1 ICC: Valithria spawn de baul de loot
 
 ---
  .../2011_07_08_100_world_icc_valithria_chest.sql   |    7 +++++++
@@ -25,7 +25,7 @@ index 0000000..9e85193
 +(@GUID+2, 202338, 631, 4, 1, 4203.65, 2484.56, 364.873, 6.28004, 0, 0, 0.00157252, -1, -120, 0, 1),
 +(@GUID+3, 202340, 631, 8, 1, 4203.65, 2484.56, 364.873, 6.28004, 0, 0, 0.00157252, -1, -120, 0, 1);
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_valithria_dreamwalker.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_valithria_dreamwalker.cpp
-index 96072ad..4d07662 100644
+index e099317..b1b514f 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_valithria_dreamwalker.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_valithria_dreamwalker.cpp
 @@ -389,8 +389,8 @@ class boss_valithria_dreamwalker : public CreatureScript

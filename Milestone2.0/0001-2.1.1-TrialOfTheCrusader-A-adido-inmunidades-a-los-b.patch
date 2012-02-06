@@ -1,7 +1,7 @@
-From c4ad3532e336355d7a445fc83f62b150d03da3a3 Mon Sep 17 00:00:00 2001
+From 495f75547b08528eaa70b2447cfc986f87cfbae6 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 23:36:08 -0500
-Subject: [PATCH 01/65] =?UTF-8?q?2.1.1=20TrialOfTheCrusader:=20A=C3=B1adido=20?=
+Subject: [PATCH 01/25] =?UTF-8?q?2.1.1=20TrialOfTheCrusader:=20A=C3=B1adido=20?=
  =?UTF-8?q?inmunidades=20a=20los=20bosses?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -15,7 +15,7 @@ Content-Transfer-Encoding: 8bit
  4 files changed, 12 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_anubarak_trial.cpp b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_anubarak_trial.cpp
-index d3d9237..a0f1d1a 100644
+index a9e41d9..4fc49a4 100755
 --- a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_anubarak_trial.cpp
 +++ b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_anubarak_trial.cpp
 @@ -141,6 +141,8 @@ public:
@@ -41,7 +41,7 @@ index fc01ad2..12afd3d 100755
              Reset();
          }
 diff --git a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_northrend_beasts.cpp b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_northrend_beasts.cpp
-index 029a7c3..190c9a9 100755
+index 1eca7ed..459ff4b 100755
 --- a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_northrend_beasts.cpp
 +++ b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_northrend_beasts.cpp
 @@ -123,6 +123,8 @@ public:
@@ -53,7 +53,7 @@ index 029a7c3..190c9a9 100755
              m_instance = (InstanceScript*)creature->GetInstanceScript();
          }
  
-@@ -391,6 +393,8 @@ struct boss_jormungarAI : public ScriptedAI
+@@ -393,6 +395,8 @@ struct boss_jormungarAI : public ScriptedAI
  {
      boss_jormungarAI(Creature* creature) : ScriptedAI(creature)
      {
@@ -62,7 +62,7 @@ index 029a7c3..190c9a9 100755
          instanceScript = creature->GetInstanceScript();
      }
  
-@@ -754,6 +758,8 @@ public:
+@@ -757,6 +761,8 @@ public:
      {
          boss_icehowlAI(Creature* creature) : ScriptedAI(creature)
          {
@@ -72,7 +72,7 @@ index 029a7c3..190c9a9 100755
          }
  
 diff --git a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_twin_valkyr.cpp b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_twin_valkyr.cpp
-index 960b685..d2d3049 100755
+index c100996..286d3df 100755
 --- a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_twin_valkyr.cpp
 +++ b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheCrusader/boss_twin_valkyr.cpp
 @@ -143,6 +143,8 @@ struct boss_twin_baseAI : public ScriptedAI

@@ -1,14 +1,14 @@
-From 5413242b6fdef8d93878814979d0420262e83d8e Mon Sep 17 00:00:00 2001
+From 0cc5b3696635df65ebf140432ff31eec346c3e3c Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:12:38 -0500
-Subject: [PATCH 15/65] 2.2.11 ICC: Sindragosa evitando crash en spell Fury
+Subject: [PATCH 14/25] 2.2.11 ICC: Sindragosa evitando crash en spell Fury
 
 ---
  .../Northrend/IcecrownCitadel/boss_sindragosa.cpp  |    2 +-
  1 files changed, 1 insertions(+), 1 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
-index 7736747..fdeb261 100644
+index 005f649..d1bc17d 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
 @@ -984,7 +984,7 @@ class spell_sindragosa_s_fury : public SpellScriptLoader

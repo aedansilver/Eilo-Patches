@@ -1,7 +1,7 @@
-From 3aac0dac94f597a83c8a4b2c67ee0246864376b8 Mon Sep 17 00:00:00 2001
+From ca24fb7ef79022ad981d7f971055ffa417cde0d6 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 11:36:29 -0500
-Subject: [PATCH 25/65] 2.2.21 ICC: Sindragosa prevencion para que tenga
+Subject: [PATCH 24/25] 2.2.21 ICC: Sindragosa prevencion para que tenga
  target cuando baja
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH 25/65] 2.2.21 ICC: Sindragosa prevencion para que tenga
  1 files changed, 1 insertions(+), 2 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
-index 9b42748..20041ec 100644
+index 9e33059..6eb8ae4 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
 @@ -205,7 +205,6 @@ class boss_sindragosa : public CreatureScript

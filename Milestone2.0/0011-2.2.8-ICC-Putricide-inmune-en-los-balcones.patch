@@ -1,17 +1,17 @@
-From 0199e7317568bf3a329791f6ca8420b3638de4bc Mon Sep 17 00:00:00 2001
+From 03df52ece7e043e8128f149b4daa80f442ce2e3e Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 01:48:35 -0500
-Subject: [PATCH 12/65] 2.2.8 ICC: Putricide inmune en los balcones
+Subject: [PATCH 11/25] 2.2.8 ICC: Putricide inmune en los balcones
 
 ---
  .../IcecrownCitadel/boss_professor_putricide.cpp   |    4 ++++
  1 files changed, 4 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp
-index a87a588..140b7d0 100755
+index 7fe4c33..e7d959d 100755
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp
-@@ -371,6 +371,7 @@ class boss_professor_putricide : public CreatureScript
+@@ -373,6 +373,7 @@ class boss_professor_putricide : public CreatureScript
                          me->GetMotionMaster()->MovePoint(POINT_FESTERGUT, festergutWatchPos);
                          me->SetReactState(REACT_PASSIVE);
                          DoZoneInCombat(me);
@@ -19,7 +19,7 @@ index a87a588..140b7d0 100755
                          if (IsHeroic())
                              events.ScheduleEvent(EVENT_FESTERGUT_GOO, urand(15000, 20000), 0, PHASE_FESTERGUT);
                          break;
-@@ -379,6 +380,7 @@ class boss_professor_putricide : public CreatureScript
+@@ -381,6 +382,7 @@ class boss_professor_putricide : public CreatureScript
                          DoCast(me, SPELL_RELEASE_GAS_VISUAL, true);
                          break;
                      case ACTION_FESTERGUT_DEATH:
@@ -27,7 +27,7 @@ index a87a588..140b7d0 100755
                          events.ScheduleEvent(EVENT_FESTERGUT_DIES, 4000, 0, PHASE_FESTERGUT);
                          break;
                      case ACTION_ROTFACE_COMBAT:
-@@ -389,6 +391,7 @@ class boss_professor_putricide : public CreatureScript
+@@ -391,6 +393,7 @@ class boss_professor_putricide : public CreatureScript
                          me->SetReactState(REACT_PASSIVE);
                          _oozeFloodStage = 0;
                          DoZoneInCombat(me);
@@ -35,7 +35,7 @@ index a87a588..140b7d0 100755
                          if (IsHeroic())
                              events.ScheduleEvent(EVENT_ROTFACE_VILE_GAS, urand(15000, 20000), 0, PHASE_ROTFACE);
                          // init random sequence of floods
-@@ -424,6 +427,7 @@ class boss_professor_putricide : public CreatureScript
+@@ -426,6 +429,7 @@ class boss_professor_putricide : public CreatureScript
                              _oozeFloodStage = 0;
                          break;
                      case ACTION_ROTFACE_DEATH:

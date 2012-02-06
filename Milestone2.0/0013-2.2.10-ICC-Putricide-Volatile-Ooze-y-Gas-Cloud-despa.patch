@@ -1,7 +1,7 @@
-From 002afdfaf359b42592f9bc584c83b936a0f1bc67 Mon Sep 17 00:00:00 2001
+From 31660be991a107548cebc7104ad204d27464ab35 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:11:53 -0500
-Subject: [PATCH 14/65] 2.2.10 ICC: Putricide Volatile Ooze y Gas Cloud
+Subject: [PATCH 13/25] 2.2.10 ICC: Putricide Volatile Ooze y Gas Cloud
  despawn entre fases
 
 ---
@@ -9,10 +9,10 @@ Subject: [PATCH 14/65] 2.2.10 ICC: Putricide Volatile Ooze y Gas Cloud
  1 files changed, 4 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp
-index f83c321..f5b03c6 100755
+index 2e6c71c..f3216be 100755
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp
-@@ -300,12 +300,16 @@ class boss_professor_putricide : public CreatureScript
+@@ -302,12 +302,16 @@ class boss_professor_putricide : public CreatureScript
                              return;
                          me->SetReactState(REACT_PASSIVE);
                          DoAction(ACTION_CHANGE_PHASE);

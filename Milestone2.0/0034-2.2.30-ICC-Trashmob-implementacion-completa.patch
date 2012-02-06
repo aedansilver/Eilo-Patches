@@ -101,14 +101,14 @@ index 0000000..e9f6909
 +/*---Trash de Camaras de Alaescarcha---*/
 +UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_deathbringer_10man_icc' WHERE `entry`=38125;
 +UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_deathbringer_25man_icc' WHERE `entry`=38130;
-+UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_frostbinder_icc' WHERE `entry`=37127;
-+UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_frostbinder_icc' WHERE `entry`=38126;
++-- UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_frostbinder_icc' WHERE `entry`=37127;
++-- UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_frostbinder_icc' WHERE `entry`=38126;
 +UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_battlemaiden_icc' WHERE `entry`=37132;
 +UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_battlemaiden_icc' WHERE `entry`=38132;
 +UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_huntress_icc' WHERE `entry`=37134;
 +UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_huntress_icc' WHERE `entry`=38134;
-+-- UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_warlord_icc' WHERE `entry`=37133;
-+-- UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_warlord_icc' WHERE `entry`=38133;
++UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_warlord_icc' WHERE `entry`=37133;
++UPDATE `creature_template` SET `ScriptName` = 'npc_ymirjar_warlord_icc' WHERE `entry`=38133;
 +
 +-- Eilo (https://github.com/eilo)
 +-- Inmunidades del trash de icc:
@@ -368,13 +368,13 @@ index 0000000..20bd95b
 +    SPELL_SHADOW_BOLT_YMIRJAR_10M = 71296,
 +    SPELL_SHADOW_BOLT_YMIRJAR_25M = 71297,
 +    SPELL_SUMMON_YMIRJAR          = 71303,
-+
++/*
 +    //## Ymirjar Frostbinder ##
 +    SPELL_ARCTIC_CHILL            = 71270,
 +    SPELL_FROZEN_ORB              = 71274,
 +    SPELL_TWISTED_WINDS           = 71306,
 +    SPELL_SPIRIT_STREAM           = 69929, // tambien la usa Ymirjar Deathbringer
-+
++*/
 +    //## Ymirjar Battle-Maiden ##
 +    SPELL_ADRENALINE_RUSH         = 71258,
 +    SPELL_BARBARIC_STRIKE         = 71257,
@@ -385,10 +385,10 @@ index 0000000..20bd95b
 +    SPELL_SHOOT                   = 71253,
 +    SPELL_VOLLEY                  = 71252,
 +    SPELL_SUMMON_WARHAWK          = 71705,
-+/*
++
 +    //## Ymirjar Warlord ##
 +    SPELL_WHIRLWIND               = 41056,
-+*/
++
 +    // Npc Empowering Orb Visual Stalker
 +    // aun sin datos adicionales de este npc
 +
@@ -430,10 +430,10 @@ index 0000000..20bd95b
 +    NPC_DARKFALLEN_LIEUTENANT    = 37665,
 +/*---Trash de Camaras de Alaescarcha---*/
 +    NPC_YMIRJAR_DEATHBRINGER     = 38125,
-+    NPC_YMIRJAR_FROSTBINDER      = 37127,
++    // NPC_YMIRJAR_FROSTBINDER      = 37127,
 +    NPC_YMIRJAR_BATTLE_MAIDEN    = 37132,
 +    NPC_YMIRJAR_HUNTRESS         = 37134,
-+    // NPC_YMIRJAR_WARLORD          = 37133
++    NPC_YMIRJAR_WARLORD          = 37133
 +
 +    //Empowering Orb Visual Stalker 38463
 +};
@@ -2688,7 +2688,7 @@ index 0000000..20bd95b
 +            return new npc_ymirjar_deathbringer_25man_iccAI(creature);
 +        }
 +};
-+
++/*
 +//#########  Ymirjar Frostbinder ##############
 +class npc_ymirjar_frostbinder_icc : public CreatureScript
 +{
@@ -2734,7 +2734,7 @@ index 0000000..20bd95b
 +            return new npc_ymirjar_frostbinder_iccAI(creature);
 +        }
 +};
-+
++*/
 +//#########  Ymirjar Battle-Maiden ##############
 +class npc_ymirjar_battlemaiden_icc : public CreatureScript
 +{
@@ -2881,7 +2881,7 @@ index 0000000..20bd95b
 +            return new npc_ymirjar_huntress_iccAI(creature);
 +        }
 +};
-+/*
++
 +//#########  Ymirjar Warlord ##############
 +class npc_ymirjar_warlord_icc : public CreatureScript
 +{
@@ -2927,7 +2927,7 @@ index 0000000..20bd95b
 +            return new npc_ymirjar_warlord_iccAI(creature);
 +        }
 +};
-+*/
++
 +void AddSC_icecrown_citadel_trashmobs()
 +{
 +        new npc_ancient_skeletal_soldier_icc();
@@ -2966,10 +2966,10 @@ index 0000000..20bd95b
 +        new npc_darkfallen_tactician_icc();
 +        new npc_ymirjar_deathbringer_10man_icc();
 +        new npc_ymirjar_deathbringer_25man_icc();
-+        new npc_ymirjar_frostbinder_icc();
++        // new npc_ymirjar_frostbinder_icc();
 +        new npc_ymirjar_battlemaiden_icc();
 +        new npc_ymirjar_huntress_icc();
-+        // new npc_ymirjar_warlord_icc();
++        new npc_ymirjar_warlord_icc();
 +}
 \ No newline at end of file
 -- 

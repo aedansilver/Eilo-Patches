@@ -1,17 +1,17 @@
-From 5cf781c0cd5f297bf83a2b5a8d03222f80f74c3a Mon Sep 17 00:00:00 2001
+From c4dcd9fdb40a1e541dbf17e8a076a5fc4b66dc0b Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:33:24 -0500
-Subject: [PATCH 19/65] 2.2.15 ICC: Marrowgar aggrea a 25y
+Subject: [PATCH 18/25] 2.2.15 ICC: Marrowgar aggrea a 25y
 
 ---
  .../IcecrownCitadel/boss_lord_marrowgar.cpp        |    5 +++++
  1 files changed, 5 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp
-index 43a2e95..9a715ec 100755
+index 71b014e..6ecef77 100755
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp
-@@ -146,6 +146,11 @@ class boss_lord_marrowgar : public CreatureScript
+@@ -147,6 +147,11 @@ class boss_lord_marrowgar : public CreatureScript
                      Talk(SAY_ENTER_ZONE);
                      _introDone = true;
                  }

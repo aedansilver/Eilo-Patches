@@ -1,14 +1,14 @@
-From c81ff444a1b8de0a969960bd0cb74089302c59fd Mon Sep 17 00:00:00 2001
+From 7f97809ded0c5ae8b1121cfb6d6286b7ac47af3b Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 00:19:25 -0500
-Subject: [PATCH 06/65] 2.2.2 ICC: Sindragosa no tumba en pet
+Subject: [PATCH 05/25] 2.2.2 ICC: Sindragosa no tumba en pet
 
 ---
  .../Northrend/IcecrownCitadel/boss_sindragosa.cpp  |    2 +-
  1 files changed, 1 insertions(+), 1 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
-index 11100e6..242e17a 100644
+index fb04d9c..3bca7ce 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
 @@ -1182,7 +1182,7 @@ class FrostBombTargetSelector

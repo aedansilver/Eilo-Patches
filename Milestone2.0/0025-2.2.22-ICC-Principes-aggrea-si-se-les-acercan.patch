@@ -1,14 +1,14 @@
-From a78b16a46e022e3b819a274453387ae864661cc7 Mon Sep 17 00:00:00 2001
+From ab376ba2c6d631d370a041032400d886534c5468 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Fri, 16 Dec 2011 11:37:54 -0500
-Subject: [PATCH 26/65] 2.2.22 ICC: Principes aggrea si se les acercan
+Date: Mon, 6 Feb 2012 18:14:47 -0500
+Subject: [PATCH 25/25] 2.2.22 ICC: Principes aggrea si se les acercan
 
 ---
  .../IcecrownCitadel/boss_blood_prince_council.cpp  |   10 +++-------
  1 files changed, 3 insertions(+), 7 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_blood_prince_council.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_blood_prince_council.cpp
-index 14f81d9..59cd3d2 100644
+index 6ac6912..6dd8f34 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_blood_prince_council.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_blood_prince_council.cpp
 @@ -377,19 +377,17 @@ class boss_prince_keleseth_icc : public CreatureScript
@@ -24,7 +24,7 @@ index 14f81d9..59cd3d2 100644
                  events.Reset();
                  summons.DespawnAll();
 -
-                 me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE);
+                 me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_IMMUNE_TO_PC);
                  _isEmpowered = false;
                  me->SetHealth(_spawnHealth);
                  instance->SetData(DATA_ORB_WHISPERER_ACHIEVEMENT, uint32(true));

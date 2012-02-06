@@ -1,7 +1,7 @@
-From 972d071bbf44f7fe9bbfb7a5b65cdb1d42458a81 Mon Sep 17 00:00:00 2001
+From a4996eeec53313b25d08d053f256d4fcc171de36 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:20:22 -0500
-Subject: [PATCH 18/65] 2.2.14 ICC: Sindragosa LoS para tumbas y Mystic Buffet
+Subject: [PATCH 17/25] 2.2.14 ICC: Sindragosa LoS para tumbas y Mystic Buffet
 
 ---
  .../Northrend/IcecrownCitadel/boss_sindragosa.cpp  |  205 ++++++++++++++++---
@@ -9,7 +9,7 @@ Subject: [PATCH 18/65] 2.2.14 ICC: Sindragosa LoS para tumbas y Mystic Buffet
  2 files changed, 174 insertions(+), 33 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
-index fdeb261..9b42748 100644
+index d1bc17d..9e33059 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
 @@ -20,6 +20,7 @@

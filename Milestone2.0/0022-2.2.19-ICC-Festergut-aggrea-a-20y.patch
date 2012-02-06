@@ -1,14 +1,14 @@
-From 8b685ba51f33cfaec4677fc4e412b9f08f504e80 Mon Sep 17 00:00:00 2001
+From a095e95f17f2862791b3834be3e96f2668c9fc66 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:45:41 -0500
-Subject: [PATCH 23/65] 2.2.19 ICC: Festergut aggrea a 20y
+Subject: [PATCH 22/25] 2.2.19 ICC: Festergut aggrea a 20y
 
 ---
  .../Northrend/IcecrownCitadel/boss_festergut.cpp   |   10 +++++++++-
  1 files changed, 9 insertions(+), 1 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_festergut.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_festergut.cpp
-index 87cad3a..883556b 100755
+index 8ec3303..85ecfac 100755
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_festergut.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_festergut.cpp
 @@ -92,7 +92,6 @@ class boss_festergut : public CreatureScript

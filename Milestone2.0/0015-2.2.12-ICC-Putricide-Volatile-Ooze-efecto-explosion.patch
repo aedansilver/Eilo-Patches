@@ -1,17 +1,17 @@
-From 810e706578021a3f676cee5121b189f9833cea82 Mon Sep 17 00:00:00 2001
+From f367087fa2fb304dd3f6a1597f8af2943e5e941c Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:24:16 -0500
-Subject: [PATCH 16/65] 2.2.12 ICC: Putricide Volatile Ooze efecto explosion
+Subject: [PATCH 15/25] 2.2.12 ICC: Putricide Volatile Ooze efecto explosion
 
 ---
  .../IcecrownCitadel/boss_professor_putricide.cpp   |   10 +++++++++-
  1 files changed, 9 insertions(+), 1 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp
-index f5b03c6..099b621 100755
+index f3216be..ee7b516 100755
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp
-@@ -693,7 +693,7 @@ class npc_volatile_ooze : public CreatureScript
+@@ -695,7 +695,7 @@ class npc_volatile_ooze : public CreatureScript
              void SpellHitTarget(Unit* /*target*/, SpellInfo const* spell)
              {
                  if (!_newTargetSelectTimer && sSpellMgr->GetSpellDifficultyId(spell->Id) == sSpellMgr->GetSpellDifficultyId(SPELL_OOZE_ERUPTION))
@@ -20,7 +20,7 @@ index f5b03c6..099b621 100755
              }
  
              void UpdateAI(uint32 const diff)
-@@ -701,6 +701,14 @@ class npc_volatile_ooze : public CreatureScript
+@@ -703,6 +703,14 @@ class npc_volatile_ooze : public CreatureScript
                  if (!UpdateVictim())
                      return;
  

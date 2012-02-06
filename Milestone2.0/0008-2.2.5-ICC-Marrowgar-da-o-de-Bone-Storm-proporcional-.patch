@@ -1,7 +1,7 @@
-From 80d667b3b41c17f743de2ce9d2e4306439903cf0 Mon Sep 17 00:00:00 2001
+From 3038b31f36ef2c008846757bdc7dcc19fc9fa609 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 00:38:56 -0500
-Subject: [PATCH 09/65] =?UTF-8?q?2.2.5=20ICC:=20Marrowgar=20da=C3=B1o=20de=20?=
+Subject: [PATCH 08/25] =?UTF-8?q?2.2.5=20ICC:=20Marrowgar=20da=C3=B1o=20de=20?=
  =?UTF-8?q?Bone=20Storm=20proporcional=20a=20la=20distancia?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -12,10 +12,10 @@ Content-Transfer-Encoding: 8bit
  1 files changed, 6 insertions(+), 1 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp
-index b6f9b74..43a2e95 100755
+index 202cfa9..71b014e 100755
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp
-@@ -570,7 +570,12 @@ class spell_marrowgar_bone_storm : public SpellScriptLoader
+@@ -571,7 +571,12 @@ class spell_marrowgar_bone_storm : public SpellScriptLoader
  
              void RecalculateDamage()
              {

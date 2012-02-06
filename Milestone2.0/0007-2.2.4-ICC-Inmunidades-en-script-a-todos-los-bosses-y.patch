@@ -1,7 +1,7 @@
-From 81ff878055fba4a03074fd34bf63615d87a156ce Mon Sep 17 00:00:00 2001
+From fb7bc8c3603f0d88a085bf8cd53df89f290d9f4e Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 00:35:21 -0500
-Subject: [PATCH 08/65] 2.2.4 ICC: Inmunidades en script a todos los bosses y
+Subject: [PATCH 07/25] 2.2.4 ICC: Inmunidades en script a todos los bosses y
  mini bosses
 
 ---
@@ -18,7 +18,7 @@ Subject: [PATCH 08/65] 2.2.4 ICC: Inmunidades en script a todos los bosses y
  10 files changed, 34 insertions(+), 1 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_blood_prince_council.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_blood_prince_council.cpp
-index 94a3da2..14f81d9 100644
+index f5e207a..6ac6912 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_blood_prince_council.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_blood_prince_council.cpp
 @@ -364,6 +364,8 @@ class boss_prince_keleseth_icc : public CreatureScript
@@ -51,7 +51,7 @@ index 94a3da2..14f81d9 100644
  
              void InitializeAI()
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_blood_queen_lana_thel.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_blood_queen_lana_thel.cpp
-index d775e57..6f85e97 100644
+index 79a577f..c06c186 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_blood_queen_lana_thel.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_blood_queen_lana_thel.cpp
 @@ -136,6 +136,8 @@ class boss_blood_queen_lana_thel : public CreatureScript
@@ -64,7 +64,7 @@ index d775e57..6f85e97 100644
  
              void Reset()
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_deathbringer_saurfang.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_deathbringer_saurfang.cpp
-index 31b3786..3d034bd 100755
+index 3c79518..0c369a2 100755
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_deathbringer_saurfang.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_deathbringer_saurfang.cpp
 @@ -246,6 +246,8 @@ class boss_deathbringer_saurfang : public CreatureScript
@@ -77,7 +77,7 @@ index 31b3786..3d034bd 100755
  
              void Reset()
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_festergut.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_festergut.cpp
-index f90bc5d..bb83d0e 100755
+index a97c6f7..32fb757 100755
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_festergut.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_festergut.cpp
 @@ -85,6 +85,8 @@ class boss_festergut : public CreatureScript
@@ -99,7 +99,7 @@ index f90bc5d..bb83d0e 100755
  
              void Reset()
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_lady_deathwhisper.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_lady_deathwhisper.cpp
-index af9bc3f..6d7ce80 100755
+index ea2f73e..43abd65 100755
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_lady_deathwhisper.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_lady_deathwhisper.cpp
 @@ -220,6 +220,7 @@ class boss_lady_deathwhisper : public CreatureScript
@@ -111,7 +111,7 @@ index af9bc3f..6d7ce80 100755
  
              void Reset()
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp
-index 04ae6f9..b6f9b74 100755
+index 1672d8b..202cfa9 100755
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_lord_marrowgar.cpp
 @@ -93,6 +93,8 @@ class boss_lord_marrowgar : public CreatureScript
@@ -123,7 +123,7 @@ index 04ae6f9..b6f9b74 100755
              }
  
              void Reset()
-@@ -358,6 +360,8 @@ class npc_bone_spike : public CreatureScript
+@@ -359,6 +361,8 @@ class npc_bone_spike : public CreatureScript
              npc_bone_spikeAI(Creature* creature) : Scripted_NoMovementAI(creature), _hasTrappedUnit(false)
              {
                  ASSERT(creature->GetVehicleKit());
@@ -133,10 +133,10 @@ index 04ae6f9..b6f9b74 100755
  
              void JustDied(Unit* /*killer*/)
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp
-index 0d36405..a87a588 100755
+index 28964a2..7fe4c33 100755
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_professor_putricide.cpp
-@@ -177,6 +177,8 @@ class boss_professor_putricide : public CreatureScript
+@@ -178,6 +178,8 @@ class boss_professor_putricide : public CreatureScript
                  _baseSpeed(creature->GetSpeedRate(MOVE_RUN)), _experimentState(EXPERIMENT_STATE_OOZE)
              {
                  _phase = PHASE_NONE;
@@ -146,7 +146,7 @@ index 0d36405..a87a588 100755
  
              void Reset()
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_rotface.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_rotface.cpp
-index a4cd96a..cf97f61 100644
+index 9649b6c..b887093 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_rotface.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_rotface.cpp
 @@ -94,6 +94,8 @@ class boss_rotface : public CreatureScript
@@ -168,7 +168,7 @@ index a4cd96a..cf97f61 100644
  
              void Reset()
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
-index 242e17a..7736747 100644
+index 3bca7ce..005f649 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_sindragosa.cpp
 @@ -178,6 +178,8 @@ class boss_sindragosa : public CreatureScript
@@ -199,7 +199,7 @@ index 242e17a..7736747 100644
  
              void Reset()
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_the_lich_king.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_the_lich_king.cpp
-index 5029dbc..b28c969 100644
+index 9866d2a..711703c 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_the_lich_king.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_the_lich_king.cpp
 @@ -483,6 +483,8 @@ class boss_the_lich_king : public CreatureScript

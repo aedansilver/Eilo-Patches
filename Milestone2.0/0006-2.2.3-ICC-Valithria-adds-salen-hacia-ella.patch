@@ -1,14 +1,14 @@
-From 8ef896d2ce7fd303d34151fc2d0d7d8c32c6c23e Mon Sep 17 00:00:00 2001
+From 46923bf5830a50f0d3a6bc50216ce1b99dce8bff Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 00:22:48 -0500
-Subject: [PATCH 07/65] 2.2.3 ICC: Valithria adds salen hacia ella
+Subject: [PATCH 06/25] 2.2.3 ICC: Valithria adds salen hacia ella
 
 ---
  .../IcecrownCitadel/boss_valithria_dreamwalker.cpp |   34 ++++++++++++++++++--
  1 files changed, 31 insertions(+), 3 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_valithria_dreamwalker.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_valithria_dreamwalker.cpp
-index 4d07662..0f7c686 100644
+index b1b514f..69dc8cc 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_valithria_dreamwalker.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_valithria_dreamwalker.cpp
 @@ -691,6 +691,12 @@ class npc_risen_archmage : public CreatureScript

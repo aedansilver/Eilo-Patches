@@ -27,8 +27,7 @@ index 8153fe0..e65d95d 100644
  ###############################
 +2.1.1 - 08/10/2011: Trial Of Crusader: Añadida inmunidad a grip y knockback por Karlos
 +2.1.2 - 10/10/2011: Trial Of Crusader: Mejorada la AI de los campeones por Gigatotem
-+2.1.3 - 01/10/2011: Trial Of Crusader: Reparado reseteo de gusanos Jormungar por Odyssey
-+2.1.4 - 01/11/2011: Trial Of Crusader: Inmunidades en db de los bosses y adds por Eilo
++2.1.3 - 01/11/2011: Trial Of Crusader: Inmunidades en db de los bosses y adds por Eilo
 +2.4.1 - 28/03/2011: Onyxia: Inmunidades en script por Souler
 +2.5.1 - 13/11/2011: Eye of Eternity: Reimplementacion, original por Darkman, final por Eilo
 +2.8.1 - 08/08/2011: Obsidian Sanctum: Mejora de script e implementacion de trash mob por Zwerg
@@ -100,6 +99,7 @@ index 8153fe0..e65d95d 100644
 +2.2.39 - 28/12/2011: Sindragosa no mete al tank en tumba por Eilo
 +2.2.40 - 13/01/2012: Check de logros para entrar en heroico por Odyssey
 +2.2.41 - 13/01/2012: LichKing inmune a taunt en cambio de fase por Odyssey
++2.2.42 - 06/02/2012: GunshipBattle añadida por Eilo
  
  
  ##########

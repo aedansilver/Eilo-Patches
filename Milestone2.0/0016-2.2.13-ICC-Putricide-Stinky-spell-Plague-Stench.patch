@@ -1,7 +1,7 @@
-From 5b0d23647d5ee72dc15afe3b57cad6ac36a01a47 Mon Sep 17 00:00:00 2001
+From 1558bcb782a14c255df1dda1cd8b7fa6eb9aaf68 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:23:03 -0500
-Subject: [PATCH 17/65] 2.2.13 ICC: Putricide Stinky spell Plague Stench
+Subject: [PATCH 16/25] 2.2.13 ICC: Putricide Stinky spell Plague Stench
 
 ---
  .../reanemu/2011_10_30_100_world_plague_stench.sql |    8 +++
@@ -24,7 +24,7 @@ index 0000000..4f72417
 +(71160,'spell_stinky_plague_stench'),
 +(71161,'spell_stinky_plague_stench');
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_festergut.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_festergut.cpp
-index bb83d0e..87cad3a 100755
+index 32fb757..8ec3303 100755
 --- a/src/server/scripts/Northrend/IcecrownCitadel/boss_festergut.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_festergut.cpp
 @@ -474,6 +474,54 @@ class achievement_flu_shot_shortage : public AchievementCriteriaScript
