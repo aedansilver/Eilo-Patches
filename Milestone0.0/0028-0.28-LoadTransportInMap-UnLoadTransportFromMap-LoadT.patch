@@ -1,4 +1,4 @@
-From cdea2583f06cb075c6f46922eb5be20c45cb820a Mon Sep 17 00:00:00 2001
+From 96bf5f8749e5c3650ad75f9145ff296bfa6d8117 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Mon, 6 Feb 2012 17:15:48 -0500
 Subject: [PATCH 28/29] =?UTF-8?q?0.28=20LoadTransportInMap,=20UnLoadTranspor?=
@@ -14,7 +14,7 @@ Content-Transfer-Encoding: 8bit
  2 files changed, 134 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Entities/Transport/Transport.cpp b/src/server/game/Entities/Transport/Transport.cpp
-index 4c81967..5e02bd7 100755
+index 8483afa..fe8c3a0 100755
 --- a/src/server/game/Entities/Transport/Transport.cpp
 +++ b/src/server/game/Entities/Transport/Transport.cpp
 @@ -239,6 +239,133 @@ bool Transport::Create(uint32 guidlow, uint32 entry, uint32 mapid, float x, floa

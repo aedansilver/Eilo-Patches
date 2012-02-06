@@ -1,6 +1,6 @@
-From 75fb2e13382114e45da802e900fae15364364f06 Mon Sep 17 00:00:00 2001
+From d72e90071115f448889902a599cdd400d4a7ce11 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Mon, 6 Feb 2012 17:10:15 -0500
+Date: Mon, 6 Feb 2012 18:44:18 -0500
 Subject: [PATCH 27/29] =?UTF-8?q?0.27=20UpdatePlayerPositions=20a=C3=B1adida?=
  =?UTF-8?q?=20al=20nucleo=20y=20adecuaciones?=
 MIME-Version: 1.0
@@ -8,12 +8,12 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
 ---
- src/server/game/Entities/Transport/Transport.cpp |   24 +++++++++++++++++++++-
+ src/server/game/Entities/Transport/Transport.cpp |   25 +++++++++++++++++++++-
  src/server/game/Entities/Transport/Transport.h   |    1 +
- 2 files changed, 24 insertions(+), 1 deletions(-)
+ 2 files changed, 25 insertions(+), 1 deletions(-)
 
 diff --git a/src/server/game/Entities/Transport/Transport.cpp b/src/server/game/Entities/Transport/Transport.cpp
-index cbbd152..4c81967 100755
+index cbbd152..8483afa 100755
 --- a/src/server/game/Entities/Transport/Transport.cpp
 +++ b/src/server/game/Entities/Transport/Transport.cpp
 @@ -558,11 +558,14 @@ void Transport::Update(uint32 p_diff)
@@ -27,12 +27,20 @@ index cbbd152..4c81967 100755
  
 +        // Esto obliga al server a actualizar posiciones en el transporte para players y npcs.
 +        UpdateNPCPositions();
-+        UpdateNPCPositions();
++        UpdatePlayerPositions();
 +
          m_nextNodeTime = m_curr->first;
  
          if (m_curr == m_WayPoints.begin())
-@@ -754,3 +757,22 @@ void Transport::UpdateNPCPositions()
+@@ -737,6 +740,7 @@ void Transport::UpdatePosition(MovementInfo* mi)
+ 
+     Relocate(transport_x, transport_y, transport_z, transport_o);
+     UpdateNPCPositions();
++    UpdatePlayerPositions();
+ }
+ 
+ void Transport::UpdateNPCPositions()
+@@ -754,3 +758,22 @@ void Transport::UpdateNPCPositions()
          GetMap()->CreatureRelocation(npc, x, y, z, o, false);
      }
  }
