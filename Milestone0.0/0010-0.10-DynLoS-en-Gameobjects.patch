@@ -1,16 +1,16 @@
-From 68ca437383196c4eaf8aee403fc24c2999fd5128 Mon Sep 17 00:00:00 2001
+From 3e54d168b436c1aa132ffa025cad9f391105a843 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 20 Jan 2012 11:45:52 -0500
-Subject: [PATCH 16/28] 0.16 DynLoS en Gameobjects
+Subject: [PATCH 10/26] 0.10 DynLoS en Gameobjects
 
 ---
- src/server/game/Entities/Object/Object.cpp |   15 ++-
- src/server/game/Maps/Map.cpp               |  153 ++++++++++++++++++++++++++++
- src/server/game/Maps/Map.h                 |   39 +++++++
- 3 files changed, 204 insertions(+), 3 deletions(-)
+ src/server/game/Entities/Object/Object.cpp |   15 ++++++++--
+ src/server/game/Maps/Map.cpp               |    5 +++
+ src/server/game/Maps/Map.h                 |   39 ++++++++++++++++++++++++++++
+ 3 files changed, 56 insertions(+), 3 deletions(-)
 
 diff --git a/src/server/game/Entities/Object/Object.cpp b/src/server/game/Entities/Object/Object.cpp
-index 5c034f1..ff84358 100755
+index 1a8eb8f..2f31ba2 100755
 --- a/src/server/game/Entities/Object/Object.cpp
 +++ b/src/server/game/Entities/Object/Object.cpp
 @@ -1300,7 +1300,7 @@ bool WorldObject::IsWithinLOSInMap(const WorldObject* obj) const
@@ -52,7 +52,7 @@ index 5c034f1..ff84358 100755
  
      for (uint8 j = 0; j < 10; ++j)
 diff --git a/src/server/game/Maps/Map.cpp b/src/server/game/Maps/Map.cpp
-index c89b69e..b2ed895 100755
+index df5ec54..1895e2b 100755
 --- a/src/server/game/Maps/Map.cpp
 +++ b/src/server/game/Maps/Map.cpp
 @@ -220,9 +220,14 @@ i_scriptLock(false)

@@ -1,7 +1,7 @@
-From 80d9f3f09a138eca1c5ab5ca3bc14462d32a644b Mon Sep 17 00:00:00 2001
+From 25ceeacbea4024546e40b33d12613c7f7c9a5ce5 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
-Date: Fri, 20 Jan 2012 12:40:30 -0500
-Subject: [PATCH 03/25] 0.3 Warden Anticheat
+Date: Sun, 5 Feb 2012 23:37:28 -0500
+Subject: [PATCH 03/26] 0.3 Warden Anticheat
 
 ---
  sql/updates/auth/reanemu/auth_warden.sql           |    2 +
@@ -9,7 +9,7 @@ Subject: [PATCH 03/25] 0.3 Warden Anticheat
  src/server/authserver/Server/AuthSocket.cpp        |   18 +-
  src/server/authserver/Server/AuthSocket.h          |    1 +
  src/server/game/CMakeLists.txt                     |    4 +
- .../game/Server/Protocol/Handlers/MiscHandler.cpp  |   10 -
+ src/server/game/Handlers/MiscHandler.cpp           |   10 -
  src/server/game/Server/Protocol/Opcodes.cpp        |    2 +-
  src/server/game/Server/WorldSession.cpp            |   34 +-
  src/server/game/Server/WorldSession.h              |    9 +
@@ -62,7 +62,7 @@ index 0000000..a5b48ed
 +    ADD COLUMN `os` VARCHAR(4) DEFAULT '' NOT NULL AFTER `locale`;
 diff --git a/sql/updates/world/reanemu/world_warden.sql b/sql/updates/world/reanemu/world_warden.sql
 new file mode 100644
-index 0000000..426a1d3
+index 0000000..3aac53b
 --- /dev/null
 +++ b/sql/updates/world/reanemu/world_warden.sql
 @@ -0,0 +1,803 @@
@@ -81,7 +81,7 @@ index 0000000..426a1d3
 +) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 +
 +
-+insert  into `warden_checks`(`id`,`type`,`data`,`str`,`address`,`length`,`result`,`comment`) values 
++insert into `warden_checks` (`id`, `type`, `data`, `str`, `address`, `length`, `result`, `comment`) values
 +(1,178,'07F223143C69271AA2A851FECF6DC883A9D3A7DBA6FE26CC','',710730,23,'',NULL),
 +(2,191,'C7D18F99DBC446A4B36E78B9130B6FA2E365B3D2D4199DF5','',28940,17,'',NULL),
 +(3,191,'AA1A8559776F873F26954F15E49E6041EDC2C3766AD87A59','',21826,11,'',NULL),
@@ -870,7 +870,7 @@ index 0000000..426a1d3
 +(786,217,'','WPESPY.DLL',0,0,'','WPE PRO - injected dll'),
 +(787,217,'','RPE.DLL',0,0,'','rEdoX Packet Editor - injected dll');
 diff --git a/src/server/authserver/Server/AuthSocket.cpp b/src/server/authserver/Server/AuthSocket.cpp
-index 1f85cb6..b656986 100755
+index 6d295a0..e1d77c6 100755
 --- a/src/server/authserver/Server/AuthSocket.cpp
 +++ b/src/server/authserver/Server/AuthSocket.cpp
 @@ -16,6 +16,7 @@
@@ -895,9 +895,9 @@ index 1f85cb6..b656986 100755
  
      pkt << (uint8)AUTH_LOGON_CHALLENGE;
      pkt << (uint8)0x00;
-@@ -600,7 +608,8 @@ bool AuthSocket::_HandleLogonProof()
+@@ -602,7 +610,8 @@ bool AuthSocket::_HandleLogonProof()
          stmt->setString(0, K_hex);
-         stmt->setString(1, socket().get_remote_address().c_str());
+         stmt->setString(1, socket().getRemoteAddress().c_str());
          stmt->setUInt32(2, GetLocaleByName(_localizationName));
 -        stmt->setString(3, _login);
 +        stmt->setString(3, _os);
@@ -905,7 +905,7 @@ index 1f85cb6..b656986 100755
          LoginDatabase.Execute(stmt);
  
          OPENSSL_free((void*)K_hex);
-@@ -738,6 +747,13 @@ bool AuthSocket::_HandleReconnectChallenge()
+@@ -741,6 +750,13 @@ bool AuthSocket::_HandleReconnectChallenge()
      // Reinitialize build, expansion and the account securitylevel
      _build = ch->build;
      _expversion = (AuthHelper::IsPostBCAcceptedClientBuild(_build) ? POST_BC_EXP_FLAG : NO_VALID_EXP_FLAG) | (AuthHelper::IsPreBCAcceptedClientBuild(_build) ? PRE_BC_EXP_FLAG : NO_VALID_EXP_FLAG);
@@ -932,10 +932,10 @@ index 490b0db2..9d59a9f 100755
      uint8 _expversion;
      AccountTypes _accountSecurityLevel;
 diff --git a/src/server/game/CMakeLists.txt b/src/server/game/CMakeLists.txt
-index 658e9a1..75b9589 100644
+index ac1bb9e..4350cff 100644
 --- a/src/server/game/CMakeLists.txt
 +++ b/src/server/game/CMakeLists.txt
-@@ -47,6 +47,7 @@ file(GLOB_RECURSE sources_Spells Spells/*.cpp Spells/*.h)
+@@ -48,6 +48,7 @@ file(GLOB_RECURSE sources_Spells Spells/*.cpp Spells/*.h)
  file(GLOB_RECURSE sources_Texts Texts/*.cpp Texts/*.h)
  file(GLOB_RECURSE sources_Tools Tools/*.cpp Tools/*.h)
  file(GLOB_RECURSE sources_Tickets Tickets/*.cpp Tickets/*.h)
@@ -943,7 +943,7 @@ index 658e9a1..75b9589 100644
  file(GLOB_RECURSE sources_Weather Weather/*.cpp Weather/*.h)
  file(GLOB_RECURSE sources_World World/*.cpp World/*.h)
  
-@@ -96,6 +97,7 @@ set(game_STAT_SRCS
+@@ -98,6 +99,7 @@ set(game_STAT_SRCS
    ${sources_Texts}
    ${sources_Tools}
    ${sources_Tickets}
@@ -960,10 +960,10 @@ index 658e9a1..75b9589 100644
    ${CMAKE_CURRENT_SOURCE_DIR}/Weather
    ${CMAKE_CURRENT_SOURCE_DIR}/World
    ${CMAKE_SOURCE_DIR}/src/server/scripts/PrecompiledHeaders
-diff --git a/src/server/game/Server/Protocol/Handlers/MiscHandler.cpp b/src/server/game/Server/Protocol/Handlers/MiscHandler.cpp
-index d1227c9..aefcc3e 100755
---- a/src/server/game/Server/Protocol/Handlers/MiscHandler.cpp
-+++ b/src/server/game/Server/Protocol/Handlers/MiscHandler.cpp
+diff --git a/src/server/game/Handlers/MiscHandler.cpp b/src/server/game/Handlers/MiscHandler.cpp
+index f109332..7e85f11 100755
+--- a/src/server/game/Handlers/MiscHandler.cpp
++++ b/src/server/game/Handlers/MiscHandler.cpp
 @@ -1172,16 +1172,6 @@ void WorldSession::HandleSetActionBarToggles(WorldPacket& recv_data)
      GetPlayer()->SetByteValue(PLAYER_FIELD_BYTES, 2, ActionBar);
  }
@@ -4748,10 +4748,10 @@ index bedd8a8..284a698 100755
  };
  
 diff --git a/src/server/scripts/CMakeLists.txt b/src/server/scripts/CMakeLists.txt
-index d34b1b8..3295e2f 100644
+index 56e63af..519778a 100644
 --- a/src/server/scripts/CMakeLists.txt
 +++ b/src/server/scripts/CMakeLists.txt
-@@ -137,6 +137,8 @@ include_directories(
+@@ -135,6 +135,8 @@ include_directories(
    ${CMAKE_SOURCE_DIR}/src/server/game/Texts
    ${CMAKE_SOURCE_DIR}/src/server/game/Tickets
    ${CMAKE_SOURCE_DIR}/src/server/game/Tools
@@ -4761,7 +4761,7 @@ index d34b1b8..3295e2f 100644
    ${CMAKE_SOURCE_DIR}/src/server/game/World
    ${CMAKE_CURRENT_SOURCE_DIR}/PrecompiledHeaders
 diff --git a/src/server/scripts/Commands/cs_reload.cpp b/src/server/scripts/Commands/cs_reload.cpp
-index 4d8ce4e..dfbc23a 100644
+index 363f764..a9ab420 100644
 --- a/src/server/scripts/Commands/cs_reload.cpp
 +++ b/src/server/scripts/Commands/cs_reload.cpp
 @@ -27,6 +27,7 @@ EndScriptData */
@@ -4780,7 +4780,7 @@ index 4d8ce4e..dfbc23a 100644
              { "waypoint_scripts",             SEC_ADMINISTRATOR, true,  &HandleReloadWpScriptsCommand,                  "", NULL },
              { "waypoint_data",                SEC_ADMINISTRATOR, true,  &HandleReloadWpCommand,                         "", NULL },
              { "vehicle_accessory",            SEC_ADMINISTRATOR, true,  &HandleReloadVehicleAccessoryCommand,           "", NULL },
-@@ -721,6 +723,18 @@ public:
+@@ -724,6 +726,18 @@ public:
          return true;
      }
  
@@ -4800,13 +4800,13 @@ index 4d8ce4e..dfbc23a 100644
      {
          sLog->outString("Re-Loading `npc_trainer` Table!");
 diff --git a/src/server/shared/Cryptography/HMACSHA1.cpp b/src/server/shared/Cryptography/HMACSHA1.cpp
-index 3f21aa4..832d508 100755
+index 447d0b5..a7ea300 100755
 --- a/src/server/shared/Cryptography/HMACSHA1.cpp
 +++ b/src/server/shared/Cryptography/HMACSHA1.cpp
-@@ -18,6 +18,7 @@
- 
+@@ -19,6 +19,7 @@
  #include "HMACSHA1.h"
  #include "BigNumber.h"
+ #include "Common.h"
 +#include "Errors.h"
  
  HmacHash::HmacHash(uint32 len, uint8 *seed)
@@ -5017,10 +5017,10 @@ index 684b26e..4c2c193 100755
  
  //handler for operations on large flags
 diff --git a/src/server/worldserver/CMakeLists.txt b/src/server/worldserver/CMakeLists.txt
-index 60adce4..a4c1140 100644
+index 191bbbf..6c9dbc6 100644
 --- a/src/server/worldserver/CMakeLists.txt
 +++ b/src/server/worldserver/CMakeLists.txt
-@@ -129,6 +129,8 @@ include_directories(
+@@ -127,6 +127,8 @@ include_directories(
    ${CMAKE_SOURCE_DIR}/src/server/game/Spells
    ${CMAKE_SOURCE_DIR}/src/server/game/Spells/Auras
    ${CMAKE_SOURCE_DIR}/src/server/game/Tools

@@ -1,7 +1,7 @@
-From 3a9322b5b1a8e3acfa3ead00be4defa911c8edd3 Mon Sep 17 00:00:00 2001
+From 5172497d70ba61879698127432255a87f0e3713b Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 20 Jan 2012 11:37:56 -0500
-Subject: [PATCH 11/25] =?UTF-8?q?0.11=20TrinityJail=20con=20ajuste=20a=20min?=
+Subject: [PATCH 11/26] =?UTF-8?q?0.11=20TrinityJail=20con=20ajuste=20a=20min?=
  =?UTF-8?q?utos=20y=20espa=C3=B1ol?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -571,7 +571,7 @@ index 57d5e8c..d08b34c 100755
  bool ChatHandler::HandleSendMailCommand(const char* args)
  {
 diff --git a/src/server/game/Chat/Commands/Level2.cpp b/src/server/game/Chat/Commands/Level2.cpp
-index dd7af68..09eb929 100755
+index 933a20a..320abc1 100755
 --- a/src/server/game/Chat/Commands/Level2.cpp
 +++ b/src/server/game/Chat/Commands/Level2.cpp
 @@ -33,6 +33,8 @@
@@ -708,7 +708,7 @@ index dd7af68..09eb929 100755
  }
  
 diff --git a/src/server/game/Chat/Commands/Level3.cpp b/src/server/game/Chat/Commands/Level3.cpp
-index 0a9051b..50daabd 100644
+index 0a9051b..50daabd 100755
 --- a/src/server/game/Chat/Commands/Level3.cpp
 +++ b/src/server/game/Chat/Commands/Level3.cpp
 @@ -554,6 +554,15 @@ bool ChatHandler::HandleAHBotOptionsCommand(const char *args)
@@ -728,7 +728,7 @@ index 0a9051b..50daabd 100644
  {
      Player* SelectedPlayer = getSelectedPlayer();
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index 6f960c4..fe0d7d1 100755
+index 9c270cd..ac20b7d 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
 @@ -644,6 +644,21 @@ Player::Player(WorldSession* session): Unit(true), m_achievementMgr(this), m_rep
@@ -853,7 +853,7 @@ index 6f960c4..fe0d7d1 100755
      {
          if (p_time >= m_nextSave)
          {
-@@ -17296,10 +17392,77 @@ bool Player::LoadFromDB(uint32 guid, SQLQueryHolder *holder)
+@@ -17277,10 +17373,77 @@ bool Player::LoadFromDB(uint32 guid, SQLQueryHolder *holder)
      m_achievementMgr.CheckAllAchievementCriteria();
  
      _LoadEquipmentSets(holder->GetPreparedResult(PLAYER_LOGIN_QUERY_LOADEQUIPMENTSETS));
@@ -931,7 +931,7 @@ index 6f960c4..fe0d7d1 100755
  bool Player::isAllowedToLoot(const Creature* creature)
  {
      if (!creature->isDead() || !creature->IsDamageEnoughForLootingAndReward())
-@@ -18545,11 +18708,23 @@ bool Player::_LoadHomeBind(PreparedQueryResult result)
+@@ -18526,11 +18689,23 @@ bool Player::_LoadHomeBind(PreparedQueryResult result)
  /***                   SAVE SYSTEM                     ***/
  /*********************************************************/
  
@@ -956,7 +956,7 @@ index 6f960c4..fe0d7d1 100755
      //lets allow only players in world to be saved
      if (IsBeingTeleportedFar())
      {
-@@ -23745,6 +23920,7 @@ void Player::_LoadSkills(PreparedQueryResult result)
+@@ -23726,6 +23901,7 @@ void Player::_LoadSkills(PreparedQueryResult result)
  
                  CharacterDatabase.Execute(stmt);
  
@@ -965,7 +965,7 @@ index 6f960c4..fe0d7d1 100755
              }
  
 diff --git a/src/server/game/Entities/Player/Player.h b/src/server/game/Entities/Player/Player.h
-index d67bb45..2c492d8 100755
+index 30d7e34..e77b04d 100755
 --- a/src/server/game/Entities/Player/Player.h
 +++ b/src/server/game/Entities/Player/Player.h
 @@ -2311,6 +2311,26 @@ class Player : public Unit, public GridObject<Player>
@@ -996,7 +996,7 @@ index d67bb45..2c492d8 100755
          /***               FLOOD FILTER SYSTEM                 ***/
          /*********************************************************/
 diff --git a/src/server/game/Globals/ObjectMgr.cpp b/src/server/game/Globals/ObjectMgr.cpp
-index 086dd61..9351698 100755
+index dc78489..f463e76 100755
 --- a/src/server/game/Globals/ObjectMgr.cpp
 +++ b/src/server/game/Globals/ObjectMgr.cpp
 @@ -6715,6 +6715,121 @@ uint32 ObjectMgr::GeneratePetNumber()
@@ -1203,10 +1203,10 @@ index eb27061..15b466f 100755
      LANG_SELECT_CHAR_OR_CREATURE        = 1,
      LANG_SELECT_CREATURE                = 2,
 diff --git a/src/server/game/World/World.cpp b/src/server/game/World/World.cpp
-index 40aeaf3..230f7ce 100755
+index d7bc7e2..32da038 100755
 --- a/src/server/game/World/World.cpp
 +++ b/src/server/game/World/World.cpp
-@@ -1667,6 +1667,10 @@ void World::SetInitialWorldSettings()
+@@ -1658,6 +1658,10 @@ void World::SetInitialWorldSettings()
      sLog->outString("Returning old mails...");
      sObjectMgr->ReturnOrDeleteOldMails(false);
  

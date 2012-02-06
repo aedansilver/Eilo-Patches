@@ -1,7 +1,7 @@
-From 0b4c7af9b7e6d832e44c6469a66a1921ca01e42a Mon Sep 17 00:00:00 2001
+From 1bd4f3946bfbe6ed26e6b84e2d9f1622ad121a42 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 22:28:27 -0500
-Subject: [PATCH 19/25] =?UTF-8?q?0.19=20=5FDoAggroPulse,=20inFightAggroCheck?=
+Subject: [PATCH 19/26] =?UTF-8?q?0.19=20=5FDoAggroPulse,=20inFightAggroCheck?=
  =?UTF-8?q?=5FTimer=20rea=C3=B1adidas?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -13,7 +13,7 @@ Content-Transfer-Encoding: 8bit
  2 files changed, 17 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/AI/ScriptedAI/ScriptedCreature.cpp b/src/server/game/AI/ScriptedAI/ScriptedCreature.cpp
-index 1b6fde6..3f05b74 100644
+index bd6c901..9a15029 100644
 --- a/src/server/game/AI/ScriptedAI/ScriptedCreature.cpp
 +++ b/src/server/game/AI/ScriptedAI/ScriptedCreature.cpp
 @@ -487,6 +487,20 @@ void BossAI::_Reset()

@@ -1,7 +1,7 @@
-From 35579a43e26046788297402d3e121388990998cc Mon Sep 17 00:00:00 2001
+From 2dafa030076666c32d0383a79eb0b84f0313f56c Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 22:23:53 -0500
-Subject: [PATCH 18/25] =?UTF-8?q?0.18=20DoAttackerGroupInCombat=20rea=C3=B1a?=
+Subject: [PATCH 18/26] =?UTF-8?q?0.18=20DoAttackerGroupInCombat=20rea=C3=B1a?=
  =?UTF-8?q?dida=20al=20nucleo?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -13,7 +13,7 @@ Content-Transfer-Encoding: 8bit
  2 files changed, 24 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/AI/CreatureAI.cpp b/src/server/game/AI/CreatureAI.cpp
-index 9ec65b1..127d2b5 100755
+index 37b55ef..282ef78 100755
 --- a/src/server/game/AI/CreatureAI.cpp
 +++ b/src/server/game/AI/CreatureAI.cpp
 @@ -22,6 +22,7 @@

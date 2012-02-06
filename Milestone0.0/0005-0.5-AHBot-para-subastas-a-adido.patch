@@ -1,7 +1,7 @@
-From d98681004e7bf0ca1e21114658c3b769e7d9032f Mon Sep 17 00:00:00 2001
+From e235e7c82568fe9675c86eea4872a3268a532e39 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 17:48:38 -0500
-Subject: [PATCH 05/25] =?UTF-8?q?0.5=20AHBot=20para=20subastas=20a=C3=B1adid?=
+Subject: [PATCH 05/26] =?UTF-8?q?0.5=20AHBot=20para=20subastas=20a=C3=B1adid?=
  =?UTF-8?q?o?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -17,8 +17,8 @@ Content-Transfer-Encoding: 8bit
  src/server/game/Chat/Chat.cpp                      |    1 +
  src/server/game/Chat/Chat.h                        |    1 +
  src/server/game/Chat/Commands/Level3.cpp           |  490 +++++
+ src/server/game/Handlers/AuctionHouseHandler.cpp   |    1 +
  src/server/game/Mails/Mail.cpp                     |    8 +
- .../Protocol/Handlers/AuctionHouseHandler.cpp      |    1 +
  src/server/game/World/World.cpp                    |    5 +
  src/server/worldserver/worldserver.conf.dist       |  266 +++
  13 files changed, 3988 insertions(+), 3 deletions(-)
@@ -3308,7 +3308,7 @@ index f81393b..21d880a 100644
  class Player;
  class WorldPacket;
 diff --git a/src/server/game/CMakeLists.txt b/src/server/game/CMakeLists.txt
-index 75b9589..a15897f 100644
+index 4350cff..807fdc0 100644
 --- a/src/server/game/CMakeLists.txt
 +++ b/src/server/game/CMakeLists.txt
 @@ -17,6 +17,7 @@ file(GLOB_RECURSE sources_Achievements Achievements/*.cpp Achievements/*.h)
@@ -3319,7 +3319,7 @@ index 75b9589..a15897f 100644
  file(GLOB_RECURSE sources_Battlegrounds Battlegrounds/*.cpp Battlegrounds/*.h)
  file(GLOB_RECURSE sources_Calendar Calendar/*.cpp Calendar/*.h)
  file(GLOB_RECURSE sources_Chat Chat/*.cpp Chat/*.h)
-@@ -67,6 +68,7 @@ set(game_STAT_SRCS
+@@ -68,6 +69,7 @@ set(game_STAT_SRCS
    ${sources_Addons}
    ${sources_AI}
    ${sources_AuctionHouse}
@@ -3860,6 +3860,18 @@ index cb3eb82..0a9051b 100755
  bool ChatHandler::HandleMaxSkillCommand(const char* /*args*/)
  {
      Player* SelectedPlayer = getSelectedPlayer();
+diff --git a/src/server/game/Handlers/AuctionHouseHandler.cpp b/src/server/game/Handlers/AuctionHouseHandler.cpp
+index 8a98b03..d6b137c 100755
+--- a/src/server/game/Handlers/AuctionHouseHandler.cpp
++++ b/src/server/game/Handlers/AuctionHouseHandler.cpp
+@@ -22,6 +22,7 @@
+ #include "WorldPacket.h"
+ #include "WorldSession.h"
+ 
++#include "AuctionHouseBot.h"
+ #include "AuctionHouseMgr.h"
+ #include "Log.h"
+ #include "Opcodes.h"
 diff --git a/src/server/game/Mails/Mail.cpp b/src/server/game/Mails/Mail.cpp
 index 3c3888e..e6b3c49 100755
 --- a/src/server/game/Mails/Mail.cpp
@@ -3886,18 +3898,6 @@ index 3c3888e..e6b3c49 100755
      time_t deliver_time = time(NULL) + deliver_delay;
  
      //expire time if COD 3 days, if no COD 30 days, if auction sale pending 1 hour
-diff --git a/src/server/game/Server/Protocol/Handlers/AuctionHouseHandler.cpp b/src/server/game/Server/Protocol/Handlers/AuctionHouseHandler.cpp
-index 59eefb9..0602732 100755
---- a/src/server/game/Server/Protocol/Handlers/AuctionHouseHandler.cpp
-+++ b/src/server/game/Server/Protocol/Handlers/AuctionHouseHandler.cpp
-@@ -22,6 +22,7 @@
- #include "WorldPacket.h"
- #include "WorldSession.h"
- 
-+#include "AuctionHouseBot.h"
- #include "AuctionHouseMgr.h"
- #include "Log.h"
- #include "Opcodes.h"
 diff --git a/src/server/game/World/World.cpp b/src/server/game/World/World.cpp
 index 84b3a4a..8e25a95 100755
 --- a/src/server/game/World/World.cpp

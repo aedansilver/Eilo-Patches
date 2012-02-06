@@ -1,7 +1,7 @@
-From a7651cd6d473d4eb327b584770aa4519bc70671e Mon Sep 17 00:00:00 2001
+From 66c59a31b80c81b96098a4296ace343a928e6f70 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 20 Jan 2012 14:18:40 -0500
-Subject: [PATCH 09/25] 0.9 Cuentas VIP
+Subject: [PATCH 09/26] 0.9 Cuentas VIP
 
 ---
  .../reanemu/2011_10_14_100_auth_vipaccount.sql     |    8 ++++++++
@@ -48,10 +48,10 @@ index c0c64a3..5d770a9 100644
     _AHBplayer.Initialize(AHBplayerGUID);
     sObjectAccessor->AddObject(&_AHBplayer);
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index e4c6a84..d8763e1 100755
+index e306c95..9c270cd 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -6860,6 +6860,9 @@ void Player::CheckAreaExploreAndOutdoor()
+@@ -6855,6 +6855,9 @@ void Player::CheckAreaExploreAndOutdoor()
                      XP = uint32(sObjectMgr->GetBaseXP(p->area_level)*sWorld->getRate(RATE_XP_EXPLORE));
                  }
  
@@ -61,7 +61,7 @@ index e4c6a84..d8763e1 100755
                  GiveXP(XP, NULL);
                  SendExplorationExperience(area, XP);
              }
-@@ -15078,6 +15081,9 @@ void Player::RewardQuest(Quest const* quest, uint32 reward, Object* questGiver,
+@@ -15075,6 +15078,9 @@ void Player::RewardQuest(Quest const* quest, uint32 reward, Object* questGiver,
      for (Unit::AuraEffectList::const_iterator i = ModXPPctAuras.begin(); i != ModXPPctAuras.end(); ++i)
          AddPctN(XP, (*i)->GetAmount());
  

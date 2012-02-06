@@ -1,7 +1,7 @@
-From 685d3fbabe487473caa9c1aa6c9264086a1d6178 Mon Sep 17 00:00:00 2001
+From 21af7fccf9d77455e8654c223ca3aba43dc520d1 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 22:15:09 -0500
-Subject: [PATCH 17/25] =?UTF-8?q?0.17=20DoAttackerAreaInCombat=20rea=C3=B1ad?=
+Subject: [PATCH 17/26] =?UTF-8?q?0.17=20DoAttackerAreaInCombat=20rea=C3=B1ad?=
  =?UTF-8?q?ida=20al=20nucleo?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -13,7 +13,7 @@ Content-Transfer-Encoding: 8bit
  2 files changed, 30 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/AI/CreatureAI.cpp b/src/server/game/AI/CreatureAI.cpp
-index c8818f8..9ec65b1 100755
+index c8818f8..37b55ef 100755
 --- a/src/server/game/AI/CreatureAI.cpp
 +++ b/src/server/game/AI/CreatureAI.cpp
 @@ -110,6 +110,35 @@ void CreatureAI::DoZoneInCombat(Creature* creature /*= NULL*/, float maxRangeToN
@@ -35,7 +35,7 @@ index c8818f8..9ec65b1 100755
 +
 +    if (!pUnit->CanHaveThreatList() || pUnit->getThreatManager().isThreatListEmpty())
 +        return;
-+    
++
 +    Map::PlayerList const &PlayerList = map->GetPlayers();
 +    for(Map::PlayerList::const_iterator i = PlayerList.begin(); i != PlayerList.end(); ++i)
 +    {

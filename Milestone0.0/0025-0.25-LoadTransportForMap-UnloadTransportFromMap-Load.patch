@@ -1,0 +1,388 @@
+From 2773b78e50c2bd0dc348d6000d38862fe5103784 Mon Sep 17 00:00:00 2001
+From: Eilo <eilo2518@gmail.com>
+Date: Mon, 6 Feb 2012 05:58:27 -0500
+Subject: [PATCH 25/26] 0.25 LoadTransportForMap, UnloadTransportFromMap,
+ LoadTransportForPlayers, y otras de soporte para
+ GunshipBattle
+
+---
+ src/server/game/Entities/Transport/Transport.cpp |  205 +++++++++++++++++++++-
+ src/server/game/Entities/Transport/Transport.h   |    6 +-
+ src/server/game/Maps/Map.cpp                     |   30 +++-
+ src/server/game/Maps/MapManager.h                |    7 +
+ 4 files changed, 239 insertions(+), 9 deletions(-)
+
+diff --git a/src/server/game/Entities/Transport/Transport.cpp b/src/server/game/Entities/Transport/Transport.cpp
+index 67d1636..e30f6be 100755
+--- a/src/server/game/Entities/Transport/Transport.cpp
++++ b/src/server/game/Entities/Transport/Transport.cpp
+@@ -26,6 +26,134 @@
+ #include "DBCStores.h"
+ #include "World.h"
+ #include "GameObjectAI.h"
++#include "Vehicle.h"
++
++Transport* MapManager::LoadTransportInMap(Map* instance, uint32 goEntry, uint32 period)
++{
++    const GameObjectTemplate* goInfo = sObjectMgr->GetGameObjectTemplate(goEntry);
++
++    if (!goInfo)
++    {
++        sLog->outErrorDb("Transport ID:%u, will not be loaded, gameobject_template missing", goEntry);
++        return NULL;
++    }
++
++    if (goInfo->type != GAMEOBJECT_TYPE_MO_TRANSPORT)
++    {
++        sLog->outErrorDb("Transport ID:%u, Name: %s, will not be loaded, gameobject_template type wrong", goEntry, goInfo->name.c_str());
++        return NULL;
++    }
++
++    Transport* t = new Transport(period, goInfo->ScriptId);
++    std::set<uint32> mapsUsed;
++    if (!t->GenerateWaypoints(goInfo->moTransport.taxiPathId, mapsUsed))
++    {
++        sLog->outErrorDb("Transport (path id %u) path size = 0. Transport ignored, check DBC files or the gameobject's data0 field.", goInfo->moTransport.taxiPathId);
++        delete t;
++        return NULL;
++    }
++    uint32 transportLowGuid = sObjectMgr->GenerateLowGuid(HIGHGUID_MO_TRANSPORT);
++
++    if (!t->Create(transportLowGuid, goEntry, t->m_WayPoints[0].mapid, t->m_WayPoints[0].x, t->m_WayPoints[0].y, t->m_WayPoints[0].z-10, 0.0f, 0, 0))
++    {
++        delete t;
++        return NULL;
++    }
++
++    m_Transports.insert(t);
++    m_TransportsByInstanceIdMap[instance->GetInstanceId()].insert(t);
++    t->SetMap(instance);
++    t->AddToWorld();
++
++    // Spameando la nave quieta
++    t->BuildWaitMovePacket(instance);
++
++    sLog->outDetail("Creando el transporte <---");
++
++    return t;
++}
++
++void MapManager::UnLoadTransportFromMap(Transport* t)
++{
++    Map* map = t->GetMap();
++
++    for (Transport::CreatureSet::iterator itr = t->m_NPCPassengerSet.begin(); itr != t->m_NPCPassengerSet.end();)
++    {
++        if (Creature* npc = *itr)
++        {
++            npc->SetTransport(NULL);
++            npc->setActive(false);
++            npc->RemoveFromWorld();
++        }
++        ++itr;
++    }
++
++    UpdateData transData;
++    t->BuildOutOfRangeUpdateBlock(&transData);
++    WorldPacket out_packet;
++    transData.BuildPacket(&out_packet);
++
++    for (Map::PlayerList::const_iterator itr = map->GetPlayers().begin(); itr != map->GetPlayers().end(); ++itr)
++        if (t != itr->getSource()->GetTransport())
++            itr->getSource()->SendDirectMessage(&out_packet);
++
++    t->m_NPCPassengerSet.clear();         
++    m_TransportsByInstanceIdMap[t->GetInstanceId()].erase(t);
++    m_Transports.erase(t);
++    t->m_WayPoints.clear();
++    t->RemoveFromWorld();
++
++    sLog->outDetail("Quitando el transporte --->");
++}
++
++void MapManager::LoadTransportForPlayers(Player* player)
++{
++    MapManager::TransportMap& tmap = sMapMgr->m_TransportsByInstanceIdMap;
++    
++    UpdateData transData;
++
++    MapManager::TransportSet& tset = tmap[player->GetInstanceId()];
++
++    for (MapManager::TransportSet::const_iterator i = tset.begin(); i != tset.end(); ++i)
++    {
++        (*i)->BuildCreateUpdateBlockForPlayer(&transData, player);
++        sLog->outDetail("Cargando el transporte <---> Aqui hasta el de TransportSet");
++    }
++
++    WorldPacket packet;
++    transData.BuildPacket(&packet);
++    player->SendDirectMessage(&packet);
++}
++
++void MapManager::UnLoadTransportForPlayers(Player* player)
++{
++    MapManager::TransportMap& tmap = sMapMgr->m_TransportsByInstanceIdMap;
++    
++    UpdateData transData;
++
++    MapManager::TransportSet& tset = tmap[player->GetInstanceId()];
++
++    for (MapManager::TransportSet::const_iterator i = tset.begin(); i != tset.end(); ++i)
++    {
++        for (Transport::CreatureSet::iterator itr = (*i)->m_NPCPassengerSet.begin(); itr != (*i)->m_NPCPassengerSet.end();)
++        {
++            if (Creature* npc = *itr)
++            {
++                npc->SetTransport(NULL);
++                npc->setActive(false);
++                npc->RemoveFromWorld();
++            }
++            ++itr;
++        }
++
++        (*i)->BuildOutOfRangeUpdateBlock(&transData);
++        sLog->outDetail("Descargando el transporte >---< Aqui desde el de TransportSet");
++    }
++
++    WorldPacket packet;
++    transData.BuildPacket(&packet);
++    player->SendDirectMessage(&packet);
++}
+ 
+ void MapManager::LoadTransports()
+ {
+@@ -180,8 +308,11 @@ Transport::~Transport()
+ {
+     for (CreatureSet::iterator itr = m_NPCPassengerSet.begin(); itr != m_NPCPassengerSet.end(); ++itr)
+     {
+-        (*itr)->SetTransport(NULL);
+-        GetMap()->AddObjectToRemoveList(*itr);
++        Creature* passenger = *itr;
++        Map* map = passenger->GetMap();
++        passenger->SetTransport(NULL);
++        passenger->CleanupsBeforeDelete();
++        map->RemoveFromMap(passenger, true);
+     }
+ 
+     m_NPCPassengerSet.clear();
+@@ -570,6 +701,10 @@ void Transport::Update(uint32 p_diff)
+         sLog->outDebug(LOG_FILTER_TRANSPORTS, "%s moved to %d %f %f %f %d", m_name.c_str(), m_curr->second.id, m_curr->second.x, m_curr->second.y, m_curr->second.z, m_curr->second.mapid);
+     }
+ 
++    // Esto obliga al server a actualizar posiciones en el transporte para players y npcs.
++    UpdatePlayerPositions();
++    UpdateNPCPositions();
++
+     sScriptMgr->OnTransportUpdate(this, p_diff);
+ }
+ 
+@@ -623,6 +758,13 @@ void Transport::BuildStartMovePacket(Map const* targetMap)
+     UpdateForMap(targetMap);
+ }
+ 
++void Transport::BuildWaitMovePacket(Map const* targetMap)
++{
++    m_WayPoints.clear();
++    SetGoState(GO_STATE_READY);
++    UpdateForMap(targetMap);
++}
++
+ void Transport::BuildStopMovePacket(Map const* targetMap)
+ {
+     RemoveFlag(GAMEOBJECT_FLAGS, GO_FLAG_IN_USE);
+@@ -681,6 +823,45 @@ uint32 Transport::AddNPCPassenger(uint32 tguid, uint32 entry, float x, float y,
+     return tguid;
+ }
+ 
++Creature* Transport::AddNPCPassengerInInstance(uint32 entry, float x, float y, float z, float o, uint32 anim)
++{
++    Map* map = GetMap();
++    Creature* creature = new Creature;
++
++    if (!creature->Create(sObjectMgr->GenerateLowGuid(HIGHGUID_UNIT), map, GetPhaseMask(), entry, 0, GetGOInfo()->faction, 0, 0, 0, 0))
++    {
++        delete creature;
++        return 0;
++    }
++
++    creature->SetTransport(this);
++    creature->AddUnitMovementFlag(MOVEMENTFLAG_ONTRANSPORT);
++    creature->m_movementInfo.guid = GetGUID();
++    creature->m_movementInfo.t_pos.Relocate(x, y, z, o);
++
++    creature->Relocate(
++        GetPositionX() + (x * cos(GetOrientation()) + y * sin(GetOrientation() + float(M_PI))),
++        GetPositionY() + (y * cos(GetOrientation()) + x * sin(GetOrientation())),
++        z + GetPositionZ(),
++        o + GetOrientation());
++
++    creature->SetHomePosition(creature->GetPositionX(), creature->GetPositionY(), creature->GetPositionZ(), creature->GetOrientation());
++
++    if (!creature->IsPositionValid())
++    {
++        sLog->outError("Creature (guidlow %d, entry %d) not created. Suggested coordinates isn't valid (X: %f Y: %f)", creature->GetGUIDLow(), creature->GetEntry(), creature->GetPositionX(), creature->GetPositionY());
++        delete creature;
++        return 0;
++    }
++
++    map->AddToMap(creature);
++    m_NPCPassengerSet.insert(creature);
++
++    creature->setActive(true);
++    sScriptMgr->OnAddCreaturePassenger(this, creature);
++    return creature;
++}
++
+ void Transport::UpdatePosition(MovementInfo* mi)
+ {
+     float transport_o = mi->pos.m_orientation - mi->t_pos.m_orientation;
+@@ -690,6 +871,7 @@ void Transport::UpdatePosition(MovementInfo* mi)
+ 
+     Relocate(transport_x, transport_y, transport_z, transport_o);
+     UpdateNPCPositions();
++    UpdatePlayerPositions();
+ }
+ 
+ void Transport::UpdateNPCPositions()
+@@ -707,3 +889,22 @@ void Transport::UpdateNPCPositions()
+         GetMap()->CreatureRelocation(npc, x, y, z, o, false);
+     }
+ }
++
++void Transport::UpdatePlayerPositions()
++{
++    for (PlayerSet::iterator itr = m_passengers.begin(); itr != m_passengers.end(); ++itr)
++    {
++        Player* plr = *itr;
++
++        float x, y, z, o;
++        o = GetOrientation() + plr->m_movementInfo.t_pos.m_orientation;
++        x = GetPositionX() + (plr->m_movementInfo.t_pos.m_positionX * cos(GetOrientation()) + plr->m_movementInfo.t_pos.m_positionY * sin(GetOrientation() + M_PI));
++        y = GetPositionY() + (plr->m_movementInfo.t_pos.m_positionY * cos(GetOrientation()) + plr->m_movementInfo.t_pos.m_positionX * sin(GetOrientation()));
++        z = GetPositionZ() + plr->m_movementInfo.t_pos.m_positionZ;
++        plr->Relocate(x, y, z, o);
++        UpdateData transData;
++        WorldPacket packet;
++        transData.BuildPacket(&packet);
++        plr->SendDirectMessage(&packet);
++    }
++}
+diff --git a/src/server/game/Entities/Transport/Transport.h b/src/server/game/Entities/Transport/Transport.h
+index 518dcf6..0d4b5ea 100755
+--- a/src/server/game/Entities/Transport/Transport.h
++++ b/src/server/game/Entities/Transport/Transport.h
+@@ -45,9 +45,12 @@ class Transport : public GameObject
+         typedef std::set<Creature*> CreatureSet;
+         CreatureSet m_NPCPassengerSet;
+         uint32 AddNPCPassenger(uint32 tguid, uint32 entry, float x, float y, float z, float o, uint32 anim=0);
++        Creature* AddNPCPassengerInInstance(uint32 entry, float x, float y, float z, float o, uint32 anim=0);
+         void UpdatePosition(MovementInfo* mi);
+         void UpdateNPCPositions();
++        void UpdatePlayerPositions();
+         void BuildStartMovePacket(Map const* targetMap);
++        void BuildWaitMovePacket(Map const* targetMap);
+         void BuildStopMovePacket(Map const* targetMap);
+         uint32 GetScriptId() const { return ScriptId; }
+     private:
+@@ -85,10 +88,9 @@ class Transport : public GameObject
+     public:
+         WayPointMap m_WayPoints;
+         uint32 m_nextNodeTime;
+-
++        void UpdateForMap(Map const* map);
+     private:
+         void TeleportTransport(uint32 newMapid, float x, float y, float z);
+-        void UpdateForMap(Map const* map);
+         void DoEventIfAny(WayPointMap::value_type const& node, bool departure);
+         WayPointMap::const_iterator GetNextWayPoint();
+ };
+diff --git a/src/server/game/Maps/Map.cpp b/src/server/game/Maps/Map.cpp
+index 1895e2b..451f8ab 100755
+--- a/src/server/game/Maps/Map.cpp
++++ b/src/server/game/Maps/Map.cpp
+@@ -1565,25 +1565,38 @@ float Map::GetWaterOrGroundLevel(float x, float y, float z, float* ground /*= NU
+ float Map::GetHeight(float x, float y, float z, bool checkVMap /*= true*/, float maxSearchDist /*= DEFAULT_HEIGHT_SEARCH*/) const
+ {
+     // find raw .map surface under Z coordinates
+-    float mapHeight = VMAP_INVALID_HEIGHT_VALUE;
++    float mapHeight;
+     if (GridMap* gmap = const_cast<Map*>(this)->GetGrid(x, y))
+     {
+         float gridHeight = gmap->getHeight(x, y);
++
+         // look from a bit higher pos to find the floor, ignore under surface case
+         if (z + 2.0f > gridHeight)
+             mapHeight = gridHeight;
++        else
++            mapHeight = VMAP_INVALID_HEIGHT_VALUE;
+     }
++    else
++        mapHeight = VMAP_INVALID_HEIGHT_VALUE;
+ 
+-    float vmapHeight = VMAP_INVALID_HEIGHT_VALUE;
++    float vmapHeight;
+     if (checkVMap)
+     {
+         VMAP::IVMapManager* vmgr = VMAP::VMapFactory::createOrGetVMapManager();
+         if (vmgr->isHeightCalcEnabled())
+-            vmapHeight = vmgr->getHeight(GetId(), x, y, z + 2.0f, maxSearchDist);   // look from a bit higher pos to find the floor
++        {
++            // look from a bit higher pos to find the floor
++            vmapHeight = vmgr->getHeight(GetId(), x, y, z + 2.0f, maxSearchDist);
++        }
++        else
++            vmapHeight = VMAP_INVALID_HEIGHT_VALUE;
+     }
++    else
++        vmapHeight = VMAP_INVALID_HEIGHT_VALUE;
+ 
+     // mapHeight set for any above raw ground Z or <= INVALID_HEIGHT
+     // vmapheight set for any under Z value or <= INVALID_HEIGHT
++
+     if (vmapHeight > INVALID_HEIGHT)
+     {
+         if (mapHeight > INVALID_HEIGHT)
+@@ -1600,8 +1613,15 @@ float Map::GetHeight(float x, float y, float z, bool checkVMap /*= true*/, float
+         else
+             return vmapHeight;                              // we have only vmapHeight (if have)
+     }
+-
+-    return mapHeight;                               // explicitly use map data
++    else
++    {
++        if (!checkVMap)
++            return mapHeight;                               // explicitly use map data (if have)
++        else if (mapHeight > INVALID_HEIGHT && (z < mapHeight + 2 || z == MAX_HEIGHT))
++            return mapHeight;                               // explicitly use map data if original z < mapHeight but map found (z+2 > mapHeight)
++        else
++            return VMAP_INVALID_HEIGHT_VALUE;               // we not have any height
++    }
+ }
+ 
+ inline bool IsOutdoorWMO(uint32 mogpFlags, int32 /*adtId*/, int32 /*rootId*/, int32 /*groupId*/, WMOAreaTableEntry const* wmoEntry, AreaTableEntry const* atEntry)
+diff --git a/src/server/game/Maps/MapManager.h b/src/server/game/Maps/MapManager.h
+index 1049325..df2a0e9 100755
+--- a/src/server/game/Maps/MapManager.h
++++ b/src/server/game/Maps/MapManager.h
+@@ -124,11 +124,18 @@ class MapManager
+         void LoadTransports();
+         void LoadTransportNPCs();
+ 
++        //Load transport to instance
++        Transport* LoadTransportInMap(Map* instance, uint32 goEntry, uint32 period);
++        void UnLoadTransportFromMap(Transport* t);
++        void LoadTransportForPlayers(Player* player);
++        void UnLoadTransportForPlayers(Player* player);
++
+         typedef std::set<Transport*> TransportSet;
+         TransportSet m_Transports;
+ 
+         typedef std::map<uint32, TransportSet> TransportMap;
+         TransportMap m_TransportsByMap;
++        TransportMap m_TransportsByInstanceIdMap;
+ 
+         bool CanPlayerEnter(uint32 mapid, Player* player, bool loginCheck = false);
+         void InitializeVisibilityDistanceInfo();
+-- 
+1.7.8.msysgit.0
+
