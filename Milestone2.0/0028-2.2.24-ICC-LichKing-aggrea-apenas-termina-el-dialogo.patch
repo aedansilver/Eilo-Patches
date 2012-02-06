@@ -1,0 +1,33 @@
+From da2ee109b3360ff83dcb0968bcfa1cd17b93fb1c Mon Sep 17 00:00:00 2001
+From: Eilo <eilo2518@gmail.com>
+Date: Fri, 16 Dec 2011 11:44:26 -0500
+Subject: [PATCH 28/65] 2.2.24 ICC: LichKing aggrea apenas termina el dialogo
+ con tirion
+
+---
+ .../IcecrownCitadel/boss_the_lich_king.cpp         |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/src/server/scripts/Northrend/IcecrownCitadel/boss_the_lich_king.cpp b/src/server/scripts/Northrend/IcecrownCitadel/boss_the_lich_king.cpp
+index e9ab837..3f7c415 100644
+--- a/src/server/scripts/Northrend/IcecrownCitadel/boss_the_lich_king.cpp
++++ b/src/server/scripts/Northrend/IcecrownCitadel/boss_the_lich_king.cpp
+@@ -490,7 +490,6 @@ class boss_the_lich_king : public CreatureScript
+             void Reset()
+             {
+                 _Reset();
+-                me->SetReactState(REACT_PASSIVE);
+                 events.SetPhase(PHASE_INTRO);
+                 _necroticPlagueStack = 0;
+                 _vileSpiritExplosions = 0;
+@@ -908,6 +907,7 @@ class boss_the_lich_king : public CreatureScript
+                             me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE);
+                             me->SetReactState(REACT_AGGRESSIVE);
+                             events.SetPhase(PHASE_ONE);
++                            me->SetInCombatWithZone();
+                             break;
+                         case EVENT_SUMMON_SHAMBLING_HORROR:
+                             DoCast(me, SPELL_SUMMON_SHAMBLING_HORROR);
+-- 
+1.7.8.msysgit.0
+
