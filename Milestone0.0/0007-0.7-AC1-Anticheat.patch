@@ -1,7 +1,7 @@
 From f590d052c3bc1ffd327c4aa8f52249b591363cbd Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Thu, 15 Dec 2011 16:06:42 -0500
-Subject: [PATCH 07/26] 0.7 AC1 Anticheat
+Subject: [PATCH 07/29] 0.7 AC1 Anticheat
 
 ---
  .../reanemu/2011_11_09_100_characters_ac1.sql      |   87 +++++

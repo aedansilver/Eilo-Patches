@@ -1,7 +1,7 @@
-From 41aefdecc62405410e606f62d03c4ca9fd9cfe27 Mon Sep 17 00:00:00 2001
+From ffd88ec3132512bc76fbf3e8c505c6eac71563bc Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Mon, 6 Feb 2012 00:40:26 -0500
-Subject: [PATCH 12/26] 0.12 Autenticacion con cata 4.0.6a, 4.2.2 y 4.3.2
+Subject: [PATCH 12/29] 0.12 Autenticacion con cata 4.0.6a, 4.2.2 y 4.3.2
 
 ---
  src/server/authserver/Authentication/AuthCodes.h |    2 +-

@@ -1,7 +1,7 @@
 From 25ceeacbea4024546e40b33d12613c7f7c9a5ce5 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sun, 5 Feb 2012 23:37:28 -0500
-Subject: [PATCH 03/26] 0.3 Warden Anticheat
+Subject: [PATCH 03/29] 0.3 Warden Anticheat
 
 ---
  sql/updates/auth/reanemu/auth_warden.sql           |    2 +

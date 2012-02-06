@@ -1,7 +1,7 @@
-From 9a35ffda0187837870ac44aef60aeb66a58473ce Mon Sep 17 00:00:00 2001
+From 0e009daef4bf3a308878c07bb5379edb7e881fa5 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 30 Dec 2011 17:26:37 -0500
-Subject: [PATCH 22/26] =?UTF-8?q?0.22=20FindNearestPlayer=20y=20GetNearestPl?=
+Subject: [PATCH 22/29] =?UTF-8?q?0.22=20FindNearestPlayer=20y=20GetNearestPl?=
  =?UTF-8?q?ayersList=20rea=C3=B1adidas?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -13,10 +13,10 @@ Content-Transfer-Encoding: 8bit
  2 files changed, 20 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Entities/Object/Object.cpp b/src/server/game/Entities/Object/Object.cpp
-index 2f31ba2..045d3a8 100755
+index 6baa432..205b691 100755
 --- a/src/server/game/Entities/Object/Object.cpp
 +++ b/src/server/game/Entities/Object/Object.cpp
-@@ -2779,6 +2779,23 @@ void WorldObject::UpdateObjectVisibility(bool /*forced*/)
+@@ -2777,6 +2777,23 @@ void WorldObject::UpdateObjectVisibility(bool /*forced*/)
      VisitNearbyWorldObject(GetVisibilityRange(), notifier);
  }
  
