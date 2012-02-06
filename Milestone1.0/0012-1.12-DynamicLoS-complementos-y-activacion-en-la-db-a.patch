@@ -1,13 +1,13 @@
-From 89a47c20b2683e447e66a021766d15cd1dd026ef Mon Sep 17 00:00:00 2001
+From 989774cd4cfd3af9f2a7a0ec4287ed72cc0e27b4 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:16:33 -0500
-Subject: [PATCH 10/19] 1.10 DynamicLoS complementos y activacion en la db,
+Subject: [PATCH 12/22] 1.12 DynamicLoS complementos y activacion en la db,
  ajuste circulo demoniaco en estas 2 arenas
 
 ---
  ...11_10_10_100_world_dynlos_circulo_demoniaco.sql |    4 ++
  .../game/Battlegrounds/Zones/BattlegroundRV.cpp    |    7 +++
- .../Server/Protocol/Handlers/MovementHandler.cpp   |   11 ++++-
+ src/server/game/Handlers/MovementHandler.cpp       |   11 ++++-
  src/server/scripts/Spells/spell_warlock.cpp        |   45 ++++++++++++++++++++
  4 files changed, 66 insertions(+), 1 deletions(-)
  create mode 100644 sql/updates/world/reanemu/2011_10_10_100_world_dynlos_circulo_demoniaco.sql
@@ -24,7 +24,7 @@ index 0000000..27dd5a3
 +DELETE FROM disables WHERE sourceType=3 AND entry IN (10,11);
 \ No newline at end of file
 diff --git a/src/server/game/Battlegrounds/Zones/BattlegroundRV.cpp b/src/server/game/Battlegrounds/Zones/BattlegroundRV.cpp
-index 742e74f..ff35edd 100755
+index 671f5a7..77c6aee 100755
 --- a/src/server/game/Battlegrounds/Zones/BattlegroundRV.cpp
 +++ b/src/server/game/Battlegrounds/Zones/BattlegroundRV.cpp
 @@ -46,6 +46,9 @@ BattlegroundRV::~BattlegroundRV()
@@ -48,10 +48,10 @@ index 742e74f..ff35edd 100755
      player->TeleportTo(GetMapId(), 763.5f, -284, 28.276f, 2.422f, false);
      return true;
  }
-diff --git a/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp b/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp
+diff --git a/src/server/game/Handlers/MovementHandler.cpp b/src/server/game/Handlers/MovementHandler.cpp
 index e568da9..967f1aa 100755
---- a/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp
-+++ b/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp
+--- a/src/server/game/Handlers/MovementHandler.cpp
++++ b/src/server/game/Handlers/MovementHandler.cpp
 @@ -696,7 +696,16 @@ void WorldSession::HandleMovementOpcodes(WorldPacket & recv_data)
      {
          plMover->UpdateFallInformationIfNeed(movementInfo, opcode);

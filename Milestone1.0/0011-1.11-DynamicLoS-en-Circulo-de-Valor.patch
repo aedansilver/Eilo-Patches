@@ -1,7 +1,7 @@
-From b769c9249ae9af9cc11833525265b43f17aa7a13 Mon Sep 17 00:00:00 2001
+From b381286b20089c17423d202cea537f6992a07931 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:09:51 -0500
-Subject: [PATCH 11/20] 1.11 DynamicLoS en Circulo de Valor
+Subject: [PATCH 11/22] 1.11 DynamicLoS en Circulo de Valor
 
 ---
  .../game/Battlegrounds/Zones/BattlegroundRV.cpp    |   36 ++++++++++++++++++++
@@ -9,7 +9,7 @@ Subject: [PATCH 11/20] 1.11 DynamicLoS en Circulo de Valor
  2 files changed, 43 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Battlegrounds/Zones/BattlegroundRV.cpp b/src/server/game/Battlegrounds/Zones/BattlegroundRV.cpp
-index 0c44c5d..9c97e1e 100755
+index 539419d..671f5a7 100755
 --- a/src/server/game/Battlegrounds/Zones/BattlegroundRV.cpp
 +++ b/src/server/game/Battlegrounds/Zones/BattlegroundRV.cpp
 @@ -65,6 +65,7 @@ void BattlegroundRV::PostUpdateImpl(uint32 diff)
@@ -74,7 +74,7 @@ index 0c44c5d..9c97e1e 100755
 +    }
 +}
 diff --git a/src/server/game/Battlegrounds/Zones/BattlegroundRV.h b/src/server/game/Battlegrounds/Zones/BattlegroundRV.h
-index 70417c1..9cd34de 100755
+index 4f99af2..f8e75a0 100755
 --- a/src/server/game/Battlegrounds/Zones/BattlegroundRV.h
 +++ b/src/server/game/Battlegrounds/Zones/BattlegroundRV.h
 @@ -91,6 +91,11 @@ enum BattlegroundRVData
@@ -101,5 +101,5 @@ index 70417c1..9cd34de 100755
          void setTimer(uint32 timer) { Timer = timer; };
  
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

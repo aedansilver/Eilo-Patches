@@ -1,7 +1,7 @@
-From 50f40c7a56fbcc9812a1f728fd1b3630352b8200 Mon Sep 17 00:00:00 2001
+From 26b1ba4795174c4189a050e553eb534ecd17ce46 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:08:27 -0500
-Subject: [PATCH 10/20] 1.10 DynamicLoS en DalaranSewers
+Subject: [PATCH 10/22] 1.10 DynamicLoS en DalaranSewers
 
 ---
  .../game/Battlegrounds/Zones/BattlegroundDS.cpp    |   90 ++++++++++++++++---
@@ -11,7 +11,7 @@ Subject: [PATCH 10/20] 1.10 DynamicLoS en DalaranSewers
  4 files changed, 102 insertions(+), 26 deletions(-)
 
 diff --git a/src/server/game/Battlegrounds/Zones/BattlegroundDS.cpp b/src/server/game/Battlegrounds/Zones/BattlegroundDS.cpp
-index 754005f..71b4420 100755
+index 87f4ca4..e1eb455 100755
 --- a/src/server/game/Battlegrounds/Zones/BattlegroundDS.cpp
 +++ b/src/server/game/Battlegrounds/Zones/BattlegroundDS.cpp
 @@ -46,25 +46,81 @@ BattlegroundDS::~BattlegroundDS()
@@ -128,7 +128,7 @@ index 754005f..71b4420 100755
  
  void BattlegroundDS::AddPlayer(Player* player)
 diff --git a/src/server/game/Battlegrounds/Zones/BattlegroundDS.h b/src/server/game/Battlegrounds/Zones/BattlegroundDS.h
-index 625eb1c..b30ee96 100755
+index f2ba2ce..0b61b2b 100755
 --- a/src/server/game/Battlegrounds/Zones/BattlegroundDS.h
 +++ b/src/server/game/Battlegrounds/Zones/BattlegroundDS.h
 @@ -36,17 +36,18 @@ enum BattlegroundDSObjects
@@ -174,10 +174,10 @@ index 625eb1c..b30ee96 100755
  };
  #endif
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index e7b34a9..3622c41 100755
+index bf8d38f..efd44fd 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -2405,6 +2405,22 @@ bool Player::TeleportTo(uint32 mapid, float x, float y, float z, float orientati
+@@ -2415,6 +2415,22 @@ bool Player::TeleportTo(uint32 mapid, float x, float y, float z, float orientati
      return true;
  }
  
@@ -201,10 +201,10 @@ index e7b34a9..3622c41 100755
  {
      if (m_bgData.joinPos.m_mapId == MAPID_INVALID)
 diff --git a/src/server/game/Entities/Player/Player.h b/src/server/game/Entities/Player/Player.h
-index fb519fe..0ef780b 100755
+index 0a3f671..3332e25 100755
 --- a/src/server/game/Entities/Player/Player.h
 +++ b/src/server/game/Entities/Player/Player.h
-@@ -1142,6 +1142,8 @@ class Player : public Unit, public GridObject<Player>
+@@ -1131,6 +1131,8 @@ class Player : public Unit, public GridObject<Player>
          void RemoveFromWorld();
  
          bool TeleportTo(uint32 mapid, float x, float y, float z, float orientation, uint32 options = 0);
@@ -214,5 +214,5 @@ index fb519fe..0ef780b 100755
          {
              return TeleportTo(loc.GetMapId(), loc.GetPositionX(), loc.GetPositionY(), loc.GetPositionZ(), loc.GetOrientation(), options);
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 
