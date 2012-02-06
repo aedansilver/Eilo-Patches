@@ -1,17 +1,17 @@
-From 1ba9e6ce58112df10b6e5613e78d0f2b674ce679 Mon Sep 17 00:00:00 2001
+From 37b08526587f2bd61643cf4f2a753552a30c0fad Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 19:06:26 -0500
-Subject: [PATCH 19/20] 1.18 Prevenir error en el calculo de buffs con stacks
+Subject: [PATCH 16/19] 1.16 Prevenir error en el calculo de buffs con stacks
 
 ---
  src/server/game/Spells/SpellEffects.cpp |    9 +++++++++
  1 files changed, 9 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
-index 269f26b..c9f604b 100755
+index 5feec09..e0c98db 100755
 --- a/src/server/game/Spells/SpellEffects.cpp
 +++ b/src/server/game/Spells/SpellEffects.cpp
-@@ -3251,6 +3251,8 @@ void Spell::EffectDispel(SpellEffIndex effIndex)
+@@ -3212,6 +3212,8 @@ void Spell::EffectDispel(SpellEffIndex effIndex)
      if (dispelMask & (1 << DISPEL_DISEASE) && unitTarget->HasAura(50536))
          dispelMask &= ~(1 << DISPEL_DISEASE);
  
@@ -20,7 +20,7 @@ index 269f26b..c9f604b 100755
      Unit::AuraMap const& auras = unitTarget->GetOwnedAuras();
      for (Unit::AuraMap::const_iterator itr = auras.begin(); itr != auras.end(); ++itr)
      {
-@@ -3279,13 +3281,20 @@ void Spell::EffectDispel(SpellEffIndex effIndex)
+@@ -3240,13 +3242,20 @@ void Spell::EffectDispel(SpellEffIndex effIndex)
              bool dispel_charges = aura->GetSpellInfo()->AttributesEx7 & SPELL_ATTR7_DISPEL_CHARGES;
              uint8 charges = dispel_charges ? aura->GetCharges() : aura->GetStackAmount();
              if (charges > 0)
@@ -42,5 +42,5 @@ index 269f26b..c9f604b 100755
      uint32 failCount = 0;
      DispelChargesList success_list;
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

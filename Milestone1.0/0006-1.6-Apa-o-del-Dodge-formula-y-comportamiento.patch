@@ -1,7 +1,7 @@
-From 129e3b997deabcf383c76b2b2839cb3d82a3d974 Mon Sep 17 00:00:00 2001
+From a82ffd35ba3fbde5ef0b5c0a863ed80b55ab6eff Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 16:49:36 -0500
-Subject: [PATCH 06/20] =?UTF-8?q?1.5=20Apa=C3=B1o=20del=20Dodge=20formula=20?=
+Subject: [PATCH 06/19] =?UTF-8?q?1.6=20Apa=C3=B1o=20del=20Dodge=20formula=20?=
  =?UTF-8?q?y=20comportamiento?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -14,10 +14,10 @@ Content-Transfer-Encoding: 8bit
  3 files changed, 42 insertions(+), 49 deletions(-)
 
 diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
-index fa00765..fa86d5a 100755
+index bfdc420..2a0f2b2 100755
 --- a/src/server/game/Entities/Player/Player.cpp
 +++ b/src/server/game/Entities/Player/Player.cpp
-@@ -5848,37 +5848,35 @@ float Player::GetMeleeCritFromAgility()
+@@ -5870,37 +5870,35 @@ float Player::GetMeleeCritFromAgility()
      return crit*100.0f;
  }
  
@@ -80,7 +80,7 @@ index fa00765..fa86d5a 100755
      };
  
      uint8 level = getLevel();
-@@ -5887,18 +5885,13 @@ void Player::GetDodgeFromAgility(float &diminishing, float &nondiminishing)
+@@ -5909,18 +5907,13 @@ void Player::GetDodgeFromAgility(float &diminishing, float &nondiminishing)
      if (level > GT_MAX_LEVEL)
          level = GT_MAX_LEVEL;
  
@@ -105,10 +105,10 @@ index fa00765..fa86d5a 100755
  
  float Player::GetSpellCritFromIntellect()
 diff --git a/src/server/game/Entities/Player/Player.h b/src/server/game/Entities/Player/Player.h
-index f23d085..fb519fe 100755
+index af9af1b..bc7e083 100755
 --- a/src/server/game/Entities/Player/Player.h
 +++ b/src/server/game/Entities/Player/Player.h
-@@ -1940,7 +1940,7 @@ class Player : public Unit, public GridObject<Player>
+@@ -1933,7 +1933,7 @@ class Player : public Unit, public GridObject<Player>
          void UpdateDefenseBonusesMod();
          inline void RecalculateRating(CombatRating cr) { ApplyRatingMod(cr, 0, true);}
          float GetMeleeCritFromAgility();
@@ -118,7 +118,7 @@ index f23d085..fb519fe 100755
          float GetSpellCritFromIntellect();
          float OCTRegenHPPerSpirit();
 diff --git a/src/server/game/Entities/Unit/StatSystem.cpp b/src/server/game/Entities/Unit/StatSystem.cpp
-index 616706a..84ece87 100755
+index b55faad..31c6a32 100755
 --- a/src/server/game/Entities/Unit/StatSystem.cpp
 +++ b/src/server/game/Entities/Unit/StatSystem.cpp
 @@ -697,6 +697,8 @@ void Player::UpdateParryPercentage()
@@ -161,5 +161,5 @@ index 616706a..84ece87 100755
  }
  
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

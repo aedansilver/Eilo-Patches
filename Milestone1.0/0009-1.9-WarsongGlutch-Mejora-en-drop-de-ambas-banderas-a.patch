@@ -1,7 +1,7 @@
-From a077551d587780155259bbfd7f68e564c830b2da Mon Sep 17 00:00:00 2001
+From 6a6ec2cd49d6ba3f1285ccdc2ce06102f3217839 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 17:56:42 -0500
-Subject: [PATCH 09/20] 1.8 WarsongGlutch: Mejora en drop de ambas banderas a
+Subject: [PATCH 09/19] 1.9 WarsongGlutch: Mejora en drop de ambas banderas a
  cercania
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH 09/20] 1.8 WarsongGlutch: Mejora en drop de ambas banderas a
  1 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/src/server/game/Battlegrounds/Zones/BattlegroundWS.cpp b/src/server/game/Battlegrounds/Zones/BattlegroundWS.cpp
-index a6aa6f4..cf9a4c6 100755
+index 226bf17..e6fcf3c 100755
 --- a/src/server/game/Battlegrounds/Zones/BattlegroundWS.cpp
 +++ b/src/server/game/Battlegrounds/Zones/BattlegroundWS.cpp
 @@ -482,7 +482,7 @@ void BattlegroundWS::EventPlayerClickedOnFlag(Player* Source, GameObject* target
@@ -31,5 +31,5 @@ index a6aa6f4..cf9a4c6 100755
          if (Source->GetTeam() == HORDE)
          {
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

@@ -1,14 +1,14 @@
-From e604b79780ac869a855e41b44fa7bb1e1d83b827 Mon Sep 17 00:00:00 2001
+From fcae670af1d0df19c2758c4b80892aab19cca357 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 16:43:12 -0500
-Subject: [PATCH 04/20] 1.3 Bindeo instance players que se salen y lotean
+Subject: [PATCH 04/19] 1.4 Bindeo instance players que se salen y lotean
 
 ---
  src/server/game/Loot/LootMgr.cpp |    6 ++++++
  1 files changed, 6 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Loot/LootMgr.cpp b/src/server/game/Loot/LootMgr.cpp
-index dd17e82..97f9232 100755
+index c9e8f68..9e472d0 100755
 --- a/src/server/game/Loot/LootMgr.cpp
 +++ b/src/server/game/Loot/LootMgr.cpp
 @@ -718,6 +718,12 @@ LootItem* Loot::LootItemInSlot(uint32 lootSlot, Player* player, QuestItem* *qite
@@ -25,5 +25,5 @@ index dd17e82..97f9232 100755
          return NULL;
  
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

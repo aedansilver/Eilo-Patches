@@ -1,7 +1,7 @@
 From 50f40c7a56fbcc9812a1f728fd1b3630352b8200 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:08:27 -0500
-Subject: [PATCH 10/20] 1.9 DynamicLoS en DalaranSewers
+Subject: [PATCH 10/20] 1.10 DynamicLoS en DalaranSewers
 
 ---
  .../game/Battlegrounds/Zones/BattlegroundDS.cpp    |   90 ++++++++++++++++---

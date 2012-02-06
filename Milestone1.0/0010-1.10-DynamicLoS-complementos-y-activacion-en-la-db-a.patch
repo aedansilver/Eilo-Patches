@@ -1,7 +1,7 @@
-From b7f872b6fa8ba34e94056996b0d1a39c5c09d76f Mon Sep 17 00:00:00 2001
+From 89a47c20b2683e447e66a021766d15cd1dd026ef Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:16:33 -0500
-Subject: [PATCH 12/20] 1.11 DynamicLoS complementos y activacion en la db,
+Subject: [PATCH 10/19] 1.10 DynamicLoS complementos y activacion en la db,
  ajuste circulo demoniaco en estas 2 arenas
 
 ---
@@ -24,7 +24,7 @@ index 0000000..27dd5a3
 +DELETE FROM disables WHERE sourceType=3 AND entry IN (10,11);
 \ No newline at end of file
 diff --git a/src/server/game/Battlegrounds/Zones/BattlegroundRV.cpp b/src/server/game/Battlegrounds/Zones/BattlegroundRV.cpp
-index 9c97e1e..9a8759b 100755
+index 742e74f..ff35edd 100755
 --- a/src/server/game/Battlegrounds/Zones/BattlegroundRV.cpp
 +++ b/src/server/game/Battlegrounds/Zones/BattlegroundRV.cpp
 @@ -46,6 +46,9 @@ BattlegroundRV::~BattlegroundRV()
@@ -49,7 +49,7 @@ index 9c97e1e..9a8759b 100755
      return true;
  }
 diff --git a/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp b/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp
-index 84bc31e..d88bb09 100755
+index e568da9..967f1aa 100755
 --- a/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp
 +++ b/src/server/game/Server/Protocol/Handlers/MovementHandler.cpp
 @@ -696,7 +696,16 @@ void WorldSession::HandleMovementOpcodes(WorldPacket & recv_data)
@@ -71,7 +71,7 @@ index 84bc31e..d88bb09 100755
              if (!(plMover->InBattleground()
                  && plMover->GetBattleground()
 diff --git a/src/server/scripts/Spells/spell_warlock.cpp b/src/server/scripts/Spells/spell_warlock.cpp
-index 17035c2..4808b1b 100644
+index 51b2de5..24e76de 100644
 --- a/src/server/scripts/Spells/spell_warlock.cpp
 +++ b/src/server/scripts/Spells/spell_warlock.cpp
 @@ -308,6 +308,50 @@ class spell_warl_seed_of_corruption : public SpellScriptLoader
@@ -132,5 +132,5 @@ index 17035c2..4808b1b 100644
 +    new spell_warl_demonic_circle_summon();
  }
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

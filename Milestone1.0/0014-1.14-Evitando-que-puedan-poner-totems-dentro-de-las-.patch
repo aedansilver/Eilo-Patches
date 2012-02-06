@@ -1,7 +1,7 @@
-From 0ee424c2957d2292af3b73484d894dcdab4d9cf4 Mon Sep 17 00:00:00 2001
+From 85efb41bb88eff6bf4b46fe3cb66f7538744f945 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:36:12 -0500
-Subject: [PATCH 17/20] 1.16 Evitando que puedan poner totems dentro de las
+Subject: [PATCH 14/19] 1.14 Evitando que puedan poner totems dentro de las
  paredes
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH 17/20] 1.16 Evitando que puedan poner totems dentro de las
  1 files changed, 13 insertions(+), 4 deletions(-)
 
 diff --git a/src/server/game/Spells/Spell.cpp b/src/server/game/Spells/Spell.cpp
-index 8a534e2..a74d392 100755
+index 69cd675..0fd0ba8 100755
 --- a/src/server/game/Spells/Spell.cpp
 +++ b/src/server/game/Spells/Spell.cpp
 @@ -2230,10 +2230,19 @@ uint32 Spell::SelectEffectTargets(uint32 i, SpellImplicitTargetInfo const& cur)
@@ -37,5 +37,5 @@ index 8a534e2..a74d392 100755
              m_targets.ModDst(pos);
              break;
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

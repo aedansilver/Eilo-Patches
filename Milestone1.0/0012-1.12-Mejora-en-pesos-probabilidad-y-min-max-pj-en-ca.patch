@@ -1,7 +1,7 @@
-From 0b7b81157d3e84219c99389ab704a99fa42a0ffd Mon Sep 17 00:00:00 2001
+From 51ee0d0cdc871d69d696ea398d79bfbbefdf6148 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:25:18 -0500
-Subject: [PATCH 14/20] 1.13 Mejora en pesos(probabilidad) y min-max pj en
+Subject: [PATCH 12/19] 1.12 Mejora en pesos(probabilidad) y min-max pj en
  cada bg
 
 ---
@@ -30,5 +30,5 @@ index 0000000..6968567
 +UPDATE battleground_template SET MinPlayersPerTeam=20,MaxPlayersPerTeam=25,Weight=3 WHERE `id`=30;
 \ No newline at end of file
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

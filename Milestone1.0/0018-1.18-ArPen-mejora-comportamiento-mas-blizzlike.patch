@@ -1,17 +1,17 @@
-From dac97c5c7dcb0c2b24fb1aaccab808b63ef1997f Mon Sep 17 00:00:00 2001
+From 128bbbea525759b51d86a1a6be8382fde5ca5a85 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:48:51 -0500
-Subject: [PATCH 18/20] 1.17 ArPen mejora comportamiento, mas blizzlike
+Subject: [PATCH 18/19] 1.18 ArPen mejora comportamiento, mas blizzlike
 
 ---
  src/server/game/Entities/Unit/Unit.cpp |    2 ++
  1 files changed, 2 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Entities/Unit/Unit.cpp b/src/server/game/Entities/Unit/Unit.cpp
-index e4c0eac..8bbfb62 100755
+index 27d3569..df87a94 100644
 --- a/src/server/game/Entities/Unit/Unit.cpp
 +++ b/src/server/game/Entities/Unit/Unit.cpp
-@@ -1557,6 +1557,8 @@ uint32 Unit::CalcArmorReducedDamage(Unit* victim, const uint32 damage, SpellInfo
+@@ -1447,6 +1447,8 @@ uint32 Unit::CalcArmorReducedDamage(Unit* victim, const uint32 damage, SpellInfo
          armor -= std::min(armorPen, maxArmorPen);
      }
  
@@ -21,5 +21,5 @@ index e4c0eac..8bbfb62 100755
          armor = 0.0f;
  
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

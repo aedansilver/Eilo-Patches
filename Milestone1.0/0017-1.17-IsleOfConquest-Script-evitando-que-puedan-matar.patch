@@ -1,7 +1,7 @@
-From 74e21f751e7c1ce9b3a557f41c4f0bbde7354520 Mon Sep 17 00:00:00 2001
+From 3589f1844e88a174d6f84dd836aea65817be0f71 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sun, 25 Dec 2011 13:03:55 -0500
-Subject: [PATCH 20/20] 1.19 IsleOfConquest: Script evitando que puedan matar
+Subject: [PATCH 17/19] 1.17 IsleOfConquest: Script evitando que puedan matar
  a los bosses con exploit
 
 ---
@@ -24,7 +24,7 @@ index 0000000..cc822cc
 +UPDATE `creature_template` SET `faction_A` = 35, `faction_H` = 35 WHERE `entry` in (34922,35405);
 +UPDATE `creature_template` SET `ScriptName`='bosses_isle_of_conquest' WHERE `entry` IN (34924,34922);
 diff --git a/src/server/game/Battlegrounds/Zones/BattlegroundIC.cpp b/src/server/game/Battlegrounds/Zones/BattlegroundIC.cpp
-index f17df3a..11e4430 100755
+index e3eefd4..9049d37 100755
 --- a/src/server/game/Battlegrounds/Zones/BattlegroundIC.cpp
 +++ b/src/server/game/Battlegrounds/Zones/BattlegroundIC.cpp
 @@ -836,25 +836,53 @@ void BattlegroundIC::DestroyGate(Player* player, GameObject* go)
@@ -84,7 +84,7 @@ index f17df3a..11e4430 100755
  {
  
 diff --git a/src/server/game/Battlegrounds/Zones/BattlegroundIC.h b/src/server/game/Battlegrounds/Zones/BattlegroundIC.h
-index 552b79c..8438b76 100755
+index 90f39a6..8485660 100755
 --- a/src/server/game/Battlegrounds/Zones/BattlegroundIC.h
 +++ b/src/server/game/Battlegrounds/Zones/BattlegroundIC.h
 @@ -879,6 +879,7 @@ class BattlegroundIC : public Battleground
@@ -96,7 +96,7 @@ index 552b79c..8438b76 100755
          virtual WorldSafeLocsEntry const* GetClosestGraveYard(Player* player);
  
 diff --git a/src/server/scripts/Northrend/isle_of_conquest.cpp b/src/server/scripts/Northrend/isle_of_conquest.cpp
-index 269ff05..894aa13 100644
+index 6d76e34..4984363 100644
 --- a/src/server/scripts/Northrend/isle_of_conquest.cpp
 +++ b/src/server/scripts/Northrend/isle_of_conquest.cpp
 @@ -67,7 +67,140 @@ class npc_four_car_garage : public CreatureScript
@@ -241,5 +241,5 @@ index 269ff05..894aa13 100644
 +    new bosses_isle_of_conquest();
  }
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

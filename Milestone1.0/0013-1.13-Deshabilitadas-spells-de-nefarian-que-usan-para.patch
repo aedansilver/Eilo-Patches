@@ -1,7 +1,7 @@
-From 789663ec40c4fecdcd69ac6504382246fa8ef556 Mon Sep 17 00:00:00 2001
+From 26f16f03dc06d9a2a381ef63f72521339f76367d Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:28:52 -0500
-Subject: [PATCH 15/20] 1.14 Deshabilitadas spells de nefarian que usan para
+Subject: [PATCH 13/19] 1.13 Deshabilitadas spells de nefarian que usan para
  exploit
 
 ---
@@ -20,5 +20,5 @@ index 0000000..9157ecf
 +    (0, 23397, 3, '', '', 'CURRENTLY A SOURCE OF BUG ABUSE - Allows Warriors to stack Berserker Stance passive auras indefinitely and for use in all stances'),
 +    (0, 23398, 3, '', '', 'CURRENTLY A SOURCE OF BUG ABUSE - Allows Druids to stack Cat Form passive auras indefinitely and for use in all stances');
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

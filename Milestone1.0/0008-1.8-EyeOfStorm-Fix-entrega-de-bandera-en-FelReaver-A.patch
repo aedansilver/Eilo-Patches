@@ -1,7 +1,7 @@
-From 42a7fd0c1159cc8f57fddaba54cd10606f86b969 Mon Sep 17 00:00:00 2001
+From 86edb508ffa834b13cda8b0bf75aa441fc99474e Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 17:47:11 -0500
-Subject: [PATCH 08/20] 1.7 EyeOfStorm: Fix entrega de bandera en
+Subject: [PATCH 08/19] 1.8 EyeOfStorm: Fix entrega de bandera en
  FelReaver(AtracadorVil)
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH 08/20] 1.7 EyeOfStorm: Fix entrega de bandera en
  1 files changed, 5 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Battlegrounds/Zones/BattlegroundEY.cpp b/src/server/game/Battlegrounds/Zones/BattlegroundEY.cpp
-index c790d64..e650181 100755
+index 4595a06..e0a892c 100755
 --- a/src/server/game/Battlegrounds/Zones/BattlegroundEY.cpp
 +++ b/src/server/game/Battlegrounds/Zones/BattlegroundEY.cpp
 @@ -256,6 +256,11 @@ void BattlegroundEY::UpdatePointStatuses()
@@ -25,5 +25,5 @@ index c790d64..e650181 100755
          }
      }
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 
