@@ -1,14 +1,14 @@
-From 8eb9338818f580cf47dc657e51a22d6bb2379dcd Mon Sep 17 00:00:00 2001
+From 7040dbb764a43b0e16f6ca378f49df403766da8f Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Tue, 3 Jan 2012 18:56:16 -0500
-Subject: [PATCH 1/6] Milestone6.0
+Subject: [PATCH 3/3] Milestone6.0
 
 ---
- WHAT_IS_INSIDE |    6 ++++++
- 1 files changed, 6 insertions(+), 0 deletions(-)
+ WHAT_IS_INSIDE |    3 +++
+ 1 files changed, 3 insertions(+), 0 deletions(-)
 
 diff --git a/WHAT_IS_INSIDE b/WHAT_IS_INSIDE
-index 6533380..86d9d0d 100644
+index ce0deab..e38260f 100644
 --- a/WHAT_IS_INSIDE
 +++ b/WHAT_IS_INSIDE
 @@ -25,6 +25,7 @@ Milestone4.0  Arreglos en quests, y cadenas de mision, esto incluye scripts
@@ -19,15 +19,12 @@ index 6533380..86d9d0d 100644
  
  
  ##################################
-@@ -225,3 +226,8 @@ Milestone5.0  Traducciones, e inclusion de varios dentro de tablas y strings
+@@ -234,3 +235,5 @@ Milestone5.0  Traducciones, e inclusion de varios dentro de tablas y strings
  ##########
  # Custom #
  ##########
 +6.1  - 08/10/2011: NPC recupera anillos de icc por Karlos
 +6.2  - 08/12/2011: NPC subastador en dalaran por Hispano
-+6.3  - 28/12/2011: NPC broma dia de inocentes por Eilo
-+6.4  - 31/12/2011: NPC boss wachiturros y comandos fin de año por Eilo
-+6.5  - 03/01/2011: NPCs bosses evento Asirius por Ws
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

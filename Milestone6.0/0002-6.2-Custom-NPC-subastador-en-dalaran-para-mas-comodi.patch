@@ -1,7 +1,7 @@
-From 49ce19057e97b2397268ddd9b2826a5187787cb4 Mon Sep 17 00:00:00 2001
+From c68bbe8458d0b53e774716b6cade559e54bf6ef6 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Mon, 26 Dec 2011 13:03:07 -0500
-Subject: [PATCH 3/6] 6.2 Custom: NPC subastador en dalaran para mas comodidad
+Subject: [PATCH 2/3] 6.2 Custom: NPC subastador en dalaran para mas comodidad
  de los players
 
 ---
@@ -34,5 +34,5 @@ index 0000000..eacf2d1
 +INSERT INTO `gameobject` (`id`, `map`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES
 +('183992','571','1','1','5821.48','642.96','647.991','3.18331','0','0','0.999783','-0.020856','300','0','1');
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 
