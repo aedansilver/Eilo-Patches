@@ -1,7 +1,7 @@
-From 68fa2b601f096296d168845d95afbb821c309cb5 Mon Sep 17 00:00:00 2001
+From 99559b683ad40992396ed566dd4b66845675f8b6 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 22:12:27 +0100
-Subject: [PATCH 18/23] 3.17 Duelos: Penitencia (47540) y Choque Sagrado
+Subject: [PATCH 17/22] 3.17 Duelos: Penitencia (47540) y Choque Sagrado
  (20473) no se pueden usar en duelos de otros pj
 
 ---
@@ -10,10 +10,10 @@ Subject: [PATCH 18/23] 3.17 Duelos: Penitencia (47540) y Choque Sagrado
  2 files changed, 7 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/scripts/Spells/spell_paladin.cpp b/src/server/scripts/Spells/spell_paladin.cpp
-index 0eb8f95..5058aaa 100644
+index 80ad8a7..618f5cf 100644
 --- a/src/server/scripts/Spells/spell_paladin.cpp
 +++ b/src/server/scripts/Spells/spell_paladin.cpp
-@@ -286,6 +286,9 @@ public:
+@@ -290,6 +290,9 @@ public:
              {
                  Unit* caster = GetCaster();
  
@@ -24,7 +24,7 @@ index 0eb8f95..5058aaa 100644
  
                  if (caster->IsFriendlyTo(unitTarget))
 diff --git a/src/server/scripts/Spells/spell_priest.cpp b/src/server/scripts/Spells/spell_priest.cpp
-index 07b8a79..7a490ba 100644
+index ee5f6a6..39aa738 100644
 --- a/src/server/scripts/Spells/spell_priest.cpp
 +++ b/src/server/scripts/Spells/spell_priest.cpp
 @@ -210,6 +210,10 @@ class spell_pri_penance : public SpellScriptLoader
@@ -39,5 +39,5 @@ index 07b8a79..7a490ba 100644
  
                  if (caster->IsFriendlyTo(unitTarget))
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

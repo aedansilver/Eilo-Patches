@@ -1,7 +1,7 @@
-From e2ac9141af92f4009fa12d2d6e0e6d04ec94a75c Mon Sep 17 00:00:00 2001
+From 6e4a396b6749c5b465f5740cad801fc76a8e6b66 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sat, 26 Nov 2011 17:44:14 +0100
-Subject: [PATCH 04/23] 3.3 Brujo: Pet Felhunter mejoras en spells
+Subject: [PATCH 03/22] 3.3 Brujo: Pet Felhunter mejoras en spells
 
 ---
  .../2011_11_05_100_world_felhunter_mejorado.sql    |    2 +
@@ -19,7 +19,7 @@ index 0000000..fdde9c6
 +INSERT INTO spell_script_names (spell_id, ScriptName) VALUES (-54049, 'spell_warl_shadow_bite');
 \ No newline at end of file
 diff --git a/src/server/scripts/Spells/spell_warlock.cpp b/src/server/scripts/Spells/spell_warlock.cpp
-index 4808b1b..8927379 100644
+index 24e76de..826eb70 100644
 --- a/src/server/scripts/Spells/spell_warlock.cpp
 +++ b/src/server/scripts/Spells/spell_warlock.cpp
 @@ -34,57 +34,14 @@ enum WarlockSpells
@@ -237,5 +237,5 @@ index 4808b1b..8927379 100644
      new spell_warl_demonic_circle_summon();
  }
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

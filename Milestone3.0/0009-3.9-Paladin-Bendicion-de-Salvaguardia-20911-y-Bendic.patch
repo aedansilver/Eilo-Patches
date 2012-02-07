@@ -1,7 +1,7 @@
-From c947fa04f7457ae6ff0bd34702ef9ac1bb3f719e Mon Sep 17 00:00:00 2001
+From dd96054487914ee3833c0c9c3c2f72b7064278be Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sat, 17 Dec 2011 13:26:44 +0100
-Subject: [PATCH 10/23] 3.9 Paladin: Bendicion de Salvaguardia (20911) y
+Subject: [PATCH 09/22] 3.9 Paladin: Bendicion de Salvaguardia (20911) y
  Bendicion de Reyes (20217) no stackean
 
 ---
@@ -24,7 +24,7 @@ index 0000000..b1667ab
 +UPDATE `spell_group` SET `spell_id` = 68066 WHERE `id` = 1091 and `spell_id` = 47930;
 +UPDATE `spell_group` SET `spell_id` = 20912 WHERE `id` = 1092 and `spell_id` = 20911;
 diff --git a/src/server/scripts/Spells/spell_paladin.cpp b/src/server/scripts/Spells/spell_paladin.cpp
-index 84df441..0c48572 100644
+index 39360e0..9d5e5a9 100644
 --- a/src/server/scripts/Spells/spell_paladin.cpp
 +++ b/src/server/scripts/Spells/spell_paladin.cpp
 @@ -29,6 +29,8 @@ enum PaladinSpells
@@ -36,7 +36,7 @@ index 84df441..0c48572 100644
      PALADIN_SPELL_HOLY_SHOCK_R1                  = 20473,
      PALADIN_SPELL_HOLY_SHOCK_R1_DAMAGE           = 25912,
      PALADIN_SPELL_HOLY_SHOCK_R1_HEALING          = 25914,
-@@ -189,12 +191,14 @@ public:
+@@ -193,12 +195,14 @@ public:
              Unit* target = GetTarget();
              if (Unit* pCaster = GetCaster())
                  pCaster->CastSpell(target, PALADIN_SPELL_BLESSING_OF_SANCTUARY_BUFF, true);
@@ -52,5 +52,5 @@ index 84df441..0c48572 100644
  
          void Register()
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

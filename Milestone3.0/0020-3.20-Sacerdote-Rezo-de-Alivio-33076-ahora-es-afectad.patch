@@ -1,7 +1,7 @@
-From 93ddc93b442d111ece2165cba4fdbb0c1e71de4c Mon Sep 17 00:00:00 2001
+From 8eac6aa87a07668adc2c5ba87ec7f852d7e2ab66 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Mon, 2 Jan 2012 00:08:52 +0100
-Subject: [PATCH 22/23] 3.21 Sacerdote: Rezo de Alivio(33076) ahora es
+Subject: [PATCH 20/22] 3.20 Sacerdote: Rezo de Alivio(33076) ahora es
  afectado por Disciplinas gemelas(47588), Sanacion
  espiritual(87336) y Divina providencia(47567)
 
@@ -10,10 +10,10 @@ Subject: [PATCH 22/23] 3.21 Sacerdote: Rezo de Alivio(33076) ahora es
  1 files changed, 13 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Spells/SpellMgr.cpp b/src/server/game/Spells/SpellMgr.cpp
-index ae609a8..bd7c8a4 100755
+index 7853906..11a2772 100755
 --- a/src/server/game/Spells/SpellMgr.cpp
 +++ b/src/server/game/Spells/SpellMgr.cpp
-@@ -3550,6 +3550,19 @@ void SpellMgr::LoadDbcDataCorrections()
+@@ -3588,6 +3588,19 @@ void SpellMgr::LoadDbcDataCorrections()
                  else
                      break;
                  break;
@@ -34,5 +34,5 @@ index ae609a8..bd7c8a4 100755
                  // Starfall Target Selection
                  if (spellInfo->SpellFamilyFlags[2] & 0x100)
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

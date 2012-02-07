@@ -1,7 +1,7 @@
-From e287a8572f011a3aef3a53a81bbebdde36a4b59c Mon Sep 17 00:00:00 2001
+From dc1ba5ae242010319c81a6d887eef988e78769e1 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sat, 26 Nov 2011 21:39:06 +0100
-Subject: [PATCH 09/23] 3.8 Cazador: Golpes de Cobra (53257)
+Subject: [PATCH 08/22] 3.8 Cazador: Golpes de Cobra (53257)
 
 ---
  src/server/game/Spells/Spell.cpp    |    5 +++++
@@ -9,7 +9,7 @@ Subject: [PATCH 09/23] 3.8 Cazador: Golpes de Cobra (53257)
  2 files changed, 9 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/game/Spells/Spell.cpp b/src/server/game/Spells/Spell.cpp
-index d0c9f35..d21f601 100755
+index 632f166..68975aa 100755
 --- a/src/server/game/Spells/Spell.cpp
 +++ b/src/server/game/Spells/Spell.cpp
 @@ -1344,6 +1344,11 @@ void Spell::DoAllEffectOnTarget(TargetInfo* target)
@@ -25,10 +25,10 @@ index d0c9f35..d21f601 100755
      // Passive spell hits/misses or active spells only misses (only triggers)
      else
 diff --git a/src/server/game/Spells/SpellMgr.cpp b/src/server/game/Spells/SpellMgr.cpp
-index 95351ea..506b76a 100755
+index 420e485..3e6d752 100755
 --- a/src/server/game/Spells/SpellMgr.cpp
 +++ b/src/server/game/Spells/SpellMgr.cpp
-@@ -3142,6 +3142,10 @@ void SpellMgr::LoadDbcDataCorrections()
+@@ -3171,6 +3171,10 @@ void SpellMgr::LoadDbcDataCorrections()
              case 44401: // Missile Barrage
                  spellInfo->procCharges = 1;
                  break;
@@ -40,5 +40,5 @@ index 95351ea..506b76a 100755
                  spellInfo->EffectSpellClassMask[0] = flag96(685904631, 1151048, 0);
                  break;
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

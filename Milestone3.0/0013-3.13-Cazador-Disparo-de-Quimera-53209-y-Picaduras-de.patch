@@ -1,7 +1,7 @@
-From 402cc4f8e415bbad9e2badd8323d314733d4fc24 Mon Sep 17 00:00:00 2001
+From 442c24f4a168dc75de34ea39cbbd6882192e88df Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 19:23:47 +0100
-Subject: [PATCH 14/23] =?UTF-8?q?3.13=20Cazador:=20Disparo=20de=20Quimera=20?=
+Subject: [PATCH 13/22] =?UTF-8?q?3.13=20Cazador:=20Disparo=20de=20Quimera=20?=
  =?UTF-8?q?(53209)=20y=20Picaduras=20de=20Esc=C3=B3rpido=20y=20de=20V=C3=ADb?=
  =?UTF-8?q?ora?=
 MIME-Version: 1.0
@@ -13,7 +13,7 @@ Content-Transfer-Encoding: 8bit
  1 files changed, 14 insertions(+), 7 deletions(-)
 
 diff --git a/src/server/scripts/Spells/spell_hunter.cpp b/src/server/scripts/Spells/spell_hunter.cpp
-index 1318a9a..b6e6049 100644
+index 8a3424a..17cf29b 100644
 --- a/src/server/scripts/Spells/spell_hunter.cpp
 +++ b/src/server/scripts/Spells/spell_hunter.cpp
 @@ -131,7 +131,7 @@ public:
@@ -66,5 +66,5 @@ index 1318a9a..b6e6049 100644
  
          void Register()
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

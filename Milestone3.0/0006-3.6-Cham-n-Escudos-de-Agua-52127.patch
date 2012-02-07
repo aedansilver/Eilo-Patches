@@ -1,7 +1,7 @@
-From d56a14b5354b04c1ea3b5c464ca311429013e608 Mon Sep 17 00:00:00 2001
+From 18162577f0ff8e16d4e0897eaeeec219163e7dfc Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sat, 26 Nov 2011 21:28:43 +0100
-Subject: [PATCH 07/23] =?UTF-8?q?3.6=20Cham=C3=A1n:=20Escudos=20de=20Agua=20?=
+Subject: [PATCH 06/22] =?UTF-8?q?3.6=20Cham=C3=A1n:=20Escudos=20de=20Agua=20?=
  =?UTF-8?q?(52127)?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -22,7 +22,7 @@ index 0000000..0d3662e
 +UPDATE `spell_bonus_data` SET `direct_bonus` = 0.473 WHERE `entry` = 974;
 \ No newline at end of file
 diff --git a/src/server/game/Spells/Auras/SpellAuraEffects.cpp b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
-index d9dac4f..4c30245 100755
+index 388a1e2..b87a444 100755
 --- a/src/server/game/Spells/Auras/SpellAuraEffects.cpp
 +++ b/src/server/game/Spells/Auras/SpellAuraEffects.cpp
 @@ -592,7 +592,14 @@ int32 AuraEffect::CalculateAmount(Unit* caster)
@@ -41,5 +41,5 @@ index d9dac4f..4c30245 100755
          case SPELL_AURA_PERIODIC_DAMAGE:
              if (!caster)
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

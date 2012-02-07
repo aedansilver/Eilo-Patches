@@ -1,7 +1,7 @@
-From 22eaed743bde200f71f5474ea1eaf1ed0f7bb22f Mon Sep 17 00:00:00 2001
+From f21b088c0b6a94dccc06069e466951352086daf9 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 15:48:07 +0100
-Subject: [PATCH 11/23] 3.10 DK: Gusanos de Sangre (49027)
+Subject: [PATCH 10/22] 3.10 DK: Gusanos de Sangre (49027)
 
 ---
  .../reanemu/2011_07_08_100_world_bloodworms.sql    |    5 +++++
@@ -23,7 +23,7 @@ index 0000000..d761389
 +(2801701, 28017, 4, 0, 100, 0, 0, 0, 0, 0, 11, 50453, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Bloodworm - Health Leech');
 \ No newline at end of file
 diff --git a/src/server/game/Entities/Pet/Pet.cpp b/src/server/game/Entities/Pet/Pet.cpp
-index 4e33142..5f1d436 100755
+index 6075085..1cedf62 100755
 --- a/src/server/game/Entities/Pet/Pet.cpp
 +++ b/src/server/game/Entities/Pet/Pet.cpp
 @@ -980,6 +980,12 @@ bool Guardian::InitStatsForLevel(uint8 petlevel)
@@ -40,7 +40,7 @@ index 4e33142..5f1d436 100755
              break;
          }
 diff --git a/src/server/game/Entities/Unit/StatSystem.cpp b/src/server/game/Entities/Unit/StatSystem.cpp
-index 84ece87..99c4df7 100755
+index 31c6a32..2459892 100755
 --- a/src/server/game/Entities/Unit/StatSystem.cpp
 +++ b/src/server/game/Entities/Unit/StatSystem.cpp
 @@ -1066,6 +1066,7 @@ void Creature::UpdateDamagePhysical(WeaponAttackType attType)
@@ -60,5 +60,5 @@ index 84ece87..99c4df7 100755
      }
  
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 

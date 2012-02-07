@@ -1,7 +1,7 @@
-From ca725cf69be67af1aacc4d49f357024a8f6c0477 Mon Sep 17 00:00:00 2001
+From 8cd99aa9c92798664764260945adc0123e8f44b0 Mon Sep 17 00:00:00 2001
 From: Hispano <jesus.diaz.gutierrez@gmail.com>
 Date: Sun, 27 Nov 2011 18:48:01 +0100
-Subject: [PATCH 12/23] 3.11 ICC 25 Items Procs
+Subject: [PATCH 11/22] 3.11 ICC 25 Items Procs
 
 Arma de Caster Normal y Heroico (71845) y (71846)
 Arma de Healer Normal y Heroico (71865) y (71868)
@@ -41,10 +41,10 @@ index 0000000..c401e5f
 +INSERT INTO `spell_proc_event` VALUES (71873, 0x01, 0x00, 0x00000000, 0x00000000, 0x00000000, 0x00000014, 0x00000018, 0, 37, 35);
 \ No newline at end of file
 diff --git a/src/server/game/Entities/Unit/Unit.cpp b/src/server/game/Entities/Unit/Unit.cpp
-index b8afb68..4e7a209 100755
+index 9bdf2a2..cdce74b 100755
 --- a/src/server/game/Entities/Unit/Unit.cpp
 +++ b/src/server/game/Entities/Unit/Unit.cpp
-@@ -5200,10 +5200,38 @@ bool Unit::HandleDummyAuraProc(Unit* victim, uint32 damage, AuraEffect* triggere
+@@ -5133,10 +5133,38 @@ bool Unit::HandleDummyAuraProc(Unit* victim, uint32 damage, AuraEffect* triggere
                      triggered_spell_id = 33494;
                      break;
                  }
@@ -83,7 +83,7 @@ index b8afb68..4e7a209 100755
                  // Vampiric Aura (boss spell)
                  case 38196:
                  {
-@@ -8516,6 +8544,20 @@ bool Unit::HandleProcTriggerSpell(Unit* victim, uint32 damage, AuraEffect* trigg
+@@ -8445,6 +8473,20 @@ bool Unit::HandleProcTriggerSpell(Unit* victim, uint32 damage, AuraEffect* trigg
                          target = victim;
                          break;
                      }
@@ -105,10 +105,10 @@ index b8afb68..4e7a209 100755
                          // Illumination
                          if (auraSpellInfo->SpellIconID == 241)
 diff --git a/src/server/game/Spells/SpellEffects.cpp b/src/server/game/Spells/SpellEffects.cpp
-index 89e4415..060504d 100755
+index 79a9b0b..2e189a4 100755
 --- a/src/server/game/Spells/SpellEffects.cpp
 +++ b/src/server/game/Spells/SpellEffects.cpp
-@@ -742,6 +742,17 @@ void Spell::EffectSchoolDMG(SpellEffIndex effIndex)
+@@ -710,6 +710,17 @@ void Spell::EffectSchoolDMG(SpellEffIndex effIndex)
                      damage += CalculatePctN(block_value, m_spellInfo->Effects[EFFECT_1].CalcValue());
                      break;
                  }
@@ -127,5 +127,5 @@ index 89e4415..060504d 100755
              }
              case SPELLFAMILY_DEATHKNIGHT:
 -- 
-1.7.6.msysgit.0
+1.7.8.msysgit.0
 
