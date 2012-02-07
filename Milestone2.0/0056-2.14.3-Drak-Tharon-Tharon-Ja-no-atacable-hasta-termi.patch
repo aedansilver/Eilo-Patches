@@ -17,7 +17,7 @@ index 8e5e7c3..d133afb 100644
                  case NPC_THARON_JA:
                      uiTharonJa = creature->GetGUID();
 +                    creature->SetReactState(REACT_PASSIVE);
-+                    creature->SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE);
++                    creature->SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_IMMUNE_TO_NPC);
                      break;
              }
          }
@@ -33,7 +33,7 @@ index 8e5e7c3..d133afb 100644
 +            if (GetData(DATA_TROLLGORE_EVENT) == DONE && GetData(DATA_NOVOS_EVENT) == DONE && GetData(DATA_DRED_EVENT) == DONE)
 +                if(Creature* pTharonJa = instance->GetCreature(uiTharonJa)){
 +                    pTharonJa->SetReactState(REACT_AGGRESSIVE);
-+                    pTharonJa->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE);
++                    pTharonJa->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_IMMUNE_TO_NPC);
 +                }
 +        }
 +

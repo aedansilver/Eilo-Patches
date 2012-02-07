@@ -1092,7 +1092,7 @@ index d5695a0..0558c32 100644
                  return;
  
 -            if (uiHammerJusticeTimer <= uiDiff)
-+            if(defeated || me->HasUnitState(UNIT_STAT_CASTING))
++            if(defeated || me->HasUnitState(UNIT_STATE_CASTING))
 +                return;
 +
 +            if (hammerJusticeTimer <= diff)
@@ -1363,7 +1363,7 @@ index d5695a0..0558c32 100644
                  return;
  
 -            if (uiHolyFireTimer <= uiDiff)
-+            if(defeated || me->HasUnitState(UNIT_STAT_CASTING))
++            if(defeated || me->HasUnitState(UNIT_STATE_CASTING))
 +                return;
 +
 +            if (holyFireTimer <= diff)
@@ -1720,7 +1720,7 @@ index d5695a0..0558c32 100644
 +            if(defeated)
 +                return;
 +
-+            if(me->HasUnitState(UNIT_STAT_CASTING))
++            if(me->HasUnitState(UNIT_STATE_CASTING))
 +                return;
 +
 +            if (timerBlazingLight <= diff)
@@ -1805,7 +1805,7 @@ index d5695a0..0558c32 100644
 +            if (defeated)
 +                return;
 +
-+            if (me->HasUnitState(UNIT_STAT_CASTING))
++            if (me->HasUnitState(UNIT_STATE_CASTING))
 +                return;
 +
 +            if (timerFountain <= diff)
@@ -2039,7 +2039,7 @@ index 0848d1e..33b0c32 100644
 -            //Return since we have no target
 -            if (!UpdateVictim())
 +            //Return since we have no target or we are casting
-+            if (!UpdateVictim() || me->HasUnitState(UNIT_STAT_CASTING))
++            if (!UpdateVictim() || me->HasUnitState(UNIT_STATE_CASTING))
                  return;
  
 -            if (bEventInProgress)
@@ -2256,7 +2256,7 @@ index 0848d1e..33b0c32 100644
 +
 +        void UpdateAI(const uint32 diff)
 +        {
-+            if (!UpdateVictim() || me->HasUnitState(UNIT_STAT_CASTING))
++            if (!UpdateVictim() || me->HasUnitState(UNIT_STATE_CASTING))
                  return;
  
 -            if (uiAttackTimer <= uiDiff)
@@ -3206,7 +3206,7 @@ index 9fcfcfa..bdcd5ed 100644
 +            if(defeated)
 +                return;
 +
-+            if(me->HasUnitState(UNIT_STAT_CASTING))
++            if(me->HasUnitState(UNIT_STATE_CASTING))
 +                return;
  
 -            if (uiPolymorphTimer <= uiDiff)
@@ -3435,7 +3435,7 @@ index 9fcfcfa..bdcd5ed 100644
 +            if(defeated)
 +                return;
 +
-+            if(me->HasUnitState(UNIT_STAT_CASTING))
++            if(me->HasUnitState(UNIT_STATE_CASTING))
 +                return;
 +
 +            if (chainLightningTimer <= diff)
@@ -3689,7 +3689,7 @@ index 9fcfcfa..bdcd5ed 100644
 -                EnterEvadeMode();
 -                bHome = true;
 -            }
-+            if(me->HasUnitState(UNIT_STAT_CASTING))
++            if(me->HasUnitState(UNIT_STATE_CASTING))
 +                return;
  
 -            if (uiPhaseTimer <= uiDiff)
@@ -5881,7 +5881,7 @@ index c17ea74..c549031 100644
 +                                    boss->SetFacingToObject(tirion);
 +                                boss->SetHomePosition(boss->GetPositionX(), boss->GetPositionY(), boss->GetPositionZ() + 1.0f, boss->GetOrientation());
 +                                boss->SetReactState(REACT_AGGRESSIVE);
-+                                boss->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NON_ATTACKABLE | UNIT_FLAG_OOC_NOT_ATTACKABLE);
++                                boss->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NON_ATTACKABLE | UNIT_FLAG_IMMUNE_TO_PC);
 +                            }
 +                        events.ScheduleEvent(4, 10000);
 +                        break;
