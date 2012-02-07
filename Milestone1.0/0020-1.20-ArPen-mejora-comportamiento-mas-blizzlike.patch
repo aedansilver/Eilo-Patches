@@ -1,7 +1,7 @@
-From cffc43f9e7baf287cbf71b1e3ab4b7281493eb21 Mon Sep 17 00:00:00 2001
+From 19e91504db894ac05686bace5120eac245fb720b Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:48:51 -0500
-Subject: [PATCH 20/22] 1.20 ArPen mejora comportamiento, mas blizzlike
+Subject: [PATCH 20/24] 1.20 ArPen mejora comportamiento, mas blizzlike
 
 ---
  src/server/game/Entities/Unit/Unit.cpp |    2 ++

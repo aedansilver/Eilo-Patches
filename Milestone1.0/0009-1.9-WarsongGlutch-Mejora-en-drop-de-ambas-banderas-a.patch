@@ -1,7 +1,7 @@
-From e29328c79fadc3845aa0b88d975a3aea69cf7260 Mon Sep 17 00:00:00 2001
+From ea542fcc7889330ff3b17e8ccab45a986f12247a Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 17:56:42 -0500
-Subject: [PATCH 09/22] 1.9 WarsongGlutch: Mejora en drop de ambas banderas a
+Subject: [PATCH 09/24] 1.9 WarsongGlutch: Mejora en drop de ambas banderas a
  cercania
 
 ---

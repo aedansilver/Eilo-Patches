@@ -1,7 +1,7 @@
-From 989774cd4cfd3af9f2a7a0ec4287ed72cc0e27b4 Mon Sep 17 00:00:00 2001
+From 936bd85017faa17328dc8120d2bafc0148f07cb5 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 18:16:33 -0500
-Subject: [PATCH 12/22] 1.12 DynamicLoS complementos y activacion en la db,
+Subject: [PATCH 12/24] 1.12 DynamicLoS complementos y activacion en la db,
  ajuste circulo demoniaco en estas 2 arenas
 
 ---

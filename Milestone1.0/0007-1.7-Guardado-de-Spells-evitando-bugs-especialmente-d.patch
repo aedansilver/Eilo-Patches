@@ -1,7 +1,7 @@
-From 8617b023c4683929b41dcd33258a4d7d4740b1fa Mon Sep 17 00:00:00 2001
+From d435d209a9ef59a422d4614bca6a2e86654e2fd6 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 16:52:19 -0500
-Subject: [PATCH 07/22] 1.7 Guardado de Spells, evitando bugs especialmente
+Subject: [PATCH 07/24] 1.7 Guardado de Spells, evitando bugs especialmente
  del dk
 
 ---

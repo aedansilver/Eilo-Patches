@@ -1,7 +1,7 @@
-From 677ea10f0ec5f925e8c8e33ef89e04cc0e0d6f05 Mon Sep 17 00:00:00 2001
+From 3c02554722fc40e81c0eece969c56c6800fb94ac Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 16:32:40 -0500
-Subject: [PATCH 02/22] 1.2 Prohibicion de vehiculos en arenas
+Subject: [PATCH 02/24] 1.2 Prohibicion de vehiculos en arenas
 
 ---
  src/server/game/Entities/Vehicle/Vehicle.cpp |    4 ++++
