@@ -1,7 +1,7 @@
-From a095e95f17f2862791b3834be3e96f2668c9fc66 Mon Sep 17 00:00:00 2001
+From 532b4a8c889a12b5e3650209be0d10a6d9b17428 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:45:41 -0500
-Subject: [PATCH 22/25] 2.2.19 ICC: Festergut aggrea a 20y
+Subject: [PATCH 22/64] 2.2.19 ICC: Festergut aggrea a 20y
 
 ---
  .../Northrend/IcecrownCitadel/boss_festergut.cpp   |   10 +++++++++-

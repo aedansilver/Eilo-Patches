@@ -1,7 +1,7 @@
-From 1fad40a1563addff0008234551cff6671a0cb6fd Mon Sep 17 00:00:00 2001
+From 99b0619a101a98eb4caa7dba0232d105d532dd6f Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 02:43:49 -0500
-Subject: [PATCH 21/25] 2.2.18 ICC: Rotface aggrea a 20y
+Subject: [PATCH 21/64] 2.2.18 ICC: Rotface aggrea a 20y
 
 ---
  .../Northrend/IcecrownCitadel/boss_rotface.cpp     |    8 ++++++--
