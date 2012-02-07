@@ -1,7 +1,7 @@
 From 2836e920a135e5a3c4d9b6e07d5de71bfd5ca027 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 11:31:00 -0500
-Subject: [PATCH 23/64] 2.2.20 ICC: Putricidio aggrea si se acercan
+Subject: [PATCH 23/65] 2.2.20 ICC: Putricidio aggrea si se acercan
 
 ---
  .../IcecrownCitadel/boss_professor_putricide.cpp   |    2 +-

@@ -1,7 +1,7 @@
-From b7006ba8db40aacedc2f3c25e955f023fd8d9fe1 Mon Sep 17 00:00:00 2001
+From b60c61c99fd95dca23bce95c719f5b34ec3730d3 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Mon, 6 Feb 2012 19:57:06 -0500
-Subject: [PATCH 48/64] =?UTF-8?q?2.9.1=20TheRubySanctum:=20A=C3=B1adida=20sc?=
+Subject: [PATCH 48/65] =?UTF-8?q?2.9.1=20TheRubySanctum:=20A=C3=B1adida=20sc?=
  =?UTF-8?q?ript=20mejorada=20para=20Halion=20y=20trashmob?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -1716,7 +1716,7 @@ index f41522f..97aca4c 100644
  }
 diff --git a/src/server/scripts/Northrend/ChamberOfAspects/RubySanctum/boss_halion.cpp b/src/server/scripts/Northrend/ChamberOfAspects/RubySanctum/boss_halion.cpp
 new file mode 100644
-index 0000000..d0b5c11
+index 0000000..4c04ec1
 --- /dev/null
 +++ b/src/server/scripts/Northrend/ChamberOfAspects/RubySanctum/boss_halion.cpp
 @@ -0,0 +1,1833 @@

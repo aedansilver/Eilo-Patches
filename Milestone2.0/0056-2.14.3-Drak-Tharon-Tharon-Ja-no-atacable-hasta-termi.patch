@@ -1,7 +1,7 @@
-From fd79a4d9c7b6d3e1df1c7c32a2ead07a0e21f9c2 Mon Sep 17 00:00:00 2001
+From 6d17e4dc14fca622f26b99de25d4e53845e79f68 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 17 Dec 2011 14:45:43 -0500
-Subject: [PATCH 56/64] 2.14.3 Drak'Tharon: Tharon'Ja no atacable hasta
+Subject: [PATCH 56/65] 2.14.3 Drak'Tharon: Tharon'Ja no atacable hasta
  terminar demas bosses
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH 56/64] 2.14.3 Drak'Tharon: Tharon'Ja no atacable hasta
  1 files changed, 14 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/DraktharonKeep/instance_drak_tharon_keep.cpp b/src/server/scripts/Northrend/DraktharonKeep/instance_drak_tharon_keep.cpp
-index 8e5e7c3..d133afb 100644
+index 8e5e7c3..1a308a7 100644
 --- a/src/server/scripts/Northrend/DraktharonKeep/instance_drak_tharon_keep.cpp
 +++ b/src/server/scripts/Northrend/DraktharonKeep/instance_drak_tharon_keep.cpp
 @@ -122,6 +122,8 @@ public:

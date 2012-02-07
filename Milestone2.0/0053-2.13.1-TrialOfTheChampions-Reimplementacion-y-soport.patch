@@ -1,12 +1,11 @@
-From d5c723348f7806dd145d6e4d341741d773d8b493 Mon Sep 17 00:00:00 2001
+From 2fd6c1eecf0bd81ff4729685eaf8f7fa76202e52 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Mon, 6 Feb 2012 20:03:49 -0500
-Subject: [PATCH 53/64] 2.13.1 TrialOfTheChampions: Reimplementacion y soporte
+Subject: [PATCH 53/65] 2.13.1 TrialOfTheChampions: Reimplementacion y soporte
 
 ---
  .../world/reanemu/2011_12_25_100_world_toc5.sql    |  696 +++++++++
  src/server/game/Spells/SpellEffects.cpp            |   62 +
- src/server/game/Spells/SpellMgr.cpp                |   12 +
  src/server/game/Texts/CreatureTextMgr.cpp          |    4 +
  .../TrialOfTheChampion/boss_argent_challenge.cpp   |  769 +++++++---
  .../TrialOfTheChampion/boss_black_knight.cpp       |  306 +++-
@@ -14,7 +13,7 @@ Subject: [PATCH 53/64] 2.13.1 TrialOfTheChampions: Reimplementacion y soporte
  .../instance_trial_of_the_champion.cpp             |  420 ++++--
  .../TrialOfTheChampion/trial_of_the_champion.cpp   | 1632 ++++++++++++++++----
  .../TrialOfTheChampion/trial_of_the_champion.h     |  210 +++-
- 10 files changed, 4238 insertions(+), 1373 deletions(-)
+ 9 files changed, 4226 insertions(+), 1373 deletions(-)
  create mode 100644 sql/updates/world/reanemu/2011_12_25_100_world_toc5.sql
 
 diff --git a/sql/updates/world/reanemu/2011_12_25_100_world_toc5.sql b/sql/updates/world/reanemu/2011_12_25_100_world_toc5.sql
@@ -793,29 +792,6 @@ index c3a52e7..7628939 100755
                  // Shadow Flame (All script effects, not just end ones to prevent player from dodging the last triggered spell)
                  case 22539:
                  case 22972:
-diff --git a/src/server/game/Spells/SpellMgr.cpp b/src/server/game/Spells/SpellMgr.cpp
-index 272e5c8..6357503 100755
---- a/src/server/game/Spells/SpellMgr.cpp
-+++ b/src/server/game/Spells/SpellMgr.cpp
-@@ -2902,6 +2902,18 @@ void SpellMgr::LoadSpellCustomAttr()
-             case 53454: // Impale
-             case 59446: // Impale
-             case 62383: // Shatter
-+            case 64588: // Thrust
-+            case 68505: // Thrust
-+            case 62544: // Thrust
-+            case 64590: // Shield Breaker
-+            case 62626: // Shield Breaker
-+            case 65147: // Shield Breaker
-+            case 64591: // Charge
-+            case 63010: // Charge
-+            case 62960: // Charge
-+            case 63003: // Charge
-+            case 68284: // Charge
-+            case 68321: // Charge
-             case 64777: // Machine Gun
-             case 65239: // Machine Gun
-             case 65919: // Impale
 diff --git a/src/server/game/Texts/CreatureTextMgr.cpp b/src/server/game/Texts/CreatureTextMgr.cpp
 index e5a1269..b41aba5 100755
 --- a/src/server/game/Texts/CreatureTextMgr.cpp
@@ -832,7 +808,7 @@ index e5a1269..b41aba5 100755
          SendSound(source, finalSound, finalType, whisperGuid, range, team, gmOnly);
  
 diff --git a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_argent_challenge.cpp b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_argent_challenge.cpp
-index d5695a0..0558c32 100644
+index d5695a0..f028dc1 100644
 --- a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_argent_challenge.cpp
 +++ b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_argent_challenge.cpp
 @@ -15,10 +15,11 @@
@@ -1862,7 +1838,7 @@ index d5695a0..0558c32 100644
 +    new npc_argent_priest();
  }
 diff --git a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_black_knight.cpp b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_black_knight.cpp
-index 0848d1e..33b0c32 100644
+index 0848d1e..e27906a 100644
 --- a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_black_knight.cpp
 +++ b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_black_knight.cpp
 @@ -15,14 +15,18 @@
@@ -2381,7 +2357,7 @@ index 0848d1e..33b0c32 100644
              if (!UpdateVictim())
                  return;
 diff --git a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_grand_champions.cpp b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_grand_champions.cpp
-index 9fcfcfa..bdcd5ed 100644
+index 9fcfcfa..aa0cde1 100644
 --- a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_grand_champions.cpp
 +++ b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/boss_grand_champions.cpp
 @@ -18,22 +18,25 @@
@@ -2772,10 +2748,10 @@ index 9fcfcfa..bdcd5ed 100644
 -                Vehicle* pVehicle = me->GetVehicleKit();
 -                if (!pVehicle)
 -                    return;
-+            me->AddUnitState(UNIT_STAT_ONVEHICLE);
++            me->AddUnitState(UNIT_STATE_ONVEHICLE);
 +            DoCast(me->getVictim(), SPELL_THRUST);
 +            me->resetAttackTimer();
-+            me->ClearUnitState(UNIT_STAT_ONVEHICLE);
++            me->ClearUnitState(UNIT_STATE_ONVEHICLE);
 +        }
 +    }
 +};
@@ -4805,7 +4781,7 @@ index 9ccd136..41fdb8b 100644
  
              OUT_LOAD_INST_DATA_COMPLETE;
 diff --git a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/trial_of_the_champion.cpp b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/trial_of_the_champion.cpp
-index c17ea74..c549031 100644
+index c17ea74..c3c864a 100644
 --- a/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/trial_of_the_champion.cpp
 +++ b/src/server/scripts/Northrend/CrusadersColiseum/TrialOfTheChampion/trial_of_the_champion.cpp
 @@ -17,7 +17,7 @@

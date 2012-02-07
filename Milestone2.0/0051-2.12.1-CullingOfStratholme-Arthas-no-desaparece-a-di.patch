@@ -1,7 +1,7 @@
-From 4e3b7407fcb37661780646f5bac9e822b088af12 Mon Sep 17 00:00:00 2001
+From 284a48810cc51ebb27ca871508715893511552c4 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Mon, 6 Feb 2012 19:59:43 -0500
-Subject: [PATCH 51/64] 2.12.1 CullingOfStratholme: Arthas no desaparece a
+Subject: [PATCH 51/65] 2.12.1 CullingOfStratholme: Arthas no desaparece a
  distancia
 
 ---

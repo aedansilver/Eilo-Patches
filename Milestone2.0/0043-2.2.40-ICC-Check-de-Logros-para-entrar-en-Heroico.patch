@@ -1,7 +1,7 @@
-From d7df894246dab949cd31dfa4240f9362bbca7628 Mon Sep 17 00:00:00 2001
+From aa28f170726f1ce1b464809ae659ea65c55723d2 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 21 Jan 2012 00:29:05 -0500
-Subject: [PATCH 43/64] 2.2.40 ICC: Check de Logros para entrar en Heroico
+Subject: [PATCH 43/65] 2.2.40 ICC: Check de Logros para entrar en Heroico
 
 ---
  .../IcecrownCitadel/instance_icecrown_citadel.cpp  |   41 ++++++++++++++++++-

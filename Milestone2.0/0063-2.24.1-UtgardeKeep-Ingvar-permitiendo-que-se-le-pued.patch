@@ -1,7 +1,7 @@
-From b007e47725b01dc74da023640a34213d607372bf Mon Sep 17 00:00:00 2001
+From 93e2d9378d5044031f20fab5886b93f5637cb92a Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Mon, 6 Feb 2012 20:23:42 -0500
-Subject: [PATCH 62/64] 2.24.1 UtgardeKeep: Ingvar permitiendo que se le pueda
+Subject: [PATCH 63/65] 2.24.1 UtgardeKeep: Ingvar permitiendo que se le pueda
  atacar en el reseteo
 
 ---

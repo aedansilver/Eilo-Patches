@@ -1,7 +1,7 @@
-From 8e9e4932fef7ed549ef1bd3eb1d434c97ad2d39b Mon Sep 17 00:00:00 2001
+From 8006527b5722c6d55956b3397354102383444c27 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 21 Jan 2012 00:29:44 -0500
-Subject: [PATCH 44/64] 2.2.41 ICC: LichKing inmune a taunt en cambio de fase
+Subject: [PATCH 44/65] 2.2.41 ICC: LichKing inmune a taunt en cambio de fase
 
 ---
  .../IcecrownCitadel/boss_the_lich_king.cpp         |   18 ++++++++++++++++++

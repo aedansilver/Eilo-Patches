@@ -1,7 +1,7 @@
-From 8786f4d9d6b4b54b2f47151b8db7cb5caebb1700 Mon Sep 17 00:00:00 2001
+From 7fb59e5b5a7b7346caae08010fae95a69061311f Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Sat, 24 Dec 2011 14:24:06 -0500
-Subject: [PATCH 59/64] 2.17.1 PitOfSaron: Correccion de algunos mobs
+Subject: [PATCH 60/65] 2.17.1 PitOfSaron: Correccion de algunos mobs
  inatacables
 
 ---

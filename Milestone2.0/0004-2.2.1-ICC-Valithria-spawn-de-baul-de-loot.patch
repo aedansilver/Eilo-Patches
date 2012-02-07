@@ -1,7 +1,7 @@
 From 8bae53a0e48f7175eccd622504c232f47088f3eb Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 00:13:07 -0500
-Subject: [PATCH 04/64] 2.2.1 ICC: Valithria spawn de baul de loot
+Subject: [PATCH 04/65] 2.2.1 ICC: Valithria spawn de baul de loot
 
 ---
  .../2011_07_08_100_world_icc_valithria_chest.sql   |    7 +++++++

@@ -1,7 +1,7 @@
-From bb04225076c9f3f54d1151affe906174cefe0901 Mon Sep 17 00:00:00 2001
+From a3e14f75270f644f90038010e30c29b47caacfc6 Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Fri, 16 Dec 2011 13:54:24 -0500
-Subject: [PATCH 40/64] 2.2.37 ICC: Svalna correccion para que no caiga bajo
+Subject: [PATCH 40/65] 2.2.37 ICC: Svalna correccion para que no caiga bajo
  el suelo
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH 40/64] 2.2.37 ICC: Svalna correccion para que no caiga bajo
  1 files changed, 4 insertions(+), 0 deletions(-)
 
 diff --git a/src/server/scripts/Northrend/IcecrownCitadel/icecrown_citadel.cpp b/src/server/scripts/Northrend/IcecrownCitadel/icecrown_citadel.cpp
-index d781c5f..f58f1a8 100644
+index d781c5f..b53b290 100644
 --- a/src/server/scripts/Northrend/IcecrownCitadel/icecrown_citadel.cpp
 +++ b/src/server/scripts/Northrend/IcecrownCitadel/icecrown_citadel.cpp
 @@ -885,6 +885,10 @@ class boss_sister_svalna : public CreatureScript

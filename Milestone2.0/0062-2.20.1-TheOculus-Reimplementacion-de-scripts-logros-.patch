@@ -1,7 +1,7 @@
-From 382d4c4e480458ec2e37bd1029006697d3ed4b0d Mon Sep 17 00:00:00 2001
+From 1c5468c24f4517eb5fbf4cb4184440b7f0786cdd Mon Sep 17 00:00:00 2001
 From: Eilo <eilo2518@gmail.com>
 Date: Mon, 6 Feb 2012 20:19:08 -0500
-Subject: [PATCH 61/64] 2.20.1 TheOculus: Reimplementacion de scripts, logros
+Subject: [PATCH 62/65] 2.20.1 TheOculus: Reimplementacion de scripts, logros
  y adecuacones de spells y loot
 
 ---
@@ -503,10 +503,10 @@ index ad46576..9067d74 100644
              return AURA_STATE_UNKNOWN22;
          default:
 diff --git a/src/server/game/Spells/SpellMgr.cpp b/src/server/game/Spells/SpellMgr.cpp
-index 6357503..420e485 100755
+index 272e5c8..695990f 100755
 --- a/src/server/game/Spells/SpellMgr.cpp
 +++ b/src/server/game/Spells/SpellMgr.cpp
-@@ -3049,12 +3049,24 @@ void SpellMgr::LoadDbcDataCorrections()
+@@ -3037,12 +3037,24 @@ void SpellMgr::LoadDbcDataCorrections()
              case 62136: // Energize Cores
              case 54069: // Energize Cores
              case 56251: // Energize Cores
@@ -1942,7 +1942,7 @@ index aef959a..88d5803 100644
  
  void AddSC_boss_urom()
 diff --git a/src/server/scripts/Northrend/Nexus/Oculus/boss_varos.cpp b/src/server/scripts/Northrend/Nexus/Oculus/boss_varos.cpp
-index 8852338..dce07d3 100644
+index 8852338..7b638c9 100644
 --- a/src/server/scripts/Northrend/Nexus/Oculus/boss_varos.cpp
 +++ b/src/server/scripts/Northrend/Nexus/Oculus/boss_varos.cpp
 @@ -1,19 +1,19 @@
